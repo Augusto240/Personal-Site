@@ -1,178 +1,283 @@
 <!DOCTYPE html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Augusto's Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio de Augusto Oliveira</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            overflow: auto;
+            padding: 0 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        h2, h3, h4 {
+            padding-bottom: 5px;
+            margin-top: 10px;
+        }
+        a {
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        section {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        .header {
+            text-align: left;
+            padding: 20px;
+            position: relative;
+        }
+        .controls-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+        }
+        .lang-switcher a, .theme-switcher a {
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 8px; 
+            cursor: pointer;
+        }
+        .header h1 { margin: 0; }
+        .header p { margin: 5px 0; }
+
+        .skills-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .skills-table td {
+            padding: 8px;
+            transition: border-color 0.3s;
+        }
+        .skills-table td:first-child {
+            width: 30%;
+        }
+
+      
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            background: #fff;
+        }
+        h2, h3, h4 {
+            border-bottom: 2px solid #333;
+        }
+        a {
+            color: #007BFF;
+        }
+        .skills-table td {
+            border: 1px solid #ddd;
+        }
+
+      
+        body.dark-theme {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        body.dark-theme .container {
+            background-color: #1e1e1e;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        body.dark-theme h1, body.dark-theme h2, body.dark-theme h3, body.dark-theme h4 {
+            color: #ffffff;
+        }
+        body.dark-theme h2, body.dark-theme h3, body.dark-theme h4 {
+            border-bottom-color: #555;
+        }
+        body.dark-theme a {
+            color: #64B5F6;
+        }
+        body.dark-theme .skills-table td {
+            border: 1px solid #444;
+        }
+
+        
+        .en { display: none; }
+        .pt { display: inline; }
+        body.lang-en .en { display: inline; }
+        body.lang-en .pt { display: none; }
+        body.lang-en h2 > .en, body.lang-en h3 > .en, body.lang-en h4 > .en, body.lang-en p > .en, body.lang-en li > .en {
+            display: block;
+        }
+    </style>
 </head>
-<style>
-    body{
-        background-color: rgb(255, 255, 255);
-    }
-
-    h1{
-        color: rgb(0, 0, 0);
-    }
-    p{
-        color: rgb(0, 0, 0);
-    }
-    h3{
-        color: rgb(0, 0, 0);
-    }
-    ul{
-        color: rgb(0, 0, 0);
-    }
-
-    li{
-        color: rgb(0, 0, 0);
-    }
-    h1{
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-
-
-</style>
-
-
-
 <body>
-    <table cellspacing="20">
-        <tr>
-            <td><img src="that'smeee.png" alt=""></td>
-            <td><h1>Augusto Oliveira</h1>
-                <p><i><strong> <a href="https://portal.ifrn.edu.br/documents/757/PPC__Tecnologia_em_Sistemas_para_Internet_2019.pdf">Web Development</a></strong> Student and Full-Stack Developer at <a href="https://ccsl.ifrn.edu.br/">CCSL - IFRN</a></i></p>
-                <p>I am a web development student at <a href="https://portal.ifrn.edu.br/campus/parnamirim/">IFRN Campus Parnamirim</a></b> and I'm also working as a Full-Stack Developer with Python at CCSL - IFRN</p>
-                <p>Take a look at my GitHub: <a href="https://github.com/Augusto240">Augusto's Github</a></p>
-                <p>Made in Parnamirim, Brazil📍🇧🇷</p>
-            </td>
-        </tr>
-    </table>
-    <hr>
-    <h2>Education</h2>
-    <ul>
-        <li>Federal Institute of Education, Science, and Technology of Rio Grande do Norte (IFRN) - Web Development degree (March 2023 - now)</li>
+    <div class="container">
+        <header class="header">
+            <div class="controls-container">
+                <div class="lang-switcher">
+                    <a onclick="setLanguage('pt'); return false;">PT</a> |
+                    <a onclick="setLanguage('en'); return false;">EN</a>
+                </div>
+                <div class="theme-switcher">
+                    <a onclick="toggleTheme(); return false;">🌙 | ☀️</a>
+                </div>
+            </div>
 
-    </ul>
-    <hr>
+            <h1>Augusto Oliveira</h1>
+            <p>
+                <i><strong><a href="https://portal.ifrn.edu.br/documents/757/PPC__Tecnologia_em_Sistemas_para_Internet_2019.pdf">
+                    <span class="pt">Sistemas para Internet</span><span class="en">Web Development</span>
+                </a></strong>
+                <span class="pt">Estudante e Desenvolvedor Full-Stack no</span><span class="en">Student and Full-Stack Developer at</span>
+                <a href="https://ccsl.ifrn.edu.br/">CCSL - IFRN</a></i>
+            </p>
+            <p>
+                <span class="pt">Sou estudante de desenvolvimento web no <a href="https://portal.ifrn.edu.br/campus/parnamirim/">IFRN Campus Parnamirim</a> e atuo como Desenvolvedor Full-Stack com Python no CCSL - IFRN.</span>
+                <span class="en">I am a web development student at <a href="https://portal.ifrn.edu.br/campus/parnamirim/">IFRN Campus Parnamirim</a> and I'm also working as a Full-Stack Developer with Python at CCSL - IFRN.</span>
+            </p>
+            <p>
+                <span class="pt">Confira meu GitHub:</span><span class="en">Take a look at my GitHub:</span>
+                <a href="https://github.com/Augusto240">Augusto's Github</a>
+            </p>
+            <p>
+                <span class="pt">De Natal, Brasil</span><span class="en">From Natal, Brazil</span> 📍🇧🇷
+            </p>
+        </header>
 
-    <h2>Work Experience</h2>
-    
-    <h3>CCSL IFRN - Full-Stack Developer (January 2025 - now)</h3>
-    <p>Joined CCSL - IFRN </p>
-    
-    
-    <h3>NOCS Lab IFRN - Full-Stack Web Developer (July 2024 - February 2025)</h3>
-    <p>Joined NOCS Lab at IFRN to implement and develop a computer vision system with artificial intelligence in car control.</p>
-    <h4>Competencies</h4>
-    <ol>
-        <li>Design, implement, and maintain complex systems.</li>
-        <li>Integrate front-end with back-end and developed key features such as password recovery, database management, and application security.</li>
-        <li>Conduct security analyses to identify and address system vulnerabilities, implementing corrective measures like data encryption and auditing procedures.</li>
-    </ol>
-    <h4>Technologies</h4>
-    <ul>
-        <li>Typescript (Angular) for Front End development</li>
-        <li>Node.js(Express) and Python for Back End development</li>
-        <li>MySQL for databases</li>
-        <li>Git and GitHub for version control</li>
-        <li>MQTT protocol for message transport</li>
-    </ul>
-    <hr>
+        <section>
+            <h2><span class="pt">Sobre Mim</span><span class="en">About Me</span></h2>
+            <p>
+                <span class="pt">Sou um desenvolvedor Full-Stack apaixonado por tecnologia e inovação, com foco em Engenharia de Dados e Inteligência Artificial. Atualmente, curso Sistemas para Internet no IFRN e aplico meus conhecimentos em um projeto de pesquisa sobre IA generativa no CCSL. Minha experiência abrange desde o desenvolvimento de sistemas complexos de visão computacional até a criação e otimização de pipelines de Machine Learning. Estou sempre em busca de novos desafios para resolver problemas complexos com soluções criativas e eficientes.</span>
+                <span class="en">I am a Full-Stack Developer passionate about technology and innovation, with a focus on Data Engineering and Artificial Intelligence. Currently, I am a Web Development student at IFRN and apply my knowledge in a generative AI research project at CCSL. My experience ranges from developing complex computer vision systems to creating and optimizing Machine Learning pipelines. I am always seeking new challenges to solve complex problems with creative and efficient solutions.</span>
+            </p>
+        </section>
 
-    <h2>Languages</h2>
-    <ul>
-        <li>Portuguese - Native Speaker</li>
-        <li>English - Advanced</li>
-        <li>Japanese - Basic</li>
-        <li>German - Basic</li>
-    </ul>
-    <hr>
-    
-    <h2>My Hobbies</h2>
+        <section>
+            <h2><span class="pt">Educação</span><span class="en">Education</span></h2>
+            <ul>
+                <li><span class="pt">Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Norte (IFRN) - Graduação em Sistemas para Internet (Março 2023 - Atualmente)</span><span class="en">Federal Institute of Education, Science, and Technology of Rio Grande do Norte (IFRN) - Web Development degree (March 2023 - now)</span></li>
+            </ul>
+        </section>
 
-    <ol type ="1">
-        <li>I Like to watch animes, my favorite one is Attack on Titan!</li>
-        <li>Study Programming Languages and Frameworks</li>
-        <li>Play <a href="https://www.leagueoflegends.com/pt-br/">Video-Games</a></li>
-        <li>Watch <a href="https://letterboxd.com/augusto22/"> Movies</a></li>
-        <li>I Love to drink <a href="https://pt.wikipedia.org/wiki/Caf%C3%A9">Coffee</a></li>
-    </ol>
-    
-    <hr>
-    <h2>Contact Me:</h2>
+        <section>
+            <h2><span class="pt">Experiência Profissional</span><span class="en">Work Experience</span></h2>
 
-       <p>Personal E-Mail: jose.aug18@outlook.com</p>
-       <p>My Phone Number: +55 (84) 98785-5144</p>
-       <p>My Linkedin: <a href="https://www.linkedin.com/in/augusto-oliveira-4a8068235/"> Augusto Oliveira</a></p>
+            <h3><span class="pt">CCSL IFRN - Desenvolvedor Full-Stack (Janeiro 2025 - Atualmente)</span><span class="en">CCSL IFRN - Full-Stack Developer (January 2025 - now)</span></h3>
+            <p><span class="pt">Atuo como bolsista de pesquisa no desenvolvimento de solução de IA generativa para respostas automatizadas, integrando pipelines de Machine Learning com orquestração avançada e coleta de dados complexos.</span><span class="en">I work as a research fellow on the development of a generative AI solution for automated responses, integrating Machine Learning pipelines with advanced orchestration and complex data collection.</span></p>
+            <h4><span class="pt">Competências</span><span class="en">Competencies</span></h4>
+            <ol>
+                <li><span class="pt">Implementação e otimização de pipelines com ZenML, Airflow e MLflow.</span><span class="en">Implementation and optimization of pipelines with ZenML, Airflow, and MLflow.</span></li>
+                <li><span class="pt">Solução de problemas de gestão de artefatos, permissões e integração em ambientes locais e containerizados.</span><span class="en">Troubleshooting artifact management, permissions, and integration in local and containerized environments.</span></li>
+                <li><span class="pt">Desenvolvimento de Web Scraping e Crawling com Python (Selenium) e análise de tráfego para extrair dados de sites dinâmicos e CMS Plone, alimentando sistemas ETL e modelos IA.</span><span class="en">Web scraping and crawling development with Python (Selenium) and traffic analysis to extract data from dynamic sites and Plone CMS, feeding ETL systems and AI models.</span></li>
+                <li><span class="pt">Desenvolvimento de backend em Django para automatizar fluxos de coleta e processamento de dados, preparando integração com sistemas RAG.</span><span class="en">Backend development in Django to automate data collection and processing workflows, preparing for integration with RAG systems.</span></li>
+            </ol>
+            <h4><span class="pt">Tecnologias</span><span class="en">Technologies</span></h4>
+            <ul>
+                <li><span class="pt">Python (Django, Selenium)</span><span class="en">Python (Django, Selenium)</span></li>
+                <li><span class="pt">Inteligência Artificial (LLaMa, RAG)</span><span class="en">Artificial Intelligence (LLaMa, RAG)</span></li>
+                <li><span class="pt">MLOps (ZenML, MLflow, Apache Airflow)</span><span class="en">MLOps (ZenML, MLflow, Apache Airflow)</span></li>
+                <li><span class="pt">Ferramentas ETL</span><span class="en">ETL Tools</span></li>
+                <li><span class="pt">Linux, Docker</span><span class="en">Linux, Docker</span></li>
+            </ul>
 
-    <hr>
-    <table border="2">
-        <table cellspacing="10">
+            <h3><span class="pt">NOCS Lab IFRN - Desenvolvedor Full-Stack Web (Julho 2024 - Fevereiro 2025)</span><span class="en">NOCS Lab IFRN - Full-Stack Web Developer (July 2024 - February 2025)</span></h3>
+            <p><span class="pt">Integrei o NOCS Lab no IFRN para implementar e desenvolver um sistema de visão computacional com inteligência artificial para controle de carros.</span><span class="en">Joined NOCS Lab at IFRN to implement and develop a computer vision system with artificial intelligence in car control.</span></p>
+            <h4><span class="pt">Competências</span><span class="en">Competencies</span></h4>
+            <ol>
+                <li><span class="pt">Design, implementação e manutenção de sistemas complexos.</span><span class="en">Design, implement, and maintain complex systems.</span></li>
+                <li><span class="pt">Integração de front-end com back-end e desenvolvimento de funcionalidades chave como recuperação de senha, gestão de banco de dados e segurança da aplicação.</span><span class="en">Integrate front-end with back-end and developed key features such as password recovery, database management, and application security.</span></li>
+                <li><span class="pt">Análise de segurança para identificar e corrigir vulnerabilidades do sistema, implementando medidas como criptografia de dados e auditorias.</span><span class="en">Conduct security analyses to identify and address system vulnerabilities, implementing corrective measures like data encryption and auditing procedures.</span></li>
+            </ol>
+            <h4><span class="pt">Tecnologias</span><span class="en">Technologies</span></h4>
+            <ul>
+                <li><span class="pt">Typescript (Angular) para desenvolvimento Front End</span><span class="en">Typescript (Angular) for Front End development</span></li>
+                <li><span class="pt">Node.js (Express) e Python para desenvolvimento Back End</span><span class="en">Node.js(Express) and Python for Back End development</span></li>
+                <li><span class="pt">MySQL para banco de dados</span><span class="en">MySQL for databases</span></li>
+                <li><span class="pt">Git e GitHub para controle de versão</span><span class="en">Git and GitHub for version control</span></li>
+                <li><span class="pt">Protocolo MQTT para transporte de mensagens</span><span class="en">MQTT protocol for message transport</span></li>
+            </ul>
+        </section>
 
-        <h2>Skills</h2>
+        <section>
+            <h2><span class="pt">Idiomas</span><span class="en">Languages</span></h2>
+            <ul>
+                <li><span class="pt">Português - Nativo</span><span class="en">Portuguese - Native Speaker</span></li>
+                <li><span class="pt">Inglês - Avançado</span><span class="en">English - Advanced</span></li>
+                <li><span class="pt">Japonês - Básico</span><span class="en">Japanese - Basic</span></li>
+                <li><span class="pt">Alemão - Básico</span><span class="en">German - Basic</span></li>
+            </ul>
+        </section>
 
+        <section>
+            <h2><span class="pt">Meus Hobbies</span><span class="en">My Hobbies</span></h2>
+            <ol>
+                <li><span class="pt">Gosto de assistir animes, meu favorito é Attack on Titan!</span><span class="en">I like to watch animes, my favorite one is Attack on Titan!</span></li>
+                <li><span class="pt">Estudar Linguagens de Programação e Frameworks</span><span class="en">Study Programming Languages and Frameworks</span></li>
+                <li><span class="pt">Jogar <a href="https://www.leagueoflegends.com/pt-br/">Video-Games</a></span><span class="en">Play <a href="https://www.leagueoflegends.com/en-us/">Video-Games</a></span></li>
+                <li><span class="pt">Assistir a <a href="https://letterboxd.com/augusto22/">filmes</a></span><span class="en">Watch <a href="https://letterboxd.com/augusto22/">Movies</a></span></li>
+                <li><span class="pt">Adoro tomar <a href="https://pt.wikipedia.org/wiki/Caf%C3%A9">café</a></span><span class="en">I love to drink <a href="https://en.wikipedia.org/wiki/Coffee">Coffee</a></span></li>
+            </ol>
+        </section>
 
-        <tr>
+        <section>
+            <h2><span class="pt">Contato</span><span class="en">Contact Me</span></h2>
+           <p><span class="pt">Email Pessoal:</span><span class="en">Personal E-Mail:</span> jose.aug18@outlook.com</p>
+           <p><span class="pt">Meu Telefone:</span><span class="en">My Phone Number:</span> +55 (84) 98785-5144</p>
+           <p><span class="pt">Meu Linkedin:</span><span class="en">My Linkedin:</span> <a href="https://www.linkedin.com/in/augusto-oliveira-4a8068235/"> Augusto Oliveira</a></p>
+        </section>
 
-            <td>HTML</td>
-            <td>⭐⭐⭐⭐⭐</td>
-        </tr>
+        <section>
+            <h2><span class="pt">Habilidades Técnicas</span><span class="en">Technical Skills</span></h2>
+            <table class="skills-table">
+                <tr><td>HTML</td><td>⭐⭐⭐⭐⭐</td></tr>
+                <tr><td>CSS</td><td>⭐⭐⭐⭐⭐</td></tr>
+                <tr><td>JavaScript</td><td>⭐⭐⭐⭐</td></tr>
+                <tr><td>Python</td><td>⭐⭐⭐⭐</td></tr>
+                <tr><td>Angular</td><td>⭐⭐⭐⭐</td></tr>
+                <tr><td>Node.js</td><td>⭐⭐⭐⭐</td></tr>
+                <tr><td>MySQL</td><td>⭐⭐⭐⭐</td></tr>
+                <tr><td>PHP</td><td>⭐⭐⭐</td></tr>
+                <tr><td>WordPress</td><td>⭐⭐⭐</td></tr>
+                <tr><td>Ruby</td><td>⭐⭐⭐</td></tr>
+                <tr><td>Docker</td><td>⭐⭐⭐</td></tr>
+                <tr><td>MQTT Protocol</td><td>⭐⭐⭐</td></tr>
+                <tr><td>Linux</td><td>⭐⭐⭐⭐⭐</td></tr>
+            </table>
+        </section>
 
-        <tr>
-            <td>CSS</td>
-            <td>⭐⭐⭐⭐⭐</td>
-        </tr>
+    </div>
 
-        <tr>
-            <td>JavaScript</td>
-            <td>⭐⭐⭐⭐</td>
-        </tr>
+    <script>
+        function setLanguage(lang) {
+            if (lang === 'en') {
+                document.body.classList.add('lang-en');
+                document.documentElement.lang = 'en';
+            } else {
+                document.body.classList.remove('lang-en');
+                document.documentElement.lang = 'pt-br';
+            }
+        }
 
-        <tr>
-            <td>Python</td>
-            <td>⭐⭐⭐⭐</td>
-        </tr>
-        <tr>
-            <td>Angular</td>
-            <td>⭐⭐⭐⭐</td>
-        </tr>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+        }
 
-        <tr>
-            <td>node.js</td>
-            <td>⭐⭐⭐⭐</td>
-        </tr>
-        <tr>
-            <td>MySQL</td>
-            <td>⭐⭐⭐⭐</td>
-        </tr>
-        <tr>
-            <td>PHP</td>
-            <td>⭐⭐⭐</td>
-        </tr>
-        <tr>
-            <td>WordPress</td>
-            <td>⭐⭐⭐</td>
-        </tr>
-        <tr>
-            <td>Ruby</td>
-            <td>⭐⭐⭐</td>
-        </tr>
-        <tr>
-            <td>Docker</td>
-            <td>⭐⭐⭐</td>
-        </tr>
-        <tr>
-            <td>MQTT Protocol</td>
-            <td>⭐⭐⭐</td>
-        </tr>
-        <tr>
-            <td>Linux</td>
-            <td>⭐⭐⭐⭐⭐</td>
-        </tr>
-
-
-
-
-    </table>
-    <hr>
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage('pt');
+        });
+    </script>
 </body>
 </html>
