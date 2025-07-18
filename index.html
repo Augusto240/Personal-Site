@@ -1,282 +1,2611 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio de Augusto Oliveira</title>
+    <title>Augusto Oliveira | Full-Stack Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.6;
+        :root {            
+            --primary: #2e3192; 
+            --secondary: #7b2cbf;
+            --accent: #e63946; 
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            
+            transition: all 0.3s ease-in-out;
+        }
+        
+        /* Light Theme */
+        html[data-theme="light"] {
+            --primary: #3a86ff;
+            --secondary: #8338ec; 
+            --accent: #ff006e; 
+            --dark: #f8f9fa;
+            --light: #212529;
+            --gray: #495057;
+            --light-gray: #343a40;
+        }
+
+        * {
             margin: 0;
-            padding: 20px;
-            transition: background-color 0.3s, color 0.3s;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .container {
-            max-width: 900px;
-            margin: auto;
-            overflow: auto;
-            padding: 0 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            transition: background-color 0.3s, box-shadow 0.3s;
-        }
-        h2, h3, h4 {
-            padding-bottom: 5px;
-            margin-top: 10px;
-        }
-        a {
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        ul, ol {
-            padding-left: 20px;
-        }
-        section {
-            padding-top: 20px;
-            padding-bottom: 20px;
-        }
-        .header {
-            text-align: left;
-            padding: 20px;
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--light);
+            background-color: var(--dark);
+            overflow-x: hidden;
             position: relative;
         }
-        .controls-container {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 15px;
-        }
-        .lang-switcher a, .theme-switcher a {
-            color: #007BFF;
+
+
+        a {
+            color: var(--secondary);
             text-decoration: none;
-            font-weight: bold;
-            padding: 5px 8px; 
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1.5rem 0;
+            background-color: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(5px);
+            transition: var(--transition);
+        }
+        
+        html[data-theme="light"] header {
+            background-color: rgba(248, 249, 250, 0.95);
+        }
+
+        header.scrolled {
+            padding: 1rem 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--light);
+            position: relative;
+        }
+
+        .logo span {
+            color: var(--secondary);
+            position: relative;
+        }
+
+        .logo span::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            top: 5px;
+            right: -12px;
+            box-shadow: 0 0 8px var(--accent);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--light);
+            font-weight: 500;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            margin-left: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .theme-toggle i {
+            font-size: 1.2rem;
+            color: var(--light);
+            transition: var(--transition);
+        }
+        
+        .theme-toggle:hover i {
+            color: var(--secondary);
+        }
+
+        .language-selector {
+            margin-left: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .language-selector select {
+            background: transparent;
+            border: 1px solid var(--secondary);
+            color: var(--light);
+            padding: 0.3rem 0.5rem;
+            border-radius: var(--border-radius);
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            outline: none;
+        }
+        
+        .language-selector select option {
+            background-color: var(--dark);
+            color: var(--light);
+        }
+        
+        html[data-theme="light"] .language-selector select option {
+            background-color: var(--dark);
+            color: var(--light);
+        }
+
+        .hamburger {
+            display: none;
             cursor: pointer;
         }
-        .header h1 { margin: 0; }
-        .header p { margin: 5px 0; }
 
-        .skills-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        .skills-table td {
-            padding: 8px;
-            transition: border-color 0.3s;
-        }
-        .skills-table td:first-child {
-            width: 30%;
-        }
-
-      
-        body {
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        .container {
-            background: #fff;
-        }
-        h2, h3, h4 {
-            border-bottom: 2px solid #333;
-        }
-        a {
-            color: #007BFF;
-        }
-        .skills-table td {
-            border: 1px solid #ddd;
-        }
-
-      
-        body.dark-theme {
-            background-color: #121212;
-            color: #e0e0e0;
-        }
-        body.dark-theme .container {
-            background-color: #1e1e1e;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
-        }
-        body.dark-theme h1, body.dark-theme h2, body.dark-theme h3, body.dark-theme h4 {
-            color: #ffffff;
-        }
-        body.dark-theme h2, body.dark-theme h3, body.dark-theme h4 {
-            border-bottom-color: #555;
-        }
-        body.dark-theme a {
-            color: #64B5F6;
-        }
-        body.dark-theme .skills-table td {
-            border: 1px solid #444;
-        }
-
-        
-        .en { display: none; }
-        .pt { display: inline; }
-        body.lang-en .en { display: inline; }
-        body.lang-en .pt { display: none; }
-        body.lang-en h2 > .en, body.lang-en h3 > .en, body.lang-en h4 > .en, body.lang-en p > .en, body.lang-en li > .en {
+        .hamburger span {
             display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--light);
+            margin: 5px 0;
+            border-radius: 3px;
+            transition: var(--transition);
         }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header class="header">
-            <div class="controls-container">
-                <div class="lang-switcher">
-                    <a onclick="setLanguage('pt'); return false;">PT</a> |
-                    <a onclick="setLanguage('en'); return false;">EN</a>
-                </div>
-                <div class="theme-switcher">
-                    <a onclick="toggleTheme(); return false;">🌙 | ☀️</a>
-                </div>
-            </div>
 
-            <h1>Augusto Oliveira</h1>
-            <p>
-                <i><strong><a href="https://portal.ifrn.edu.br/documents/757/PPC__Tecnologia_em_Sistemas_para_Internet_2019.pdf">
-                    <span class="pt">Sistemas para Internet</span><span class="en">Web Development</span>
-                </a></strong>
-                <span class="pt">Estudante e Desenvolvedor Full-Stack no</span><span class="en">Student and Full-Stack Developer at</span>
-                <a href="https://ccsl.ifrn.edu.br/">CCSL - IFRN</a></i>
-            </p>
-            <p>
-                <span class="pt">Sou estudante de desenvolvimento web no <a href="https://portal.ifrn.edu.br/campus/parnamirim/">IFRN Campus Parnamirim</a> e atuo como Desenvolvedor Full-Stack com Python no CCSL - IFRN.</span>
-                <span class="en">I am a web development student at <a href="https://portal.ifrn.edu.br/campus/parnamirim/">IFRN Campus Parnamirim</a> and I'm also working as a Full-Stack Developer with Python at CCSL - IFRN.</span>
-            </p>
-            <p>
-                <span class="pt">Confira meu GitHub:</span><span class="en">Take a look at my GitHub:</span>
-                <a href="https://github.com/Augusto240">Augusto's Github</a>
-            </p>
-            <p>
-                <span class="pt">De Natal, Brasil</span><span class="en">From Natal, Brazil</span> 📍🇧🇷
-            </p>
-        </header>
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-        <section>
-            <h2><span class="pt">Sobre Mim</span><span class="en">About Me</span></h2>
-            <p>
-                <span class="pt">Sou um desenvolvedor Full-Stack apaixonado por tecnologia e inovação, com foco em Engenharia de Dados e Inteligência Artificial. Atualmente, curso Sistemas para Internet no IFRN e aplico meus conhecimentos em um projeto de pesquisa sobre IA generativa no CCSL. Minha experiência abrange desde o desenvolvimento de sistemas complexos de visão computacional até a criação e otimização de pipelines de Machine Learning. Estou sempre em busca de novos desafios para resolver problemas complexos com soluções criativas e eficientes.</span>
-                <span class="en">I am a Full-Stack Developer passionate about technology and innovation, with a focus on Data Engineering and Artificial Intelligence. Currently, I am a Web Development student at IFRN and apply my knowledge in a generative AI research project at CCSL. My experience ranges from developing complex computer vision systems to creating and optimizing Machine Learning pipelines. I am always seeking new challenges to solve complex problems with creative and efficient solutions.</span>
-            </p>
-        </section>
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
 
-        <section>
-            <h2><span class="pt">Educação</span><span class="en">Education</span></h2>
-            <ul>
-                <li><span class="pt">Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Norte (IFRN) - Graduação em Sistemas para Internet (Março 2023 - Atualmente)</span><span class="en">Federal Institute of Education, Science, and Technology of Rio Grande do Norte (IFRN) - Web Development degree (March 2023 - now)</span></li>
-            </ul>
-        </section>
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
 
-        <section>
-            <h2><span class="pt">Experiência Profissional</span><span class="en">Work Experience</span></h2>
+        .hero h1 .highlight {
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+        }
 
-            <h3><span class="pt">CCSL IFRN - Desenvolvedor Full-Stack (Janeiro 2025 - Atualmente)</span><span class="en">CCSL IFRN - Full-Stack Developer (January 2025 - now)</span></h3>
-            <p><span class="pt">Atuo como bolsista de pesquisa no desenvolvimento de solução de IA generativa para respostas automatizadas, integrando pipelines de Machine Learning com orquestração avançada e coleta de dados complexos.</span><span class="en">I work as a research fellow on the development of a generative AI solution for automated responses, integrating Machine Learning pipelines with advanced orchestration and complex data collection.</span></p>
-            <h4><span class="pt">Competências</span><span class="en">Competencies</span></h4>
-            <ol>
-                <li><span class="pt">Implementação e otimização de pipelines com ZenML, Airflow e MLflow.</span><span class="en">Implementation and optimization of pipelines with ZenML, Airflow, and MLflow.</span></li>
-                <li><span class="pt">Solução de problemas de gestão de artefatos, permissões e integração em ambientes locais e containerizados.</span><span class="en">Troubleshooting artifact management, permissions, and integration in local and containerized environments.</span></li>
-                <li><span class="pt">Desenvolvimento de Web Scraping e Crawling com Python (Selenium) e análise de tráfego para extrair dados de sites dinâmicos e CMS Plone, alimentando sistemas ETL e modelos IA.</span><span class="en">Web scraping and crawling development with Python (Selenium) and traffic analysis to extract data from dynamic sites and Plone CMS, feeding ETL systems and AI models.</span></li>
-                <li><span class="pt">Desenvolvimento de backend em Django para automatizar fluxos de coleta e processamento de dados, preparando integração com sistemas RAG.</span><span class="en">Backend development in Django to automate data collection and processing workflows, preparing for integration with RAG systems.</span></li>
-            </ol>
-            <h4><span class="pt">Tecnologias</span><span class="en">Technologies</span></h4>
-            <ul>
-                <li><span class="pt">Python (Django, Selenium)</span><span class="en">Python (Django, Selenium)</span></li>
-                <li><span class="pt">Inteligência Artificial (LLaMa, RAG)</span><span class="en">Artificial Intelligence (LLaMa, RAG)</span></li>
-                <li><span class="pt">MLOps (ZenML, MLflow, Apache Airflow)</span><span class="en">MLOps (ZenML, MLflow, Apache Airflow)</span></li>
-                <li><span class="pt">Ferramentas ETL</span><span class="en">ETL Tools</span></li>
-                <li><span class="pt">Linux, Docker</span><span class="en">Linux, Docker</span></li>
-            </ul>
+        .hero h1 .highlight::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            bottom: 5px;
+            left: 0;
+            background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+            z-index: -1;
+        }
 
-            <h3><span class="pt">NOCS Lab IFRN - Desenvolvedor Full-Stack Web (Julho 2024 - Fevereiro 2025)</span><span class="en">NOCS Lab IFRN - Full-Stack Web Developer (July 2024 - February 2025)</span></h3>
-            <p><span class="pt">Integrei o NOCS Lab no IFRN para implementar e desenvolver um sistema de visão computacional com inteligência artificial para controle de carros.</span><span class="en">Joined NOCS Lab at IFRN to implement and develop a computer vision system with artificial intelligence in car control.</span></p>
-            <h4><span class="pt">Competências</span><span class="en">Competencies</span></h4>
-            <ol>
-                <li><span class="pt">Design, implementação e manutenção de sistemas complexos.</span><span class="en">Design, implement, and maintain complex systems.</span></li>
-                <li><span class="pt">Integração de front-end com back-end e desenvolvimento de funcionalidades chave como recuperação de senha, gestão de banco de dados e segurança da aplicação.</span><span class="en">Integrate front-end with back-end and developed key features such as password recovery, database management, and application security.</span></li>
-                <li><span class="pt">Análise de segurança para identificar e corrigir vulnerabilidades do sistema, implementando medidas como criptografia de dados e auditorias.</span><span class="en">Conduct security analyses to identify and address system vulnerabilities, implementing corrective measures like data encryption and auditing procedures.</span></li>
-            </ol>
-            <h4><span class="pt">Tecnologias</span><span class="en">Technologies</span></h4>
-            <ul>
-                <li><span class="pt">Typescript (Angular) para desenvolvimento Front End</span><span class="en">Typescript (Angular) for Front End development</span></li>
-                <li><span class="pt">Node.js (Express) e Python para desenvolvimento Back End</span><span class="en">Node.js(Express) and Python for Back End development</span></li>
-                <li><span class="pt">MySQL para banco de dados</span><span class="en">MySQL for databases</span></li>
-                <li><span class="pt">Git e GitHub para controle de versão</span><span class="en">Git and GitHub for version control</span></li>
-                <li><span class="pt">Protocolo MQTT para transporte de mensagens</span><span class="en">MQTT protocol for message transport</span></li>
-            </ul>
-        </section>
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--light-gray);
+        }
 
-        <section>
-            <h2><span class="pt">Idiomas</span><span class="en">Languages</span></h2>
-            <ul>
-                <li><span class="pt">Português - Nativo</span><span class="en">Portuguese - Native Speaker</span></li>
-                <li><span class="pt">Inglês - Avançado</span><span class="en">English - Advanced</span></li>
-                <li><span class="pt">Japonês - Básico</span><span class="en">Japanese - Basic</span></li>
-                <li><span class="pt">Alemão - Básico</span><span class="en">German - Basic</span></li>
-            </ul>
-        </section>
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--secondary);
+            color: var(--light);
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
 
-        <section>
-            <h2><span class="pt">Meus Hobbies</span><span class="en">My Hobbies</span></h2>
-            <ol>
-                <li><span class="pt">Gosto de assistir animes, meu favorito é Attack on Titan!</span><span class="en">I like to watch animes, my favorite one is Attack on Titan!</span></li>
-                <li><span class="pt">Estudar Linguagens de Programação e Frameworks</span><span class="en">Study Programming Languages and Frameworks</span></li>
-                <li><span class="pt">Jogar <a href="https://www.leagueoflegends.com/pt-br/">Video-Games</a></span><span class="en">Play <a href="https://www.leagueoflegends.com/en-us/">Video-Games</a></span></li>
-                <li><span class="pt">Assistir a <a href="https://letterboxd.com/augusto22/">filmes</a></span><span class="en">Watch <a href="https://letterboxd.com/augusto22/">Movies</a></span></li>
-                <li><span class="pt">Adoro tomar <a href="https://pt.wikipedia.org/wiki/Caf%C3%A9">café</a></span><span class="en">I love to drink <a href="https://en.wikipedia.org/wiki/Coffee">Coffee</a></span></li>
-            </ol>
-        </section>
+        .btn:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
 
-        <section>
-            <h2><span class="pt">Contato</span><span class="en">Contact Me</span></h2>
-           <p><span class="pt">Email Pessoal:</span><span class="en">Personal E-Mail:</span> jose.aug18@outlook.com</p>
-           <p><span class="pt">Meu Telefone:</span><span class="en">My Phone Number:</span> +55 (84) 98785-5144</p>
-           <p><span class="pt">Meu Linkedin:</span><span class="en">My Linkedin:</span> <a href="https://www.linkedin.com/in/augusto-oliveira-4a8068235/"> Augusto Oliveira</a></p>
-        </section>
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--secondary);
+            margin-left: 1rem;
+        }
 
-        <section>
-            <h2><span class="pt">Habilidades Técnicas</span><span class="en">Technical Skills</span></h2>
-            <table class="skills-table">
-                <tr><td>HTML</td><td>⭐⭐⭐⭐⭐</td></tr>
-                <tr><td>CSS</td><td>⭐⭐⭐⭐⭐</td></tr>
-                <tr><td>JavaScript</td><td>⭐⭐⭐⭐</td></tr>
-                <tr><td>Python</td><td>⭐⭐⭐⭐</td></tr>
-                <tr><td>Angular</td><td>⭐⭐⭐⭐</td></tr>
-                <tr><td>Node.js</td><td>⭐⭐⭐⭐</td></tr>
-                <tr><td>MySQL</td><td>⭐⭐⭐⭐</td></tr>
-                <tr><td>PHP</td><td>⭐⭐⭐</td></tr>
-                <tr><td>WordPress</td><td>⭐⭐⭐</td></tr>
-                <tr><td>Ruby</td><td>⭐⭐⭐</td></tr>
-                <tr><td>Docker</td><td>⭐⭐⭐</td></tr>
-                <tr><td>MQTT Protocol</td><td>⭐⭐⭐</td></tr>
-                <tr><td>Linux</td><td>⭐⭐⭐⭐⭐</td></tr>
-            </table>
-        </section>
+        .btn-outline:hover {
+            background-color: var(--secondary);
+        }
 
-    </div>
+        .hero-image {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            max-width: 45%;
+            z-index: 0;
+            opacity: 0.7;
+            transform: translateY(10%);
+            animation: floatAnimation 6s ease-in-out infinite;
+        }
+        
+        @keyframes floatAnimation {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
 
-    <script>
-        function setLanguage(lang) {
-            if (lang === 'en') {
-                document.body.classList.add('lang-en');
-                document.documentElement.lang = 'en';
-            } else {
-                document.body.classList.remove('lang-en');
-                document.documentElement.lang = 'pt-br';
+        section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px solid var(--secondary);
+            border-radius: calc(var(--border-radius) + 5px);
+            z-index: -1;
+            animation: borderPulse 4s infinite;
+        }
+
+        @keyframes borderPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.2; }
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .sasuke-path {
+            position: relative;
+            padding: 6rem 0;
+            background-color: rgba(46, 49, 146, 0.05);
+        }
+        
+        .path-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 2rem;
+        }
+        
+        .path-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .path-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        .path-container::-webkit-scrollbar-thumb {
+            background: var(--secondary);
+            border-radius: 10px;
+        }
+        
+        .path-card {
+            flex: 0 0 300px;
+            margin-right: 2rem;
+            background-color: rgba(46, 49, 146, 0.1);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            scroll-snap-align: start;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .path-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+        
+        .path-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .path-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .path-card p {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        
+        .path-card .path-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            opacity: 0.7;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            width: 100%;
+            display: flex;
+        }
+
+        .timeline-item:nth-child(odd) {
+            justify-content: flex-end;
+        }
+
+        .timeline-content {
+            width: 45%;
+            padding: 1.5rem;
+            background-color: rgba(46, 49, 146, 0.1);
+            border-radius: var(--border-radius);
+            position: relative;
+            transition: var(--transition);
+            border-left: 3px solid var(--secondary);
+        }
+        
+        html[data-theme="light"] .timeline-content {
+            background-color: rgba(58, 134, 255, 0.1);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            background-color: rgba(46, 49, 146, 0.2);
+        }
+        
+        html[data-theme="light"] .timeline-content:hover {
+            background-color: rgba(58, 134, 255, 0.2);
+        }
+
+        .timeline-date {
+            position: absolute;
+            top: -30px;
+            font-size: 0.9rem;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-date {
+            right: 0;
+        }
+
+        .timeline-item:nth-child(even) .timeline-date {
+            left: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            box-shadow: 0 0 0 4px rgba(123, 44, 191, 0.2);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-content h4 {
+            font-size: 1rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-content p {
+            font-size: 0.95rem;
+        }
+        
+        .timeline-content ul, .timeline-content ol {
+            font-size: 0.95rem;
+            padding-left: 20px;
+            margin-top: 1rem;
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background-color: rgba(46, 49, 146, 0.1);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        html[data-theme="light"] .project-card {
+            background-color: rgba(58, 134, 255, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+            background-color: rgba(46, 49, 146, 0.2);
+        }
+
+        html[data-theme="light"] .project-card:hover {
+            background-color: rgba(58, 134, 255, 0.2);
+        }
+
+        .project-card.featured {
+            position: relative !important;
+            overflow: hidden !important;
+            z-index: 1 !important;
+        }
+
+        .project-card.featured:hover::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            width: 120% !important;
+            height: 120% !important;
+            background: radial-gradient(circle, var(--secondary), transparent 70%) !important;
+            transform: translate(-50%, -50%) !important;
+            opacity: 0.1 !important;
+            z-index: 0 !important;
+            animation: chidori 2s infinite !important;
+            pointer-events: none !important;
+            display: block !important;
+        }
+
+        @keyframes chidori {
+            0% { opacity: 0.05; transform: translate(-50%, -50%) scale(0.8); }
+            50% { opacity: 0.2; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0.05; transform: translate(-50%, -50%) scale(0.8); }
+        }
+
+        .project-card.featured:hover::after {
+            content: '' !important;
+            position: absolute !important;
+            width: 100% !important;
+            height: 100% !important;
+            top: 0 !important;
+            left: 0 !important;
+            background: 
+                radial-gradient(circle at 10% 10%, var(--secondary), transparent 20px),
+                radial-gradient(circle at 90% 10%, var(--secondary), transparent 20px),
+                radial-gradient(circle at 10% 90%, var(--secondary), transparent 20px),
+                radial-gradient(circle at 90% 90%, var(--secondary), transparent 20px);
+            opacity: 0.1 !important;
+            z-index: 0 !important;
+            pointer-events: none !important;
+            animation: spark 1.5s infinite alternate !important;
+            display: block !important;
+        }
+
+        @keyframes spark {
+            0% { opacity: 0.05; }
+            100% { opacity: 0.15; }
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+        }
+
+        .project-description {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            color: var(--light-gray);
+            flex-grow: 1;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            padding: 0.4rem 0.8rem;
+            background-color: rgba(123, 44, 191, 0.2);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--light);
+        }
+
+        html[data-theme="light"] .tech-tag {
+            background-color: rgba(131, 56, 236, 0.2);
+            color: var(--light);
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            position: relative;
+            z-index: 5;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--secondary);
+            transition: var(--transition);
+            cursor: pointer !important;
+            pointer-events: auto !important;
+            padding: 5px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .project-link:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .project-link i {
+            font-size: 1.1rem;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--accent);
+            color: var(--light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            z-index: 1;
+        }
+        
+        .project-card.featured .featured-badge {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card.featured .featured-badge::before {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #000;
+            border-radius: 50%;
+            top: 50%;
+            left: 8px;
+            transform: translateY(-50%);
+            opacity: 0.7;
+            box-shadow: 0 0 3px #000;
+        }
+
+        .project-card.featured:hover .featured-badge::before {
+            animation: sharinganSpin 2s infinite linear;
+        }
+
+        @keyframes sharinganSpin {
+            0% { transform: translateY(-50%) rotate(0deg); }
+            100% { transform: translateY(-50%) rotate(360deg); }
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background-color: rgba(46, 49, 146, 0.1);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            transition: var(--transition);
+        }
+        
+        html[data-theme="light"] .skill-category {
+            background-color: rgba(58, 134, 255, 0.1);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            background-color: rgba(46, 49, 146, 0.2);
+        }
+        
+        html[data-theme="light"] .skill-category:hover {
+            background-color: rgba(58, 134, 255, 0.2);
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .skill-category h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            align-items: center;
+        }
+
+        .skill-name span:first-child {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-icon {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .skill-bar {
+            height: 8px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        html[data-theme="light"] .skill-bar {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            position: relative;
+            width: 0;
+            transition: width 1.5s ease;
+        }
+        
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .tech-item i {
+            font-size: 3rem;
+            color: var(--secondary);
+        }
+
+        .tech-item span {
+            font-size: 0.8rem;
+            color: var(--light-gray);
+        }
+                
+        .languages-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .language-card {
+            background-color: rgba(46, 49, 146, 0.1);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        html[data-theme="light"] .language-card {
+            background-color: rgba(58, 134, 255, 0.1);
+        }
+
+        .language-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            background-color: rgba(46, 49, 146, 0.2);
+        }
+        
+        html[data-theme="light"] .language-card:hover {
+            background-color: rgba(58, 134, 255, 0.2);
+        }
+
+        .language-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .language-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .language-level {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+                
+        .language-progress-container {
+            width: 100%;
+            height: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin-top: 1rem;
+            overflow: hidden;
+        }
+        
+        html[data-theme="light"] .language-progress-container {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        .language-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+        
+        .hobbies-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .hobby-card {
+            background-color: rgba(46, 49, 146, 0.1);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        html[data-theme="light"] .hobby-card {
+            background-color: rgba(58, 134, 255, 0.1);
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            background-color: rgba(46, 49, 146, 0.2);
+        }
+        
+        html[data-theme="light"] .hobby-card:hover {
+            background-color: rgba(58, 134, 255, 0.2);
+        }
+
+        .hobby-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .hobby-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
+        }
+
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(46, 49, 146, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 1rem;
+            color: var(--secondary);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        html[data-theme="light"] .contact-icon {
+            background-color: rgba(58, 134, 255, 0.1);
+        }
+
+        .contact-info-item:hover .contact-icon {
+            background-color: var(--secondary);
+            color: var(--light);
+            transform: scale(1.1);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: var(--border-radius);
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+        }
+        
+        html[data-theme="light"] .contact-form input,
+        html[data-theme="light"] .contact-form textarea {
+            background-color: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: var(--light);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        html[data-theme="light"] .contact-form input:focus,
+        html[data-theme="light"] .contact-form textarea:focus {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        footer {
+            background-color: rgba(26, 26, 46, 0.95) !important;
+            padding: 4rem 0 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(123, 44, 191, 0.3);
+        }
+
+        html[data-theme="light"] footer {
+            background-color: rgba(248, 249, 250, 0.95) !important;
+        }
+
+        .footer-logo {
+            color: var(--light);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            opacity: 1 !important;
+        }
+
+        .footer-logo span {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            opacity: 1 !important;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: rgba(123, 44, 191, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 0.5rem;
+            color: var(--light) !important;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            opacity: 1 !important;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: var(--light-gray) !important;
+            opacity: 1 !important;
+        }
+
+        footer .fade-in {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 0.2s; }
+        .delay-2 { transition-delay: 0.4s; }
+        .delay-3 { transition-delay: 0.6s; }
+        .delay-4 { transition-delay: 0.8s; }
+        
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark);
+        }
+        
+        html[data-theme="light"] ::-webkit-scrollbar-track {
+            background: var(--dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--primary), var(--secondary));
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(var(--secondary), var(--primary));
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            color: var(--light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 99;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .uchiha-symbol {
+            position: fixed;
+            bottom: 100px;
+            left: 30px;
+            width: 60px;
+            height: 60px;
+            opacity: 0.2;
+            transition: var(--transition);
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .uchiha-symbol:hover {
+            transform: rotate(180deg);
+            opacity: 0.5;
+        }
+                
+        .sharingan-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--dark);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1s ease-out, visibility 1s ease-out;
+        }
+
+        .sharingan-loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .sharingan-spinner {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            background: url('sharingan.png') no-repeat center center / contain;
+            animation: spin 2s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .typing-effect {
+            border-right: 3px solid var(--secondary);
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3.5s steps(30, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--secondary) }
+        }
+        
+        .tech-tooltip {
+            position: relative;
+        }
+
+        .tech-tooltip:hover::before {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            z-index: 10;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .tech-tooltip:hover::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent var(--dark) transparent;
+            z-index: 10;
+        }
+        
+        .sharingan-cursor {
+            cursor: none !important;
+        }
+
+        body.sharingan-cursor::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(calc(var(--cursor-x, 0px) - 50%), calc(var(--cursor-y, 0px) - 50%));
+            background: url('sharingan.png') no-repeat center center / contain;
+        }
+    
+        .skill-category:hover,
+        .project-card:hover,
+        .language-card:hover,
+        .hobby-card:hover,
+        .timeline-content:hover {
+            box-shadow: 0 0 15px rgba(123, 44, 191, 0.3);
+        }
+        
+        html[data-theme="light"] .skill-category:hover,
+        html[data-theme="light"] .project-card:hover,
+        html[data-theme="light"] .language-card:hover,
+        html[data-theme="light"] .hobby-card:hover,
+        html[data-theme="light"] .timeline-content:hover {
+            box-shadow: 0 0 15px rgba(58, 134, 255, 0.3);
+        }
+        
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .timeline::after {
+                left: 20px;
+            }
+
+            .timeline-item {
+                justify-content: flex-start;
+                padding-left: 40px;
+            }
+
+            .timeline-item:nth-child(odd) {
+                justify-content: flex-start;
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-date,
+            .timeline-item:nth-child(even) .timeline-date {
+                left: 0;
+                top: -30px;
+            }
+
+            .projects-container {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
         }
 
-        function toggleTheme() {
-            document.body.classList.toggle('dark-theme');
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-image {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background-color: var(--dark);
+                padding-top: 5rem;
+                transition: var(--transition);
+                z-index: 99;
+            }
+            
+            html[data-theme="light"] nav {
+                background-color: var(--dark);
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 1rem 0;
+                text-align: center;
+            }
+            
+            .theme-toggle, .language-selector {
+                margin: 1rem 0;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 6px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -6px);
+            }
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            setLanguage('pt');
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+            }
+
+            section {
+                padding: 4rem 0;
+            }
+
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>    
+    <div class="sharingan-loader" id="sharinganLoader">
+        <div class="sharingan-spinner" style="background: url('sharingan.png') no-repeat center center / contain;"></div>
+    </div>
+    
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">Augusto<span>Dev</span></div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#home" data-lang-key="nav.home">Home</a></li>
+                    <li><a href="#about" data-lang-key="nav.about">About</a></li>
+                    <li><a href="#sasuke-path" data-lang-key="nav.path">My Path</a></li>
+                    <li><a href="#experience" data-lang-key="nav.experience">Experience</a></li>
+                    <li><a href="#projects" data-lang-key="nav.projects">Projects</a></li>
+                    <li><a href="#skills" data-lang-key="nav.skills">Skills</a></li>                    
+                    <li><a href="#languages" data-lang-key="nav.languages">Languages</a></li>
+                    <li><a href="#hobbies" data-lang-key="nav.hobbies">Hobbies</a></li>                    
+                    <li><a href="#contact" data-lang-key="nav.contact">Contact</a></li>
+                    <li class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </li>
+                    <li class="language-selector">
+                        <select id="languageSelect">
+                            <option value="en" selected>EN</option>
+                            <option value="pt">PT</option>
+                        </select>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Hello, I'm <span class="highlight">Augusto Oliveira</span></h1>
+                <p class="fade-in delay-1 typing-effect" data-lang-key="hero.subtitle">Full-Stack Developer with a focus on creating elegant and efficient web solutions.</p>
+                <div class="fade-in delay-2">
+                    <a href="#contact" class="btn" data-lang-key="hero.contact">Get In Touch</a>
+                    <a href="#projects" class="btn btn-outline" data-lang-key="hero.projects">View My Work</a>
+                </div>
+            </div>
+        </div>
+        <img src="https://i.pinimg.com/originals/5f/fe/2e/5ffe2e64ba3ecccd590727473a36fd50.gif" alt="Decorative Abstract Shape" class="hero-image fade-in delay-3">
+    </section>
+    
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-lang-key="about.title">About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image fade-in">
+                    <img src="that'smeee.png" alt="Augusto Oliveira" onerror="this.src='https://via.placeholder.com/400x400?text=Augusto'">
+                </div>
+                <div class="about-text fade-in delay-1">
+                    <h3 data-lang-key="about.role">Full-Stack Developer</h3>
+                    <p data-lang-key="about.description1">I am a web development student at IFRN Campus Parnamirim and I'm also working as a Full-Stack Developer with Python at CCSL - IFRN. My journey in the world of programming started with a passion for problem-solving and creating impactful digital solutions.</p>
+                    <p data-lang-key="about.description2">With expertise in both front-end and back-end technologies, I enjoy bringing ideas to life through clean code and intuitive user interfaces. I'm constantly learning and adapting to new technologies to stay at the forefront of web development.</p>
+                    <p data-lang-key="about.location">From Natal, Brazil 📍🇧🇷</p>
+                    <a href="https://github.com/Augusto240" class="btn" target="_blank">
+                        <i class="fab fa-github"></i> <span data-lang-key="about.github">GitHub Profile</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+        
+    <section id="sasuke-path" class="sasuke-path">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-lang-key="path.title">My Developer Path</h2>
+            </div>
+            <div class="path-container">
+                <div class="path-card fade-in">
+                    <div class="path-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 data-lang-key="path.beginner.title">The Beginning</h3>
+                    <p data-lang-key="path.beginner.description">My journey in coding started with curiosity and determination. Learning basic skills, I mastered HTML, CSS, and simple JavaScript.</p>
+                </div>
+                
+                <div class="path-card fade-in delay-1">
+                    <div class="path-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3 data-lang-key="path.academy.title">Academy Training</h3>
+                    <p data-lang-key="path.academy.description">At IFRN, I honed my skills and learned the fundamentals of web development.</p>
+                </div>
+                
+                <div class="path-card fade-in delay-2">
+                    <div class="path-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 data-lang-key="path.power.title">Gaining Power</h3>
+                    <p data-lang-key="path.power.description">Mastering advanced frameworks and backend technologies gave me the power to build complete solutions.</p>
+                </div>
+                
+                <div class="path-card fade-in delay-3">
+                    <div class="path-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 data-lang-key="path.vision.title">Clear Vision</h3>
+                    <p data-lang-key="path.vision.description">Now with experience and knowledge, I see the bigger picture in software architecture and solution design.</p>
+                </div>
+                
+                <div class="path-card fade-in delay-4">
+                    <div class="path-icon">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <h3 data-lang-key="path.future.title">The Future Path</h3>
+                    <p data-lang-key="path.future.description">My journey continues as I pursue mastery in full-stack development, always learning and growing to become an ultimate developer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="education" class="education">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-lang-key="education.title">Education</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <span class="timeline-date">March 2023 - Present</span>
+                        <h3 data-lang-key="education.degree">Web Development Degree</h3>
+                        <h4 data-lang-key="education.institution">Federal Institute of Education, Science, and Technology of Rio Grande do Norte (IFRN)</h4>
+                        <p data-lang-key="education.description">Studying web technologies, software development methodologies, and digital solutions creation. Focusing on both front-end and back-end development with practical projects and industry-relevant skills.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-lang-key="experience.title">Work Experience</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <span class="timeline-date">January 2025 - Present</span>
+                        <h3 data-lang-key="experience.job1.title">Full-Stack Developer</h3>
+                        <h4 data-lang-key="experience.job1.company">CCSL - IFRN</h4>
+                        <p data-lang-key="experience.job1.description">Working as a Full-Stack Developer with Python, developing and maintaining web applications while collaborating with cross-functional teams to implement new features and improve existing systems.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <span class="timeline-date">July 2024 - February 2025</span>
+                        <h3 data-lang-key="experience.job2.title">Full-Stack Web Developer</h3>
+                        <h4 data-lang-key="experience.job2.company">NOCS Lab - IFRN</h4>
+                        <p data-lang-key="experience.job2.description">Implemented and developed a computer vision system with artificial intelligence for car control. Designed and maintained complex systems while integrating front-end with back-end technologies.</p>
+                        <p><strong data-lang-key="experience.achievements">Key Achievements:</strong></p>
+                        <ul>
+                            <li data-lang-key="experience.job2.achievement1">Designed, implemented, and maintained complex systems</li>
+                            <li data-lang-key="experience.job2.achievement2">Integrated front-end with back-end and developed key features like password recovery, database management, and application security</li>
+                            <li data-lang-key="experience.job2.achievement3">Conducted security analyses to identify and address system vulnerabilities</li>
+                        </ul>
+                        <p><strong data-lang-key="experience.tech">Technologies Used:</strong> Typescript (Angular), Node.js (Express), Python, MySQL, Git, GitHub, MQTT protocol</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-lang-key="projects.title">My Projects</h2>
+            </div>
+            <div class="projects-container">
+                <div class="project-card featured fade-in">                    
+                    <div class="project-img">
+                        <img src="https://www.pcworld.com/wp-content/uploads/2025/06/pokemon-pokedex-by-Abes-Projects.jpg?quality=50&strip=all" alt="Pokédex Ruby Project">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title" data-lang-key="projects.pokedex.title">Pokédex Ruby</h3>
+                        <p class="project-description" data-lang-key="projects.pokedex.description">
+                            A comprehensive Pokédex application built with Ruby and Sinatra, featuring real-time search, dark mode, evolutionary chains, and team building functionality. The app consumes the PokéAPI to provide detailed information about Pokémon.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Ruby</span>
+                            <span class="tech-tag">Sinatra</span>
+                            <span class="tech-tag">SQLite</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">API Integration</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Augusto240/pokedex-ruby" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> <span data-lang-key="projects.repository">Repository</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card featured fade-in delay-1">
+                    
+                    <div class="project-img">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/GABRIEL_VELLA_vs_ROMINHO_51.jpg/1200px-GABRIEL_VELLA_vs_ROMINHO_51.jpg" alt="Jiu-Jitsu Academy Manager">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title" data-lang-key="projects.jiujitsu.title">Jiu-Jitsu Academy Manager</h3>
+                        <p class="project-description" data-lang-key="projects.jiujitsu.description">
+                            A complete management system for jiu-jitsu academies built with Ruby and Sinatra. Features include student management, payment tracking, attendance control, graduation history, and health information storage.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Ruby</span>
+                            <span class="tech-tag">Sinatra</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">BCrypt</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Augusto240/gerenciador-academia-jiujitsu" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> <span data-lang-key="projects.repository">Repository</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in delay-2">
+                    <div class="project-img">
+                        <img src="https://i.pinimg.com/736x/46/e4/ff/46e4ff977ab2c63629a696b558e8e1e1.jpg" alt="Sasuke API">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title" data-lang-key="projects.sasuke.title">Sasuke Quotes API</h3>
+                        <p class="project-description" data-lang-key="projects.sasuke.description">
+                            A RESTful API built with Python and Flask to manage and retrieve quotes from Sasuke Uchiha. Features include random quotes, category filtering, search functionality, and authentication for protected routes.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">RESTful API</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Authentication</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Augusto240/sasukeAPI" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> <span data-lang-key="projects.repository">Repository</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in delay-3">
+                    <div class="project-img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyBczg4PNTdRtnhFyJxiQ_7-s_5ZYk5tKAg&s" alt="Vehicle Entry System">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title" data-lang-key="projects.vehicle.title">Vehicle Entry System</h3>
+                        <p class="project-description" data-lang-key="projects.vehicle.description">
+                            A campus vehicle entry management system built with Angular and Node.js. Features QR code validation, MQTT messaging for real-time updates, and comprehensive driver and vehicle registration.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">MQTT</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Augusto240/entrada_carros" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> <span data-lang-key="projects.repository">Repository</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-lang-key="skills.title">My Skills</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category fade-in">
+                    <h3 data-lang-key="skills.frontend">Frontend Development</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="devicon-html5-plain colored skill-icon"></i> HTML</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="devicon-css3-plain colored skill-icon"></i> CSS</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="devicon-javascript-plain colored skill-icon"></i> JavaScript</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="devicon-angularjs-plain colored skill-icon"></i> Angular</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category fade-in delay-1">
+                    <h3 data-lang-key="skills.backend">Backend Development</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="devicon-python-plain colored skill-icon"></i> Python</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="devicon-nodejs-plain colored skill-icon"></i> Node.js</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="devicon-php-plain colored skill-icon"></i> PHP</span>
+                            <span>60%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="60"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="devicon-ruby-plain colored skill-icon"></i> Ruby</span>
+                            <span>60%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="60"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category fade-in delay-2">
+                    <h3 data-lang-key="skills.databases">Databases & Tools</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="devicon-mysql-plain colored skill-icon"></i> MySQL</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="devicon-docker-plain colored skill-icon"></i> Docker</span>
+                            <span>60%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="60"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="devicon-wordpress-plain colored skill-icon"></i> WordPress</span>
+                            <span>60%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="60"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="devicon-linux-plain colored skill-icon"></i> Linux</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech-grid fade-in delay-3">
+                <div class="tech-item tech-tooltip" data-tooltip="Git">
+                    <i class="devicon-git-plain colored"></i>
+                    <span>Git</span>
+                </div>
+                <div class="tech-item tech-tooltip" data-tooltip="PostgreSQL">
+                    <i class="devicon-postgresql-plain colored"></i>
+                    <span>PostgreSQL</span>
+                </div>
+                <div class="tech-item tech-tooltip" data-tooltip="TypeScript">
+                    <i class="devicon-typescript-plain colored"></i>
+                    <span>TypeScript</span>
+                </div>
+                <div class="tech-item tech-tooltip" data-tooltip="Sass">
+                    <i class="devicon-sass-original colored"></i>
+                    <span>Sass</span>
+                </div>
+                <div class="tech-item tech-tooltip" data-tooltip="Express.js">
+                    <i class="devicon-express-original"></i>
+                    <span>Express</span>
+                </div>
+                <div class="tech-item tech-tooltip" data-tooltip="Flask">
+                    <i class="devicon-flask-original"></i>
+                    <span>Flask</span>
+                </div>
+                <div class="tech-item tech-tooltip" data-tooltip="MongoDB">
+                    <i class="devicon-mongodb-plain colored"></i>
+                    <span>MongoDB</span>
+                </div>
+                <div class="tech-item tech-tooltip" data-tooltip="SQLite">
+                    <i class="devicon-sqlite-plain colored"></i>
+                    <span>SQLite</span>
+                </div>
+                <div class="tech-item tech-tooltip" data-tooltip="GitHub">
+                    <i class="devicon-github-original"></i>
+                    <span>GitHub</span>
+                </div>
+                <div class="tech-item tech-tooltip" data-tooltip="NPM">
+                    <i class="devicon-npm-original-wordmark colored"></i>
+                    <span>NPM</span>
+                </div>
+            </div>
+        </div>
+    </section>
+        
+    <section id="languages" class="languages">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-lang-key="languages.title">Languages</h2>
+            </div>
+            <div class="languages-container">
+                <div class="language-card fade-in">
+                    <div class="language-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h3 class="language-name" data-lang-key="languages.portuguese">Portuguese</h3>
+                    <p class="language-level" data-lang-key="languages.native">Native Speaker</p>
+                    <div class="language-progress-container">
+                        <div class="language-progress" style="width: 100%;"></div>
+                    </div>
+                </div>
+                <div class="language-card fade-in delay-1">
+                    <div class="language-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h3 class="language-name" data-lang-key="languages.english">English</h3>
+                    <p class="language-level" data-lang-key="languages.advanced">Advanced</p>
+                    <div class="language-progress-container">
+                        <div class="language-progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="language-card fade-in delay-2">
+                    <div class="language-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h3 class="language-name" data-lang-key="languages.japanese">Japanese</h3>
+                    <p class="language-level" data-lang-key="languages.basic">Basic</p>
+                    <div class="language-progress-container">
+                        <div class="language-progress" style="width: 30%;"></div>
+                    </div>
+                </div>
+                <div class="language-card fade-in delay-3">
+                    <div class="language-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h3 class="language-name" data-lang-key="languages.german">German</h3>
+                    <p class="language-level" data-lang-key="languages.basic">Basic</p>
+                    <div class="language-progress-container">
+                        <div class="language-progress" style="width: 25%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="hobbies" class="hobbies">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-lang-key="hobbies.title">My Hobbies</h2>
+            </div>
+            <div class="hobbies-container">
+                <div class="hobby-card fade-in">
+                    <div class="hobby-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <h3 class="hobby-name" data-lang-key="hobbies.anime.name">Watching Anime</h3>
+                    <p data-lang-key="hobbies.anime.description">My favorite anime is Attack on Titan, but I also enjoy watching Naruto and especially following Sasuke's character development!</p>
+                </div>
+                <div class="hobby-card fade-in delay-1">
+                    <div class="hobby-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="hobby-name" data-lang-key="hobbies.programming.name">Programming</h3>
+                    <p data-lang-key="hobbies.programming.description">I love studying new programming languages and frameworks to expand my knowledge and skills.</p>
+                </div>
+                <div class="hobby-card fade-in delay-2">
+                    <div class="hobby-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3 class="hobby-name" data-lang-key="hobbies.games.name">Video Games</h3>
+                    <p data-lang-key="hobbies.games.description">I enjoy playing various video games, especially League of Legends and games with rich storytelling.</p>
+                </div>
+                <div class="hobby-card fade-in delay-3">
+                    <div class="hobby-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3 class="hobby-name" data-lang-key="hobbies.movies.name">Movies</h3>
+                    <p data-lang-key="hobbies.movies.description">I'm passionate about cinema and keep track of all the movies I watch on Letterboxd.</p>
+                </div>
+                <div class="hobby-card fade-in delay-4">
+                    <div class="hobby-icon">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <h3 class="hobby-name" data-lang-key="hobbies.coffee.name">Coffee</h3>
+                    <p data-lang-key="hobbies.coffee.description">I love to drink coffee and explore different brewing methods and bean varieties.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-lang-key="contact.title">Contact Me</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <h3 data-lang-key="contact.getInTouch">Get in Touch</h3>
+                    <p data-lang-key="contact.description">Feel free to reach out to me for any inquiries, collaborations, or just to say hello!</p>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4 data-lang-key="contact.email">Email</h4>
+                            <p>jose.aug18@outlook.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4 data-lang-key="contact.phone">Phone</h4>
+                            <p>+55 (84) 98785-5144</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <p><a href="https://www.linkedin.com/in/augusto-oliveira-4a8068235/" target="_blank">Augusto Oliveira</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div>
+                            <h4>GitHub</h4>
+                            <p><a href="https://github.com/Augusto240" target="_blank">Augusto240</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form fade-in delay-1">
+                    <h3 data-lang-key="contact.sendMessage">Send Me a Message</h3>
+                    <form id="contact-form">
+                        <input type="text" placeholder="Your Name" data-lang-key="contact.form.name" required>
+                        <input type="email" placeholder="Your Email" data-lang-key="contact.form.email" required>
+                        <input type="text" placeholder="Subject" data-lang-key="contact.form.subject">
+                        <textarea placeholder="Your Message" data-lang-key="contact.form.message" required></textarea>
+                        <button type="submit" class="btn" data-lang-key="contact.form.submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-logo fade-in">Augusto<span>Dev</span></div>
+            <div class="social-links fade-in delay-1">
+                <a href="https://github.com/Augusto240" class="social-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/augusto-oliveira-4a8068235/" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:jose.aug18@outlook.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <p class="copyright fade-in delay-2">
+                &copy; <span id="currentYear">2025</span> <span data-lang-key="footer.copyright">Augusto Oliveira. All Rights Reserved.</span>
+            </p>
+        </div>
+    </footer>
+    
+    <img src="uchiha.png" id="uchihaSymbol" class="uchiha-symbol" alt="Uchiha Symbol">
+
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <script>
+        const header = document.getElementById('header');
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('nav');
+        const backToTop = document.getElementById('backToTop');
+        const skillProgressBars = document.querySelectorAll('.skill-progress');
+        const contactForm = document.getElementById('contact-form');
+        const themeToggle = document.getElementById('themeToggle');
+        const languageSelect = document.getElementById('languageSelect');
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const sharinganLoader = document.getElementById('sharinganLoader');
+        const uchihaSymbol = document.getElementById('uchihaSymbol');
+                
+        let translations = {};
+        
+        window.addEventListener('error', function(e) {
+            console.error('Erro capturado:', e.message, 'em', e.filename, 'linha', e.lineno);
+        });
+                
+        if (sharinganLoader) {        
+            sharinganLoader.style.opacity = "1";
+            sharinganLoader.style.visibility = "visible";
+            
+            setTimeout(() => {
+                sharinganLoader.classList.add('hidden');
+                setTimeout(() => {
+                    sharinganLoader.style.display = 'none';
+                }, 1000);
+            }, 2000);
+        }
+
+        if (uchihaSymbol) {
+            uchihaSymbol.style.opacity = "0.2";
+            uchihaSymbol.style.transition = "all 0.3s ease";
+            uchihaSymbol.style.width = "60px";
+            uchihaSymbol.style.height = "60px";
+            uchihaSymbol.style.position = "fixed";
+            uchihaSymbol.style.bottom = "100px";
+            uchihaSymbol.style.left = "30px";
+            uchihaSymbol.style.cursor = "pointer";
+            uchihaSymbol.style.zIndex = "10";
+            uchihaSymbol.style.borderRadius = "50%";
+            uchihaSymbol.style.boxShadow = "0 2px 10px rgba(123,44,191,0.2)";
+            uchihaSymbol.style.background = "rgba(0,0,0,0.0)";
+
+            uchihaSymbol.addEventListener('mouseover', () => {
+                uchihaSymbol.style.transform = 'rotate(180deg) scale(1.2)';
+                uchihaSymbol.style.opacity = '0.8';
+                uchihaSymbol.style.boxShadow = "0 4px 20px rgba(123,44,191,0.4)";
+            });
+
+            uchihaSymbol.addEventListener('mouseout', () => {
+                uchihaSymbol.style.transform = '';
+                uchihaSymbol.style.opacity = '0.2';
+                uchihaSymbol.style.boxShadow = "0 2px 10px rgba(123,44,191,0.2)";
+            });
+
+            uchihaSymbol.addEventListener('click', () => {
+                const primaryColor = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+                const secondaryColor = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+
+                document.documentElement.style.setProperty('--primary', primaryColor);
+                document.documentElement.style.setProperty('--secondary', secondaryColor);
+
+                uchihaSymbol.style.animation = 'none';
+                uchihaSymbol.offsetHeight; // Trigger reflow
+                uchihaSymbol.style.animation = 'spin 0.5s linear';
+                setTimeout(() => {
+                    uchihaSymbol.style.animation = '';
+                }, 500);
+            });
+        }
+
+        async function loadTranslations() {
+            try {
+                translations.en = {
+                    "nav.home": "Home",
+                    "nav.about": "About",
+                    "nav.path": "My Path",
+                    "nav.experience": "Experience",
+                    "nav.projects": "Projects",
+                    "nav.skills": "Skills",
+                    "nav.languages": "Languages",
+                    "nav.hobbies": "Hobbies",
+                    "nav.contact": "Contact",
+                    
+                    "hero.subtitle": "Full-Stack Developer with a focus on creating elegant and efficient web solutions.",
+                    "hero.contact": "Get In Touch",
+                    "hero.projects": "View My Work",
+                    
+                    "about.title": "About Me",
+                    "about.role": "Full-Stack Developer",
+                    "about.description1": "I am a web development student at IFRN Campus Parnamirim and I'm also working as a Full-Stack Developer with Python at CCSL - IFRN. My journey in the world of programming started with a passion for problem-solving and creating impactful digital solutions.",
+                    "about.description2": "With expertise in both front-end and back-end technologies, I enjoy bringing ideas to life through clean code and intuitive user interfaces. I'm constantly learning and adapting to new technologies to stay at the forefront of web development.",
+                    "about.location": "From Natal, Brazil 📍🇧🇷",
+                    "about.github": "GitHub Profile",
+                    
+                    "path.title": "My Developer Path",
+                    "path.beginner.title": "The Beginning",
+                    "path.beginner.description": "My journey in coding started with curiosity and determination. By learning basic skills, I mastered HTML, CSS, and simple JavaScript.",
+                    "path.academy.title": "Academy Training",
+                    "path.academy.description": "At IFRN, I honed my skills and learned the fundamentals of web development.",
+                    "path.power.title": "Gaining Power",
+                    "path.power.description": "Mastering advanced frameworks and backend technologies gave me the power to build complete solutions.",
+                    "path.vision.title": "Clear Vision",
+                    "path.vision.description": "Now with experience and knowledge, I see the bigger picture in software architecture and solution design.",
+                    "path.future.title": "The Future Path",
+                    "path.future.description": "My journey continues as I pursue mastery in full-stack development, always learning and growing to become an ultimate developer.",
+                    
+                    "education.title": "Education",
+                    "education.degree": "Web Development Degree",
+                    "education.institution": "Federal Institute of Education, Science, and Technology of Rio Grande do Norte (IFRN)",
+                    "education.description": "Studying web technologies, software development methodologies, and digital solutions creation. Focusing on both front-end and back-end development with practical projects and industry-relevant skills.",
+                    
+                    "experience.title": "Work Experience",
+                    "experience.job1.title": "Full-Stack Developer",
+                    "experience.job1.company": "CCSL - IFRN",
+                    "experience.job1.description": "Working as a Full-Stack Developer with Python, developing and maintaining web applications while collaborating with cross-functional teams to implement new features and improve existing systems.",
+                    "experience.job2.title": "Full-Stack Web Developer",
+                    "experience.job2.company": "NOCS Lab - IFRN",
+                    "experience.job2.description": "Implemented and developed a computer vision system with artificial intelligence for car control. Designed and maintained complex systems while integrating front-end with back-end technologies.",
+                    "experience.achievements": "Key Achievements:",
+                    "experience.job2.achievement1": "Designed, implemented, and maintained complex systems",
+                    "experience.job2.achievement2": "Integrated front-end with back-end and developed key features like password recovery, database management, and application security",
+                    "experience.job2.achievement3": "Conducted security analyses to identify and address system vulnerabilities",
+                    "experience.tech": "Technologies Used:",
+                    
+                    "projects.title": "My Projects",
+                    "projects.featured": "Featured",
+                    "projects.pokedex.title": "Pokédex Ruby",
+                    "projects.pokedex.description": "A comprehensive Pokédex application built with Ruby and Sinatra, featuring real-time search, dark mode, evolutionary chains, and team building functionality. The app consumes the PokéAPI to provide detailed information about Pokémon.",
+                    "projects.jiujitsu.title": "Jiu-Jitsu Academy Manager",
+                    "projects.jiujitsu.description": "A complete management system for jiu-jitsu academies built with Ruby and Sinatra. Features include student management, payment tracking, attendance control, graduation history, and health information storage.",
+                    "projects.sasuke.title": "Sasuke Quotes API",
+                    "projects.sasuke.description": "A RESTful API built with Python and Flask to manage and retrieve quotes from Sasuke Uchiha. Features include random quotes, category filtering, search functionality, and authentication for protected routes.",
+                    "projects.vehicle.title": "Vehicle Entry System",
+                    "projects.vehicle.description": "A campus vehicle entry management system built with Angular and Node.js. Features QR code validation, MQTT messaging for real-time updates, and comprehensive driver and vehicle registration.",
+                    "projects.repository": "Repository",
+                    "projects.live": "Live Demo",
+                    "projects.docs": "API Docs",
+                    
+                    "skills.title": "My Skills",
+                    "skills.frontend": "Frontend Development",
+                    "skills.backend": "Backend Development",
+                    "skills.databases": "Databases & Tools",
+                    
+                    "languages.title": "Languages",
+                    "languages.portuguese": "Portuguese",
+                    "languages.english": "English",
+                    "languages.japanese": "Japanese",
+                    "languages.german": "German",
+                    "languages.native": "Native Speaker",
+                    "languages.advanced": "Advanced",
+                    "languages.basic": "Basic",
+                    
+                    "hobbies.title": "My Hobbies",
+                    "hobbies.anime.name": "Watching Anime",
+                    "hobbies.anime.description": "My favorite anime is Attack on Titan, but I also enjoy watching Naruto and especially following Sasuke's character development!",
+                    "hobbies.programming.name": "Programming",
+                    "hobbies.programming.description": "I love studying new programming languages and frameworks to expand my knowledge and skills.",
+                    "hobbies.games.name": "Video Games",
+                    "hobbies.games.description": "I enjoy playing various video games, especially League of Legends and games with rich storytelling.",
+                    "hobbies.movies.name": "Movies",
+                    "hobbies.movies.description": "I'm passionate about cinema and keep track of all the movies I watch on Letterboxd.",
+                    "hobbies.coffee.name": "Coffee",
+                    "hobbies.coffee.description": "I love to drink coffee and explore different brewing methods and bean varieties.",
+                    
+                    "contact.title": "Contact Me",
+                    "contact.getInTouch": "Get in Touch",
+                    "contact.description": "Feel free to reach out to me for any inquiries, collaborations, or just to say hello!",
+                    "contact.email": "Email",
+                    "contact.phone": "Phone",
+                    "contact.sendMessage": "Send Me a Message",
+                    "contact.form.name": "Your Name",
+                    "contact.form.email": "Your Email",
+                    "contact.form.subject": "Subject",
+                    "contact.form.message": "Your Message",
+                    "contact.form.submit": "Send Message",
+                    
+                    "footer.copyright": "Augusto Oliveira. All Rights Reserved."
+                };
+
+                translations.pt = {
+                    "nav.home": "Início",
+                    "nav.about": "Sobre",
+                    "nav.path": "Meu Caminho",
+                    "nav.experience": "Experiência",
+                    "nav.projects": "Projetos",
+                    "nav.skills": "Habilidades",
+                    "nav.languages": "Idiomas",
+                    "nav.hobbies": "Hobbies",
+                    "nav.contact": "Contato",
+                    
+                    "hero.subtitle": "Desenvolvedor Full-Stack focado em criar soluções web elegantes e eficientes.",
+                    "hero.contact": "Entre em Contato",
+                    "hero.projects": "Ver Meus Projetos",
+                    
+                    "about.title": "Sobre Mim",
+                    "about.role": "Desenvolvedor Full-Stack",
+                    "about.description1": "Sou estudante de desenvolvimento web no IFRN Campus Parnamirim e também trabalho como Desenvolvedor Full-Stack com Python no CCSL - IFRN. Minha jornada no mundo da programação começou com uma paixão por resolver problemas e criar soluções digitais impactantes.",
+                    "about.description2": "Com experiência em tecnologias front-end e back-end, gosto de dar vida às ideias através de código limpo e interfaces de usuário intuitivas. Estou constantemente aprendendo e me adaptando a novas tecnologias para permanecer na vanguarda do desenvolvimento web.",
+                    "about.location": "De Natal, Brasil 📍🇧🇷",
+                    "about.github": "Perfil no GitHub",
+                    
+                    "path.title": "Meu Caminho como Desenvolvedor",
+                    "path.beginner.title": "O Início",
+                    "path.beginner.description": "Minha jornada na programação começou com curiosidade e determinação. Aprendendo tecnologias básicas, dominei HTML, CSS e JavaScript simples.",
+                    "path.academy.title": "Treinamento na Academia",
+                    "path.academy.description": "No IFRN, aprimorei minhas habilidades e aprendi os fundamentos do desenvolvimento web.",
+                    "path.power.title": "Ganhando Poder",
+                    "path.power.description": "Dominar frameworks avançados e tecnologias backend me deu o poder de construir soluções completas.",
+                    "path.vision.title": "Visão Clara",
+                    "path.vision.description": "Agora com experiência e conhecimento, vejo o panorama geral na arquitetura de software e design de soluções.",
+                    "path.future.title": "O Caminho Futuro",
+                    "path.future.description": "Minha jornada continua enquanto busco o domínio no desenvolvimento full-stack, sempre aprendendo e crescendo para me tornar um melhor desenvolvedor.",
+                    
+                    "education.title": "Educação",
+                    "education.degree": "Tecnólogo em Sistemas para Internet",
+                    "education.institution": "Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Norte (IFRN)",
+                    "education.description": "Estudando tecnologias web, metodologias de desenvolvimento de software e criação de soluções digitais. Focando em desenvolvimento front-end e back-end com projetos práticos e habilidades relevantes para o mercado.",
+                    
+                    "experience.title": "Experiência Profissional",
+                    "experience.job1.title": "Desenvolvedor Full-Stack",
+                    "experience.job1.company": "CCSL - IFRN",
+                    "experience.job1.description": "Trabalhando como Desenvolvedor Full-Stack com Python, desenvolvendo e mantendo aplicações web enquanto colaboro com equipes multifuncionais para implementar novos recursos e melhorar sistemas existentes.",
+                    "experience.job2.title": "Desenvolvedor Web Full-Stack",
+                    "experience.job2.company": "NOCS Lab - IFRN",
+                    "experience.job2.description": "Implementei e desenvolvi um sistema de visão computacional com inteligência artificial para controle de carros. Projetei e mantive sistemas complexos integrando tecnologias front-end com back-end.",
+                    "experience.achievements": "Principais Realizações:",
+                    "experience.job2.achievement1": "Projetei, implementei e mantive sistemas complexos",
+                    "experience.job2.achievement2": "Integrei front-end com back-end e desenvolvi recursos importantes como recuperação de senha, gerenciamento de banco de dados e segurança de aplicações",
+                    "experience.job2.achievement3": "Conduzi análises de segurança para identificar e resolver vulnerabilidades do sistema",
+                    "experience.tech": "Tecnologias Utilizadas:",
+                    
+                    "projects.title": "Meus Projetos",
+                    "projects.featured": "Destaque",
+                    "projects.pokedex.title": "Pokédex Ruby",
+                    "projects.pokedex.description": "Uma aplicação Pokédex abrangente construída com Ruby e Sinatra, com recursos de busca em tempo real, modo escuro, cadeias evolutivas e funcionalidade de montagem de equipe. O aplicativo consome a PokéAPI para fornecer informações detalhadas sobre Pokémon.",
+                    "projects.jiujitsu.title": "Gerenciador de Academia de Jiu-Jitsu",
+                    "projects.jiujitsu.description": "Um sistema de gerenciamento completo para academias de jiu-jitsu construído com Ruby e Sinatra. Os recursos incluem gerenciamento de alunos, acompanhamento de pagamentos, controle de frequência, histórico de graduação e armazenamento de informações de saúde.",
+                    "projects.sasuke.title": "API de Citações do Sasuke",
+                    "projects.sasuke.description": "Uma API RESTful construída com Python e Flask para gerenciar e recuperar citações de Sasuke Uchiha. Os recursos incluem citações aleatórias, filtragem por categorias, funcionalidade de busca e autenticação para rotas protegidas.",
+                    "projects.vehicle.title": "Sistema de Entrada de Veículos",
+                    "projects.vehicle.description": "Um sistema de gerenciamento de entrada de veículos no campus construído com Angular e Node.js. Possui validação de código QR, mensagens MQTT para atualizações em tempo real e registro abrangente de motoristas e veículos.",
+                    "projects.repository": "Repositório",
+                    "projects.live": "Demo ao Vivo",
+                    "projects.docs": "Documentação da API",
+                    
+                    "skills.title": "Minhas Habilidades",
+                    "skills.frontend": "Desenvolvimento Frontend",
+                    "skills.backend": "Desenvolvimento Backend",
+                    "skills.databases": "Bancos de Dados & Ferramentas",                    
+                    
+                    "languages.title": "Idiomas",
+                    "languages.portuguese": "Português",
+                    "languages.english": "Inglês",
+                    "languages.japanese": "Japonês",
+                    "languages.german": "Alemão",
+                    "languages.native": "Nativo",
+                    "languages.advanced": "Avançado",
+                    "languages.basic": "Básico",
+                    
+                    "hobbies.title": "Meus Hobbies",
+                    "hobbies.anime.name": "Assistir Anime",
+                    "hobbies.anime.description": "Meu anime favorito é Attack on Titan, mas também gosto de assistir Naruto e especialmente acompanhar o desenvolvimento do personagem Sasuke!",
+                    "hobbies.programming.name": "Programação",
+                    "hobbies.programming.description": "Adoro estudar novas linguagens de programação e frameworks para expandir meu conhecimento e habilidades.",
+                    "hobbies.games.name": "Videogames",
+                    "hobbies.games.description": "Gosto de jogar vários videogames, especialmente League of Legends e jogos com narrativas ricas.",
+                    "hobbies.movies.name": "Filmes",
+                    "hobbies.movies.description": "Sou apaixonado por cinema e acompanho todos os filmes que assisto no Letterboxd.",
+                    "hobbies.coffee.name": "Café",
+                    "hobbies.coffee.description": "Adoro beber café e explorar diferentes métodos de preparo e variedades de grãos.",
+                    
+                    "contact.title": "Contato",
+                    "contact.getInTouch": "Entre em Contato",
+                    "contact.description": "Sinta-se à vontade para me contatar para qualquer consulta, colaboração, ou apenas para dizer olá!",
+                    "contact.email": "Email",
+                    "contact.phone": "Telefone",
+                    "contact.sendMessage": "Envie-me uma Mensagem",
+                    "contact.form.name": "Seu Nome",
+                    "contact.form.email": "Seu Email",
+                    "contact.form.subject": "Assunto",
+                    "contact.form.message": "Sua Mensagem",
+                    "contact.form.submit": "Enviar Mensagem",
+                    
+                    "footer.copyright": "Augusto Oliveira. Todos os Direitos Reservados."
+                };
+            } catch (error) {
+                console.error("Error loading translations:", error);
+            }
+        }
+
+        function applyTranslations(lang) {
+            document.querySelectorAll('[data-lang-key]').forEach(element => {
+                const key = element.getAttribute('data-lang-key');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+        }
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                nav.classList.remove('active');
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            if (window.scrollY > 500) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+
+            animateSkillBars();
+
+            checkFadeElements();
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        function animateSkillBars() {
+            skillProgressBars.forEach(bar => {
+                const barPosition = bar.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (barPosition < screenPosition) {
+                    const width = bar.getAttribute('data-width');
+                    bar.style.width = width + '%';
+                }
+            });
+        }
+ 
+        function checkFadeElements() {
+            fadeElements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const currentLang = languageSelect.value;
+                const successMessage = currentLang === 'pt' ? 
+                    'Obrigado pela sua mensagem! Este é um formulário de demonstração - em um cenário real, sua mensagem seria enviada.' :
+                    'Thank you for your message! This is a demo form - in a real scenario, your message would be sent.';
+                    
+                alert(successMessage);
+                contactForm.reset();
+            });
+        }
+   
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+
+                const icon = themeToggle.querySelector('i');
+                if (newTheme === 'dark') {
+                    icon.className = 'fas fa-moon';
+                } else {
+                    icon.className = 'fas fa-sun';
+                }
+            });
+        }
+
+        if (languageSelect) {
+            languageSelect.addEventListener('change', (e) => {
+                const lang = e.target.value;
+                localStorage.setItem('language', lang);
+                applyTranslations(lang);
+            });
+        }
+
+        document.addEventListener('mousemove', function(e) {
+            if (document.body.classList.contains('sharingan-cursor')) {
+                document.documentElement.style.setProperty('--cursor-x', e.clientX + 'px');
+                document.documentElement.style.setProperty('--cursor-y', e.clientY + 'px');
+            }
+        });
+
+        let sharinganActive = false;
+        let sharinganWord = "sasuke";
+        let sharinganTyped = "";
+
+        document.addEventListener('keydown', (e) => {
+            sharinganTyped += e.key.toLowerCase();
+
+            if (sharinganTyped.length > sharinganWord.length) {
+                sharinganTyped = sharinganTyped.substring(sharinganTyped.length - sharinganWord.length);
+            }
+
+            if (sharinganTyped === sharinganWord) {
+                sharinganActive = !sharinganActive;
+                sharinganTyped = "";
+                
+                if (sharinganActive) {
+                    document.body.classList.add('sharingan-cursor');
+                    const message = languageSelect.value === 'pt' ? 
+                        'Sharingan ativado! Seu cursor agora tem o poder do clã Uchiha.' : 
+                        'Sharingan activated! Your cursor now has the power of the Uchiha clan.';
+                    alert(message);
+                } else {
+                    document.body.classList.remove('sharingan-cursor');
+                    const message = languageSelect.value === 'pt' ? 
+                        'Sharingan desativado!' : 
+                        'Sharingan deactivated!';
+                    alert(message);
+                }
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadTranslations();
+ 
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+
+            const icon = themeToggle.querySelector('i');
+            if (savedTheme === 'dark') {
+                icon.className = 'fas fa-moon';
+            } else {
+                icon.className = 'fas fa-sun';
+            }
+
+            const savedLanguage = localStorage.getItem('language') || 'en';
+            languageSelect.value = savedLanguage;
+            applyTranslations(savedLanguage);
+
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            animateSkillBars();
+            checkFadeElements();
+
+            document.querySelectorAll('.project-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href && href !== '#') {
+                        window.open(href, '_blank');
+                    }
+                });
+            });
+        });
+
+        const pathContainer = document.querySelector('.path-container');
+        if (pathContainer) {
+            pathContainer.addEventListener('wheel', (e) => {
+                if (e.deltaY !== 0) {
+                    e.preventDefault();
+                    pathContainer.scrollLeft += e.deltaY;
+                }
+            });
+        }
+
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+ 
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 20;
+                const rotateY = -(x - centerX) / 20;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
         });
     </script>
 </body>
