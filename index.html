@@ -1848,23 +1848,28 @@
 
                 <div class="project-card fade-in delay-4">
                     <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800" alt="Academia Dev Python">
+                        <img src="https://images.unsplash.com/photo-1555597673-b21d5c935865?w=800" alt="Jiu-Jitsu Academy Manager">
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title" data-lang-key="projects.academia.title">Academia Dev Python</h3>
-                        <p class="project-description" data-lang-key="projects.academia.description">
-                            Student, course, and enrollment management system developed with Django and Django Rest Framework. Built as a technical challenge for an internship position.
+                        <h3 class="project-title" data-lang-key="projects.jiujitsu.title">Jiu-Jitsu Academy Manager</h3>
+                        <p class="project-description" data-lang-key="projects.jiujitsu.description">
+                            Complete web system for martial arts academy management. Born from a real need to replace manual spreadsheets, it evolved into a robust multi-faceted solution with student CRUD, financial control, attendance tracking, graduation history, and interactive dashboard with reports.
                         </p>
                         <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Django</span>
-                            <span class="tech-tag">DRF</span>
-                            <span class="tech-tag">REST API</span>
+                            <span class="tech-tag">Ruby</span>
+                            <span class="tech-tag">Sinatra</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Chart.js</span>
+                            <span class="tech-tag">Minitest</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Augusto240/academia-dev-python" class="project-link" target="_blank">
+                            <a href="https://github.com/Augusto240/gerenciador-academia-jiujitsu" class="project-link" target="_blank">
                                 <i class="fab fa-github"></i> <span data-lang-key="projects.repository">Repository</span>
                             </a>
+                            <span class="project-link" style="opacity: 0.6; cursor: default;">
+                                <i class="fas fa-lock"></i> <span>Deploy Privado</span>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -1969,174 +1974,134 @@
             <div class="section-title">
                 <h2 data-lang-key="skills.title">My Skills</h2>
             </div>
-            <div class="skills-container">
-                <div class="skill-category fade-in">
-                    <h3 data-lang-key="skills.ai">AI & MLOps Engineering</h3>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span><i class="devicon-python-plain colored skill-icon"></i> Python / LangChain</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="85"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span><i class="fas fa-database skill-icon" style="color: var(--secondary);"></i> Milvus / Vector DBs</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="75"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span><i class="fas fa-cogs skill-icon" style="color: var(--secondary);"></i> ZenML / Airflow / MLflow</span>
-                            <span>70%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="70"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span><i class="fas fa-robot skill-icon" style="color: var(--secondary);"></i> RAG Architectures</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="80"></div>
-                        </div>
+            <div class="skills-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+                <div class="skill-category fade-in" style="background: var(--card-bg); border-radius: 16px; padding: 2rem; border: 1px solid rgba(139, 92, 246, 0.1);">
+                    <h3 data-lang-key="skills.ai" style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; color: var(--text); font-size: 1.1rem;">
+                        <i class="fas fa-brain" style="color: var(--primary); font-size: 1.3rem;"></i>
+                        AI & MLOps Engineering
+                    </h3>
+                    <div class="skill-tags" style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="devicon-python-plain colored"></i> Python
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            🦜 LangChain
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-database"></i> Milvus
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-project-diagram"></i> ZenML
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-wind"></i> Airflow
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-chart-line"></i> MLflow
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-robot"></i> RAG
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-search"></i> Hybrid Search
+                        </span>
                     </div>
                 </div>
-                <div class="skill-category fade-in delay-1">
-                    <h3 data-lang-key="skills.backend">Backend Development</h3>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span><i class="devicon-python-plain colored skill-icon"></i> Python (Django / Flask)</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="85"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span><i class="devicon-nodejs-plain colored skill-icon"></i> Node.js (Express)</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="85"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span><i class="devicon-postgresql-plain colored skill-icon"></i> PostgreSQL / MySQL</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="80"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span><i class="devicon-docker-plain colored skill-icon"></i> Docker / Docker Compose</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="75"></div>
-                        </div>
+                <div class="skill-category fade-in delay-1" style="background: var(--card-bg); border-radius: 16px; padding: 2rem; border: 1px solid rgba(139, 92, 246, 0.1);">
+                    <h3 data-lang-key="skills.backend" style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; color: var(--text); font-size: 1.1rem;">
+                        <i class="fas fa-server" style="color: var(--primary); font-size: 1.3rem;"></i>
+                        Backend Development
+                    </h3>
+                    <div class="skill-tags" style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="devicon-django-plain"></i> Django
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="devicon-flask-original"></i> Flask
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="devicon-nodejs-plain colored"></i> Node.js
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="devicon-express-original"></i> Express
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="devicon-ruby-plain colored"></i> Ruby/Sinatra
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="devicon-postgresql-plain colored"></i> PostgreSQL
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="devicon-mysql-plain colored"></i> MySQL
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-plug"></i> REST APIs
+                        </span>
                     </div>
                 </div>
-                <div class="skill-category fade-in delay-2">
-                    <h3 data-lang-key="skills.frontend">Frontend Development</h3>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span><i class="devicon-angularjs-plain colored skill-icon"></i> Angular / TypeScript</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="85"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span><i class="devicon-react-original colored skill-icon"></i> React</span>
-                            <span>65%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="65"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span><i class="devicon-javascript-plain colored skill-icon"></i> JavaScript / ES6+</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="85"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span><i class="fas fa-chart-line skill-icon" style="color: var(--secondary);"></i> Streamlit</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="80"></div>
-                        </div>
+                <div class="skill-category fade-in delay-2" style="background: var(--card-bg); border-radius: 16px; padding: 2rem; border: 1px solid rgba(139, 92, 246, 0.1);">
+                    <h3 data-lang-key="skills.frontend" style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; color: var(--text); font-size: 1.1rem;">
+                        <i class="fas fa-laptop-code" style="color: var(--primary); font-size: 1.3rem;"></i>
+                        Frontend Development
+                    </h3>
+                    <div class="skill-tags" style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="devicon-angularjs-plain colored"></i> Angular
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="devicon-react-original colored"></i> React
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="devicon-nextjs-plain"></i> Next.js
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="devicon-typescript-plain colored"></i> TypeScript
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="devicon-javascript-plain colored"></i> JavaScript
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-chart-bar"></i> Streamlit
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="devicon-html5-plain colored"></i> HTML5
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="devicon-css3-plain colored"></i> CSS3
+                        </span>
                     </div>
                 </div>
-            </div>
-
-            <div class="tech-grid fade-in delay-3">
-                <div class="tech-item tech-tooltip" data-tooltip="Git">
-                    <i class="devicon-git-plain colored"></i>
-                    <span>Git</span>
-                </div>
-                <div class="tech-item tech-tooltip" data-tooltip="Selenium">
-                    <i class="devicon-selenium-original colored"></i>
-                    <span>Selenium</span>
-                </div>
-                <div class="tech-item tech-tooltip" data-tooltip="TypeScript">
-                    <i class="devicon-typescript-plain colored"></i>
-                    <span>TypeScript</span>
-                </div>
-                <div class="tech-item tech-tooltip" data-tooltip="MQTT">
-                    <i class="fas fa-broadcast-tower" style="color: var(--secondary);"></i>
-                    <span>MQTT</span>
-                </div>
-                <div class="tech-item tech-tooltip" data-tooltip="Express.js">
-                    <i class="devicon-express-original"></i>
-                    <span>Express</span>
-                </div>
-                <div class="tech-item tech-tooltip" data-tooltip="Flask">
-                    <i class="devicon-flask-original"></i>
-                    <span>Flask</span>
-                </div>
-                <div class="tech-item tech-tooltip" data-tooltip="Django">
-                    <i class="devicon-django-plain"></i>
-                    <span>Django</span>
-                </div>
-                <div class="tech-item tech-tooltip" data-tooltip="SQLite">
-                    <i class="devicon-sqlite-plain colored"></i>
-                    <span>SQLite</span>
-                </div>
-                <div class="tech-item tech-tooltip" data-tooltip="GitHub">
-                    <i class="devicon-github-original"></i>
-                    <span>GitHub</span>
-                </div>
-                <div class="tech-item tech-tooltip" data-tooltip="GitLab">
-                    <i class="devicon-gitlab-plain colored"></i>
-                    <span>GitLab</span>
-                </div>
-                <div class="tech-item tech-tooltip" data-tooltip="Linux">
-                    <i class="devicon-linux-plain"></i>
-                    <span>Linux</span>
-                </div>
-                <div class="tech-item tech-tooltip" data-tooltip="OAuth2 / JWT">
-                    <i class="fas fa-key" style="color: var(--secondary);"></i>
-                    <span>OAuth2/JWT</span>
+                <div class="skill-category fade-in delay-3" style="background: var(--card-bg); border-radius: 16px; padding: 2rem; border: 1px solid rgba(139, 92, 246, 0.1);">
+                    <h3 data-lang-key="skills.databases" style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; color: var(--text); font-size: 1.1rem;">
+                        <i class="fas fa-tools" style="color: var(--primary); font-size: 1.3rem;"></i>
+                        DevOps & Tools
+                    </h3>
+                    <div class="skill-tags" style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="devicon-docker-plain colored"></i> Docker
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="devicon-git-plain colored"></i> Git
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="devicon-github-original"></i> GitHub
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="devicon-gitlab-plain colored"></i> GitLab
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="devicon-linux-plain"></i> Linux
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="devicon-selenium-original colored"></i> Selenium
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-broadcast-tower"></i> MQTT
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-key"></i> OAuth2/JWT
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2449,7 +2414,7 @@
                     "projects.pokedex.title": "Pokédex Ruby",
                     "projects.pokedex.description": "A comprehensive Pokédex application built with Ruby and Sinatra, featuring real-time search, dark mode, evolutionary chains, and team building functionality. The app consumes the PokéAPI to provide detailed information about Pokémon.",
                     "projects.jiujitsu.title": "Jiu-Jitsu Academy Manager",
-                    "projects.jiujitsu.description": "A complete management system for jiu-jitsu academies built with Ruby and Sinatra. Features include student management, payment tracking, attendance control, graduation history, and health information storage.",
+                    "projects.jiujitsu.description": "Complete web system for martial arts academy management, replacing manual spreadsheets. Features student CRUD with multi-modality support (Jiu-Jitsu/Muay Thai), financial control with automatic status calculation, attendance tracking, graduation history, interactive dashboard with Chart.js, and CSV report exports. Fully containerized with Docker and secured with BCrypt and prepared statements.",
                     "projects.sasuke.title": "Sasuke Quotes API",
                     "projects.sasuke.description": "A RESTful API built with Python and Flask to manage and retrieve quotes from Sasuke Uchiha. Features include random quotes, category filtering, search functionality, and authentication for protected routes.",
                     "projects.academia.title": "Academia Dev Python",
@@ -2575,7 +2540,7 @@
                     "projects.pokedex.title": "Pokédex Ruby",
                     "projects.pokedex.description": "Uma aplicação Pokédex abrangente construída com Ruby e Sinatra, com recursos de busca em tempo real, modo escuro, cadeias evolutivas e montagem de equipe. O app consome a PokéAPI para informações detalhadas.",
                     "projects.jiujitsu.title": "Gerenciador de Academia de Jiu-Jitsu",
-                    "projects.jiujitsu.description": "Sistema de gerenciamento completo para academias de jiu-jitsu construído com Ruby e Sinatra. Recursos incluem gerenciamento de alunos, acompanhamento de pagamentos, controle de frequência e histórico de graduação.",
+                    "projects.jiujitsu.description": "Sistema web completo para gestão de academias de artes marciais, substituindo planilhas manuais. CRUD de alunos com suporte multi-modalidade (Jiu-Jitsu/Muay Thai), controle financeiro com cálculo automático de status, registro de presença, histórico de graduações, dashboard interativo com Chart.js e exportação de relatórios CSV. Totalmente containerizado com Docker e protegido com BCrypt e prepared statements.",
                     "projects.sasuke.title": "API de Citações do Sasuke",
                     "projects.sasuke.description": "API RESTful construída com Python e Flask para gerenciar e recuperar citações de Sasuke Uchiha. Recursos incluem citações aleatórias, filtragem por categorias, busca e autenticação.",
                     "projects.academia.title": "Academia Dev Python",
