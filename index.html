@@ -3,37 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Augusto Oliveira | Full-Stack Developer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Augusto Oliveira | Software Developer & AI Engineer</title>
+    <meta name="description" content="Software Developer specialized in Generative AI, Full-Stack Development, and MLOps. Building end-to-end solutions with Python, LangChain, Angular, and Node.js.">
+    <meta name="keywords" content="Software Developer, AI Engineer, Full-Stack, MLOps, RAG, Python, LangChain, Angular, Node.js">
+    <meta name="author" content="Augusto Oliveira">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {            
-            --primary: #2e3192; 
-            --secondary: #7b2cbf;
-            --accent: #e63946; 
-            --dark: #1a1a2e;
-            --light: #f8f9fa;
-            --gray: #6c757d;
-            --light-gray: #e9ecef;
-            --border-radius: 8px;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
+            --primary: #1a1a3e;
+            --secondary: #7c3aed;
+            --accent: #dc2626;
+            --dark: #0f0f1a;
+            --light: #f1f5f9;
+            --gray: #94a3b8;
+            --light-gray: #cbd5e1;
+            --purple-glow: rgba(124, 58, 237, 0.3);
+            --border-radius: 12px;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             
             transition: all 0.3s ease-in-out;
         }
         
         /* Light Theme */
         html[data-theme="light"] {
-            --primary: #3a86ff;
-            --secondary: #8338ec; 
-            --accent: #ff006e; 
-            --dark: #f8f9fa;
-            --light: #212529;
-            --gray: #495057;
-            --light-gray: #343a40;
+            --primary: #6366f1;
+            --secondary: #8b5cf6; 
+            --accent: #ef4444; 
+            --dark: #f8fafc;
+            --light: #1e293b;
+            --gray: #64748b;
+            --light-gray: #475569;
+            --purple-glow: rgba(139, 92, 246, 0.2);
         }
 
         * {
@@ -44,11 +49,26 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
             color: var(--light);
             background-color: var(--dark);
             overflow-x: hidden;
             position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(124, 58, 237, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(99, 102, 241, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
         }
 
 
@@ -75,13 +95,16 @@
             width: 100%;
             z-index: 100;
             padding: 1.5rem 0;
-            background-color: rgba(26, 26, 46, 0.95);
-            backdrop-filter: blur(5px);
+            background-color: rgba(15, 15, 26, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(124, 58, 237, 0.1);
             transition: var(--transition);
         }
         
         html[data-theme="light"] header {
-            background-color: rgba(248, 249, 250, 0.95);
+            background-color: rgba(248, 250, 252, 0.85);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.1);
         }
 
         header.scrolled {
@@ -237,10 +260,17 @@
             font-weight: 700;
             margin-bottom: 1rem;
             line-height: 1.2;
+            background: linear-gradient(135deg, var(--light) 0%, var(--gray) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero h1 .highlight {
-            color: var(--secondary);
+            background: linear-gradient(135deg, var(--secondary) 0%, #a855f7 50%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             position: relative;
             display: inline-block;
         }
@@ -249,11 +279,12 @@
             content: '';
             position: absolute;
             width: 100%;
-            height: 5px;
-            bottom: 5px;
+            height: 4px;
+            bottom: 0;
             left: 0;
             background: linear-gradient(90deg, transparent, var(--secondary), transparent);
             z-index: -1;
+            border-radius: 2px;
         }
 
         .hero p {
@@ -264,30 +295,38 @@
 
         .btn {
             display: inline-block;
-            padding: 0.8rem 2rem;
-            background-color: var(--secondary);
-            color: var(--light);
+            padding: 0.9rem 2.2rem;
+            background: linear-gradient(135deg, var(--secondary) 0%, #a855f7 100%);
+            color: white;
             border-radius: var(--border-radius);
             font-weight: 500;
             transition: var(--transition);
             border: none;
             cursor: pointer;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
         }
 
         .btn:hover {
-            background-color: var(--primary);
+            background: linear-gradient(135deg, #a855f7 0%, var(--secondary) 100%);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
+            color: white;
         }
 
         .btn-outline {
-            background-color: transparent;
+            background: transparent;
             border: 2px solid var(--secondary);
             margin-left: 1rem;
+            color: var(--light);
+            text-shadow: none;
+            box-shadow: none;
         }
 
         .btn-outline:hover {
-            background-color: var(--secondary);
+            background: linear-gradient(135deg, var(--secondary) 0%, #a855f7 100%);
+            color: white;
+            border-color: transparent;
         }
 
         .hero-image {
@@ -484,25 +523,30 @@
         .timeline-content {
             width: 45%;
             padding: 1.5rem;
-            background-color: rgba(46, 49, 146, 0.1);
+            background: linear-gradient(145deg, rgba(124, 58, 237, 0.08) 0%, rgba(15, 15, 26, 0.5) 100%);
+            border: 1px solid rgba(124, 58, 237, 0.15);
             border-radius: var(--border-radius);
             position: relative;
             transition: var(--transition);
             border-left: 3px solid var(--secondary);
+            backdrop-filter: blur(10px);
         }
         
         html[data-theme="light"] .timeline-content {
-            background-color: rgba(58, 134, 255, 0.1);
+            background: linear-gradient(145deg, rgba(139, 92, 246, 0.1) 0%, rgba(248, 250, 252, 0.8) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-left: 3px solid var(--secondary);
         }
 
         .timeline-content:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow);
-            background-color: rgba(46, 49, 146, 0.2);
+            box-shadow: 0 15px 35px rgba(124, 58, 237, 0.2);
+            border-color: rgba(124, 58, 237, 0.4);
+            border-left-color: var(--secondary);
         }
         
         html[data-theme="light"] .timeline-content:hover {
-            background-color: rgba(58, 134, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(139, 92, 246, 0.15);
         }
 
         .timeline-date {
@@ -562,7 +606,8 @@
         }
 
         .project-card {
-            background-color: rgba(46, 49, 146, 0.1);
+            background: linear-gradient(145deg, rgba(124, 58, 237, 0.08) 0%, rgba(15, 15, 26, 0.5) 100%);
+            border: 1px solid rgba(124, 58, 237, 0.15);
             border-radius: var(--border-radius);
             overflow: hidden;
             transition: var(--transition);
@@ -570,20 +615,22 @@
             display: flex;
             flex-direction: column;
             position: relative;
+            backdrop-filter: blur(10px);
         }
 
         html[data-theme="light"] .project-card {
-            background-color: rgba(58, 134, 255, 0.1);
+            background: linear-gradient(145deg, rgba(139, 92, 246, 0.1) 0%, rgba(248, 250, 252, 0.8) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.2);
         }
 
         .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: var(--shadow);
-            background-color: rgba(46, 49, 146, 0.2);
+            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.25);
+            border-color: rgba(124, 58, 237, 0.4);
         }
 
         html[data-theme="light"] .project-card:hover {
-            background-color: rgba(58, 134, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
         }
 
         .project-card.featured {
@@ -686,15 +733,18 @@
         }
 
         .tech-tag {
-            padding: 0.4rem 0.8rem;
-            background-color: rgba(123, 44, 191, 0.2);
+            padding: 0.4rem 0.9rem;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(168, 85, 247, 0.15) 100%);
+            border: 1px solid rgba(124, 58, 237, 0.3);
             border-radius: 20px;
             font-size: 0.8rem;
             color: var(--light);
+            font-family: 'JetBrains Mono', monospace;
         }
 
         html[data-theme="light"] .tech-tag {
-            background-color: rgba(131, 56, 236, 0.2);
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(168, 85, 247, 0.15) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.3);
             color: var(--light);
         }
         
@@ -776,24 +826,27 @@
         }
 
         .skill-category {
-            background-color: rgba(46, 49, 146, 0.1);
+            background: linear-gradient(145deg, rgba(124, 58, 237, 0.08) 0%, rgba(15, 15, 26, 0.5) 100%);
+            border: 1px solid rgba(124, 58, 237, 0.15);
             border-radius: var(--border-radius);
             padding: 2rem;
             transition: var(--transition);
+            backdrop-filter: blur(10px);
         }
         
         html[data-theme="light"] .skill-category {
-            background-color: rgba(58, 134, 255, 0.1);
+            background: linear-gradient(145deg, rgba(139, 92, 246, 0.1) 0%, rgba(248, 250, 252, 0.8) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.2);
         }
 
         .skill-category:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow);
-            background-color: rgba(46, 49, 146, 0.2);
+            box-shadow: 0 15px 35px rgba(124, 58, 237, 0.2);
+            border-color: rgba(124, 58, 237, 0.4);
         }
         
         html[data-theme="light"] .skill-category:hover {
-            background-color: rgba(58, 134, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(139, 92, 246, 0.15);
         }
 
         .skill-category h3 {
@@ -892,25 +945,28 @@
         }
 
         .language-card {
-            background-color: rgba(46, 49, 146, 0.1);
+            background: linear-gradient(145deg, rgba(124, 58, 237, 0.08) 0%, rgba(15, 15, 26, 0.5) 100%);
+            border: 1px solid rgba(124, 58, 237, 0.15);
             border-radius: var(--border-radius);
             padding: 1.5rem;
             text-align: center;
             transition: var(--transition);
+            backdrop-filter: blur(10px);
         }
         
         html[data-theme="light"] .language-card {
-            background-color: rgba(58, 134, 255, 0.1);
+            background: linear-gradient(145deg, rgba(139, 92, 246, 0.1) 0%, rgba(248, 250, 252, 0.8) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.2);
         }
 
         .language-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow);
-            background-color: rgba(46, 49, 146, 0.2);
+            box-shadow: 0 15px 35px rgba(124, 58, 237, 0.2);
+            border-color: rgba(124, 58, 237, 0.4);
         }
         
         html[data-theme="light"] .language-card:hover {
-            background-color: rgba(58, 134, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(139, 92, 246, 0.15);
         }
 
         .language-icon {
@@ -955,25 +1011,28 @@
         }
 
         .hobby-card {
-            background-color: rgba(46, 49, 146, 0.1);
+            background: linear-gradient(145deg, rgba(124, 58, 237, 0.08) 0%, rgba(15, 15, 26, 0.5) 100%);
+            border: 1px solid rgba(124, 58, 237, 0.15);
             border-radius: var(--border-radius);
             padding: 2rem;
             text-align: center;
             transition: var(--transition);
+            backdrop-filter: blur(10px);
         }
         
         html[data-theme="light"] .hobby-card {
-            background-color: rgba(58, 134, 255, 0.1);
+            background: linear-gradient(145deg, rgba(139, 92, 246, 0.1) 0%, rgba(248, 250, 252, 0.8) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.2);
         }
 
         .hobby-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow);
-            background-color: rgba(46, 49, 146, 0.2);
+            box-shadow: 0 15px 35px rgba(124, 58, 237, 0.2);
+            border-color: rgba(124, 58, 237, 0.4);
         }
         
         html[data-theme="light"] .hobby-card:hover {
-            background-color: rgba(58, 134, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(139, 92, 246, 0.15);
         }
 
         .hobby-icon {
@@ -1065,17 +1124,18 @@
         }
         
         footer {
-            background-color: rgba(26, 26, 46, 0.95) !important;
+            background: linear-gradient(180deg, rgba(15, 15, 26, 0.98) 0%, rgba(26, 26, 62, 0.98) 100%) !important;
             padding: 4rem 0 2rem;
             text-align: center;
             position: relative;
             z-index: 10;
             margin-top: 2rem;
-            border-top: 1px solid rgba(123, 44, 191, 0.3);
+            border-top: 1px solid rgba(124, 58, 237, 0.3);
         }
 
         html[data-theme="light"] footer {
-            background-color: rgba(248, 249, 250, 0.95) !important;
+            background: linear-gradient(180deg, rgba(248, 250, 252, 0.98) 0%, rgba(241, 245, 249, 0.98) 100%) !important;
+            border-top: 1px solid rgba(139, 92, 246, 0.3);
         }
 
         .footer-logo {
@@ -1101,7 +1161,8 @@
             width: 45px;
             height: 45px;
             border-radius: 50%;
-            background-color: rgba(123, 44, 191, 0.2);
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(168, 85, 247, 0.1) 100%);
+            border: 1px solid rgba(124, 58, 237, 0.3);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -1110,6 +1171,13 @@
             font-size: 1.2rem;
             transition: var(--transition);
             opacity: 1 !important;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--secondary) 0%, #a855f7 100%);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
+            border-color: transparent;
         }
 
         .copyright {
@@ -1495,7 +1563,7 @@
         <div class="container">
             <div class="hero-content fade-in">
                 <h1>Hello, I'm <span class="highlight">Augusto Oliveira</span></h1>
-                <p class="fade-in delay-1 typing-effect" data-lang-key="hero.subtitle">Software Developer with a focus on creating elegant and efficient web solutions.</p>
+                <p class="fade-in delay-1" data-lang-key="hero.subtitle">Software Developer specialized in Generative AI, Full-Stack Development, and MLOps.</p>
                 <div class="fade-in delay-2">
                     <a href="#contact" class="btn" data-lang-key="hero.contact">Get In Touch</a>
                     <a href="#projects" class="btn btn-outline" data-lang-key="hero.projects">View My Work</a>
@@ -1515,13 +1583,18 @@
                     <img src="that'smeee.png" alt="Augusto Oliveira" onerror="this.src='https://via.placeholder.com/400x400?text=Augusto'">
                 </div>
                 <div class="about-text fade-in delay-1">
-                    <h3 data-lang-key="about.role">Software Developer</h3>
-                    <p data-lang-key="about.description1">I am a web development student at IFRN Campus Parnamirim and I'm also working as a Full-Stack Developer with Python at CCSL - IFRN. My journey in the world of programming started with a passion for problem-solving and creating impactful digital solutions.</p>
-                    <p data-lang-key="about.description2">With expertise in both front-end and back-end technologies, I enjoy bringing ideas to life through clean code and intuitive user interfaces. I'm constantly learning and adapting to new technologies to stay at the forefront of web development.</p>
+                    <h3 data-lang-key="about.role">Software Developer & AI Engineer</h3>
+                    <p data-lang-key="about.description1">Software Developer with hands-on experience in architecting and building complex end-to-end solutions, specializing in Generative AI systems and Full-Stack development. My path is marked by the ability to overcome technical challenges and deliver functional products, from data engineering to MLOps pipeline implementation.</p>
+                    <p data-lang-key="about.description2">My expertise focuses on three main areas: AI & MLOps Engineering (RAG pipelines with LangChain, Milvus, ZenML), Data & Back-end Engineering (Python/Django, Node.js/Express, PostgreSQL), and Front-end Development (Angular, TypeScript, React). I'm passionate about solving problems and collaborating on innovative, high-impact tech products.</p>
                     <p data-lang-key="about.location">From Natal, Brazil 📍🇧🇷</p>
-                    <a href="https://github.com/Augusto240" class="btn" target="_blank">
-                        <i class="fab fa-github"></i> <span data-lang-key="about.github">GitHub Profile</span>
-                    </a>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+                        <a href="https://github.com/Augusto240" class="btn" target="_blank">
+                            <i class="fab fa-github"></i> <span data-lang-key="about.github">GitHub Profile</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/augusto-oliveira-4a8068235/" class="btn btn-outline" target="_blank">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1603,26 +1676,37 @@
             <div class="timeline">
                 <div class="timeline-item fade-in">
                     <div class="timeline-content">
-                        <span class="timeline-date">January 2025 - Present</span>
-                        <h3 data-lang-key="experience.job1.title">Back-End Developer & Data Engineering</h3>
-                        <h4 data-lang-key="experience.job1.company">CCSL - IFRN</h4>
-                        <p data-lang-key="experience.job1.description">I work as a Back-End Developer and Data Engineer, focusing on the development of generative artificial intelligence systems and process automation. My experience includes building and maintaining complex MLOps pipelines, with an emphasis on RAG (Retrieval-Augmented Generation) architectures, as well as creating robust solutions for data extraction and processing.</p>
+                        <span class="timeline-date" data-lang-key="experience.job1.date">May 2024 - December 2025</span>
+                        <h3 data-lang-key="experience.job1.title">Full-Stack Developer (Extension Scholarship)</h3>
+                        <h4 data-lang-key="experience.job1.company">NOCS Lab - IFRN</h4>
+                        <p data-lang-key="experience.job1.description">I developed and consolidated an end-to-end vehicular access control system, integrating computer vision, real-time communication, and a web management platform, working on both development and system stabilization/validation phases.</p>
+                        <p><strong data-lang-key="experience.achievements">Key Achievements:</strong></p>
+                        <ul>
+                            <li data-lang-key="experience.job1.achievement1">Full-Stack Development: Architected and implemented front-end with Angular (TypeScript) and back-end with Node.js (Express.js), including authentication, RBAC, and REST APIs</li>
+                            <li data-lang-key="experience.job1.achievement2">Systems & IoT Integration: Implemented real-time MQTT communication between cameras, access hardware, and the central system</li>
+                            <li data-lang-key="experience.job1.achievement3">Testing & Validation: Executed manual functional tests, validated critical system flows, and verified protected route security</li>
+                            <li data-lang-key="experience.job1.achievement4">Infrastructure & Reliability: Implemented and validated automated backup system (database and images) using Docker, cron, and dedicated scripts</li>
+                            <li data-lang-key="experience.job1.achievement5">Institutional Integrations: Participated in SUAP integration using OAuth2 and JWT, extending system usage in institutional environments</li>
+                        </ul>
+                        <p><strong data-lang-key="experience.tech">Technologies:</strong> Angular, TypeScript, Node.js, Express.js, MySQL, Docker, MQTT, OAuth2, JWT</p>
                     </div>
                     <div class="timeline-dot"></div>
                 </div>
-                <div class="timeline-item fade-in">
+                <div class="timeline-item fade-in delay-1">
                     <div class="timeline-content">
-                        <span class="timeline-date">July 2024 - February 2025</span>
-                        <h3 data-lang-key="experience.job2.title">Full-Stack Developer</h3>
-                        <h4 data-lang-key="experience.job2.company">NOCS Lab - IFRN</h4>
-                        <p data-lang-key="experience.job2.description">Implemented and developed a computer vision system with artificial intelligence for car control. Designed and maintained complex systems while integrating front-end with back-end technologies.</p>
+                        <span class="timeline-date" data-lang-key="experience.job2.date">January 2025 - September 2025</span>
+                        <h3 data-lang-key="experience.job2.title">Generative AI Research Scholar</h3>
+                        <h4 data-lang-key="experience.job2.company">CCSL-IFRN - Center for Open Source Solutions</h4>
+                        <p data-lang-key="experience.job2.description">I led the end-to-end technical development of "SmartFAQ", a functional Generative AI prototype for automated responses, from conception and data extraction to cloud deployment.</p>
                         <p><strong data-lang-key="experience.achievements">Key Achievements:</strong></p>
                         <ul>
-                            <li data-lang-key="experience.job2.achievement1">Designed, implemented, and maintained complex systems</li>
-                            <li data-lang-key="experience.job2.achievement2">Integrated front-end with back-end and developed key features like password recovery, database management, and application security</li>
-                            <li data-lang-key="experience.job2.achievement3">Conducted security analyses to identify and address system vulnerabilities</li>
+                            <li data-lang-key="experience.job2.achievement1">RAG Architecture & Development: Designed and implemented a sophisticated RAG architecture with Python and LangChain, using hybrid search (BM25 + Vector) and Milvus vector database for high-precision responses</li>
+                            <li data-lang-key="experience.job2.achievement2">Data Engineering & Web Scraping: Developed advanced scraper with Selenium for complex government portals (Plone CMS with dynamic JavaScript), overcoming SSL errors, alerts, and async content</li>
+                            <li data-lang-key="experience.job2.achievement3">MLOps & Pipeline Orchestration: Configured and optimized ML pipelines using ZenML, Airflow, and MLflow in local and containerized environments (Docker, Docker Compose)</li>
+                            <li data-lang-key="experience.job2.achievement4">Back-end Development & UI: Created support APIs with Django and developed interactive web interface with Streamlit, deploying to Streamlit Community Cloud</li>
+                            <li data-lang-key="experience.job2.achievement5">Collaboration & Technical Management: Onboarded new scholars, collaborated with stakeholders for requirements alignment, and managed GitLab repository with branches and merge requests</li>
                         </ul>
-                        <p><strong data-lang-key="experience.tech">Technologies Used:</strong> Typescript (Angular), Node.js (Express), Python, MySQL, Git, GitHub, MQTT protocol</p>
+                        <p><strong data-lang-key="experience.tech">Technologies:</strong> Python, LangChain, Milvus, ZenML, Airflow, MLflow, Django, Streamlit, Selenium, Docker</p>
                     </div>
                     <div class="timeline-dot"></div>
                 </div>
@@ -1638,6 +1722,58 @@
             </div>
             <div class="projects-container">
                 <div class="project-card featured fade-in">                    
+                    <div class="project-img">
+                        <img src="https://miro.medium.com/v2/resize:fit:1400/1*H5IwPFHKmKLSfJ6X4mJOJQ.png" alt="SmartFAQ - Generative AI Project">
+                    </div>
+                    <div class="project-content">
+                        <span class="featured-badge" data-lang-key="projects.featured">Featured</span>
+                        <h3 class="project-title" data-lang-key="projects.smartfaq.title">SmartFAQ - Generative AI System</h3>
+                        <p class="project-description" data-lang-key="projects.smartfaq.description">
+                            A functional Generative AI prototype for automated responses using RAG (Retrieval-Augmented Generation) architecture. Features hybrid search (BM25 + Vector), Milvus vector database, and a SafeGuard security layer for sensitive topics.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">LangChain</span>
+                            <span class="tech-tag">Milvus</span>
+                            <span class="tech-tag">RAG</span>
+                            <span class="tech-tag">Streamlit</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="project-link" style="opacity: 0.6; cursor: default;">
+                                <i class="fas fa-lock"></i> <span data-lang-key="projects.private">Private Repository</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card featured fade-in delay-1">
+                    <div class="project-img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyBczg4PNTdRtnhFyJxiQ_7-s_5ZYk5tKAg&s" alt="Vehicle Access Control System">
+                    </div>
+                    <div class="project-content">
+                        <span class="featured-badge" data-lang-key="projects.featured">Featured</span>
+                        <h3 class="project-title" data-lang-key="projects.vehicle.title">Vehicle Access Control System</h3>
+                        <p class="project-description" data-lang-key="projects.vehicle.description">
+                            End-to-end vehicular access control system integrating computer vision, real-time MQTT communication, and a web management platform with authentication, RBAC, and REST APIs.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">MQTT</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="project-link" style="opacity: 0.6; cursor: default;">
+                                <i class="fas fa-lock"></i> <span data-lang-key="projects.private">Private Repository</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in delay-2">                    
                     <div class="project-img">
                         <img src="https://www.pcworld.com/wp-content/uploads/2025/06/pokemon-pokedex-by-Abes-Projects.jpg?quality=50&strip=all" alt="Pokédex Ruby Project">
                     </div>
@@ -1661,32 +1797,7 @@
                     </div>
                 </div>
 
-                <div class="project-card featured fade-in delay-1">
-                    
-                    <div class="project-img">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/GABRIEL_VELLA_vs_ROMINHO_51.jpg/1200px-GABRIEL_VELLA_vs_ROMINHO_51.jpg" alt="Jiu-Jitsu Academy Manager">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title" data-lang-key="projects.jiujitsu.title">Jiu-Jitsu Academy Manager</h3>
-                        <p class="project-description" data-lang-key="projects.jiujitsu.description">
-                            A complete management system for jiu-jitsu academies built with Ruby and Sinatra. Features include student management, payment tracking, attendance control, graduation history, and health information storage.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Ruby</span>
-                            <span class="tech-tag">Sinatra</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">BCrypt</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Augusto240/gerenciador-academia-jiujitsu" class="project-link" target="_blank">
-                                <i class="fab fa-github"></i> <span data-lang-key="projects.repository">Repository</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in delay-2">
+                <div class="project-card fade-in delay-3">
                     <div class="project-img">
                         <img src="https://i.pinimg.com/736x/46/e4/ff/46e4ff977ab2c63629a696b558e8e1e1.jpg" alt="Sasuke API">
                     </div>
@@ -1710,25 +1821,24 @@
                     </div>
                 </div>
 
-                <div class="project-card fade-in delay-3">
+                <div class="project-card fade-in delay-4">
                     <div class="project-img">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyBczg4PNTdRtnhFyJxiQ_7-s_5ZYk5tKAg&s" alt="Vehicle Entry System">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/GABRIEL_VELLA_vs_ROMINHO_51.jpg/1200px-GABRIEL_VELLA_vs_ROMINHO_51.jpg" alt="Jiu-Jitsu Academy Manager">
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title" data-lang-key="projects.vehicle.title">Vehicle Entry System</h3>
-                        <p class="project-description" data-lang-key="projects.vehicle.description">
-                            A campus vehicle entry management system built with Angular and Node.js. Features QR code validation, MQTT messaging for real-time updates, and comprehensive driver and vehicle registration.
+                        <h3 class="project-title" data-lang-key="projects.jiujitsu.title">Jiu-Jitsu Academy Manager</h3>
+                        <p class="project-description" data-lang-key="projects.jiujitsu.description">
+                            A complete management system for jiu-jitsu academies built with Ruby and Sinatra. Features include student management, payment tracking, attendance control, graduation history, and health information storage.
                         </p>
                         <div class="project-tech">
-                            <span class="tech-tag">Angular</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">Express</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">MQTT</span>
+                            <span class="tech-tag">Ruby</span>
+                            <span class="tech-tag">Sinatra</span>
+                            <span class="tech-tag">PostgreSQL</span>
                             <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">BCrypt</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Augusto240/entrada_carros" class="project-link" target="_blank">
+                            <a href="https://github.com/Augusto240/gerenciador-academia-jiujitsu" class="project-link" target="_blank">
                                 <i class="fab fa-github"></i> <span data-lang-key="projects.repository">Repository</span>
                             </a>
                         </div>
@@ -1745,37 +1855,37 @@
             </div>
             <div class="skills-container">
                 <div class="skill-category fade-in">
-                    <h3 data-lang-key="skills.frontend">Frontend Development</h3>
+                    <h3 data-lang-key="skills.ai">AI & MLOps Engineering</h3>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span><i class="devicon-html5-plain colored skill-icon"></i> HTML</span>
-                            <span>100%</span>
+                            <span><i class="devicon-python-plain colored skill-icon"></i> Python / LangChain</span>
+                            <span>85%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" data-width="100"></div>
+                            <div class="skill-progress" data-width="85"></div>
                         </div>
                     </div>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span><i class="devicon-css3-plain colored skill-icon"></i> CSS</span>
-                            <span>100%</span>
+                            <span><i class="fas fa-database skill-icon" style="color: var(--secondary);"></i> Milvus / Vector DBs</span>
+                            <span>75%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" data-width="100"></div>
+                            <div class="skill-progress" data-width="75"></div>
                         </div>
                     </div>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span><i class="devicon-javascript-plain colored skill-icon"></i> JavaScript</span>
-                            <span>80%</span>
+                            <span><i class="fas fa-cogs skill-icon" style="color: var(--secondary);"></i> ZenML / Airflow / MLflow</span>
+                            <span>70%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" data-width="80"></div>
+                            <div class="skill-progress" data-width="70"></div>
                         </div>
                     </div>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span><i class="devicon-angularjs-plain colored skill-icon"></i> Angular</span>
+                            <span><i class="fas fa-robot skill-icon" style="color: var(--secondary);"></i> RAG Architectures</span>
                             <span>80%</span>
                         </div>
                         <div class="skill-bar">
@@ -1787,7 +1897,25 @@
                     <h3 data-lang-key="skills.backend">Backend Development</h3>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span><i class="devicon-python-plain colored skill-icon"></i> Python</span>
+                            <span><i class="devicon-python-plain colored skill-icon"></i> Python (Django / Flask)</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="devicon-nodejs-plain colored skill-icon"></i> Node.js (Express)</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="devicon-postgresql-plain colored skill-icon"></i> PostgreSQL / MySQL</span>
                             <span>80%</span>
                         </div>
                         <div class="skill-bar">
@@ -1796,68 +1924,50 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span><i class="devicon-nodejs-plain colored skill-icon"></i> Node.js</span>
-                            <span>80%</span>
+                            <span><i class="devicon-docker-plain colored skill-icon"></i> Docker / Docker Compose</span>
+                            <span>75%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" data-width="80"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span><i class="devicon-php-plain colored skill-icon"></i> PHP</span>
-                            <span>60%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="60"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span><i class="devicon-ruby-plain colored skill-icon"></i> Ruby</span>
-                            <span>60%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="60"></div>
+                            <div class="skill-progress" data-width="75"></div>
                         </div>
                     </div>
                 </div>
                 <div class="skill-category fade-in delay-2">
-                    <h3 data-lang-key="skills.databases">Databases & Tools</h3>
+                    <h3 data-lang-key="skills.frontend">Frontend Development</h3>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span><i class="devicon-mysql-plain colored skill-icon"></i> MySQL</span>
+                            <span><i class="devicon-angularjs-plain colored skill-icon"></i> Angular / TypeScript</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="devicon-react-original colored skill-icon"></i> React</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="65"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="devicon-javascript-plain colored skill-icon"></i> JavaScript / ES6+</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="fas fa-chart-line skill-icon" style="color: var(--secondary);"></i> Streamlit</span>
                             <span>80%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="80"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span><i class="devicon-docker-plain colored skill-icon"></i> Docker</span>
-                            <span>60%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="60"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span><i class="devicon-wordpress-plain colored skill-icon"></i> WordPress</span>
-                            <span>60%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="60"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span><i class="devicon-linux-plain colored skill-icon"></i> Linux</span>
-                            <span>100%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="100"></div>
                         </div>
                     </div>
                 </div>
@@ -1868,17 +1978,17 @@
                     <i class="devicon-git-plain colored"></i>
                     <span>Git</span>
                 </div>
-                <div class="tech-item tech-tooltip" data-tooltip="PostgreSQL">
-                    <i class="devicon-postgresql-plain colored"></i>
-                    <span>PostgreSQL</span>
+                <div class="tech-item tech-tooltip" data-tooltip="Selenium">
+                    <i class="devicon-selenium-original colored"></i>
+                    <span>Selenium</span>
                 </div>
                 <div class="tech-item tech-tooltip" data-tooltip="TypeScript">
                     <i class="devicon-typescript-plain colored"></i>
                     <span>TypeScript</span>
                 </div>
-                <div class="tech-item tech-tooltip" data-tooltip="Sass">
-                    <i class="devicon-sass-original colored"></i>
-                    <span>Sass</span>
+                <div class="tech-item tech-tooltip" data-tooltip="MQTT">
+                    <i class="fas fa-broadcast-tower" style="color: var(--secondary);"></i>
+                    <span>MQTT</span>
                 </div>
                 <div class="tech-item tech-tooltip" data-tooltip="Express.js">
                     <i class="devicon-express-original"></i>
@@ -1888,9 +1998,9 @@
                     <i class="devicon-flask-original"></i>
                     <span>Flask</span>
                 </div>
-                <div class="tech-item tech-tooltip" data-tooltip="MongoDB">
-                    <i class="devicon-mongodb-plain colored"></i>
-                    <span>MongoDB</span>
+                <div class="tech-item tech-tooltip" data-tooltip="Django">
+                    <i class="devicon-django-plain"></i>
+                    <span>Django</span>
                 </div>
                 <div class="tech-item tech-tooltip" data-tooltip="SQLite">
                     <i class="devicon-sqlite-plain colored"></i>
@@ -1900,9 +2010,17 @@
                     <i class="devicon-github-original"></i>
                     <span>GitHub</span>
                 </div>
-                <div class="tech-item tech-tooltip" data-tooltip="NPM">
-                    <i class="devicon-npm-original-wordmark colored"></i>
-                    <span>NPM</span>
+                <div class="tech-item tech-tooltip" data-tooltip="GitLab">
+                    <i class="devicon-gitlab-plain colored"></i>
+                    <span>GitLab</span>
+                </div>
+                <div class="tech-item tech-tooltip" data-tooltip="Linux">
+                    <i class="devicon-linux-plain"></i>
+                    <span>Linux</span>
+                </div>
+                <div class="tech-item tech-tooltip" data-tooltip="OAuth2 / JWT">
+                    <i class="fas fa-key" style="color: var(--secondary);"></i>
+                    <span>OAuth2/JWT</span>
                 </div>
             </div>
         </div>
@@ -2166,14 +2284,14 @@
                     "nav.hobbies": "Hobbies",
                     "nav.contact": "Contact",
                     
-                    "hero.subtitle": "Software Developer with a focus on creating elegant and efficient web solutions.",
+                    "hero.subtitle": "Software Developer specialized in Generative AI, Full-Stack Development, and MLOps.",
                     "hero.contact": "Get In Touch",
                     "hero.projects": "View My Work",
                     
                     "about.title": "About Me",
-                    "about.role": "Software Developer",
-                    "about.description1": "I am a web development student at IFRN Campus Parnamirim and I'm also working as a Back-End Developer & Data Engineering with Python at CCSL - IFRN. My journey in the world of programming started with a passion for problem-solving and creating impactful digital solutions.",
-                    "about.description2": "With expertise in both front-end and back-end technologies, I enjoy bringing ideas to life through clean code and intuitive user interfaces. I'm constantly learning and adapting to new technologies to stay at the forefront of web development.",
+                    "about.role": "Software Developer & AI Engineer",
+                    "about.description1": "Software Developer with hands-on experience in architecting and building complex end-to-end solutions, specializing in Generative AI systems and Full-Stack development. My path is marked by the ability to overcome technical challenges and deliver functional products, from data engineering to MLOps pipeline implementation.",
+                    "about.description2": "My expertise focuses on three main areas: AI & MLOps Engineering (RAG pipelines with LangChain, Milvus, ZenML), Data & Back-end Engineering (Python/Django, Node.js/Express, PostgreSQL), and Front-end Development (Angular, TypeScript, React). I'm passionate about solving problems and collaborating on innovative, high-impact tech products.",
                     "about.location": "From Natal, Brazil 📍🇧🇷",
                     "about.github": "GitHub Profile",
                     
@@ -2187,7 +2305,7 @@
                     "path.vision.title": "Clear Vision",
                     "path.vision.description": "Now with experience and knowledge, I see the bigger picture in software architecture and solution design.",
                     "path.future.title": "The Future Path",
-                    "path.future.description": "My journey continues as I pursue mastery in full-stack development, always learning and growing to become an ultimate developer.",
+                    "path.future.description": "My journey continues as I pursue mastery in AI and full-stack development, always learning and growing.",
                     
                     "education.title": "Education",
                     "education.degree": "Web Development Degree",
@@ -2195,33 +2313,46 @@
                     "education.description": "Studying web technologies, software development methodologies, and digital solutions creation. Focusing on both front-end and back-end development with practical projects and industry-relevant skills.",
                     
                     "experience.title": "Work Experience",
-                    "experience.job1.title": "Back-End Developer & Data Engineering Developer",
-                    "experience.job1.company": "CCSL - IFRN",
-                    "experience.job1.description": "I work as a Back-End Developer and Data Engineer, focusing on the development of generative artificial intelligence systems and process automation. My experience includes building and maintaining complex MLOps pipelines, with an emphasis on RAG (Retrieval-Augmented Generation) architectures, as well as creating robust solutions for data extraction and processing.",
-                    "experience.job2.title": "Back-End Developer",
-                    "experience.job2.company": "NOCS Lab - IFRN",
-                    "experience.job2.description": "As a Full-Stack Developer, my primary focus was on back-end development, where I implemented and maintained complex systems for vehicle control using computer vision. I designed and optimized back-end architectures, ensuring seamless integration with front-end technologies and efficient data management.",
+                    "experience.job1.date": "May 2024 - December 2025",
+                    "experience.job1.title": "Full-Stack Developer (Extension Scholarship)",
+                    "experience.job1.company": "NOCS Lab - IFRN",
+                    "experience.job1.description": "I developed and consolidated an end-to-end vehicular access control system, integrating computer vision, real-time communication, and a web management platform, working on both development and system stabilization/validation phases.",
                     "experience.achievements": "Key Achievements:",
-                    "experience.job2.achievement1": "Designed, implemented, and maintained complex systems",
-                    "experience.job2.achievement2": "Integrated front-end with back-end and developed key features like password recovery, database management, and application security",
-                    "experience.job2.achievement3": "Conducted security analyses to identify and address system vulnerabilities",
-                    "experience.tech": "Technologies Used:",
+                    "experience.job1.achievement1": "Full-Stack Development: Architected and implemented front-end with Angular (TypeScript) and back-end with Node.js (Express.js), including authentication, RBAC, and REST APIs",
+                    "experience.job1.achievement2": "Systems & IoT Integration: Implemented real-time MQTT communication between cameras, access hardware, and the central system",
+                    "experience.job1.achievement3": "Testing & Validation: Executed manual functional tests, validated critical system flows, and verified protected route security",
+                    "experience.job1.achievement4": "Infrastructure & Reliability: Implemented and validated automated backup system (database and images) using Docker, cron, and dedicated scripts",
+                    "experience.job1.achievement5": "Institutional Integrations: Participated in SUAP integration using OAuth2 and JWT, extending system usage in institutional environments",
+                    "experience.job2.date": "January 2025 - September 2025",
+                    "experience.job2.title": "Generative AI Research Scholar",
+                    "experience.job2.company": "CCSL-IFRN - Center for Open Source Solutions",
+                    "experience.job2.description": "I led the end-to-end technical development of 'SmartFAQ', a functional Generative AI prototype for automated responses, from conception and data extraction to cloud deployment.",
+                    "experience.job2.achievement1": "RAG Architecture & Development: Designed and implemented a sophisticated RAG architecture with Python and LangChain, using hybrid search (BM25 + Vector) and Milvus vector database for high-precision responses",
+                    "experience.job2.achievement2": "Data Engineering & Web Scraping: Developed advanced scraper with Selenium for complex government portals (Plone CMS with dynamic JavaScript), overcoming SSL errors, alerts, and async content",
+                    "experience.job2.achievement3": "MLOps & Pipeline Orchestration: Configured and optimized ML pipelines using ZenML, Airflow, and MLflow in local and containerized environments (Docker, Docker Compose)",
+                    "experience.job2.achievement4": "Back-end Development & UI: Created support APIs with Django and developed interactive web interface with Streamlit, deploying to Streamlit Community Cloud",
+                    "experience.job2.achievement5": "Collaboration & Technical Management: Onboarded new scholars, collaborated with stakeholders for requirements alignment, and managed GitLab repository with branches and merge requests",
+                    "experience.tech": "Technologies:",
                     
                     "projects.title": "My Projects",
                     "projects.featured": "Featured",
+                    "projects.private": "Private Repository",
+                    "projects.smartfaq.title": "SmartFAQ - Generative AI System",
+                    "projects.smartfaq.description": "A functional Generative AI prototype for automated responses using RAG (Retrieval-Augmented Generation) architecture. Features hybrid search (BM25 + Vector), Milvus vector database, and a SafeGuard security layer for sensitive topics.",
+                    "projects.vehicle.title": "Vehicle Access Control System",
+                    "projects.vehicle.description": "End-to-end vehicular access control system integrating computer vision, real-time MQTT communication, and a web management platform with authentication, RBAC, and REST APIs.",
                     "projects.pokedex.title": "Pokédex Ruby",
                     "projects.pokedex.description": "A comprehensive Pokédex application built with Ruby and Sinatra, featuring real-time search, dark mode, evolutionary chains, and team building functionality. The app consumes the PokéAPI to provide detailed information about Pokémon.",
                     "projects.jiujitsu.title": "Jiu-Jitsu Academy Manager",
                     "projects.jiujitsu.description": "A complete management system for jiu-jitsu academies built with Ruby and Sinatra. Features include student management, payment tracking, attendance control, graduation history, and health information storage.",
                     "projects.sasuke.title": "Sasuke Quotes API",
                     "projects.sasuke.description": "A RESTful API built with Python and Flask to manage and retrieve quotes from Sasuke Uchiha. Features include random quotes, category filtering, search functionality, and authentication for protected routes.",
-                    "projects.vehicle.title": "Vehicle Entry System",
-                    "projects.vehicle.description": "A campus vehicle entry management system built with Angular and Node.js. Features QR code validation, MQTT messaging for real-time updates, and comprehensive driver and vehicle registration.",
                     "projects.repository": "Repository",
                     "projects.live": "Live Demo",
                     "projects.docs": "API Docs",
                     
                     "skills.title": "My Skills",
+                    "skills.ai": "AI & MLOps Engineering",
                     "skills.frontend": "Frontend Development",
                     "skills.backend": "Backend Development",
                     "skills.databases": "Databases & Tools",
@@ -2249,7 +2380,7 @@
                     
                     "contact.title": "Contact Me",
                     "contact.getInTouch": "Get in Touch",
-                    "contact.description": "Feel free to reach out to me for any inquiries, collaborations, or just to say hello!",
+                    "contact.description": "Looking for new opportunities to apply my passion for problem-solving in a dynamic environment. Feel free to reach out!",
                     "contact.email": "Email",
                     "contact.phone": "Phone",
                     "contact.sendMessage": "Send Me a Message",
@@ -2273,14 +2404,14 @@
                     "nav.hobbies": "Hobbies",
                     "nav.contact": "Contato",
                     
-                    "hero.subtitle": "Desenvolvedor de Software focado em criar soluções web elegantes e eficientes.",
+                    "hero.subtitle": "Desenvolvedor de Software especializado em IA Generativa, Desenvolvimento Full-Stack e MLOps.",
                     "hero.contact": "Entre em Contato",
                     "hero.projects": "Ver Meus Projetos",
                     
                     "about.title": "Sobre Mim",
-                    "about.role": "Desenvolvedor de Software",
-                    "about.description1": "Sou estudante de desenvolvimento web no IFRN Campus Parnamirim e também trabalho como Desenvolvedor Back-End e Engenharia de Dados com Python no CCSL - IFRN. Minha jornada no mundo da programação começou com uma paixão por resolver problemas e criar soluções digitais impactantes.",
-                    "about.description2": "Com experiência em tecnologias front-end e back-end, gosto de dar vida às ideias através de código limpo e interfaces de usuário intuitivas. Estou constantemente aprendendo e me adaptando a novas tecnologias para permanecer na vanguarda do desenvolvimento web.",
+                    "about.role": "Desenvolvedor de Software & Engenheiro de IA",
+                    "about.description1": "Desenvolvedor de Software com experiência prática na arquitetura e construção de soluções complexas de ponta a ponta, especializando-me em sistemas de Inteligência Artificial Generativa e desenvolvimento Full-Stack. Minha trajetória é marcada pela capacidade de superar desafios técnicos e entregar produtos funcionais.",
+                    "about.description2": "Minha especialização se concentra em três áreas: Engenharia de IA & MLOps (pipelines RAG com LangChain, Milvus, ZenML), Engenharia de Dados & Back-end (Python/Django, Node.js/Express, PostgreSQL), e Desenvolvimento Front-end (Angular, TypeScript, React). Busco colaborar em produtos inovadores de alto impacto.",
                     "about.location": "De Natal, Brasil 📍🇧🇷",
                     "about.github": "Perfil no GitHub",
                     
@@ -2294,7 +2425,7 @@
                     "path.vision.title": "Visão Clara",
                     "path.vision.description": "Agora com experiência e conhecimento, vejo o panorama geral na arquitetura de software e design de soluções.",
                     "path.future.title": "O Caminho Futuro",
-                    "path.future.description": "Minha jornada continua enquanto busco o domínio no desenvolvimento full-stack, sempre aprendendo e crescendo para me tornar um melhor desenvolvedor.",
+                    "path.future.description": "Minha jornada continua enquanto busco domínio em IA e desenvolvimento full-stack, sempre aprendendo e crescendo.",
                     
                     "education.title": "Educação",
                     "education.degree": "Tecnólogo em Sistemas para Internet",
@@ -2302,33 +2433,46 @@
                     "education.description": "Estudando tecnologias web, metodologias de desenvolvimento de software e criação de soluções digitais. Focando em desenvolvimento front-end e back-end com projetos práticos e habilidades relevantes para o mercado.",
                     
                     "experience.title": "Experiência Profissional",
-                    "experience.job1.title": "Desenvolvedor Back-End & Engenharia de Dados",
-                    "experience.job1.company": "CCSL - IFRN",
-                    "experience.job1.description": "Atuo como desenvolvedor Back-End e engenheiro de dados, focado no desenvolvimento de sistemas de inteligência artificial generativa e automação de processos. Minha experiência inclui a construção e manutenção de pipelines complexos de MLOps, com ênfase em arquiteturas RAG (Retrieval-Augmented Generation), além da criação de soluções robustas para extração e processamento de dados.",
-                    "experience.job2.title": "Desenvolvedor Back-End",
-                    "experience.job2.company": "NOCS Lab - IFRN",
-                    "experience.job2.description": "Como Desenvolvedor Full-Stack, meu foco principal foi no desenvolvimento back-end, onde implementei e mantive sistemas complexos para controle de veículos utilizando visão computacional. Projetei e otimizei arquiteturas back-end, garantindo a integração perfeita com as tecnologias de front-end e um gerenciamento eficiente dos dados.",
+                    "experience.job1.date": "Mai 2024 - Dez 2025",
+                    "experience.job1.title": "Desenvolvedor Full-Stack (Bolsista de Extensão)",
+                    "experience.job1.company": "NOCS Lab - IFRN",
+                    "experience.job1.description": "Desenvolvi e consolidei um sistema de controle de acesso veicular de ponta a ponta, integrando visão computacional, comunicação em tempo real e uma plataforma web de gerenciamento, atuando tanto na fase de desenvolvimento quanto na fase de estabilização e validação.",
                     "experience.achievements": "Principais Realizações:",
-                    "experience.job2.achievement1": "Projetei, implementei e mantive sistemas complexos",
-                    "experience.job2.achievement2": "Integrei front-end com back-end e desenvolvi recursos importantes como recuperação de senha, gerenciamento de banco de dados e segurança de aplicações",
-                    "experience.job2.achievement3": "Conduzi análises de segurança para identificar e resolver vulnerabilidades do sistema",
-                    "experience.tech": "Tecnologias Utilizadas:",
+                    "experience.job1.achievement1": "Desenvolvimento Full-Stack: Arquitetura e implementação do front-end com Angular (TypeScript) e back-end com Node.js (Express.js), incluindo autenticação, RBAC e APIs REST",
+                    "experience.job1.achievement2": "Integração de Sistemas e IoT: Implementação de comunicação em tempo real via MQTT entre câmeras, hardware de acesso e o sistema central",
+                    "experience.job1.achievement3": "Testes e Validação: Execução de testes funcionais manuais, validação de fluxos críticos do sistema e verificação de segurança de rotas protegidas",
+                    "experience.job1.achievement4": "Infraestrutura e Confiabilidade: Implementação e validação de sistema de backup automatizado (banco de dados e imagens) utilizando Docker, cron e scripts dedicados",
+                    "experience.job1.achievement5": "Integrações Institucionais: Participação na integração com o SUAP utilizando OAuth2 e JWT, ampliando o uso do sistema em ambiente institucional",
+                    "experience.job2.date": "Jan 2025 - Set 2025",
+                    "experience.job2.title": "Bolsista de Pesquisa em IA Generativa",
+                    "experience.job2.company": "CCSL-IFRN - Centro de Competências em Soluções Livres",
+                    "experience.job2.description": "Liderei o desenvolvimento técnico de ponta a ponta do 'SmartFAQ', um protótipo funcional de IA Generativa para respostas automatizadas, desde a concepção e extração de dados até a implantação em nuvem.",
+                    "experience.job2.achievement1": "Arquitetura e Desenvolvimento RAG: Projetei e implementei uma arquitetura RAG sofisticada com Python e LangChain, utilizando busca híbrida (BM25 + Vetorial) e o banco de dados vetorial Milvus para alta precisão",
+                    "experience.job2.achievement2": "Engenharia de Dados e Web Scraping: Desenvolvi scraper avançado com Selenium para portais governamentais complexos (CMS Plone com JavaScript dinâmico), superando erros de SSL, alertas e conteúdo assíncrono",
+                    "experience.job2.achievement3": "MLOps e Orquestração de Pipelines: Configurei e otimizei pipelines de Machine Learning utilizando ZenML, Airflow e MLflow em ambientes locais e conteinerizados (Docker, Docker Compose)",
+                    "experience.job2.achievement4": "Desenvolvimento Back-end e UI: Criei APIs de suporte com Django e desenvolvi interface web interativa com Streamlit, implantando na Streamlit Community Cloud",
+                    "experience.job2.achievement5": "Colaboração e Gestão Técnica: Realizei onboarding de novos bolsistas, colaborei com stakeholders para alinhamento de requisitos e gerenciei repositório GitLab",
+                    "experience.tech": "Tecnologias:",
                     
                     "projects.title": "Meus Projetos",
                     "projects.featured": "Destaque",
+                    "projects.private": "Repositório Privado",
+                    "projects.smartfaq.title": "SmartFAQ - Sistema de IA Generativa",
+                    "projects.smartfaq.description": "Protótipo funcional de IA Generativa para respostas automatizadas usando arquitetura RAG (Retrieval-Augmented Generation). Possui busca híbrida (BM25 + Vetorial), banco de dados vetorial Milvus e camada de segurança SafeGuard.",
+                    "projects.vehicle.title": "Sistema de Controle de Acesso Veicular",
+                    "projects.vehicle.description": "Sistema de controle de acesso veicular de ponta a ponta integrando visão computacional, comunicação MQTT em tempo real e plataforma web de gerenciamento com autenticação, RBAC e APIs REST.",
                     "projects.pokedex.title": "Pokédex Ruby",
-                    "projects.pokedex.description": "Uma aplicação Pokédex abrangente construída com Ruby e Sinatra, com recursos de busca em tempo real, modo escuro, cadeias evolutivas e funcionalidade de montagem de equipe. O aplicativo consome a PokéAPI para fornecer informações detalhadas sobre Pokémon.",
+                    "projects.pokedex.description": "Uma aplicação Pokédex abrangente construída com Ruby e Sinatra, com recursos de busca em tempo real, modo escuro, cadeias evolutivas e montagem de equipe. O app consome a PokéAPI para informações detalhadas.",
                     "projects.jiujitsu.title": "Gerenciador de Academia de Jiu-Jitsu",
-                    "projects.jiujitsu.description": "Um sistema de gerenciamento completo para academias de jiu-jitsu construído com Ruby e Sinatra. Os recursos incluem gerenciamento de alunos, acompanhamento de pagamentos, controle de frequência, histórico de graduação e armazenamento de informações de saúde.",
+                    "projects.jiujitsu.description": "Sistema de gerenciamento completo para academias de jiu-jitsu construído com Ruby e Sinatra. Recursos incluem gerenciamento de alunos, acompanhamento de pagamentos, controle de frequência e histórico de graduação.",
                     "projects.sasuke.title": "API de Citações do Sasuke",
-                    "projects.sasuke.description": "Uma API RESTful construída com Python e Flask para gerenciar e recuperar citações de Sasuke Uchiha. Os recursos incluem citações aleatórias, filtragem por categorias, funcionalidade de busca e autenticação para rotas protegidas.",
-                    "projects.vehicle.title": "Sistema de Entrada de Veículos",
-                    "projects.vehicle.description": "Um sistema de gerenciamento de entrada de veículos no campus construído com Angular e Node.js. Possui validação de código QR, mensagens MQTT para atualizações em tempo real e registro abrangente de motoristas e veículos.",
+                    "projects.sasuke.description": "API RESTful construída com Python e Flask para gerenciar e recuperar citações de Sasuke Uchiha. Recursos incluem citações aleatórias, filtragem por categorias, busca e autenticação.",
                     "projects.repository": "Repositório",
                     "projects.live": "Demo ao Vivo",
                     "projects.docs": "Documentação da API",
                     
                     "skills.title": "Minhas Habilidades",
+                    "skills.ai": "Engenharia de IA & MLOps",
                     "skills.frontend": "Desenvolvimento Frontend",
                     "skills.backend": "Desenvolvimento Backend",
                     "skills.databases": "Bancos de Dados & Ferramentas",                    
@@ -2356,7 +2500,7 @@
                     
                     "contact.title": "Contato",
                     "contact.getInTouch": "Entre em Contato",
-                    "contact.description": "Sinta-se à vontade para me contatar para qualquer consulta, colaboração, ou apenas para dizer olá!",
+                    "contact.description": "Buscando novas oportunidades para aplicar minha paixão por resolver problemas em um ambiente dinâmico. Sinta-se à vontade para entrar em contato!",
                     "contact.email": "Email",
                     "contact.phone": "Telefone",
                     "contact.sendMessage": "Envie-me uma Mensagem",
@@ -2372,7 +2516,6 @@
                 console.error("Error loading translations:", error);
             }
         }
-
         function applyTranslations(lang) {
             document.querySelectorAll('[data-lang-key]').forEach(element => {
                 const key = element.getAttribute('data-lang-key');
