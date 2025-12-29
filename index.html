@@ -200,30 +200,57 @@
         }
 
         .language-selector {
-            margin-left: 2rem;
+            margin-left: 1.5rem;
             position: relative;
             z-index: 10;
         }
         
         .language-selector select {
-            background: transparent;
-            border: 1px solid var(--secondary);
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(168, 85, 247, 0.1) 100%);
+            border: 1px solid rgba(124, 58, 237, 0.4);
             color: var(--light);
-            padding: 0.3rem 0.5rem;
-            border-radius: var(--border-radius);
+            padding: 0.5rem 2rem 0.5rem 0.8rem;
+            border-radius: 8px;
             font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
             cursor: pointer;
             outline: none;
+            transition: var(--transition);
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237c3aed' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.6rem center;
+            background-size: 12px;
+        }
+
+        .language-selector select:hover {
+            border-color: var(--secondary);
+            background-color: rgba(124, 58, 237, 0.2);
+        }
+
+        .language-selector select:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
         }
         
         .language-selector select option {
-            background-color: var(--dark);
-            color: var(--light);
+            background-color: #1a1a2e;
+            color: #f1f5f9;
+            padding: 0.5rem;
         }
         
-        html[data-theme="light"] .language-selector select option {
-            background-color: var(--dark);
+        html[data-theme="light"] .language-selector select {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(168, 85, 247, 0.05) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.4);
             color: var(--light);
+        }
+
+        html[data-theme="light"] .language-selector select option {
+            background-color: #1e293b;
+            color: #f1f5f9;
         }
 
         .hamburger {
@@ -1721,12 +1748,11 @@
                 <h2 data-lang-key="projects.title">My Projects</h2>
             </div>
             <div class="projects-container">
-                <div class="project-card featured fade-in">                    
+                <div class="project-card fade-in">                    
                     <div class="project-img">
-                        <img src="https://miro.medium.com/v2/resize:fit:1400/1*H5IwPFHKmKLSfJ6X4mJOJQ.png" alt="SmartFAQ - Generative AI Project">
+                        <img src="https://bernardmarr.com/wp-content/uploads/2024/02/13-Ways-Writers-Should-Embrace-Generative-AI.webp" alt="SmartFAQ - Generative AI Project">
                     </div>
                     <div class="project-content">
-                        <span class="featured-badge" data-lang-key="projects.featured">Featured</span>
                         <h3 class="project-title" data-lang-key="projects.smartfaq.title">SmartFAQ - Generative AI System</h3>
                         <p class="project-description" data-lang-key="projects.smartfaq.description">
                             A functional Generative AI prototype for automated responses using RAG (Retrieval-Augmented Generation) architecture. Features hybrid search (BM25 + Vector), Milvus vector database, and a SafeGuard security layer for sensitive topics.
@@ -1747,12 +1773,11 @@
                     </div>
                 </div>
 
-                <div class="project-card featured fade-in delay-1">
+                <div class="project-card fade-in delay-1">
                     <div class="project-img">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyBczg4PNTdRtnhFyJxiQ_7-s_5ZYk5tKAg&s" alt="Vehicle Access Control System">
                     </div>
                     <div class="project-content">
-                        <span class="featured-badge" data-lang-key="projects.featured">Featured</span>
                         <h3 class="project-title" data-lang-key="projects.vehicle.title">Vehicle Access Control System</h3>
                         <p class="project-description" data-lang-key="projects.vehicle.description">
                             End-to-end vehicular access control system integrating computer vision, real-time MQTT communication, and a web management platform with authentication, RBAC, and REST APIs.
