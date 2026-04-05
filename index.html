@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Augusto Oliveira | Software Developer & AI Engineer</title>
-    <meta name="description" content="Software Developer specialized in Generative AI, Full-Stack Development, and MLOps. Building end-to-end solutions with Python, LangChain, Angular, and Node.js.">
-    <meta name="keywords" content="Software Developer, AI Engineer, Full-Stack, MLOps, RAG, Python, LangChain, Angular, Node.js">
+    <title>Augusto Oliveira | Software Engineer - Backend, AI Systems, and Operations</title>
+    <meta name="description" content="Software engineer building backend, AI, and full-stack systems with focus on RAG operations, reliability, and institutional delivery.">
+    <meta name="keywords" content="Software Engineer, Backend Engineer, AI Systems, RAG Operations, Full-Stack, Python, LangChain, Flask, Node.js, Angular">
     <meta name="author" content="Augusto Oliveira">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
@@ -22,7 +22,7 @@
             --gray: #94a3b8;
             --light-gray: #cbd5e1;
             --purple-glow: rgba(124, 58, 237, 0.3);
-            --border-radius: 12px;
+            --border-radius: 14px;
             --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             
@@ -153,16 +153,31 @@
             display: flex;
             list-style: none;
             align-items: center;
+            flex-wrap: nowrap;
+            gap: 1.05rem;
         }
 
         nav ul li {
-            margin-left: 2rem;
+            margin-left: 0;
         }
 
         nav ul li a {
             color: var(--light);
             font-weight: 500;
             position: relative;
+            white-space: nowrap;
+            font-size: 0.9rem;
+            letter-spacing: 0.01em;
+        }
+
+        nav ul li a.secondary-nav {
+            opacity: 0.58;
+            font-size: 0.88rem;
+            font-weight: 400;
+        }
+
+        nav ul li a.secondary-nav:hover {
+            opacity: 1;
         }
 
         nav ul li a::after {
@@ -184,9 +199,13 @@
             display: flex;
             align-items: center;
             cursor: pointer;
-            margin-left: 2rem;
+            margin-left: 0.6rem;
             position: relative;
             z-index: 10;
+            border: none;
+            background: transparent;
+            padding: 0.2rem;
+            border-radius: 8px;
         }
         
         .theme-toggle i {
@@ -199,8 +218,20 @@
             color: var(--secondary);
         }
 
+        .theme-toggle:focus-visible,
+        .hamburger:focus-visible,
+        .back-to-top:focus-visible,
+        .btn:focus-visible,
+        .project-link:focus-visible,
+        .contact-card:focus-visible,
+        .social-link:focus-visible,
+        .language-selector select:focus-visible {
+            outline: 2px solid var(--secondary);
+            outline-offset: 2px;
+        }
+
         .language-selector {
-            margin-left: 1.5rem;
+            margin-left: 0.4rem;
             position: relative;
             z-index: 10;
         }
@@ -256,6 +287,9 @@
         .hamburger {
             display: none;
             cursor: pointer;
+            border: none;
+            background: transparent;
+            padding: 0;
         }
 
         .hamburger span {
@@ -269,24 +303,65 @@
         }
 
         .hero {
-            height: 100vh;
+            min-height: 86vh;
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
+            padding-top: 2.2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 12% 18% auto -15%;
+            height: 420px;
+            background: radial-gradient(circle at center, rgba(124, 58, 237, 0.28) 0%, rgba(124, 58, 237, 0) 70%);
+            filter: blur(28px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: auto -12% 8% auto;
+            width: 360px;
+            height: 360px;
+            background: radial-gradient(circle at center, rgba(124, 58, 237, 0.16) 0%, rgba(124, 58, 237, 0) 74%);
+            filter: blur(24px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 760px;
             position: relative;
             z-index: 1;
+            padding: 0;
+            border-radius: 0;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            backdrop-filter: none;
+        }
+
+        html[data-theme="light"] .hero-content {
+            background: transparent;
+            border: none;
+            box-shadow: none;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.65rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
+            margin-bottom: 0.45rem;
+            line-height: 1.06;
             background: linear-gradient(135deg, var(--light) 0%, var(--gray) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -315,9 +390,140 @@
         }
 
         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 0.75rem;
             color: var(--light-gray);
+        }
+
+        .hero p[data-lang-key="hero.subtitle"] {
+            font-size: 1.08rem;
+            color: var(--light);
+            font-weight: 500;
+            line-height: 1.5;
+            max-width: 56ch;
+            margin-bottom: 0.52rem;
+        }
+
+        .hero p[data-lang-key="hero.identity"] {
+            font-size: 0.95rem;
+            letter-spacing: 0.01em;
+            text-transform: none;
+            color: var(--gray);
+            margin-bottom: 0.35rem;
+            max-width: 58ch;
+        }
+
+        .hero-chips {
+            display: none;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.55rem;
+            margin-top: 0.5rem;
+        }
+
+        .hero-chip {
+            display: inline-flex;
+            align-items: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.02em;
+            color: #ddd6fe;
+            background: rgba(124, 58, 237, 0.16);
+            border: 1px solid rgba(124, 58, 237, 0.4);
+            border-radius: 999px;
+            padding: 0.32rem 0.72rem;
+            text-transform: uppercase;
+        }
+
+        html[data-theme="light"] .hero-chip {
+            color: #4c1d95;
+            background: rgba(139, 92, 246, 0.12);
+            border-color: rgba(139, 92, 246, 0.36);
+        }
+
+        .hero-trust-row {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            align-items: stretch;
+            gap: 0;
+            margin-top: 1.15rem;
+            padding: 0.32rem 0;
+            border-top: 1px solid rgba(124, 58, 237, 0.24);
+            border-bottom: 1px solid rgba(124, 58, 237, 0.16);
+            max-width: 980px;
+        }
+
+        .hero-trust-item {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            min-height: auto;
+            padding: 0.58rem 0.92rem;
+            border-radius: 0;
+            background: transparent;
+            border: none;
+            font-size: 0.78rem;
+            letter-spacing: 0.01em;
+            color: var(--light-gray);
+            line-height: 1.48;
+            text-wrap: balance;
+        }
+
+        .hero-trust-item + .hero-trust-item {
+            border-left: 1px solid rgba(124, 58, 237, 0.2);
+        }
+
+        .hero-trust-item + .hero-trust-item::before {
+            content: none;
+        }
+
+        html[data-theme="light"] .hero-trust-item {
+            color: #334155;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.82rem;
+            margin-top: 1.15rem;
+        }
+
+        .hero-actions .btn {
+            min-width: 170px;
+        }
+
+        .hero-actions .btn-outline {
+            margin-left: 0;
+            padding: 0.66rem 1.06rem;
+            border: 1px solid rgba(124, 58, 237, 0.34);
+            background: rgba(124, 58, 237, 0.08);
+            color: #dbe4f6;
+            box-shadow: none;
+            text-shadow: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 10px;
+        }
+
+        .hero-actions .btn-outline:hover {
+            background: rgba(124, 58, 237, 0.16);
+            color: #f8fafc;
+            border-color: rgba(124, 58, 237, 0.55);
+            transform: translateY(-1px);
+            box-shadow: 0 10px 22px rgba(28, 25, 52, 0.2);
+        }
+
+        html[data-theme="light"] .hero-actions .btn-outline {
+            background: rgba(139, 92, 246, 0.1);
+            border-color: rgba(139, 92, 246, 0.4);
+            color: #4c1d95;
+        }
+
+        html[data-theme="light"] .hero-actions .btn-outline:hover {
+            background: rgba(139, 92, 246, 0.2);
+            color: #3b0764;
+            border-color: rgba(139, 92, 246, 0.56);
+            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.16);
         }
 
         .btn {
@@ -360,9 +566,10 @@
             position: absolute;
             right: 0;
             bottom: 0;
-            max-width: 45%;
+            max-width: 28%;
             z-index: 0;
-            opacity: 0.7;
+            opacity: 0.14;
+            filter: grayscale(1) saturate(0.45);
             transform: translateY(10%);
             animation: floatAnimation 6s ease-in-out infinite;
         }
@@ -373,12 +580,40 @@
         }
 
         section {
-            padding: 6rem 0;
+            padding: 5.4rem 0;
+        }
+
+        .priority-section {
+            padding-top: 6.4rem;
+            padding-bottom: 6.4rem;
+        }
+
+        #current-work.priority-section {
+            padding-top: 6.8rem;
+        }
+
+        #projects.priority-section {
+            padding-bottom: 6.8rem;
+        }
+
+        #about,
+        #education,
+        #engineering-focus {
+            padding-top: 4.9rem;
+            padding-bottom: 4.9rem;
+        }
+
+        #sasuke-path,
+        #skills,
+        #languages,
+        #hobbies {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3.2rem;
         }
 
         .section-title h2 {
@@ -397,6 +632,405 @@
             width: 80px;
             height: 3px;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .priority-section .section-title h2 {
+            font-size: 2.75rem;
+            letter-spacing: -0.02em;
+        }
+
+        .priority-section .section-title h2::after {
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, rgba(124, 58, 237, 0.4), var(--secondary), rgba(220, 38, 38, 0.5));
+        }
+
+        .current-work-content {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 2.35rem 2.45rem;
+            background: linear-gradient(145deg, rgba(124, 58, 237, 0.09) 0%, rgba(15, 15, 26, 0.58) 100%);
+            border: 1px solid rgba(124, 58, 237, 0.2);
+            border-radius: var(--border-radius);
+            border-left: 2px solid rgba(124, 58, 237, 0.48);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+            box-shadow: 0 18px 36px rgba(11, 10, 31, 0.26);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .current-work-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(124, 58, 237, 0.55), rgba(220, 38, 38, 0.26));
+        }
+
+        html[data-theme="light"] .current-work-content {
+            background: linear-gradient(145deg, rgba(139, 92, 246, 0.14) 0%, rgba(248, 250, 252, 0.93) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.28);
+            border-left: 3px solid var(--secondary);
+            box-shadow: 0 16px 32px rgba(139, 92, 246, 0.13);
+        }
+
+        .current-work-content:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 22px 40px rgba(20, 18, 45, 0.26);
+            border-color: rgba(124, 58, 237, 0.36);
+        }
+
+        html[data-theme="light"] .current-work-content:hover {
+            box-shadow: 0 17px 34px rgba(139, 92, 246, 0.16);
+        }
+
+        .current-work-intro {
+            font-size: 0.98rem;
+            color: var(--light);
+            margin-bottom: 1.05rem;
+            line-height: 1.72;
+            font-weight: 500;
+            padding: 0.85rem 0.95rem;
+            border-left: 2px solid rgba(124, 58, 237, 0.5);
+            border-radius: 10px;
+            background: rgba(124, 58, 237, 0.08);
+        }
+
+        html[data-theme="light"] .current-work-intro {
+            background: rgba(139, 92, 246, 0.1);
+            border-left-color: rgba(139, 92, 246, 0.55);
+        }
+
+        .current-case-title {
+            font-size: 1.4rem;
+            color: var(--light);
+            margin-bottom: 0.42rem;
+            letter-spacing: -0.01em;
+        }
+
+        .current-case-subtitle {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 0.45rem;
+            max-width: 62ch;
+        }
+
+        .current-work-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.78rem;
+            margin-bottom: 0.92rem;
+        }
+
+        .current-badge {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 999px;
+            padding: 0.3rem 0.62rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.73rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            background: rgba(124, 58, 237, 0.22);
+            border: 1px solid rgba(124, 58, 237, 0.38);
+            color: #ddd6fe;
+        }
+
+        html[data-theme="light"] .current-badge {
+            color: #5b21b6;
+            background: rgba(139, 92, 246, 0.14);
+            border-color: rgba(139, 92, 246, 0.34);
+        }
+
+        .current-work-role {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
+            color: var(--gray);
+        }
+
+        .current-work-layout {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 1.35rem;
+            margin-top: 1.2rem;
+        }
+
+        .current-work-left {
+            padding-right: 0.2rem;
+        }
+
+        .current-work-right {
+            display: flex;
+        }
+
+        .current-side-panel {
+            width: 100%;
+            background: rgba(124, 58, 237, 0.05);
+            border: 1px solid rgba(124, 58, 237, 0.18);
+            border-radius: var(--border-radius);
+            padding: 1.15rem 1.15rem;
+        }
+
+        html[data-theme="light"] .current-side-panel {
+            background: rgba(139, 92, 246, 0.1);
+            border-color: rgba(139, 92, 246, 0.24);
+        }
+
+        .current-side-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.74rem;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .current-meta-list {
+            list-style: none;
+            margin: 0.7rem 0 0;
+            padding: 0;
+            display: grid;
+            gap: 0;
+        }
+
+        .current-meta-pill {
+            padding: 0.62rem 0;
+            border-radius: 0;
+            background: transparent;
+            border: none;
+            color: var(--light-gray);
+            font-size: 0.83rem;
+            line-height: 1.5;
+        }
+
+        .current-meta-pill + .current-meta-pill {
+            border-top: 1px solid rgba(124, 58, 237, 0.18);
+        }
+
+        html[data-theme="light"] .current-meta-pill {
+            background: transparent;
+            color: #334155;
+        }
+
+        .current-work-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.75rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .current-meta-item {
+            background: rgba(124, 58, 237, 0.08);
+            border: 1px solid rgba(124, 58, 237, 0.22);
+            border-radius: 10px;
+            padding: 0.7rem 0.8rem;
+        }
+
+        html[data-theme="light"] .current-meta-item {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.24);
+        }
+
+        .current-meta-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.74rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--secondary);
+            margin-bottom: 0.25rem;
+        }
+
+        .current-meta-value {
+            font-size: 0.86rem;
+            color: var(--light-gray);
+            line-height: 1.5;
+        }
+
+        .current-responsibilities-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: var(--gray);
+            margin-bottom: 0.45rem;
+        }
+
+        .current-work-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            gap: 0.7rem;
+        }
+
+        .current-work-list li {
+            position: relative;
+            padding: 0.58rem 0 0.58rem 1.2rem;
+            color: var(--light-gray);
+            line-height: 1.6;
+            border-left: 1px solid rgba(124, 58, 237, 0.24);
+        }
+
+        .current-work-list li::before {
+            content: '•';
+            position: absolute;
+            left: -0.14rem;
+            top: 0.58rem;
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        html[data-theme="light"] .current-work-list li {
+            border-left-color: rgba(139, 92, 246, 0.3);
+        }
+
+        .current-work-stack {
+            margin-top: 0;
+            font-size: 0.78rem;
+            color: #ddd6fe;
+            font-family: 'JetBrains Mono', monospace;
+            line-height: 1.55;
+            margin-bottom: 0.38rem;
+        }
+
+        html[data-theme="light"] .current-work-stack {
+            color: #5b21b6;
+        }
+
+        .current-proof {
+            margin-top: 1rem;
+        }
+
+        .current-proof-title {
+            font-size: 1rem;
+            color: var(--light);
+            margin-bottom: 0.8rem;
+        }
+
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.85rem;
+        }
+
+        .proof-card {
+            margin: 0;
+            border: 1px solid rgba(124, 58, 237, 0.24);
+            border-radius: 12px;
+            overflow: hidden;
+            background: rgba(15, 15, 26, 0.45);
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        html[data-theme="light"] .proof-card {
+            background: rgba(248, 250, 252, 0.86);
+            border: 1px solid rgba(139, 92, 246, 0.24);
+        }
+
+        .proof-media {
+            height: 145px;
+            background: linear-gradient(145deg, rgba(124, 58, 237, 0.2) 0%, rgba(12, 11, 32, 0.6) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .proof-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .proof-placeholder {
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0.6rem;
+            font-size: 0.8rem;
+            color: #ddd6fe;
+            background: linear-gradient(145deg, rgba(124, 58, 237, 0.32) 0%, rgba(30, 27, 75, 0.76) 100%);
+        }
+
+        .proof-card figcaption {
+            padding: 0;
+            font-size: 0.83rem;
+            color: var(--light-gray);
+            line-height: 1.45;
+            flex: 1;
+        }
+
+        .proof-card-body {
+            padding: 0.72rem 0.78rem;
+            display: grid;
+            gap: 0.32rem;
+            align-content: start;
+        }
+
+        .proof-card-title {
+            font-size: 0.84rem;
+            color: var(--light);
+            line-height: 1.4;
+        }
+
+        .proof-card-caption {
+            font-size: 0.79rem;
+            color: var(--gray);
+            line-height: 1.45;
+            margin: 0;
+        }
+
+        .engineering-focus {
+            padding: 4.2rem 0 4.8rem;
+        }
+
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .focus-card {
+            background: linear-gradient(145deg, rgba(124, 58, 237, 0.09) 0%, rgba(15, 15, 26, 0.45) 100%);
+            border: 1px solid rgba(124, 58, 237, 0.2);
+            border-radius: 12px;
+            padding: 1rem 1.05rem;
+            transition: var(--transition);
+            min-height: 140px;
+        }
+
+        html[data-theme="light"] .focus-card {
+            background: linear-gradient(145deg, rgba(139, 92, 246, 0.11) 0%, rgba(248, 250, 252, 0.86) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.24);
+        }
+
+        .focus-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(124, 58, 237, 0.4);
+            box-shadow: 0 10px 24px rgba(20, 18, 45, 0.25);
+        }
+
+        .focus-card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.45rem;
+            color: var(--light);
+        }
+
+        .focus-card p {
+            font-size: 0.88rem;
+            color: var(--gray);
+            line-height: 1.55;
         }
 
         .about-content {
@@ -445,10 +1079,68 @@
             margin-bottom: 1.5rem;
         }
 
+        .personal-note {
+            padding: 2.7rem 0;
+        }
+
+        .personal-note-content {
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: center;
+            background: linear-gradient(145deg, rgba(124, 58, 237, 0.08) 0%, rgba(15, 15, 26, 0.36) 100%);
+            border: 1px solid rgba(124, 58, 237, 0.18);
+            border-radius: 14px;
+            padding: 1.25rem 1.3rem;
+        }
+
+        html[data-theme="light"] .personal-note-content {
+            background: linear-gradient(145deg, rgba(139, 92, 246, 0.09) 0%, rgba(248, 250, 252, 0.88) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.22);
+        }
+
+        .personal-note-content h2 {
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .personal-note-content p {
+            font-size: 0.92rem;
+            color: var(--gray);
+            line-height: 1.6;
+            margin: 0;
+        }
+
         .sasuke-path {
             position: relative;
-            padding: 6rem 0;
-            background-color: rgba(46, 49, 146, 0.05);
+            padding: 3.8rem 0;
+            background: linear-gradient(180deg, rgba(46, 49, 146, 0.04) 0%, rgba(46, 49, 146, 0.015) 100%);
+        }
+
+        html[data-theme="light"] .sasuke-path {
+            background: linear-gradient(180deg, rgba(99, 102, 241, 0.08) 0%, rgba(99, 102, 241, 0.03) 100%);
+        }
+
+        .sasuke-path .section-title,
+        .hobbies .section-title {
+            margin-bottom: 2.1rem;
+        }
+
+        .sasuke-path .section-title h2,
+        .hobbies .section-title h2 {
+            font-size: 2rem;
+            opacity: 0.88;
+            padding-bottom: 0.7rem;
+        }
+
+        .sasuke-path .section-title h2::after,
+        .hobbies .section-title h2::after {
+            width: 56px;
+            height: 2px;
+            opacity: 0.7;
         }
         
         .path-container {
@@ -475,20 +1167,26 @@
         }
         
         .path-card {
-            flex: 0 0 300px;
-            margin-right: 2rem;
-            background-color: rgba(46, 49, 146, 0.1);
+            flex: 0 0 280px;
+            margin-right: 1.4rem;
+            background-color: rgba(46, 49, 146, 0.04);
+            border: 1px solid rgba(124, 58, 237, 0.1);
             border-radius: var(--border-radius);
-            padding: 2rem;
+            padding: 1.7rem;
             scroll-snap-align: start;
             position: relative;
             overflow: hidden;
             transition: var(--transition);
         }
+
+        html[data-theme="light"] .path-card {
+            background-color: rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
         
         .path-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow);
+            transform: translateY(-6px);
+            box-shadow: 0 14px 28px rgba(17, 24, 39, 0.18);
         }
         
         .path-card::before {
@@ -502,21 +1200,22 @@
         }
         
         .path-card h3 {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             margin-bottom: 1rem;
             color: var(--secondary);
         }
         
         .path-card p {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            color: var(--gray);
             margin-bottom: 1rem;
         }
         
         .path-card .path-icon {
-            font-size: 2.5rem;
+            font-size: 2.1rem;
             color: var(--secondary);
             margin-bottom: 1.5rem;
-            opacity: 0.7;
+            opacity: 0.42;
         }
 
         .timeline {
@@ -571,6 +1270,24 @@
             border-color: rgba(124, 58, 237, 0.4);
             border-left-color: var(--secondary);
         }
+
+        .timeline-item.current-role .timeline-content {
+            background: linear-gradient(145deg, rgba(124, 58, 237, 0.16) 0%, rgba(15, 15, 26, 0.72) 100%);
+            border-color: rgba(124, 58, 237, 0.4);
+            border-left-width: 4px;
+            box-shadow: 0 18px 36px rgba(20, 18, 45, 0.36);
+        }
+
+        html[data-theme="light"] .timeline-item.current-role .timeline-content {
+            background: linear-gradient(145deg, rgba(139, 92, 246, 0.18) 0%, rgba(248, 250, 252, 0.92) 100%);
+            border-color: rgba(139, 92, 246, 0.35);
+            box-shadow: 0 16px 30px rgba(139, 92, 246, 0.16);
+        }
+
+        .timeline-item.current-role .timeline-date {
+            color: var(--accent);
+            font-weight: 700;
+        }
         
         html[data-theme="light"] .timeline-content:hover {
             box-shadow: 0 15px 35px rgba(139, 92, 246, 0.15);
@@ -618,18 +1335,73 @@
         
         .timeline-content p {
             font-size: 0.95rem;
+            color: var(--light-gray);
         }
         
         .timeline-content ul, .timeline-content ol {
             font-size: 0.95rem;
             padding-left: 20px;
             margin-top: 1rem;
+            color: var(--light-gray);
+            display: grid;
+            gap: 0.4rem;
         }
 
         .projects-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .projects-group-title {
+            margin-bottom: 1.2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gray);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        .flagship-projects {
+            margin-bottom: 1.4rem;
+        }
+
+        .flagship-projects .projects-container {
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.9rem;
+        }
+
+        .projects-group-secondary {
+            margin-top: 2.45rem;
+            margin-bottom: 0.8rem;
+            opacity: 0.78;
+        }
+
+        .secondary-projects {
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.2rem;
+            opacity: 0.82;
+        }
+
+        .other-builds .projects-container {
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.2rem;
+            opacity: 0.82;
+        }
+
+        .secondary-projects .project-card.secondary:hover,
+        .other-builds .projects-container .project-card.secondary:hover {
+            opacity: 1;
+        }
+
+        @media (min-width: 1150px) {
+            .projects-container .project-card.flagship-primary {
+                grid-column: span 2;
+            }
         }
 
         .project-card {
@@ -650,14 +1422,57 @@
             border: 1px solid rgba(139, 92, 246, 0.2);
         }
 
+        .project-card:not(.flagship) {
+            background: linear-gradient(145deg, rgba(124, 58, 237, 0.05) 0%, rgba(15, 15, 26, 0.42) 100%);
+            border-color: rgba(124, 58, 237, 0.12);
+        }
+
+        html[data-theme="light"] .project-card:not(.flagship) {
+            background: linear-gradient(145deg, rgba(139, 92, 246, 0.08) 0%, rgba(248, 250, 252, 0.74) 100%);
+            border-color: rgba(139, 92, 246, 0.16);
+        }
+
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.25);
-            border-color: rgba(124, 58, 237, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 18px 34px rgba(28, 25, 52, 0.26);
+            border-color: rgba(124, 58, 237, 0.32);
         }
 
         html[data-theme="light"] .project-card:hover {
             box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+        }
+
+        .project-card.flagship {
+            border-color: rgba(124, 58, 237, 0.38);
+            box-shadow: 0 16px 30px rgba(20, 18, 45, 0.3);
+            position: relative;
+        }
+
+        .project-card.flagship::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            z-index: 3;
+        }
+
+        .project-card.flagship-primary::before {
+            background: linear-gradient(90deg, rgba(124, 58, 237, 0.1), var(--secondary), rgba(124, 58, 237, 0.1));
+        }
+
+        .project-card.flagship-secondary::before {
+            background: linear-gradient(90deg, rgba(59, 130, 246, 0.1), #3b82f6, rgba(59, 130, 246, 0.1));
+        }
+
+        .project-card.flagship-tertiary::before {
+            background: linear-gradient(90deg, rgba(16, 185, 129, 0.1), #10b981, rgba(16, 185, 129, 0.1));
+        }
+
+        html[data-theme="light"] .project-card.flagship {
+            box-shadow: 0 16px 30px rgba(139, 92, 246, 0.18);
+            border-color: rgba(139, 92, 246, 0.35);
         }
 
         .project-card.featured {
@@ -739,10 +1554,22 @@
             z-index: 2;
         }
 
+        .project-card.flagship .project-content {
+            padding: 1.8rem 1.82rem 1.72rem;
+            gap: 0.15rem;
+        }
+
         .project-title {
             font-size: 1.4rem;
             margin-bottom: 0.5rem;
             color: var(--light);
+        }
+
+        .project-card.flagship .project-title {
+            font-size: 1.56rem;
+            line-height: 1.22;
+            letter-spacing: -0.014em;
+            margin-bottom: 0.7rem;
         }
 
         .project-description {
@@ -750,6 +1577,146 @@
             margin-bottom: 1.5rem;
             color: var(--light-gray);
             flex-grow: 1;
+        }
+
+        .project-card.flagship .project-description {
+            font-size: 0.95rem;
+            color: var(--light-gray);
+            line-height: 1.68;
+            margin-bottom: 1.2rem;
+            white-space: pre-line;
+            padding-left: 0.75rem;
+            border-left: 2px solid rgba(124, 58, 237, 0.34);
+        }
+
+        html[data-theme="light"] .project-card.flagship .project-description {
+            border-left-color: rgba(139, 92, 246, 0.36);
+        }
+
+        .project-card:not(.flagship) .project-description {
+            color: rgba(203, 213, 225, 0.84);
+        }
+
+        .project-card.secondary {
+            border-color: rgba(124, 58, 237, 0.08);
+            box-shadow: none;
+            background: linear-gradient(145deg, rgba(124, 58, 237, 0.035) 0%, rgba(15, 15, 26, 0.34) 100%);
+            opacity: 0.84;
+        }
+
+        .project-card.secondary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(20, 18, 45, 0.16);
+            border-color: rgba(124, 58, 237, 0.2);
+        }
+
+        .project-card.secondary .project-img {
+            height: 142px;
+            opacity: 0.85;
+        }
+
+        .project-card.secondary .project-content {
+            padding: 0.95rem;
+        }
+
+        .project-card.secondary .project-title {
+            font-size: 1.14rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .project-card.secondary .project-description {
+            font-size: 0.88rem;
+            line-height: 1.5;
+            color: var(--gray);
+            margin-bottom: 0.9rem;
+            display: -webkit-box;
+            line-clamp: 3;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        html[data-theme="light"] .project-card.secondary .project-description {
+            color: #475569;
+        }
+
+        .project-card.secondary .project-tech {
+            gap: 0.35rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .project-card.secondary .tech-tag {
+            padding: 0.28rem 0.58rem;
+            font-size: 0.72rem;
+        }
+
+        .project-card.secondary .project-link {
+            font-size: 0.83rem;
+        }
+
+        .other-builds .project-card.secondary {
+            border-color: rgba(124, 58, 237, 0.08);
+            opacity: 0.84;
+        }
+
+        .project-featured-badge {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            padding: 0.36rem 0.72rem;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            font-weight: 650;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border: 1px solid transparent;
+            min-height: 30px;
+        }
+
+        .project-card.flagship .project-tech {
+            margin-bottom: 1rem;
+            gap: 0.42rem;
+            padding-top: 0.85rem;
+            border-top: 1px solid rgba(124, 58, 237, 0.2);
+        }
+
+        html[data-theme="light"] .project-card.flagship .project-tech {
+            border-top-color: rgba(139, 92, 246, 0.24);
+        }
+
+        .project-card.flagship .tech-tag {
+            padding: 0.34rem 0.72rem;
+            font-size: 0.74rem;
+        }
+
+        .flagship-primary .project-featured-badge {
+            background: rgba(124, 58, 237, 0.2);
+            color: #c4b5fd;
+            border-color: rgba(124, 58, 237, 0.35);
+        }
+
+        .flagship-secondary .project-featured-badge {
+            background: rgba(59, 130, 246, 0.18);
+            color: #bfdbfe;
+            border-color: rgba(59, 130, 246, 0.35);
+        }
+
+        .flagship-tertiary .project-featured-badge {
+            background: rgba(16, 185, 129, 0.18);
+            color: #a7f3d0;
+            border-color: rgba(16, 185, 129, 0.35);
+        }
+
+        html[data-theme="light"] .flagship-primary .project-featured-badge {
+            color: #5b21b6;
+        }
+
+        html[data-theme="light"] .flagship-secondary .project-featured-badge {
+            color: #1d4ed8;
+        }
+
+        html[data-theme="light"] .flagship-tertiary .project-featured-badge {
+            color: #047857;
         }
 
         .project-tech {
@@ -782,6 +1749,20 @@
             z-index: 5;
         }
 
+        .project-card.flagship .project-links {
+            margin-top: auto;
+            padding-top: 0.85rem;
+            border-top: 1px solid rgba(124, 58, 237, 0.2);
+        }
+
+        html[data-theme="light"] .project-card.flagship .project-links {
+            border-top-color: rgba(139, 92, 246, 0.24);
+        }
+
+        .project-card.flagship .project-link {
+            font-weight: 600;
+        }
+
         .project-link {
             display: inline-flex;
             align-items: center;
@@ -789,8 +1770,8 @@
             font-size: 0.9rem;
             color: var(--secondary);
             transition: var(--transition);
-            cursor: pointer !important;
-            pointer-events: auto !important;
+            cursor: pointer;
+            pointer-events: auto;
             padding: 5px 0;
             position: relative;
             z-index: 10;
@@ -1031,30 +2012,34 @@
             border-radius: 10px;
         }
         
+        .hobbies {
+            padding: 3.5rem 0;
+        }
+
         .hobbies-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .hobby-card {
-            background: linear-gradient(145deg, rgba(124, 58, 237, 0.08) 0%, rgba(15, 15, 26, 0.5) 100%);
-            border: 1px solid rgba(124, 58, 237, 0.15);
+            background: linear-gradient(145deg, rgba(124, 58, 237, 0.05) 0%, rgba(15, 15, 26, 0.38) 100%);
+            border: 1px solid rgba(124, 58, 237, 0.09);
             border-radius: var(--border-radius);
-            padding: 2rem;
+            padding: 1.35rem;
             text-align: center;
             transition: var(--transition);
             backdrop-filter: blur(10px);
         }
         
         html[data-theme="light"] .hobby-card {
-            background: linear-gradient(145deg, rgba(139, 92, 246, 0.1) 0%, rgba(248, 250, 252, 0.8) 100%);
-            border: 1px solid rgba(139, 92, 246, 0.2);
+            background: linear-gradient(145deg, rgba(139, 92, 246, 0.07) 0%, rgba(248, 250, 252, 0.7) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.16);
         }
 
         .hobby-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(124, 58, 237, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(124, 58, 237, 0.16);
             border-color: rgba(124, 58, 237, 0.4);
         }
         
@@ -1063,91 +2048,150 @@
         }
 
         .hobby-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 2.1rem;
+            margin-bottom: 0.75rem;
             color: var(--secondary);
         }
 
         .hobby-name {
-            font-size: 1.2rem;
+            font-size: 0.98rem;
             margin-bottom: 0.5rem;
+        }
+
+        .hobby-card p {
+            font-size: 0.85rem;
+            color: var(--gray);
         }
         
         .contact-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 4rem;
-        }
-
-        .contact-info {
-            margin-bottom: 2rem;
-        }
-
-        .contact-info-item {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: rgba(46, 49, 146, 0.1);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 1rem;
-            color: var(--secondary);
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-        
-        html[data-theme="light"] .contact-icon {
-            background-color: rgba(58, 134, 255, 0.1);
-        }
-
-        .contact-info-item:hover .contact-icon {
-            background-color: var(--secondary);
-            color: var(--light);
-            transform: scale(1.1);
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
+            text-align: center;
+            gap: 1.8rem;
+            max-width: 1020px;
+            margin: 0 auto;
+            padding: 2rem 2.1rem;
+            border: 1px solid rgba(124, 58, 237, 0.18);
             border-radius: var(--border-radius);
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: linear-gradient(145deg, rgba(124, 58, 237, 0.08) 0%, rgba(15, 15, 26, 0.42) 100%);
+        }
+
+        html[data-theme="light"] .contact-content {
+            border-color: rgba(139, 92, 246, 0.22);
+            background: linear-gradient(145deg, rgba(139, 92, 246, 0.1) 0%, rgba(248, 250, 252, 0.9) 100%);
+        }
+
+        .contact-header h3 {
+            font-size: 1.72rem;
+            margin-bottom: 0.6rem;
+            letter-spacing: -0.01em;
             color: var(--light);
-            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-description {
+            color: var(--gray);
+            font-size: 0.98rem;
+            max-width: 66ch;
+            margin: 0 auto;
+            line-height: 1.68;
+        }
+
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 0.95rem;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: linear-gradient(145deg, rgba(124, 58, 237, 0.08) 0%, rgba(15, 15, 26, 0.5) 100%);
+            border: 1px solid rgba(124, 58, 237, 0.2);
+            border-radius: var(--border-radius);
+            padding: 1.25rem 1rem;
+            text-decoration: none;
             transition: var(--transition);
+            display: grid;
+            justify-items: center;
+            align-content: center;
+            gap: 0.6rem;
+            min-height: 156px;
         }
-        
-        html[data-theme="light"] .contact-form input,
-        html[data-theme="light"] .contact-form textarea {
-            background-color: rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.1);
+
+        html[data-theme="light"] .contact-card {
+            background: linear-gradient(145deg, rgba(139, 92, 246, 0.1) 0%, rgba(248, 250, 252, 0.88) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.24);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(124, 58, 237, 0.42);
+            box-shadow: 0 14px 24px rgba(20, 18, 45, 0.22);
+        }
+
+        .contact-avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            background: linear-gradient(135deg, var(--secondary) 0%, #a855f7 100%);
+        }
+
+        .contact-avatar.github {
+            background: linear-gradient(135deg, #2b2b2b 0%, #4f46e5 100%);
+        }
+
+        .contact-avatar.linkedin {
+            background: linear-gradient(135deg, #0a66c2 0%, #38bdf8 100%);
+        }
+
+        .contact-card h4 {
+            color: var(--light);
+            font-size: 1rem;
+        }
+
+        .contact-card p {
+            color: var(--gray);
+            font-size: 0.86rem;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .contact-cta-row {
+            margin-top: 0.1rem;
+        }
+
+        .contact-cta-row .btn-outline {
+            margin-left: 0;
+            border-color: rgba(124, 58, 237, 0.36);
+            background: rgba(124, 58, 237, 0.08);
             color: var(--light);
         }
 
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            border-color: var(--secondary);
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        
-        html[data-theme="light"] .contact-form input:focus,
-        html[data-theme="light"] .contact-form textarea:focus {
-            background-color: rgba(0, 0, 0, 0.1);
+        .contact-cta-row .btn-outline:hover {
+            background: rgba(124, 58, 237, 0.2);
+            border-color: rgba(124, 58, 237, 0.55);
+            color: white;
         }
 
-        .contact-form textarea {
-            resize: vertical;
-            min-height: 150px;
+        html[data-theme="light"] .contact-cta-row .btn-outline {
+            border-color: rgba(139, 92, 246, 0.44);
+            background: rgba(139, 92, 246, 0.1);
+            color: #4c1d95;
+        }
+
+        .contact-resume-btn {
+            min-width: 180px;
+        }
+
+        .contact-availability {
+            color: var(--gray);
+            font-size: 0.92rem;
+            margin: 0;
         }
         
         footer {
@@ -1278,6 +2322,7 @@
             opacity: 0;
             visibility: hidden;
             z-index: 99;
+            border: none;
         }
 
         .back-to-top.active {
@@ -1406,22 +2451,70 @@
         }
     
         .skill-category:hover,
-        .project-card:hover,
         .language-card:hover,
-        .hobby-card:hover,
-        .timeline-content:hover {
+        .hobby-card:hover {
             box-shadow: 0 0 15px rgba(123, 44, 191, 0.3);
         }
         
         html[data-theme="light"] .skill-category:hover,
-        html[data-theme="light"] .project-card:hover,
         html[data-theme="light"] .language-card:hover,
-        html[data-theme="light"] .hobby-card:hover,
-        html[data-theme="light"] .timeline-content:hover {
+        html[data-theme="light"] .hobby-card:hover {
             box-shadow: 0 0 15px rgba(58, 134, 255, 0.3);
         }
         
         @media (max-width: 992px) {
+            .hero-content {
+                max-width: 100%;
+                padding: 1.65rem;
+            }
+
+            .hero-chips {
+                width: 100%;
+            }
+
+            .hero-trust-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .hero-trust-item {
+                padding: 0.52rem 0;
+            }
+
+            .hero-trust-item + .hero-trust-item {
+                border-left: none;
+                border-top: 1px solid rgba(124, 58, 237, 0.2);
+            }
+
+            .hero-chip {
+                font-size: 0.72rem;
+            }
+
+            .current-work-content {
+                padding: 1.65rem;
+            }
+
+            .current-work-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .proof-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .focus-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .secondary-projects,
+            .other-builds .projects-container {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+
+            .contact-cards {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
             .about-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -1465,8 +2558,153 @@
         }
 
         @media (max-width: 768px) {
+            .hero {
+                min-height: auto;
+                padding-top: 5.7rem;
+                padding-bottom: 1.8rem;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                padding: 0.15rem 0;
+                background: linear-gradient(180deg, rgba(12, 11, 32, 0.2) 0%, rgba(12, 11, 32, 0) 100%);
+                border: none;
+                box-shadow: none;
+                backdrop-filter: none;
+                border-radius: 0;
+            }
+
+            html[data-theme="light"] .hero-content {
+                background: linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0) 100%);
+                border: none;
+                box-shadow: none;
+            }
+
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+                line-height: 1.08;
+                margin-bottom: 0.5rem;
+            }
+
+            .hero p[data-lang-key="hero.subtitle"] {
+                font-size: 0.98rem;
+                line-height: 1.48;
+                max-width: 33ch;
+                margin-bottom: 0.52rem;
+            }
+
+            .hero p[data-lang-key="hero.identity"] {
+                font-size: 0.88rem;
+                line-height: 1.5;
+                max-width: 35ch;
+                margin-bottom: 0.22rem;
+            }
+
+            .hero-chips {
+                display: none;
+            }
+
+            .hero-trust-row {
+                display: block;
+                margin-top: 0.68rem;
+                padding: 0.24rem 0;
+                border-top: 1px solid rgba(124, 58, 237, 0.24);
+                border-bottom: 1px solid rgba(124, 58, 237, 0.24);
+                gap: 0;
+            }
+
+            html[data-theme="light"] .hero-trust-row {
+                border-top: 1px solid rgba(139, 92, 246, 0.28);
+                border-bottom: 1px solid rgba(139, 92, 246, 0.28);
+            }
+
+            .hero-trust-item {
+                justify-content: flex-start;
+                text-align: left;
+                min-height: auto;
+                padding: 0.42rem 0;
+                border-left: none !important;
+                border: none;
+                border-radius: 0;
+                background: transparent;
+                font-size: 0.77rem;
+                line-height: 1.42;
+                color: #cbd5e1;
+            }
+
+            html[data-theme="light"] .hero-trust-item {
+                background: transparent;
+                color: #475569;
+                border: none;
+            }
+
+            .hero-trust-item + .hero-trust-item {
+                border-top: 1px solid rgba(124, 58, 237, 0.18);
+            }
+
+            html[data-theme="light"] .hero-trust-item + .hero-trust-item {
+                border-top: 1px solid rgba(139, 92, 246, 0.2);
+            }
+
+            .focus-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .proof-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.55rem;
+                margin-top: 0.9rem;
+            }
+
+            .hero .hero-actions .btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: auto;
+                min-height: 40px;
+                padding: 0.62rem 1.08rem;
+                font-size: 0.88rem;
+                border-radius: 10px;
+                margin-bottom: 0;
+                box-shadow: 0 7px 18px rgba(124, 58, 237, 0.24);
+            }
+
+            .hero .hero-actions .btn-outline {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0.45rem 0.84rem;
+                border: 1px solid rgba(124, 58, 237, 0.34);
+                background: rgba(124, 58, 237, 0.12);
+                color: var(--light);
+                box-shadow: none;
+                border-radius: 10px;
+                font-size: 0.83rem;
+                font-weight: 500;
+                line-height: 1.4;
+            }
+
+            html[data-theme="light"] .hero .hero-actions .btn-outline {
+                border-color: rgba(139, 92, 246, 0.42);
+                background: rgba(139, 92, 246, 0.14);
+                color: #4c1d95;
+            }
+
+            .hero .hero-actions .btn-outline:hover {
+                background: rgba(124, 58, 237, 0.22);
+                border-color: rgba(124, 58, 237, 0.5);
+                color: #f8fafc;
+                transform: none;
+                box-shadow: none;
             }
 
             .hero-image {
@@ -1525,13 +2763,45 @@
 
         @media (max-width: 576px) {
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.96rem;
+            }
+
+            .hero p[data-lang-key="hero.subtitle"] {
+                font-size: 0.94rem;
+                max-width: 30ch;
+            }
+
+            .hero p[data-lang-key="hero.identity"] {
+                font-size: 0.84rem;
+                max-width: 32ch;
+            }
+
+            .hero-trust-item {
+                font-size: 0.74rem;
+                padding: 0.36rem 0;
+            }
+
+            .priority-section .section-title h2 {
+                font-size: 2.1rem;
+            }
+
+            .sasuke-path .section-title h2,
+            .hobbies .section-title h2 {
+                font-size: 1.7rem;
             }
 
             .btn {
                 display: block;
                 width: 100%;
                 margin-bottom: 1rem;
+            }
+
+            .hero .hero-actions .btn {
+                display: inline-flex;
+                width: auto;
+                margin-bottom: 0;
+                padding: 0.58rem 0.98rem;
+                min-height: 38px;
             }
 
             .btn-outline {
@@ -1545,6 +2815,11 @@
             .projects-container {
                 grid-template-columns: 1fr;
             }
+
+            .personal-note-content {
+                text-align: left;
+                padding: 1rem;
+            }
         }
     </style>
 </head>
@@ -1556,27 +2831,26 @@
     <header id="header">
         <div class="container header-container">
             <div class="logo">Guto<span>Dev</span></div>
-            <div class="hamburger" id="hamburger">
+            <button class="hamburger" id="hamburger" type="button" aria-label="Toggle navigation menu" aria-controls="nav" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
-            <nav id="nav">
+            </button>
+            <nav id="nav" aria-label="Primary navigation">
                 <ul>
                     <li><a href="#home" data-lang-key="nav.home">Home</a></li>
                     <li><a href="#about" data-lang-key="nav.about">About</a></li>
-                    <li><a href="#sasuke-path" data-lang-key="nav.path">My Path</a></li>
+                    <li><a href="#current-work" data-lang-key="nav.current">Current Work</a></li>
                     <li><a href="#experience" data-lang-key="nav.experience">Experience</a></li>
-                    <li><a href="#projects" data-lang-key="nav.projects">Projects</a></li>
-                    <li><a href="#skills" data-lang-key="nav.skills">Skills</a></li>                    
-                    <li><a href="#languages" data-lang-key="nav.languages">Languages</a></li>
-                    <li><a href="#hobbies" data-lang-key="nav.hobbies">Hobbies</a></li>                    
+                    <li><a href="#projects" data-lang-key="nav.projects">Systems</a></li>
                     <li><a href="#contact" data-lang-key="nav.contact">Contact</a></li>
-                    <li class="theme-toggle" id="themeToggle">
-                        <i class="fas fa-moon"></i>
+                    <li>
+                        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false">
+                            <i class="fas fa-moon"></i>
+                        </button>
                     </li>
                     <li class="language-selector">
-                        <select id="languageSelect">
+                        <select id="languageSelect" aria-label="Select language">
                             <option value="en" selected>EN</option>
                             <option value="pt">PT</option>
                         </select>
@@ -1589,15 +2863,60 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content fade-in">
-                <h1>Hello, I'm <span class="highlight">Augusto Oliveira</span></h1>
-                <p class="fade-in delay-1" data-lang-key="hero.subtitle">Software Developer specialized in Generative AI, Full-Stack Development, and MLOps.</p>
-                <div class="fade-in delay-2">
+                <h1><span class="highlight">Augusto Oliveira</span></h1>
+                <p class="fade-in delay-1" data-lang-key="hero.subtitle">Software Engineer building backend systems, AI-enabled workflows, and full-stack applications.</p>
+                <p class="fade-in delay-2" data-lang-key="hero.identity">Building reliable systems from backend architecture to daily operations.</p>
+                <div class="hero-trust-row fade-in delay-4">
+                    <span class="hero-trust-item" data-lang-key="hero.trust1">Current Role: CCSL-IFRN</span>
+                    <span class="hero-trust-item" data-lang-key="hero.trust2">Core Stack: Python, Flask, LangChain, Milvus</span>
+                    <span class="hero-trust-item" data-lang-key="hero.trust3">Flagship Systems: SmartFAQ, Access Control, Scraper</span>
+                </div>
+                <div class="hero-actions fade-in delay-4">
                     <a href="#contact" class="btn" data-lang-key="hero.contact">Get In Touch</a>
                     <a href="#projects" class="btn btn-outline" data-lang-key="hero.projects">View My Work</a>
                 </div>
             </div>
         </div>
-        <img src="https://i.pinimg.com/originals/5f/fe/2e/5ffe2e64ba3ecccd590727473a36fd50.gif" alt="Decorative Abstract Shape" class="hero-image fade-in delay-3">
+    </section>
+
+    <section id="current-work" class="current-work priority-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-lang-key="current.title">Current Work</h2>
+            </div>
+            <div class="current-work-content fade-in">
+                <div class="current-work-header">
+                    <span class="current-badge" data-lang-key="current.badge">Current System</span>
+                    <p class="current-work-role" data-lang-key="current.role">Software Engineer - RAG Platform & Admin Operations | CCSL-IFRN | Apr 2026 - Present</p>
+                </div>
+                <h3 class="current-case-title" data-lang-key="current.case.title">What I Work On Now</h3>
+                <p class="current-case-subtitle" data-lang-key="current.case.subtitle">Live institutional engineering work with operational governance and reliability goals.</p>
+                <div class="current-work-layout">
+                    <div class="current-work-left">
+                        <p class="current-work-intro" data-lang-key="current.intro">I operate SmartFAQ as an institutional RAG platform under reliability and governance constraints.</p>
+                        <p class="current-responsibilities-title" data-lang-key="current.responsibilities">Responsibilities</p>
+                        <ul class="current-work-list">
+                            <li data-lang-key="current.item1">Operate source lifecycle across index, update, and remove flows in institutional use.</li>
+                            <li data-lang-key="current.item2">Run controlled force_index and force_remove actions with WEB_ONLY_MODE for safe simulation.</li>
+                            <li data-lang-key="current.item3">Maintain incremental synchronization between source updates and vector state.</li>
+                            <li data-lang-key="current.item4">Track eligibility and skip reasons to preserve retrieval consistency and auditability.</li>
+                        </ul>
+                    </div>
+                    <aside class="current-work-right">
+                        <div class="current-side-panel">
+                            <p class="current-side-title" data-lang-key="current.proof.title">Systems in Operation</p>
+                            <p class="current-work-stack" data-lang-key="current.stack">Stack: Python, Flask, Flask-Admin, LangChain, Milvus, PostgreSQL, Docker</p>
+                            <ul class="current-meta-list">
+                                <li class="current-meta-pill" data-lang-key="current.meta1">Institutional RAG operations at CCSL-IFRN (Apr 2026 - Present).</li>
+                                <li class="current-meta-pill" data-lang-key="current.meta2">Operational controls include source lifecycle, force_index, force_remove, and WEB_ONLY_MODE.</li>
+                                <li class="current-meta-pill" data-lang-key="current.meta3">Synchronization keeps source updates aligned with vector state and retrieval consistency.</li>
+                                <li class="current-meta-pill" data-lang-key="current.meta4">Reliability is reinforced by auditability, structured logs, and governed admin workflows.</li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
     </section>
     
     <section id="about" class="about">
@@ -1607,18 +2926,18 @@
             </div>
             <div class="about-content">
                 <div class="about-image fade-in">
-                    <img src="that'smeee.jpeg" alt="Augusto Oliveira" onerror="this.src='https://via.placeholder.com/400x400?text=Augusto'">
+                    <img loading="lazy" decoding="async" src="that'smeee.jpeg" alt="Augusto Oliveira" onerror="this.src='https://via.placeholder.com/400x400?text=Augusto'">
                 </div>
                 <div class="about-text fade-in delay-1">
-                    <h3 data-lang-key="about.role">Software Developer & AI Engineer</h3>
-                    <p data-lang-key="about.description1">Software Developer with hands-on experience in architecting and building complex end-to-end solutions, specializing in Generative AI systems and Full-Stack development. My path is marked by the ability to overcome technical challenges and deliver functional products, from data engineering to MLOps pipeline implementation.</p>
-                    <p data-lang-key="about.description2">My expertise focuses on three main areas: AI & MLOps Engineering (RAG pipelines with LangChain, Milvus, ZenML), Data & Back-end Engineering (Python/Django, Node.js/Express, PostgreSQL), and Front-end Development (Angular, TypeScript, React). I'm passionate about solving problems and collaborating on innovative, high-impact tech products.</p>
-                    <p data-lang-key="about.location">From Natal, Brazil 📍🇧🇷</p>
+                    <h3 data-lang-key="about.role">Software Engineer - Backend, AI Systems, and Operations</h3>
+                    <p data-lang-key="about.description1">I build and operate institutional software systems end to end, combining backend engineering with AI-enabled workflows under real operational constraints. My work spans architecture, implementation, admin operations, observability, and long-term maintainability.</p>
+                    <p data-lang-key="about.description2">I focus on five engineering areas: AI Systems & RAG Operations, Backend Services & APIs, Data Pipelines & Automation, Product Interfaces, and Infrastructure Reliability.</p>
+                    <p data-lang-key="about.location">Based in Natal, Brazil.</p>
                     <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
-                        <a href="https://github.com/Augusto240" class="btn" target="_blank">
+                        <a href="https://github.com/Augusto240" class="btn" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-github"></i> <span data-lang-key="about.github">GitHub Profile</span>
                         </a>
-                        <a href="https://www.linkedin.com/in/augusto-oliveira-4a8068235/" class="btn btn-outline" target="_blank">
+                        <a href="https://www.linkedin.com/in/augusto-oliveira-4a8068235/" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-linkedin"></i> LinkedIn
                         </a>
                     </div>
@@ -1630,47 +2949,47 @@
     <section id="sasuke-path" class="sasuke-path">
         <div class="container">
             <div class="section-title">
-                <h2 data-lang-key="path.title">My Developer Path</h2>
+                <h2 data-lang-key="path.title">Engineering Path</h2>
             </div>
             <div class="path-container">
                 <div class="path-card fade-in">
                     <div class="path-icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <h3 data-lang-key="path.beginner.title">The Beginning</h3>
-                    <p data-lang-key="path.beginner.description">My journey in coding started with curiosity and determination. Learning basic skills, I mastered HTML, CSS, and simple JavaScript.</p>
+                    <h3 data-lang-key="path.beginner.title">Technical Foundation</h3>
+                    <p data-lang-key="path.beginner.description">Started with HTML, CSS, and JavaScript fundamentals while building discipline in version control and problem decomposition.</p>
                 </div>
                 
                 <div class="path-card fade-in delay-1">
                     <div class="path-icon">
                         <i class="fas fa-fire"></i>
                     </div>
-                    <h3 data-lang-key="path.academy.title">Academy Training</h3>
-                    <p data-lang-key="path.academy.description">At IFRN, I honed my skills and learned the fundamentals of web development.</p>
+                    <h3 data-lang-key="path.academy.title">Academic Consolidation</h3>
+                    <p data-lang-key="path.academy.description">At IFRN, I strengthened software engineering fundamentals, teamwork habits, and delivery through applied projects.</p>
                 </div>
                 
                 <div class="path-card fade-in delay-2">
                     <div class="path-icon">
                         <i class="fas fa-bolt"></i>
                     </div>
-                    <h3 data-lang-key="path.power.title">Gaining Power</h3>
-                    <p data-lang-key="path.power.description">Mastering advanced frameworks and backend technologies gave me the power to build complete solutions.</p>
+                    <h3 data-lang-key="path.power.title">Systems Expansion</h3>
+                    <p data-lang-key="path.power.description">Expanded into backend services, databases, and integration workflows to deliver complete end-to-end systems.</p>
                 </div>
                 
                 <div class="path-card fade-in delay-3">
                     <div class="path-icon">
                         <i class="fas fa-eye"></i>
                     </div>
-                    <h3 data-lang-key="path.vision.title">Clear Vision</h3>
-                    <p data-lang-key="path.vision.description">Now with experience and knowledge, I see the bigger picture in software architecture and solution design.</p>
+                    <h3 data-lang-key="path.vision.title">Architecture Perspective</h3>
+                    <p data-lang-key="path.vision.description">Shifted focus from isolated features to system behavior, engineering trade-offs, and long-term maintainability.</p>
                 </div>
                 
                 <div class="path-card fade-in delay-4">
                     <div class="path-icon">
                         <i class="fas fa-infinity"></i>
                     </div>
-                    <h3 data-lang-key="path.future.title">The Future Path</h3>
-                    <p data-lang-key="path.future.description">My journey continues as I pursue mastery in full-stack development, always learning and growing to become an ultimate developer.</p>
+                    <h3 data-lang-key="path.future.title">Current Direction</h3>
+                    <p data-lang-key="path.future.description">Now focused on AI systems in operation, balancing product needs with reliability, traceability, and governance.</p>
                 </div>
             </div>
         </div>
@@ -1695,15 +3014,33 @@
         </div>
     </section>
     
-    <section id="experience" class="experience">
+    <section id="experience" class="experience priority-section">
         <div class="container">
             <div class="section-title">
                 <h2 data-lang-key="experience.title">Work Experience</h2>
             </div>
             <div class="timeline">
-                <div class="timeline-item fade-in">
+                <div class="timeline-item fade-in current-role">
                     <div class="timeline-content">
-                        <span class="timeline-date" data-lang-key="experience.job1.date">May 2024 - December 2025</span>
+                        <span class="timeline-date" data-lang-key="experience.job0.date">Apr 2026 - Present</span>
+                        <h3 data-lang-key="experience.job0.title">Software Engineer - RAG Platform & Admin Operations</h3>
+                        <h4 data-lang-key="experience.job0.company">CCSL-IFRN</h4>
+                        <p data-lang-key="experience.job0.description">I maintain and evolve SmartFAQ in an institutional environment, focusing on operational RAG controls, source lifecycle management, and admin reliability.</p>
+                        <p><strong data-lang-key="experience.achievements">Key Achievements:</strong></p>
+                        <ul>
+                            <li data-lang-key="experience.job0.achievement1">Implemented manual source index and remove actions in Flask-Admin with support for safe simulation mode (WEB_ONLY_MODE).</li>
+                            <li data-lang-key="experience.job0.achievement2">Implemented automatic source synchronization on create, update, and delete hooks to keep RAG state aligned.</li>
+                            <li data-lang-key="experience.job0.achievement3">Centralized source eligibility rules to enforce consistent inclusion and exclusion decisions across RAG pipelines.</li>
+                            <li data-lang-key="experience.job0.achievement4">Built RAG audit visibility with source status, exclusion reasons, and structured operational logs.</li>
+                            <li data-lang-key="experience.job0.achievement5">Maintained source and cache admin workflows for reliable daily operation in a production-adjacent system.</li>
+                        </ul>
+                        <p><strong data-lang-key="experience.tech">Technologies:</strong> Python, Flask, Flask-Admin, SQLAlchemy, LangChain, Milvus, Docker, PostgreSQL</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item fade-in delay-1">
+                    <div class="timeline-content">
+                        <span class="timeline-date" data-lang-key="experience.job1.date">May 2024 - Dec 2025</span>
                         <h3 data-lang-key="experience.job1.title">Full-Stack Developer (Extension Scholarship)</h3>
                         <h4 data-lang-key="experience.job1.company">NOCS Lab - IFRN</h4>
                         <p data-lang-key="experience.job1.description">I developed and consolidated an end-to-end vehicular access control system, integrating computer vision, real-time communication, and a web management platform, working on both development and system stabilization/validation phases.</p>
@@ -1719,12 +3056,12 @@
                     </div>
                     <div class="timeline-dot"></div>
                 </div>
-                <div class="timeline-item fade-in delay-1">
+                <div class="timeline-item fade-in delay-2">
                     <div class="timeline-content">
-                        <span class="timeline-date" data-lang-key="experience.job2.date">January 2025 - September 2025</span>
+                        <span class="timeline-date" data-lang-key="experience.job2.date">Jan 2025 - Sep 2025</span>
                         <h3 data-lang-key="experience.job2.title">Generative AI Research Scholar</h3>
-                        <h4 data-lang-key="experience.job2.company">CCSL-IFRN - Center for Open Source Solutions</h4>
-                        <p data-lang-key="experience.job2.description">I led the end-to-end technical development of "SmartFAQ", a functional Generative AI prototype for automated responses, from conception and data extraction to cloud deployment.</p>
+                        <h4 data-lang-key="experience.job2.company">CCSL-IFRN</h4>
+                        <p data-lang-key="experience.job2.description">I led SmartFAQ end to end as a functional institutional Q&A system, from data extraction and retrieval design to deployment and operational handoff.</p>
                         <p><strong data-lang-key="experience.achievements">Key Achievements:</strong></p>
                         <ul>
                             <li data-lang-key="experience.job2.achievement1">RAG Architecture & Development: Designed and implemented a sophisticated RAG architecture with Python and LangChain, using hybrid search (BM25 + Vector) and Milvus vector database for high-precision responses</li>
@@ -1741,21 +3078,54 @@
         </div>
     </section>
 
-    
-    <section id="projects" class="projects">
+    <section id="engineering-focus" class="engineering-focus">
         <div class="container">
             <div class="section-title">
-                <h2 data-lang-key="projects.title">My Projects</h2>
+                <h2 data-lang-key="focus.title">Engineering Focus</h2>
             </div>
-            <div class="projects-container">
-                <div class="project-card fade-in">                    
+            <div class="focus-grid">
+                <article class="focus-card fade-in">
+                    <h3 data-lang-key="focus.backend.title">Backend Systems</h3>
+                    <p data-lang-key="focus.backend.description">Reliable service boundaries, auth flows, and operational backend controls.</p>
+                </article>
+                <article class="focus-card fade-in delay-1">
+                    <h3 data-lang-key="focus.rag.title">RAG & AI Operations</h3>
+                    <p data-lang-key="focus.rag.description">Retrieval pipelines, source lifecycle rules, and auditable RAG behavior in production-adjacent use.</p>
+                </article>
+                <article class="focus-card fade-in delay-2">
+                    <h3 data-lang-key="focus.fullstack.title">Full-Stack Applications</h3>
+                    <p data-lang-key="focus.fullstack.description">End-to-end delivery across frontend, backend APIs, auth, and operational workflows.</p>
+                </article>
+                <article class="focus-card fade-in delay-3">
+                    <h3 data-lang-key="focus.data.title">Data Pipelines & Scraping</h3>
+                    <p data-lang-key="focus.data.description">Resilient extraction and processing pipelines for dynamic portals and API-ready data outputs.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="projects" class="projects priority-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-lang-key="projects.title">Systems & Applications</h2>
+            </div>
+            <p class="projects-group-title" data-lang-key="projects.flagshipGroup">Flagship Systems</p>
+            <div class="flagship-projects">
+                <div class="projects-container">
+                <div class="project-card fade-in flagship flagship-primary">                    
                     <div class="project-img">
-                        <img src="https://bernardmarr.com/wp-content/uploads/2024/02/13-Ways-Writers-Should-Embrace-Generative-AI.webp" alt="SmartFAQ - Generative AI Project">
+                        <img loading="lazy" decoding="async" src="https://bernardmarr.com/wp-content/uploads/2024/02/13-Ways-Writers-Should-Embrace-Generative-AI.webp" alt="SmartFAQ - Generative AI Project">
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title" data-lang-key="projects.smartfaq.title">SmartFAQ - Generative AI System</h3>
+                        <span class="project-featured-badge" data-lang-key="projects.smartfaq.badge">Flagship System</span>
+                        <h3 class="project-title" data-lang-key="projects.smartfaq.title">SmartFAQ - RAG Operations Platform</h3>
                         <p class="project-description" data-lang-key="projects.smartfaq.description">
-                            A functional Generative AI prototype for automated responses using RAG (Retrieval-Augmented Generation) architecture. Features hybrid search (BM25 + Vector), Milvus vector database, and a SafeGuard security layer for sensitive topics.
+                            Problem: Institutional Q&A depends on frequently changing sources and strict operational control.
+                            System Design: Hybrid retrieval (BM25 + vector) with LangChain and Milvus, plus an admin control plane.
+                            Responsibilities: Implemented source lifecycle flows, manual index/remove actions, and incremental sync hooks.
+                            Challenges: Keeping embeddings consistent after source updates, avoiding stale vectors, and preserving traceability of every RAG operation.
+                            Impact: Reliable, auditable answers in daily institutional use.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
@@ -1773,14 +3143,19 @@
                     </div>
                 </div>
 
-                <div class="project-card fade-in delay-1">
+                <div class="project-card fade-in delay-1 flagship flagship-secondary">
                     <div class="project-img">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyBczg4PNTdRtnhFyJxiQ_7-s_5ZYk5tKAg&s" alt="Vehicle Access Control System">
+                        <img loading="lazy" decoding="async" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyBczg4PNTdRtnhFyJxiQ_7-s_5ZYk5tKAg&s" alt="Vehicle Access Control System">
                     </div>
                     <div class="project-content">
+                        <span class="project-featured-badge" data-lang-key="projects.vehicle.badge">Core System</span>
                         <h3 class="project-title" data-lang-key="projects.vehicle.title">Vehicle Access Control System</h3>
                         <p class="project-description" data-lang-key="projects.vehicle.description">
-                            End-to-end vehicular access control system integrating computer vision, real-time MQTT communication, and a web management platform with authentication, RBAC, and REST APIs.
+                            Problem: Access decisions were fragmented across hardware and manual controls.
+                            System Design: Angular dashboard + Node/Express services integrated with MQTT event streams and camera workflows.
+                            Responsibilities: Implemented RBAC, OAuth2/JWT, API boundaries, and backup automation.
+                            Challenges: Maintaining low-latency event handling and consistent access state across devices.
+                            Impact: Real-time, centralized control for institutional vehicle operations.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">Angular</span>
@@ -1798,38 +3173,49 @@
                     </div>
                 </div>
 
-                <div class="project-card fade-in delay-2">                    
+                <div class="project-card fade-in delay-2 flagship flagship-tertiary">                    
                     <div class="project-img">
-                        <img src="https://www.pcworld.com/wp-content/uploads/2025/06/pokemon-pokedex-by-Abes-Projects.jpg?quality=50&strip=all" alt="Pokédex Ruby Project">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800" alt="Natal City Hall Scraper">
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title" data-lang-key="projects.pokedex.title">Pokédex Ruby</h3>
-                        <p class="project-description" data-lang-key="projects.pokedex.description">
-                            A comprehensive Pokédex application built with Ruby and Sinatra, featuring real-time search, dark mode, evolutionary chains, and team building functionality. The app consumes the PokéAPI to provide detailed information about Pokémon.
+                        <span class="project-featured-badge" data-lang-key="projects.scraping.badge">Data Pipeline</span>
+                        <h3 class="project-title" data-lang-key="projects.scraping.title">Natal City Hall Scraper</h3>
+                        <p class="project-description" data-lang-key="projects.scraping.description">
+                            Problem: Government portal data was difficult to capture reliably due to dynamic rendering and portal constraints.
+                            System Design: Selenium-based extraction pipeline with PostgreSQL persistence and API-ready outputs.
+                            Responsibilities: Implemented resilient scraping flow, storage mapping, and processing routines.
+                            Challenges: Handling JavaScript-rendered pages, SSL interruptions, and asynchronous content timing.
+                            Impact: Repeatable data ingestion replacing fragile manual collection.
                         </p>
                         <div class="project-tech">
-                            <span class="tech-tag">Ruby</span>
-                            <span class="tech-tag">Sinatra</span>
-                            <span class="tech-tag">SQLite</span>
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">API Integration</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Selenium</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">REST API</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Augusto240/pokedex-ruby" class="project-link" target="_blank">
+                            <a href="https://github.com/Augusto240/scraping_natal_prefeitura" class="project-link" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-github"></i> <span data-lang-key="projects.repository">Repository</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card fade-in delay-3">
+                </div>
+            </div>
+
+                <p class="projects-group-title projects-group-secondary" data-lang-key="projects.otherGroup">Other Builds</p>
+                <div class="other-builds">
+                    <div class="projects-container secondary-projects">
+
+                <div class="project-card secondary fade-in delay-3">
                     <div class="project-img">
-                        <img src="https://i.pinimg.com/736x/46/e4/ff/46e4ff977ab2c63629a696b558e8e1e1.jpg" alt="Sasuke API">
+                        <img loading="lazy" decoding="async" src="https://i.pinimg.com/736x/46/e4/ff/46e4ff977ab2c63629a696b558e8e1e1.jpg" alt="Sasuke API">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title" data-lang-key="projects.sasuke.title">Sasuke Quotes API</h3>
                         <p class="project-description" data-lang-key="projects.sasuke.description">
-                            A RESTful API built with Python and Flask to manage and retrieve quotes from Sasuke Uchiha. Features include random quotes, category filtering, search functionality, and authentication for protected routes.
+                            Flask API with search, filters, and protected write routes.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
@@ -1839,24 +3225,24 @@
                             <span class="tech-tag">Authentication</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Augusto240/sasukeAPI" class="project-link" target="_blank">
+                            <a href="https://github.com/Augusto240/sasukeAPI" class="project-link" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-github"></i> <span data-lang-key="projects.repository">Repository</span>
                             </a>
-                            <a href="https://sasuke-api.vercel.app/" class="project-link" target="_blank">
+                            <a href="https://sasuke-api.vercel.app/" class="project-link" target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-external-link-alt"></i> <span data-lang-key="projects.live">Live Demo</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card fade-in delay-4">
+                <div class="project-card secondary fade-in delay-4">
                     <div class="project-img">
-                        <img src="https://gbslc.com/wp-content/uploads/2024/04/DSC01885-scaled-1.jpg" alt="Jiu-Jitsu Academy Manager">
+                        <img loading="lazy" decoding="async" src="https://gbslc.com/wp-content/uploads/2024/04/DSC01885-scaled-1.jpg" alt="Jiu-Jitsu Academy Manager">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title" data-lang-key="projects.jiujitsu.title">Jiu-Jitsu Academy Manager</h3>
                         <p class="project-description" data-lang-key="projects.jiujitsu.description">
-                            Complete web system for martial arts academy management. Born from a real need to replace manual spreadsheets, it evolved into a robust multi-faceted solution with student CRUD, financial control, attendance tracking, graduation history, and interactive dashboard with reports.
+                            Full-stack academy management platform for enrollment, attendance, and billing.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">Ruby</span>
@@ -1867,7 +3253,7 @@
                             <span class="tech-tag">Minitest</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Augusto240/gerenciador-academia-jiujitsu" class="project-link" target="_blank">
+                            <a href="https://github.com/Augusto240/gerenciador-academia-jiujitsu" class="project-link" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-github"></i> <span data-lang-key="projects.repository">Repository</span>
                             </a>
                             <span class="project-link" style="opacity: 0.6; cursor: default;">
@@ -1877,14 +3263,14 @@
                     </div>
                 </div>
 
-                <div class="project-card fade-in">
+                <div class="project-card secondary fade-in">
                     <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800" alt="Super Task Panel">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800" alt="Super Task Panel">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title" data-lang-key="projects.taskpanel.title">Super Task Panel</h3>
                         <p class="project-description" data-lang-key="projects.taskpanel.description">
-                            Fullstack task management application with Next.js, NestJS, PostgreSQL, and GitHub OAuth authentication. Built as a technical challenge for a Junior Developer position.
+                            Next.js + NestJS task workflow app with PostgreSQL persistence and OAuth.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">Next.js</span>
@@ -1893,44 +3279,45 @@
                             <span class="tech-tag">OAuth</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Augusto240/desafio_smv" class="project-link" target="_blank">
+                            <a href="https://github.com/Augusto240/desafio_smv" class="project-link" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-github"></i> <span data-lang-key="projects.repository">Repository</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card fade-in delay-1">
+                <div class="project-card secondary fade-in delay-1">
                     <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800" alt="Web Scraping System">
+                        <img loading="lazy" decoding="async" src="https://www.pcworld.com/wp-content/uploads/2025/06/pokemon-pokedex-by-Abes-Projects.jpg?quality=50&strip=all" alt="Pokedex Ruby Project">
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title" data-lang-key="projects.scraping.title">Natal City Hall Scraper</h3>
-                        <p class="project-description" data-lang-key="projects.scraping.description">
-                            Automated scraping system for Natal City Hall with Selenium, 0x0.st upload, and PostgreSQL REST API. Technical challenge demonstrating data extraction skills.
+                        <h3 class="project-title" data-lang-key="projects.pokedex.title">Pokedex Ruby</h3>
+                        <p class="project-description" data-lang-key="projects.pokedex.description">
+                            Ruby/Sinatra catalog service with structured search and containerized local setup.
                         </p>
                         <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Selenium</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">REST API</span>
+                            <span class="tech-tag">Ruby</span>
+                            <span class="tech-tag">Sinatra</span>
+                            <span class="tech-tag">SQLite</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">API Integration</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Augusto240/scraping_natal_prefeitura" class="project-link" target="_blank">
+                            <a href="https://github.com/Augusto240/pokedex-ruby" class="project-link" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-github"></i> <span data-lang-key="projects.repository">Repository</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card fade-in delay-2">
+                <div class="project-card secondary fade-in delay-2">
                     <div class="project-img">
-                        <img src="https://sbtnews.sbt.com.br/_next/image?url=https%3A%2F%2Fsbt-news-assets-prod.s3.sa-east-1.amazonaws.com%2FPapa_Leao_XIV_declara_Carlo_Acutis_santo_d1ca064c68.png&w=1920&q=90" alt="Catholic Prayers Portal">
+                        <img loading="lazy" decoding="async" src="https://sbtnews.sbt.com.br/_next/image?url=https%3A%2F%2Fsbt-news-assets-prod.s3.sa-east-1.amazonaws.com%2FPapa_Leao_XIV_declara_Carlo_Acutis_santo_d1ca064c68.png&w=1920&q=90" alt="Catholic Prayers Portal">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title" data-lang-key="projects.prayers.title">Catholic Prayers Portal</h3>
                         <p class="project-description" data-lang-key="projects.prayers.description">
-                            Complete web portal for Catholic prayers with a modern Vatican-inspired interface. Features interactive frontend and Ruby backend for prayer management.
+                            Content portal with categorized navigation and maintainable backend routes.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">Ruby</span>
@@ -1939,21 +3326,21 @@
                             <span class="tech-tag">CSS3</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Augusto240/catholic-prayers-portal" class="project-link" target="_blank">
+                            <a href="https://github.com/Augusto240/catholic-prayers-portal" class="project-link" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-github"></i> <span data-lang-key="projects.repository">Repository</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card fade-in delay-3">
+                <div class="project-card secondary fade-in delay-3">
                     <div class="project-img">
-                        <img src="https://www.einerd.com/wp-content/uploads/2025/06/narutos-shadow-clone-jutsu.webp" alt="Naruto Jutsu Catalog">
+                        <img loading="lazy" decoding="async" src="https://www.einerd.com/wp-content/uploads/2025/06/narutos-shadow-clone-jutsu.webp" alt="Naruto Jutsu Catalog">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title" data-lang-key="projects.jutsu.title">Naruto Jutsu Catalog</h3>
                         <p class="project-description" data-lang-key="projects.jutsu.description">
-                            Complete CRUD catalog of jutsus from the Naruto universe developed with Django. Features search, filtering, and detailed jutsu information.
+                            Django CRUD catalog with searchable entities and predictable data workflows.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
@@ -1962,13 +3349,14 @@
                             <span class="tech-tag">Bootstrap</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Augusto240/naruto_jutsu_catalog" class="project-link" target="_blank">
+                            <a href="https://github.com/Augusto240/naruto_jutsu_catalog" class="project-link" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-github"></i> <span data-lang-key="projects.repository">Repository</span>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
+                </div>
         </div>
     </section>
     
@@ -1981,146 +3369,148 @@
                 <div class="skill-category fade-in" style="background: var(--card-bg); border-radius: 16px; padding: 2rem; border: 1px solid rgba(139, 92, 246, 0.1);">
                     <h3 data-lang-key="skills.ai" style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; color: var(--text); font-size: 1.1rem;">
                         <i class="fas fa-brain" style="color: var(--primary); font-size: 1.3rem;"></i>
-                        AI & MLOps Engineering
+                        AI Systems & RAG Operations
                     </h3>
                     <div class="skill-tags" style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="devicon-python-plain colored"></i> Python
+                            <i class="fas fa-project-diagram"></i> Retrieval Pipeline Design
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            🦜 LangChain
+                            <i class="fas fa-file-import"></i> Source Lifecycle Workflows
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-database"></i> Milvus
+                            <i class="fas fa-sync-alt"></i> Incremental Indexing Strategy
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-project-diagram"></i> ZenML
+                            <i class="fas fa-random"></i> Hybrid Search Operations
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-wind"></i> Airflow
+                            <i class="fas fa-eye"></i> RAG Observability and Tracing
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-chart-line"></i> MLflow
-                        </span>
-                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-robot"></i> RAG
-                        </span>
-                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-search"></i> Hybrid Search
-                        </span>
-                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            🦙 Llama/Ollama
-                        </span>
-                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-shield-alt"></i> LlamaGuard
+                            <i class="fas fa-tools"></i> LangChain + Milvus Operations
                         </span>
                     </div>
                 </div>
                 <div class="skill-category fade-in delay-1" style="background: var(--card-bg); border-radius: 16px; padding: 2rem; border: 1px solid rgba(139, 92, 246, 0.1);">
                     <h3 data-lang-key="skills.backend" style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; color: var(--text); font-size: 1.1rem;">
                         <i class="fas fa-server" style="color: var(--primary); font-size: 1.3rem;"></i>
-                        Backend Development
+                        Backend Services & APIs
                     </h3>
                     <div class="skill-tags" style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="devicon-django-plain"></i> Django
+                            <i class="fas fa-network-wired"></i> API Contract Design
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="devicon-flask-original"></i> Flask
+                            <i class="fas fa-cogs"></i> Business Rule Modeling
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="devicon-nodejs-plain colored"></i> Node.js
+                            <i class="fas fa-sliders-h"></i> Admin Control Workflows
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="devicon-express-original"></i> Express
+                            <i class="fas fa-user-shield"></i> OAuth2, JWT, and RBAC
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="devicon-ruby-plain colored"></i> Ruby/Sinatra
+                            <i class="fas fa-broadcast-tower"></i> MQTT Event Integration
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="devicon-postgresql-plain colored"></i> PostgreSQL
+                            <i class="fas fa-balance-scale"></i> State Consistency Handling
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="devicon-mysql-plain colored"></i> MySQL
+                            <i class="fas fa-layer-group"></i> Flask, Django, Express Services
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-plug"></i> REST APIs
-                        </span>
-                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="devicon-rails-plain colored"></i> Rails
-                        </span>
-                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-envelope"></i> Nodemailer
+                            <i class="fas fa-database"></i> SQLAlchemy and ORM Workflows
                         </span>
                     </div>
                 </div>
                 <div class="skill-category fade-in delay-2" style="background: var(--card-bg); border-radius: 16px; padding: 2rem; border: 1px solid rgba(139, 92, 246, 0.1);">
-                    <h3 data-lang-key="skills.frontend" style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; color: var(--text); font-size: 1.1rem;">
-                        <i class="fas fa-laptop-code" style="color: var(--primary); font-size: 1.3rem;"></i>
-                        Frontend Development
+                    <h3 data-lang-key="skills.data" style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; color: var(--text); font-size: 1.1rem;">
+                        <i class="fas fa-diagram-project" style="color: var(--primary); font-size: 1.3rem;"></i>
+                        Data Pipelines & Automation
                     </h3>
                     <div class="skill-tags" style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="devicon-angularjs-plain colored"></i> Angular
+                            <i class="devicon-selenium-original colored"></i> Dynamic Web Scraping Pipelines
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="devicon-react-original colored"></i> React
+                            <i class="fas fa-clock"></i> Async Content Handling
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="devicon-nextjs-plain"></i> Next.js
+                            <i class="fas fa-shield-alt"></i> SSL and Session Workarounds
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="devicon-typescript-plain colored"></i> TypeScript
+                            <i class="fas fa-filter"></i> ETL and Source Parsing Routines
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="devicon-javascript-plain colored"></i> JavaScript
+                            <i class="fas fa-route"></i> ZenML and Airflow Orchestration
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-chart-bar"></i> Streamlit
+                            <i class="fas fa-vial"></i> MLflow Experiment Tracking
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="devicon-html5-plain colored"></i> HTML5
-                        </span>
-                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="devicon-css3-plain colored"></i> CSS3
+                            <i class="fas fa-database"></i> API-Ready Data Shaping
                         </span>
                     </div>
                 </div>
                 <div class="skill-category fade-in delay-3" style="background: var(--card-bg); border-radius: 16px; padding: 2rem; border: 1px solid rgba(139, 92, 246, 0.1);">
-                    <h3 data-lang-key="skills.databases" style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; color: var(--text); font-size: 1.1rem;">
-                        <i class="fas fa-tools" style="color: var(--primary); font-size: 1.3rem;"></i>
-                        DevOps & Tools
+                    <h3 data-lang-key="skills.frontend" style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; color: var(--text); font-size: 1.1rem;">
+                        <i class="fas fa-laptop-code" style="color: var(--primary); font-size: 1.3rem;"></i>
+                        Product Interfaces
                     </h3>
                     <div class="skill-tags" style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="devicon-docker-plain colored"></i> Docker
+                            <i class="fas fa-window-maximize"></i> Operational Admin UX
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="devicon-git-plain colored"></i> Git
+                            <i class="fas fa-columns"></i> Dashboard State Modeling
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="devicon-github-original"></i> GitHub
+                            <i class="fas fa-check-circle"></i> Form and Validation Flows
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="devicon-gitlab-plain colored"></i> GitLab
+                            <i class="devicon-angularjs-plain colored"></i> Angular + TypeScript
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="devicon-linux-plain"></i> Linux
+                            <i class="devicon-react-original colored"></i> React / Next.js Delivery
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="devicon-selenium-original colored"></i> Selenium
+                            <i class="fas fa-chart-bar"></i> Streamlit Support UIs
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-spider"></i> BeautifulSoup
+                            <i class="fas fa-code"></i> Component and Layout Systems
+                        </span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in delay-4" style="background: var(--card-bg); border-radius: 16px; padding: 2rem; border: 1px solid rgba(139, 92, 246, 0.1);">
+                    <h3 data-lang-key="skills.databases" style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; color: var(--text); font-size: 1.1rem;">
+                        <i class="fas fa-tools" style="color: var(--primary); font-size: 1.3rem;"></i>
+                        Infrastructure & Reliability
+                    </h3>
+                    <div class="skill-tags" style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="devicon-docker-plain colored"></i> Docker Runtime Environments
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-file-code"></i> Plone Scraper
+                            <i class="fas fa-cubes"></i> Docker Compose Workflows
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-broadcast-tower"></i> MQTT
+                            <i class="devicon-postgresql-plain colored"></i> PostgreSQL and MySQL Operations
                         </span>
                         <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-key"></i> OAuth2/JWT
+                            <i class="fas fa-database"></i> Milvus Vector Storage Operations
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-save"></i> Backup and Recovery Routines
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-clipboard-list"></i> Structured Logging and Tracing
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="devicon-git-plain colored"></i> Git and GitLab Delivery Flow
+                        </span>
+                        <span class="skill-tag" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="devicon-linux-plain"></i> Linux and Cron Automation
                         </span>
                     </div>
                 </div>
@@ -2189,36 +3579,45 @@
                         <i class="fas fa-tv"></i>
                     </div>
                     <h3 class="hobby-name" data-lang-key="hobbies.anime.name">Watching Anime</h3>
-                    <p data-lang-key="hobbies.anime.description">My favorite anime is Attack on Titan, but I also enjoy watching Naruto and especially following Sasuke's character development!</p>
+                    <p data-lang-key="hobbies.anime.description">Anime is part of my downtime.</p>
                 </div>
                 <div class="hobby-card fade-in delay-1">
                     <div class="hobby-icon">
                         <i class="fas fa-code"></i>
                     </div>
                     <h3 class="hobby-name" data-lang-key="hobbies.programming.name">Programming</h3>
-                    <p data-lang-key="hobbies.programming.description">I love studying new programming languages and frameworks to expand my knowledge and skills.</p>
+                    <p data-lang-key="hobbies.programming.description">I build small side projects to test tools.</p>
                 </div>
                 <div class="hobby-card fade-in delay-2">
                     <div class="hobby-icon">
                         <i class="fas fa-gamepad"></i>
                     </div>
                     <h3 class="hobby-name" data-lang-key="hobbies.games.name">Video Games</h3>
-                    <p data-lang-key="hobbies.games.description">I enjoy playing various video games, especially League of Legends and games with rich storytelling.</p>
+                    <p data-lang-key="hobbies.games.description">I play strategy and story-driven games.</p>
                 </div>
                 <div class="hobby-card fade-in delay-3">
                     <div class="hobby-icon">
                         <i class="fas fa-film"></i>
                     </div>
                     <h3 class="hobby-name" data-lang-key="hobbies.movies.name">Movies</h3>
-                    <p data-lang-key="hobbies.movies.description">I'm passionate about cinema and keep track of all the movies I watch on Letterboxd.</p>
+                    <p data-lang-key="hobbies.movies.description">I keep a light watch list.</p>
                 </div>
                 <div class="hobby-card fade-in delay-4">
                     <div class="hobby-icon">
                         <i class="fas fa-coffee"></i>
                     </div>
                     <h3 class="hobby-name" data-lang-key="hobbies.coffee.name">Coffee</h3>
-                    <p data-lang-key="hobbies.coffee.description">I love to drink coffee and explore different brewing methods and bean varieties.</p>
+                    <p data-lang-key="hobbies.coffee.description">I enjoy trying different brew methods.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="personal-note" class="personal-note">
+        <div class="container">
+            <div class="personal-note-content fade-in">
+                <h2 data-lang-key="personal.title">Beyond Engineering</h2>
+                <p data-lang-key="personal.description">Outside engineering, I also contribute to teaching and community activities through Brazilian Jiu-Jitsu and children's catechesis.</p>
             </div>
         </div>
     </section>
@@ -2226,41 +3625,45 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-title">
-                <h2 data-lang-key="contact.title">Contact Me</h2>
+                <h2 data-lang-key="contact.title">Professional Contact</h2>
             </div>
-            <div class="contact-content" style="display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 800px; margin: 0 auto;">
-                <div class="contact-info fade-in" style="width: 100%;">
-                    <h3 data-lang-key="contact.getInTouch" style="font-size: 1.8rem; margin-bottom: 1rem;">Let's Work Together</h3>
-                    <p data-lang-key="contact.description" style="font-size: 1.1rem; color: var(--gray); margin-bottom: 3rem;">Looking for new opportunities in AI Engineering and Full-Stack Development. Feel free to reach out through any of the channels below!</p>
-                    
-                    <div class="contact-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; width: 100%;">
-                        <a href="mailto:jose.aug18@outlook.com" class="contact-card fade-in delay-1" style="background: linear-gradient(145deg, rgba(124, 58, 237, 0.08) 0%, rgba(15, 15, 26, 0.5) 100%); border: 1px solid rgba(124, 58, 237, 0.15); border-radius: 12px; padding: 2rem; text-decoration: none; transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
-                            <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--secondary) 0%, #a855f7 100%); display: flex; justify-content: center; align-items: center;">
-                                <i class="fas fa-envelope" style="font-size: 1.5rem; color: white;"></i>
-                            </div>
-                            <h4 data-lang-key="contact.email" style="color: var(--light); font-size: 1.1rem;">Email</h4>
-                            <p style="color: var(--gray); font-size: 0.9rem;">jose.aug18@outlook.com</p>
-                        </a>
-                        
-                        <a href="https://www.linkedin.com/in/augusto-oliveira-4a8068235/" target="_blank" class="contact-card fade-in delay-2" style="background: linear-gradient(145deg, rgba(124, 58, 237, 0.08) 0%, rgba(15, 15, 26, 0.5) 100%); border: 1px solid rgba(124, 58, 237, 0.15); border-radius: 12px; padding: 2rem; text-decoration: none; transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
-                            <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #0077b5 0%, #00a0dc 100%); display: flex; justify-content: center; align-items: center;">
-                                <i class="fab fa-linkedin-in" style="font-size: 1.5rem; color: white;"></i>
-                            </div>
-                            <h4 style="color: var(--light); font-size: 1.1rem;">LinkedIn</h4>
-                            <p style="color: var(--gray); font-size: 0.9rem;">Augusto Oliveira</p>
-                        </a>
-                        
-                        <a href="https://github.com/Augusto240" target="_blank" class="contact-card fade-in delay-3" style="background: linear-gradient(145deg, rgba(124, 58, 237, 0.08) 0%, rgba(15, 15, 26, 0.5) 100%); border: 1px solid rgba(124, 58, 237, 0.15); border-radius: 12px; padding: 2rem; text-decoration: none; transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
-                            <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #333 0%, #6e5494 100%); display: flex; justify-content: center; align-items: center;">
-                                <i class="fab fa-github" style="font-size: 1.5rem; color: white;"></i>
-                            </div>
-                            <h4 style="color: var(--light); font-size: 1.1rem;">GitHub</h4>
-                            <p style="color: var(--gray); font-size: 0.9rem;">@Augusto240</p>
-                        </a>
-                    </div>
-                    
-                    <p style="margin-top: 3rem; color: var(--gray); font-size: 0.95rem;" data-lang-key="contact.availability">📍 Based in Natal, Brazil | Open to remote opportunities worldwide</p>
+            <div class="contact-content">
+                <div class="contact-header fade-in">
+                    <h3 data-lang-key="contact.getInTouch">Engineering Collaboration</h3>
+                    <p class="contact-description" data-lang-key="contact.description">Open for recruiter and team conversations around backend systems, AI-enabled workflows, and full-stack engineering delivery.</p>
                 </div>
+
+                <div class="contact-cards">
+                    <a href="https://www.linkedin.com/in/augusto-oliveira-4a8068235/" target="_blank" rel="noopener noreferrer" class="contact-card fade-in delay-1">
+                        <div class="contact-avatar linkedin">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                        <h4 data-lang-key="contact.linkedin">LinkedIn</h4>
+                        <p>Augusto Oliveira</p>
+                    </a>
+
+                    <a href="https://github.com/Augusto240" target="_blank" rel="noopener noreferrer" class="contact-card fade-in delay-2">
+                        <div class="contact-avatar github">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <h4 data-lang-key="contact.github">GitHub</h4>
+                        <p>@Augusto240</p>
+                    </a>
+
+                    <a href="mailto:jose.aug18@outlook.com" class="contact-card fade-in delay-3">
+                        <div class="contact-avatar">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4 data-lang-key="contact.email">Email</h4>
+                        <p>jose.aug18@outlook.com</p>
+                    </a>
+                </div>
+
+                <div class="contact-cta-row fade-in delay-4">
+                    <a href="mailto:jose.aug18@outlook.com?subject=Resume%20Request%20-%20Augusto%20Oliveira" class="btn btn-outline contact-resume-btn" data-lang-key="contact.resume">Resume / CV</a>
+                </div>
+
+                <p class="contact-availability fade-in delay-4" data-lang-key="contact.availability">Based in Natal, Brazil, currently building institutional and product-facing systems.</p>
             </div>
         </div>
     </section>
@@ -2269,10 +3672,10 @@
         <div class="container">
             <div class="footer-logo fade-in">Guto<span>Dev</span></div>
             <div class="social-links fade-in delay-1">
-                <a href="https://github.com/Augusto240" class="social-link" target="_blank">
+                <a href="https://github.com/Augusto240" class="social-link" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/augusto-oliveira-4a8068235/" class="social-link" target="_blank">
+                <a href="https://www.linkedin.com/in/augusto-oliveira-4a8068235/" class="social-link" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-linkedin"></i>
                 </a>
                 <a href="mailto:jose.aug18@outlook.com" class="social-link">
@@ -2285,11 +3688,11 @@
         </div>
     </footer>
     
-    <img src="uchiha.png" id="uchihaSymbol" class="uchiha-symbol" alt="Uchiha Symbol">
+    <img loading="lazy" decoding="async" src="uchiha.png" id="uchihaSymbol" class="uchiha-symbol" alt="Uchiha Symbol">
 
-    <div class="back-to-top" id="backToTop">
+    <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
-    </div>
+    </button>
     
     <script>
         const header = document.getElementById('header');
@@ -2297,7 +3700,6 @@
         const nav = document.getElementById('nav');
         const backToTop = document.getElementById('backToTop');
         const skillProgressBars = document.querySelectorAll('.skill-progress');
-        const contactForm = document.getElementById('contact-form');
         const themeToggle = document.getElementById('themeToggle');
         const languageSelect = document.getElementById('languageSelect');
         const fadeElements = document.querySelectorAll('.fade-in');
@@ -2367,36 +3769,86 @@
                 translations.en = {
                     "nav.home": "Home",
                     "nav.about": "About",
-                    "nav.path": "My Path",
+                    "nav.current": "Current Work",
+                    "nav.path": "Engineering Path",
                     "nav.experience": "Experience",
-                    "nav.projects": "Projects",
+                    "nav.projects": "Systems",
                     "nav.skills": "Skills",
                     "nav.languages": "Languages",
                     "nav.hobbies": "Hobbies",
                     "nav.contact": "Contact",
                     
-                    "hero.subtitle": "Software Developer specialized in Generative AI, Full-Stack Development, and MLOps.",
+                    "hero.subtitle": "Software Engineer building backend systems, AI-enabled workflows, and full-stack applications.",
+                    "hero.signal": "Current Role: Software Engineer - RAG Platform & Admin Operations | CCSL-IFRN | Apr 2026 - Present",
+                    "hero.identity": "Building reliable systems from backend architecture to daily operations.",
+                    "hero.chip1": "Backend Systems",
+                    "hero.chip2": "RAG Operations",
+                    "hero.chip3": "Full-Stack Delivery",
+                    "hero.trust1": "Current Role: CCSL-IFRN | Apr 2026 - Present",
+                    "hero.trust2": "Core Stack: Python, Flask, LangChain, Milvus",
+                    "hero.trust3": "Flagship Systems: SmartFAQ, Access Control, Scraper",
                     "hero.contact": "Get In Touch",
                     "hero.projects": "View My Work",
+
+                    "current.title": "Current Work",
+                    "current.badge": "Current System",
+                    "current.role": "Software Engineer - RAG Platform & Admin Operations | CCSL-IFRN | Apr 2026 - Present",
+                    "current.case.title": "SmartFAQ Institutional Case",
+                    "current.case.subtitle": "Live institutional engineering work with operational governance and reliability goals.",
+                    "current.intro": "I operate SmartFAQ as an institutional RAG platform under reliability and governance constraints.",
+                    "current.context.label": "System Context",
+                    "current.context.value": "Institutional RAG platform in active administrative operation.",
+                    "current.focus.label": "Operational Focus",
+                    "current.focus.value": "Source lifecycle controls, cache reliability, and admin governance.",
+                    "current.responsibilities": "Responsibilities",
+                    "current.item1": "Operate source lifecycle across index, update, and remove flows in institutional use.",
+                    "current.item2": "Run controlled force_index and force_remove actions with WEB_ONLY_MODE for safe simulation.",
+                    "current.item3": "Maintain incremental synchronization between source updates and vector state.",
+                    "current.item4": "Track eligibility and skip reasons to preserve retrieval consistency and auditability.",
+                    "current.item5": "Sustain reliability through structured logs, audit views, and stable source/cache admin workflows.",
+                    "current.stack": "Stack: Python, Flask, Flask-Admin, LangChain, Milvus, PostgreSQL, Docker",
+                    "current.meta1": "Institutional RAG operations at CCSL-IFRN (Apr 2026 - Present).",
+                    "current.meta2": "Operational controls include source lifecycle, force_index, force_remove, and WEB_ONLY_MODE.",
+                    "current.meta3": "Synchronization keeps source updates aligned with vector state and retrieval consistency.",
+                    "current.meta4": "Reliability is reinforced by auditability, structured logs, and governed admin workflows.",
+                    "current.proof.title": "Systems in Operation",
+                    "current.proof1.title": "Source Lifecycle Controls",
+                    "current.proof1.caption": "Manual and automatic governance over index/remove actions for auditable RAG behavior.",
+                    "current.proof2.title": "Cache and Retrieval Reliability",
+                    "current.proof2.caption": "Configuration safeguards reduce stale retrieval and keep operational responses stable.",
+                    "current.proof3.title": "Admin Governance",
+                    "current.proof3.caption": "Access profiles and admin workflows support institutional traceability and accountability.",
+                    "current.proof.placeholder": "Screenshot preview",
                     
                     "about.title": "About Me",
-                    "about.role": "Software Developer & AI Engineer",
-                    "about.description1": "Software Developer with hands-on experience in architecting and building complex end-to-end solutions, specializing in Generative AI systems and Full-Stack development. My path is marked by the ability to overcome technical challenges and deliver functional products, from data engineering to MLOps pipeline implementation.",
-                    "about.description2": "My expertise focuses on three main areas: AI & MLOps Engineering (RAG pipelines with LangChain, Milvus, ZenML), Data & Back-end Engineering (Python/Django, Node.js/Express, PostgreSQL), and Front-end Development (Angular, TypeScript, React). I'm passionate about solving problems and collaborating on innovative, high-impact tech products.",
-                    "about.location": "From Natal, Brazil 📍🇧🇷",
+                    "about.role": "Software Engineer - Backend, AI Systems, and Operations",
+                    "about.description1": "I build and operate institutional software systems end to end, combining backend engineering with AI-enabled workflows under real operational constraints. My work spans architecture, implementation, admin operations, observability, and long-term maintainability.",
+                    "about.description2": "I focus on five engineering areas: AI Systems & RAG Operations, Backend Services & APIs, Data Pipelines & Automation, Product Interfaces, and Infrastructure Reliability.",
+                    "about.location": "Based in Natal, Brazil.",
+                    "about.personal": "Beyond engineering, I support community activities including Brazilian Jiu-Jitsu and children's catechesis.",
                     "about.github": "GitHub Profile",
                     
-                    "path.title": "My Developer Path",
-                    "path.beginner.title": "The Beginning",
-                    "path.beginner.description": "My journey in coding started with curiosity and determination. By learning basic skills, I mastered HTML, CSS, and simple JavaScript.",
-                    "path.academy.title": "Academy Training",
-                    "path.academy.description": "At IFRN, I honed my skills and learned the fundamentals of web development.",
-                    "path.power.title": "Gaining Power",
-                    "path.power.description": "Mastering advanced frameworks and backend technologies gave me the power to build complete solutions.",
-                    "path.vision.title": "Clear Vision",
-                    "path.vision.description": "Now with experience and knowledge, I see the bigger picture in software architecture and solution design.",
-                    "path.future.title": "The Future Path",
-                    "path.future.description": "My journey continues as I pursue mastery in AI and full-stack development, always learning and growing.",
+                    "path.title": "Engineering Path",
+                    "path.beginner.title": "Technical Foundation",
+                    "path.beginner.description": "Started with HTML, CSS, and JavaScript fundamentals while building discipline in version control and problem decomposition.",
+                    "path.academy.title": "Academic Consolidation",
+                    "path.academy.description": "At IFRN, I strengthened software engineering fundamentals, teamwork habits, and delivery through applied projects.",
+                    "path.power.title": "Systems Expansion",
+                    "path.power.description": "Expanded into backend services, databases, and integration workflows to deliver complete end-to-end systems.",
+                    "path.vision.title": "Architecture Perspective",
+                    "path.vision.description": "Shifted focus from isolated features to system behavior, engineering trade-offs, and long-term maintainability.",
+                    "path.future.title": "Current Direction",
+                    "path.future.description": "Now focused on AI systems in operation, balancing product needs with reliability, traceability, and governance.",
+
+                    "focus.title": "Engineering Focus",
+                    "focus.backend.title": "Backend Systems",
+                    "focus.backend.description": "Reliable service boundaries, auth flows, and operational backend controls.",
+                    "focus.rag.title": "RAG & AI Operations",
+                    "focus.rag.description": "Retrieval pipelines, source lifecycle rules, and auditable RAG behavior in production-adjacent use.",
+                    "focus.fullstack.title": "Full-Stack Applications",
+                    "focus.fullstack.description": "End-to-end delivery across frontend, backend APIs, auth, and operational workflows.",
+                    "focus.data.title": "Data Pipelines & Scraping",
+                    "focus.data.description": "Resilient extraction and processing pipelines for dynamic portals and API-ready data outputs.",
                     
                     "education.title": "Education",
                     "education.degree": "Web Development Degree",
@@ -2404,20 +3856,29 @@
                     "education.description": "Studying web technologies, software development methodologies, and digital solutions creation. Focusing on both front-end and back-end development with practical projects and industry-relevant skills.",
                     
                     "experience.title": "Work Experience",
-                    "experience.job1.date": "May 2024 - December 2025",
+                    "experience.job0.date": "Apr 2026 - Present",
+                    "experience.job0.title": "Software Engineer - RAG Platform & Admin Operations",
+                    "experience.job0.company": "CCSL-IFRN",
+                    "experience.job0.description": "I maintain and evolve SmartFAQ in an institutional environment, focusing on operational RAG controls, source lifecycle management, and admin reliability.",
+                    "experience.job1.date": "May 2024 - Dec 2025",
                     "experience.job1.title": "Full-Stack Developer (Extension Scholarship)",
                     "experience.job1.company": "NOCS Lab - IFRN",
                     "experience.job1.description": "I developed and consolidated an end-to-end vehicular access control system, integrating computer vision, real-time communication, and a web management platform, working on both development and system stabilization/validation phases.",
                     "experience.achievements": "Key Achievements:",
+                    "experience.job0.achievement1": "Implemented manual source index and remove actions in Flask-Admin with support for safe simulation mode (WEB_ONLY_MODE)",
+                    "experience.job0.achievement2": "Implemented automatic source synchronization on create, update, and delete hooks to keep RAG state aligned",
+                    "experience.job0.achievement3": "Centralized source eligibility rules to enforce consistent inclusion and exclusion decisions across RAG pipelines",
+                    "experience.job0.achievement4": "Built RAG audit visibility with source status, exclusion reasons, and structured operational logs",
+                    "experience.job0.achievement5": "Maintained source and cache admin workflows for reliable daily operation in a production-adjacent system",
                     "experience.job1.achievement1": "Full-Stack Development: Architected and implemented front-end with Angular (TypeScript) and back-end with Node.js (Express.js), including authentication, RBAC, and REST APIs",
                     "experience.job1.achievement2": "Systems & IoT Integration: Implemented real-time MQTT communication between cameras, access hardware, and the central system",
                     "experience.job1.achievement3": "Testing & Validation: Executed manual functional tests, validated critical system flows, and verified protected route security",
                     "experience.job1.achievement4": "Infrastructure & Reliability: Implemented and validated automated backup system (database and images) using Docker, cron, and dedicated scripts",
                     "experience.job1.achievement5": "Institutional Integrations: Participated in SUAP integration using OAuth2 and JWT, extending system usage in institutional environments",
-                    "experience.job2.date": "January 2025 - September 2025",
+                    "experience.job2.date": "Jan 2025 - Sep 2025",
                     "experience.job2.title": "Generative AI Research Scholar",
-                    "experience.job2.company": "CCSL-IFRN - Center for Open Source Solutions",
-                    "experience.job2.description": "I led the end-to-end technical development of 'SmartFAQ', a functional Generative AI prototype for automated responses, from conception and data extraction to cloud deployment.",
+                    "experience.job2.company": "CCSL-IFRN",
+                    "experience.job2.description": "I led SmartFAQ end to end as a functional institutional Q&A system, from data extraction and retrieval design to deployment and operational handoff.",
                     "experience.job2.achievement1": "RAG Architecture & Development: Designed and implemented a sophisticated RAG architecture with Python and LangChain, using hybrid search (BM25 + Vector) and Milvus vector database for high-precision responses",
                     "experience.job2.achievement2": "Data Engineering & Web Scraping: Developed advanced scraper with Selenium for complex government portals (Plone CMS with dynamic JavaScript), overcoming SSL errors, alerts, and async content",
                     "experience.job2.achievement3": "MLOps & Pipeline Orchestration: Configured and optimized ML pipelines using ZenML, Airflow, and MLflow in local and containerized environments (Docker, Docker Compose)",
@@ -2425,38 +3886,44 @@
                     "experience.job2.achievement5": "Collaboration & Technical Management: Onboarded new scholars, collaborated with stakeholders for requirements alignment, and managed GitLab repository with branches and merge requests",
                     "experience.tech": "Technologies:",
                     
-                    "projects.title": "My Projects",
+                    "projects.title": "Systems & Applications",
+                    "projects.flagshipGroup": "Flagship Systems",
+                    "projects.otherGroup": "Other Builds",
                     "projects.featured": "Featured",
                     "projects.private": "Private Repository",
-                    "projects.smartfaq.title": "SmartFAQ - Generative AI System",
-                    "projects.smartfaq.description": "A functional Generative AI prototype for automated responses using RAG (Retrieval-Augmented Generation) architecture. Features hybrid search (BM25 + Vector), Milvus vector database, and a SafeGuard security layer for sensitive topics.",
+                    "projects.smartfaq.badge": "Flagship System",
+                    "projects.smartfaq.title": "SmartFAQ - RAG Operations Platform",
+                    "projects.smartfaq.description": "Problem: Institutional Q&A depends on frequently changing sources and strict operational control.\nSystem Design: Hybrid retrieval (BM25 + vector) with LangChain and Milvus, plus an admin control plane.\nResponsibilities: Implemented source lifecycle flows, manual index/remove actions, and incremental sync hooks.\nChallenges: Keeping embeddings consistent after source updates, avoiding stale vectors, and preserving traceability of every RAG operation.\nImpact: Reliable, auditable answers in daily institutional use.",
+                    "projects.vehicle.badge": "Core System",
                     "projects.vehicle.title": "Vehicle Access Control System",
-                    "projects.vehicle.description": "End-to-end vehicular access control system integrating computer vision, real-time MQTT communication, and a web management platform with authentication, RBAC, and REST APIs.",
-                    "projects.pokedex.title": "Pokédex Ruby",
-                    "projects.pokedex.description": "A comprehensive Pokédex application built with Ruby and Sinatra, featuring real-time search, dark mode, evolutionary chains, and team building functionality. The app consumes the PokéAPI to provide detailed information about Pokémon.",
+                    "projects.vehicle.description": "Problem: Access decisions were fragmented across hardware and manual controls.\nSystem Design: Angular dashboard + Node/Express services integrated with MQTT event streams and camera workflows.\nResponsibilities: Implemented RBAC, OAuth2/JWT, API boundaries, and backup automation.\nChallenges: Maintaining low-latency event handling and consistent access state across devices.\nImpact: Real-time, centralized control for institutional vehicle operations.",
+                    "projects.scraping.badge": "Data Pipeline",
+                    "projects.pokedex.title": "Pokedex Ruby",
+                    "projects.pokedex.description": "Ruby/Sinatra catalog service with structured search and containerized local setup.",
                     "projects.jiujitsu.title": "Jiu-Jitsu Academy Manager",
-                    "projects.jiujitsu.description": "Complete web system for martial arts academy management, replacing manual spreadsheets. Features student CRUD with multi-modality support (Jiu-Jitsu/Muay Thai), financial control with automatic status calculation, attendance tracking, graduation history, interactive dashboard with Chart.js, and CSV report exports. Fully containerized with Docker and secured with BCrypt and prepared statements.",
+                    "projects.jiujitsu.description": "Full-stack academy management platform for enrollment, attendance, and billing.",
                     "projects.sasuke.title": "Sasuke Quotes API",
-                    "projects.sasuke.description": "A RESTful API built with Python and Flask to manage and retrieve quotes from Sasuke Uchiha. Features include random quotes, category filtering, search functionality, and authentication for protected routes.",
+                    "projects.sasuke.description": "Flask API with search, filters, and protected write routes.",
                     "projects.academia.title": "Academia Dev Python",
                     "projects.academia.description": "A complete gym management system built with Django and Django REST Framework. Features include member registration, workout plans, class scheduling, and payment tracking with RESTful API.",
                     "projects.taskpanel.title": "Super Task Panel",
-                    "projects.taskpanel.description": "A modern task management application with Next.js frontend and NestJS backend. Includes real-time updates, team collaboration, project organization, and Kanban board views.",
+                    "projects.taskpanel.description": "Next.js + NestJS task workflow app with PostgreSQL persistence and OAuth.",
                     "projects.scraping.title": "Natal City Hall Scraper",
-                    "projects.scraping.description": "An advanced web scraping solution using Selenium for extracting public data from Natal City Hall portal. Features PostgreSQL storage, automated scheduling, and data validation.",
+                    "projects.scraping.description": "Problem: Government portal data was difficult to capture reliably due to dynamic rendering and portal constraints.\nSystem Design: Selenium-based extraction pipeline with PostgreSQL persistence and API-ready outputs.\nResponsibilities: Implemented resilient scraping flow, storage mapping, and processing routines.\nChallenges: Handling JavaScript-rendered pages, SSL interruptions, and asynchronous content timing.\nImpact: Repeatable data ingestion replacing fragile manual collection.",
                     "projects.prayers.title": "Catholic Prayers Portal",
-                    "projects.prayers.description": "A web portal built with Ruby and Sinatra featuring a collection of Catholic prayers. Includes search functionality, categorization, and a clean, accessible interface.",
+                    "projects.prayers.description": "Content portal with categorized navigation and maintainable backend routes.",
                     "projects.jutsu.title": "Naruto Jutsu Catalog",
-                    "projects.jutsu.description": "A comprehensive catalog of Naruto jutsus built with Django. Features detailed information about techniques, character associations, and element classifications.",
+                    "projects.jutsu.description": "Django CRUD catalog with searchable entities and predictable data workflows.",
                     "projects.repository": "Repository",
                     "projects.live": "Live Demo",
                     "projects.docs": "API Docs",
                     
                     "skills.title": "My Skills",
-                    "skills.ai": "AI & MLOps Engineering",
-                    "skills.frontend": "Frontend Development",
-                    "skills.backend": "Backend Development",
-                    "skills.databases": "Databases & Tools",
+                    "skills.ai": "AI Systems & RAG Operations",
+                    "skills.frontend": "Product Interfaces",
+                    "skills.backend": "Backend Services & APIs",
+                    "skills.data": "Data Pipelines & Automation",
+                    "skills.databases": "Infrastructure & Reliability",
                     
                     "languages.title": "Languages",
                     "languages.portuguese": "Portuguese",
@@ -2469,23 +3936,27 @@
                     
                     "hobbies.title": "My Hobbies",
                     "hobbies.anime.name": "Watching Anime",
-                    "hobbies.anime.description": "My favorite anime is Attack on Titan, but I also enjoy watching Naruto and especially following Sasuke's character development!",
+                    "hobbies.anime.description": "Anime is part of my downtime.",
                     "hobbies.programming.name": "Programming",
-                    "hobbies.programming.description": "I love studying new programming languages and frameworks to expand my knowledge and skills.",
+                    "hobbies.programming.description": "I build small side projects to test tools.",
                     "hobbies.games.name": "Video Games",
-                    "hobbies.games.description": "I enjoy playing various video games, especially League of Legends and games with rich storytelling.",
+                    "hobbies.games.description": "I play strategy and story-driven games.",
                     "hobbies.movies.name": "Movies",
-                    "hobbies.movies.description": "I'm passionate about cinema and keep track of all the movies I watch on Letterboxd.",
+                    "hobbies.movies.description": "I keep a light watch list.",
                     "hobbies.coffee.name": "Coffee",
-                    "hobbies.coffee.description": "I love to drink coffee and explore different brewing methods and bean varieties.",
+                    "hobbies.coffee.description": "I enjoy trying different brew methods.",
+
+                    "personal.title": "Beyond Engineering",
+                    "personal.description": "Outside engineering, I also contribute to teaching and community activities through Brazilian Jiu-Jitsu and children's catechesis.",
                     
-                    "contact.title": "Contact Me",
-                    "contact.getInTouch": "Get in Touch",
-                    "contact.description": "Looking for new opportunities to apply my passion for problem-solving in a dynamic environment. Feel free to reach out!",
+                    "contact.title": "Professional Contact",
+                    "contact.getInTouch": "Engineering Collaboration",
+                    "contact.description": "Open for recruiter and team conversations around backend systems, AI-enabled workflows, and full-stack engineering delivery.",
                     "contact.email": "Email",
                     "contact.linkedin": "LinkedIn",
                     "contact.github": "GitHub",
-                    "contact.availability": "Available for full-time positions and freelance projects",
+                    "contact.resume": "Resume / CV",
+                    "contact.availability": "Based in Natal, Brazil, currently building institutional and product-facing systems.",
                     
                     "footer.copyright": "Augusto Oliveira. All Rights Reserved."
                 };
@@ -2493,36 +3964,86 @@
                 translations.pt = {
                     "nav.home": "Início",
                     "nav.about": "Sobre",
-                    "nav.path": "Meu Caminho",
+                    "nav.current": "Trabalho Atual",
+                    "nav.path": "Jornada de Engenharia",
                     "nav.experience": "Experiência",
-                    "nav.projects": "Projetos",
+                    "nav.projects": "Sistemas",
                     "nav.skills": "Habilidades",
                     "nav.languages": "Idiomas",
                     "nav.hobbies": "Hobbies",
                     "nav.contact": "Contato",
                     
-                    "hero.subtitle": "Desenvolvedor de Software especializado em IA Generativa, Desenvolvimento Full-Stack e MLOps.",
+                    "hero.subtitle": "Engenheiro de Software construindo sistemas backend, fluxos com IA e aplicações full-stack.",
+                    "hero.signal": "Atuação Atual: Engenheiro de Software - Plataforma RAG e Operações de Admin | CCSL-IFRN | Abr 2026 - Presente",
+                    "hero.identity": "Construindo sistemas confiáveis da arquitetura backend até a operação diária.",
+                    "hero.chip1": "Sistemas Backend",
+                    "hero.chip2": "Operações RAG",
+                    "hero.chip3": "Entrega Full-Stack",
+                    "hero.trust1": "Atuação Atual: CCSL-IFRN | Abr 2026 - Presente",
+                    "hero.trust2": "Stack Principal: Python, Flask, LangChain, Milvus",
+                    "hero.trust3": "Sistemas Principais: SmartFAQ, Controle de Acesso, Scraper",
                     "hero.contact": "Entre em Contato",
                     "hero.projects": "Ver Meus Projetos",
+
+                    "current.title": "Trabalho Atual",
+                    "current.badge": "Sistema Atual",
+                    "current.role": "Engenheiro de Software - Plataforma RAG e Operações de Admin | CCSL-IFRN | Abr 2026 - Presente",
+                    "current.case.title": "Case Institucional SmartFAQ",
+                    "current.case.subtitle": "Engenharia institucional em operação real com governança e metas de confiabilidade.",
+                    "current.intro": "Opero o SmartFAQ como plataforma RAG institucional sob requisitos de confiabilidade e governança.",
+                    "current.context.label": "Contexto do Sistema",
+                    "current.context.value": "Plataforma RAG institucional em operação administrativa ativa.",
+                    "current.focus.label": "Foco Operacional",
+                    "current.focus.value": "Controles de ciclo de vida de fontes, confiabilidade de cache e governança de admin.",
+                    "current.responsibilities": "Responsabilidades",
+                    "current.item1": "Opero o ciclo de vida de fontes entre indexação, atualização e remoção em uso institucional.",
+                    "current.item2": "Executo force_index e force_remove com WEB_ONLY_MODE para simulação segura.",
+                    "current.item3": "Mantenho sincronização incremental entre alterações de fonte e estado vetorial.",
+                    "current.item4": "Rastreio elegibilidade e skip reasons para manter consistência e auditabilidade.",
+                    "current.item5": "Sustento confiabilidade com logs estruturados, visões de auditoria e fluxos estáveis de admin de fonte/cache.",
+                    "current.stack": "Stack: Python, Flask, Flask-Admin, LangChain, Milvus, PostgreSQL, Docker",
+                    "current.meta1": "Operação institucional de RAG no CCSL-IFRN (Abr 2026 - Presente).",
+                    "current.meta2": "Controles operacionais incluem ciclo de vida de fontes, force_index, force_remove e WEB_ONLY_MODE.",
+                    "current.meta3": "A sincronização mantém alterações de fonte alinhadas ao estado vetorial e consistência de recuperação.",
+                    "current.meta4": "A confiabilidade é reforçada por auditabilidade, logs estruturados e fluxos de admin governados.",
+                    "current.proof.title": "Sistemas em Operação",
+                    "current.proof1.title": "Controles de Ciclo de Vida",
+                    "current.proof1.caption": "Governança manual e automática sobre ações de indexação/remoção para comportamento RAG auditável.",
+                    "current.proof2.title": "Confiabilidade de Cache e Recuperação",
+                    "current.proof2.caption": "Salvaguardas de configuração reduzem recuperação desatualizada e mantêm respostas operacionais estáveis.",
+                    "current.proof3.title": "Governança Administrativa",
+                    "current.proof3.caption": "Perfis de acesso e fluxos administrativos sustentam rastreabilidade e accountability institucional.",
+                    "current.proof.placeholder": "Previa da captura",
                     
                     "about.title": "Sobre Mim",
-                    "about.role": "Desenvolvedor de Software & Engenheiro de IA",
-                    "about.description1": "Desenvolvedor de Software com experiência prática na arquitetura e construção de soluções complexas de ponta a ponta, especializando-me em sistemas de Inteligência Artificial Generativa e desenvolvimento Full-Stack. Minha trajetória é marcada pela capacidade de superar desafios técnicos e entregar produtos funcionais.",
-                    "about.description2": "Minha especialização se concentra em três áreas: Engenharia de IA & MLOps (pipelines RAG com LangChain, Milvus, ZenML), Engenharia de Dados & Back-end (Python/Django, Node.js/Express, PostgreSQL), e Desenvolvimento Front-end (Angular, TypeScript, React). Busco colaborar em produtos inovadores de alto impacto.",
-                    "about.location": "De Natal, Brasil 📍🇧🇷",
+                    "about.role": "Engenheiro de Software - Backend, Sistemas de IA e Operações",
+                    "about.description1": "Construo e opero sistemas institucionais de software ponta a ponta, combinando engenharia backend e fluxos com IA sob restrições operacionais reais. Minha atuação cobre arquitetura, implementação, operações de admin, observabilidade e manutenção de longo prazo.",
+                    "about.description2": "Atuo em cinco frentes: Sistemas de IA e Operação RAG, Serviços Backend e APIs, Pipelines de Dados e Automação, Interfaces de Produto e Confiabilidade de Infraestrutura.",
+                    "about.location": "Baseado em Natal, Brasil.",
+                    "about.personal": "Além da engenharia, apoio atividades comunitárias incluindo Jiu-Jitsu e catequese infantil.",
                     "about.github": "Perfil no GitHub",
                     
-                    "path.title": "Meu Caminho como Desenvolvedor",
-                    "path.beginner.title": "O Início",
-                    "path.beginner.description": "Minha jornada na programação começou com curiosidade e determinação. Aprendendo tecnologias básicas, dominei HTML, CSS e JavaScript simples.",
-                    "path.academy.title": "Treinamento na Academia",
-                    "path.academy.description": "No IFRN, aprimorei minhas habilidades e aprendi os fundamentos do desenvolvimento web.",
-                    "path.power.title": "Ganhando Poder",
-                    "path.power.description": "Dominar frameworks avançados e tecnologias backend me deu o poder de construir soluções completas.",
-                    "path.vision.title": "Visão Clara",
-                    "path.vision.description": "Agora com experiência e conhecimento, vejo o panorama geral na arquitetura de software e design de soluções.",
-                    "path.future.title": "O Caminho Futuro",
-                    "path.future.description": "Minha jornada continua enquanto busco domínio em IA e desenvolvimento full-stack, sempre aprendendo e crescendo.",
+                    "path.title": "Jornada de Engenharia",
+                    "path.beginner.title": "Base Técnica",
+                    "path.beginner.description": "Comecei com fundamentos de HTML, CSS e JavaScript, desenvolvendo disciplina em versionamento e decomposição de problemas.",
+                    "path.academy.title": "Consolidação Acadêmica",
+                    "path.academy.description": "No IFRN, fortaleci fundamentos de engenharia de software, trabalho em equipe e entregas em projetos aplicados.",
+                    "path.power.title": "Expansão de Sistemas",
+                    "path.power.description": "Expandi para serviços backend, bancos de dados e integrações para entregar sistemas completos ponta a ponta.",
+                    "path.vision.title": "Perspectiva de Arquitetura",
+                    "path.vision.description": "Passei de features isoladas para comportamento de sistema, trade-offs de engenharia e manutenção de longo prazo.",
+                    "path.future.title": "Direção Atual",
+                    "path.future.description": "Hoje foco em sistemas de IA em operação, equilibrando necessidades de produto com confiabilidade, rastreabilidade e governança.",
+
+                    "focus.title": "Foco de Engenharia",
+                    "focus.backend.title": "Sistemas Backend",
+                    "focus.backend.description": "Limites de serviços confiáveis, fluxos de autenticação e controles operacionais no backend.",
+                    "focus.rag.title": "Operações de RAG e IA",
+                    "focus.rag.description": "Pipelines de recuperação, regras de ciclo de vida de fontes e comportamento RAG auditável.",
+                    "focus.fullstack.title": "Aplicações Full-Stack",
+                    "focus.fullstack.description": "Entrega ponta a ponta entre frontend, APIs de backend, auth e fluxos operacionais.",
+                    "focus.data.title": "Pipelines de Dados e Scraping",
+                    "focus.data.description": "Extração e processamento resilientes para portais dinâmicos e saídas prontas para API.",
                     
                     "education.title": "Educação",
                     "education.degree": "Tecnólogo em Sistemas para Internet",
@@ -2530,11 +4051,20 @@
                     "education.description": "Estudando tecnologias web, metodologias de desenvolvimento de software e criação de soluções digitais. Focando em desenvolvimento front-end e back-end com projetos práticos e habilidades relevantes para o mercado.",
                     
                     "experience.title": "Experiência Profissional",
+                    "experience.job0.date": "Abr 2026 - Presente",
+                    "experience.job0.title": "Engenheiro de Software - Plataforma RAG e Operações de Admin",
+                    "experience.job0.company": "CCSL-IFRN",
+                    "experience.job0.description": "Mantenho e evoluo o SmartFAQ em ambiente institucional, com foco em controles operacionais de RAG, ciclo de vida de fontes e confiabilidade do admin.",
                     "experience.job1.date": "Mai 2024 - Dez 2025",
-                    "experience.job1.title": "Desenvolvedor Full-Stack (Bolsista de Extensão)",
+                    "experience.job1.title": "Desenvolvedor Full-Stack (Bolsa de Extensão)",
                     "experience.job1.company": "NOCS Lab - IFRN",
                     "experience.job1.description": "Desenvolvi e consolidei um sistema de controle de acesso veicular de ponta a ponta, integrando visão computacional, comunicação em tempo real e uma plataforma web de gerenciamento, atuando tanto na fase de desenvolvimento quanto na fase de estabilização e validação.",
                     "experience.achievements": "Principais Realizações:",
+                    "experience.job0.achievement1": "Implementei ações manuais de indexação e remoção de fontes no Flask-Admin com suporte a modo de simulação seguro (WEB_ONLY_MODE)",
+                    "experience.job0.achievement2": "Implementei sincronização automática de fontes em hooks de criação, edição e exclusão para manter o estado da RAG consistente",
+                    "experience.job0.achievement3": "Centralizei regras de elegibilidade de fontes para aplicar decisões consistentes de inclusão e exclusão na pipeline RAG",
+                    "experience.job0.achievement4": "Criei visibilidade de auditoria da RAG com status por fonte, motivo de exclusão e logs operacionais estruturados",
+                    "experience.job0.achievement5": "Mantive fluxos de admin de fonte e cache estáveis para operação diária em sistema production-adjacent",
                     "experience.job1.achievement1": "Desenvolvimento Full-Stack: Arquitetura e implementação do front-end com Angular (TypeScript) e back-end com Node.js (Express.js), incluindo autenticação, RBAC e APIs REST",
                     "experience.job1.achievement2": "Integração de Sistemas e IoT: Implementação de comunicação em tempo real via MQTT entre câmeras, hardware de acesso e o sistema central",
                     "experience.job1.achievement3": "Testes e Validação: Execução de testes funcionais manuais, validação de fluxos críticos do sistema e verificação de segurança de rotas protegidas",
@@ -2542,8 +4072,8 @@
                     "experience.job1.achievement5": "Integrações Institucionais: Participação na integração com o SUAP utilizando OAuth2 e JWT, ampliando o uso do sistema em ambiente institucional",
                     "experience.job2.date": "Jan 2025 - Set 2025",
                     "experience.job2.title": "Bolsista de Pesquisa em IA Generativa",
-                    "experience.job2.company": "CCSL-IFRN - Centro de Competências em Soluções Livres",
-                    "experience.job2.description": "Liderei o desenvolvimento técnico de ponta a ponta do 'SmartFAQ', um protótipo funcional de IA Generativa para respostas automatizadas, desde a concepção e extração de dados até a implantação em nuvem.",
+                    "experience.job2.company": "CCSL-IFRN",
+                    "experience.job2.description": "Liderei o SmartFAQ ponta a ponta como sistema institucional funcional de perguntas e respostas, da extração de dados e desenho de recuperação até a implantação e handoff operacional.",
                     "experience.job2.achievement1": "Arquitetura e Desenvolvimento RAG: Projetei e implementei uma arquitetura RAG sofisticada com Python e LangChain, utilizando busca híbrida (BM25 + Vetorial) e o banco de dados vetorial Milvus para alta precisão",
                     "experience.job2.achievement2": "Engenharia de Dados e Web Scraping: Desenvolvi scraper avançado com Selenium para portais governamentais complexos (CMS Plone com JavaScript dinâmico), superando erros de SSL, alertas e conteúdo assíncrono",
                     "experience.job2.achievement3": "MLOps e Orquestração de Pipelines: Configurei e otimizei pipelines de Machine Learning utilizando ZenML, Airflow e MLflow em ambientes locais e conteinerizados (Docker, Docker Compose)",
@@ -2551,38 +4081,44 @@
                     "experience.job2.achievement5": "Colaboração e Gestão Técnica: Realizei onboarding de novos bolsistas, colaborei com stakeholders para alinhamento de requisitos e gerenciei repositório GitLab",
                     "experience.tech": "Tecnologias:",
                     
-                    "projects.title": "Meus Projetos",
+                    "projects.title": "Sistemas e Aplicações",
+                    "projects.flagshipGroup": "Sistemas Principais",
+                    "projects.otherGroup": "Outras Construções",
                     "projects.featured": "Destaque",
                     "projects.private": "Repositório Privado",
-                    "projects.smartfaq.title": "SmartFAQ - Sistema de IA Generativa",
-                    "projects.smartfaq.description": "Protótipo funcional de IA Generativa para respostas automatizadas usando arquitetura RAG (Retrieval-Augmented Generation). Possui busca híbrida (BM25 + Vetorial), banco de dados vetorial Milvus e camada de segurança SafeGuard.",
+                    "projects.smartfaq.badge": "Sistema Principal",
+                    "projects.smartfaq.title": "SmartFAQ - Plataforma de Operações RAG",
+                    "projects.smartfaq.description": "Problema: O Q&A institucional depende de fontes que mudam com frequência e exige controle operacional rigoroso.\nDesenho do Sistema: Recuperação híbrida (BM25 + vetorial) com LangChain e Milvus, além de um plano de controle administrativo.\nResponsabilidades: Implementei ciclo de vida de fontes, ações manuais de indexação/remoção e hooks de sincronização incremental.\nDesafios: Manter embeddings consistentes após mudanças de fonte, evitar vetores obsoletos e preservar rastreabilidade de cada operação RAG.\nImpacto: Respostas confiáveis e auditáveis em uso institucional diário.",
+                    "projects.vehicle.badge": "Sistema Core",
                     "projects.vehicle.title": "Sistema de Controle de Acesso Veicular",
-                    "projects.vehicle.description": "Sistema de controle de acesso veicular de ponta a ponta integrando visão computacional, comunicação MQTT em tempo real e plataforma web de gerenciamento com autenticação, RBAC e APIs REST.",
-                    "projects.pokedex.title": "Pokédex Ruby",
-                    "projects.pokedex.description": "Uma aplicação Pokédex abrangente construída com Ruby e Sinatra, com recursos de busca em tempo real, modo escuro, cadeias evolutivas e montagem de equipe. O app consome a PokéAPI para informações detalhadas.",
+                    "projects.vehicle.description": "Problema: As decisões de acesso estavam fragmentadas entre hardware e controles manuais.\nDesenho do Sistema: Dashboard Angular e serviços Node/Express integrados a eventos MQTT e fluxos com câmeras.\nResponsabilidades: Implementei RBAC, OAuth2/JWT, limites de API e automação de backup.\nDesafios: Sustentar baixa latência no processamento de eventos e consistência de estado entre dispositivos.\nImpacto: Controle centralizado e em tempo real para operações veiculares institucionais.",
+                    "projects.scraping.badge": "Pipeline de Dados",
+                    "projects.pokedex.title": "Pokedex Ruby",
+                    "projects.pokedex.description": "Serviço de catálogo em Ruby/Sinatra com busca estruturada e setup local containerizado.",
                     "projects.jiujitsu.title": "Gerenciador de Academia de Jiu-Jitsu",
-                    "projects.jiujitsu.description": "Sistema web completo para gestão de academias de artes marciais, substituindo planilhas manuais. CRUD de alunos com suporte multi-modalidade (Jiu-Jitsu/Muay Thai), controle financeiro com cálculo automático de status, registro de presença, histórico de graduações, dashboard interativo com Chart.js e exportação de relatórios CSV. Totalmente containerizado com Docker e protegido com BCrypt e prepared statements.",
+                    "projects.jiujitsu.description": "Plataforma full-stack de gestão de academia para matrícula, presença e financeiro.",
                     "projects.sasuke.title": "API de Citações do Sasuke",
-                    "projects.sasuke.description": "API RESTful construída com Python e Flask para gerenciar e recuperar citações de Sasuke Uchiha. Recursos incluem citações aleatórias, filtragem por categorias, busca e autenticação.",
+                    "projects.sasuke.description": "API em Flask com busca, filtros e rotas de escrita protegidas.",
                     "projects.academia.title": "Academia Dev Python",
                     "projects.academia.description": "Sistema completo de gerenciamento de academia construído com Django e Django REST Framework. Recursos incluem cadastro de membros, planos de treino, agendamento de aulas e controle de pagamentos com API RESTful.",
                     "projects.taskpanel.title": "Super Painel de Tarefas",
-                    "projects.taskpanel.description": "Aplicação moderna de gerenciamento de tarefas com frontend Next.js e backend NestJS. Inclui atualizações em tempo real, colaboração em equipe, organização de projetos e visualização Kanban.",
+                    "projects.taskpanel.description": "App de tarefas com Next.js + NestJS, persistência em PostgreSQL e autenticação OAuth.",
                     "projects.scraping.title": "Scraper da Prefeitura de Natal",
-                    "projects.scraping.description": "Solução avançada de web scraping usando Selenium para extração de dados públicos do portal da Prefeitura de Natal. Armazenamento PostgreSQL, agendamento automatizado e validação de dados.",
+                    "projects.scraping.description": "Problema: Dados do portal governamental eram difíceis de capturar com confiabilidade por renderização dinâmica e restrições do portal.\nDesenho do Sistema: Pipeline de extração com Selenium, persistência em PostgreSQL e saídas prontas para API.\nResponsabilidades: Implementei fluxo resiliente de scraping, mapeamento de armazenamento e rotinas de processamento.\nDesafios: Lidar com páginas renderizadas em JavaScript, interrupções de SSL e timing de conteúdo assíncrono.\nImpacto: Ingestão de dados repetível no lugar de coleta manual frágil.",
                     "projects.prayers.title": "Portal de Orações Católicas",
-                    "projects.prayers.description": "Portal web construído com Ruby e Sinatra com uma coleção de orações católicas. Inclui funcionalidade de busca, categorização e interface limpa e acessível.",
+                    "projects.prayers.description": "Portal de conteúdo com navegação por categorias e rotas backend de fácil manutenção.",
                     "projects.jutsu.title": "Catálogo de Jutsus do Naruto",
-                    "projects.jutsu.description": "Catálogo abrangente de jutsus do Naruto construído com Django. Recursos incluem informações detalhadas sobre técnicas, associações de personagens e classificações de elementos.",
+                    "projects.jutsu.description": "Catálogo CRUD em Django com entidades pesquisáveis e fluxo previsível de dados.",
                     "projects.repository": "Repositório",
                     "projects.live": "Demo ao Vivo",
                     "projects.docs": "Documentação da API",
                     
                     "skills.title": "Minhas Habilidades",
-                    "skills.ai": "Engenharia de IA & MLOps",
-                    "skills.frontend": "Desenvolvimento Frontend",
-                    "skills.backend": "Desenvolvimento Backend",
-                    "skills.databases": "Bancos de Dados & Ferramentas",                    
+                    "skills.ai": "Sistemas de IA e Operação RAG",
+                    "skills.frontend": "Interfaces de Produto",
+                    "skills.backend": "Serviços Backend e APIs",
+                    "skills.data": "Pipelines de Dados e Automação",
+                    "skills.databases": "Infraestrutura e Confiabilidade",                    
                     
                     "languages.title": "Idiomas",
                     "languages.portuguese": "Português",
@@ -2595,23 +4131,27 @@
                     
                     "hobbies.title": "Meus Hobbies",
                     "hobbies.anime.name": "Assistir Anime",
-                    "hobbies.anime.description": "Meu anime favorito é Attack on Titan, mas também gosto de assistir Naruto e especialmente acompanhar o desenvolvimento do personagem Sasuke!",
+                    "hobbies.anime.description": "Anime faz parte do meu tempo de descanso.",
                     "hobbies.programming.name": "Programação",
-                    "hobbies.programming.description": "Adoro estudar novas linguagens de programação e frameworks para expandir meu conhecimento e habilidades.",
+                    "hobbies.programming.description": "Construo pequenos projetos paralelos para testar ferramentas.",
                     "hobbies.games.name": "Videogames",
-                    "hobbies.games.description": "Gosto de jogar vários videogames, especialmente League of Legends e jogos com narrativas ricas.",
+                    "hobbies.games.description": "Jogo títulos de estratégia e narrativos.",
                     "hobbies.movies.name": "Filmes",
-                    "hobbies.movies.description": "Sou apaixonado por cinema e acompanho todos os filmes que assisto no Letterboxd.",
+                    "hobbies.movies.description": "Mantenho uma lista leve de filmes.",
                     "hobbies.coffee.name": "Café",
-                    "hobbies.coffee.description": "Adoro beber café e explorar diferentes métodos de preparo e variedades de grãos.",
+                    "hobbies.coffee.description": "Gosto de testar diferentes métodos de preparo.",
+
+                    "personal.title": "Além da Engenharia",
+                    "personal.description": "Fora da engenharia, também contribuo com ensino e atividades comunitárias por meio do Jiu-Jitsu e da catequese infantil.",
                     
-                    "contact.title": "Contato",
-                    "contact.getInTouch": "Entre em Contato",
-                    "contact.description": "Buscando novas oportunidades para aplicar minha paixão por resolver problemas em um ambiente dinâmico. Sinta-se à vontade para entrar em contato!",
+                    "contact.title": "Contato Profissional",
+                    "contact.getInTouch": "Colaboração em Engenharia",
+                    "contact.description": "Disponível para conversas com recrutadores e equipes sobre sistemas backend, fluxos com IA e entrega full-stack.",
                     "contact.email": "Email",
                     "contact.linkedin": "LinkedIn",
                     "contact.github": "GitHub",
-                    "contact.availability": "Disponível para posições CLT e projetos freelance",
+                    "contact.resume": "Currículo / CV",
+                    "contact.availability": "Baseado em Natal, Brasil, atualmente construindo sistemas institucionais e orientados a produto.",
                     
                     "footer.copyright": "Augusto Oliveira. Todos os Direitos Reservados."
                 };
@@ -2619,28 +4159,65 @@
                 console.error("Error loading translations:", error);
             }
         }
+        function setDocumentLanguage(lang) {
+            document.documentElement.setAttribute('lang', lang === 'pt' ? 'pt-BR' : 'en');
+        }
+
         function applyTranslations(lang) {
+            const selectedTranslations = translations[lang];
+            if (!selectedTranslations) {
+                return;
+            }
+
+            setDocumentLanguage(lang);
+
             document.querySelectorAll('[data-lang-key]').forEach(element => {
                 const key = element.getAttribute('data-lang-key');
-                if (translations[lang] && translations[lang][key]) {
-                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                        element.placeholder = translations[lang][key];
-                    } else {
-                        element.textContent = translations[lang][key];
-                    }
+                const value = selectedTranslations[key];
+
+                if (!value) {
+                    return;
+                }
+
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    element.placeholder = value;
+                    return;
+                }
+
+                if (element.childElementCount === 0) {
+                    element.textContent = value;
+                    return;
+                }
+
+                const firstChild = element.firstElementChild;
+                const hasOnlyIconChild = element.childElementCount === 1 && firstChild && firstChild.tagName === 'I';
+
+                if (hasOnlyIconChild) {
+                    Array.from(element.childNodes).forEach(node => {
+                        if (node.nodeType === Node.TEXT_NODE) {
+                            node.remove();
+                        }
+                    });
+                    element.appendChild(document.createTextNode(' ' + value));
                 }
             });
         }
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            nav.classList.toggle('active');
-        });
+        if (hamburger && nav) {
+            hamburger.addEventListener('click', () => {
+                const isOpen = nav.classList.toggle('active');
+                hamburger.classList.toggle('active', isOpen);
+                hamburger.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
 
         document.querySelectorAll('nav ul li a').forEach(link => {
             link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                nav.classList.remove('active');
+                if (hamburger && nav) {
+                    hamburger.classList.remove('active');
+                    nav.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                }
             });
         });
 
@@ -2662,12 +4239,14 @@
             checkFadeElements();
         });
 
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+        if (backToTop) {
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
             });
-        });
+        }
 
         function animateSkillBars() {
             skillProgressBars.forEach(bar => {
@@ -2708,19 +4287,7 @@
             });
         });
 
-        if (contactForm) {
-            contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const currentLang = languageSelect.value;
-                const successMessage = currentLang === 'pt' ? 
-                    'Obrigado pela sua mensagem! Este é um formulário de demonstração - em um cenário real, sua mensagem seria enviada.' :
-                    'Thank you for your message! This is a demo form - in a real scenario, your message would be sent.';
-                    
-                alert(successMessage);
-                contactForm.reset();
-            });
-        }
-   
+
         if (themeToggle) {
             themeToggle.addEventListener('click', () => {
                 const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
@@ -2728,6 +4295,7 @@
                 
                 document.documentElement.setAttribute('data-theme', newTheme);
                 localStorage.setItem('theme', newTheme);
+                themeToggle.setAttribute('aria-pressed', String(newTheme === 'light'));
 
                 const icon = themeToggle.querySelector('i');
                 if (newTheme === 'dark') {
@@ -2770,12 +4338,11 @@
                 
                 if (sharinganActive) {
                     document.body.classList.add('sharingan-cursor');
-                    // Subtle visual feedback instead of alert
                     document.body.style.transition = 'all 0.5s ease';
-                    console.log('🔮 Hidden mode activated');
+                    console.log('Hidden mode activated');
                 } else {
                     document.body.classList.remove('sharingan-cursor');
-                    console.log('🔮 Hidden mode deactivated');
+                    console.log('Hidden mode deactivated');
                 }
             }
         });
@@ -2786,11 +4353,14 @@
             const savedTheme = localStorage.getItem('theme') || 'dark';
             document.documentElement.setAttribute('data-theme', savedTheme);
 
-            const icon = themeToggle.querySelector('i');
-            if (savedTheme === 'dark') {
-                icon.className = 'fas fa-moon';
-            } else {
-                icon.className = 'fas fa-sun';
+            if (themeToggle) {
+                const icon = themeToggle.querySelector('i');
+                if (savedTheme === 'dark') {
+                    icon.className = 'fas fa-moon';
+                } else {
+                    icon.className = 'fas fa-sun';
+                }
+                themeToggle.setAttribute('aria-pressed', String(savedTheme === 'light'));
             }
 
             const savedLanguage = localStorage.getItem('language') || 'en';
@@ -2802,14 +4372,9 @@
             animateSkillBars();
             checkFadeElements();
 
-            document.querySelectorAll('.project-link').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-                    if (href && href !== '#') {
-                        window.open(href, '_blank');
-                    }
-                });
-            });
+            if (hamburger && nav) {
+                hamburger.setAttribute('aria-expanded', String(nav.classList.contains('active')));
+            }
         });
 
         const pathContainer = document.querySelector('.path-container');
@@ -2833,7 +4398,7 @@
                 const rotateX = (y - centerY) / 20;
                 const rotateY = -(x - centerX) / 20;
 
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+                card.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-10px)';
             });
             
             card.addEventListener('mouseleave', () => {
@@ -2843,3 +4408,5 @@
     </script>
 </body>
 </html>
+
+
