@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Augusto Oliveira | Software Engineer - Backend, AI Systems, and Operations</title>
-    <meta name="description" content="Software engineer building backend, AI, and full-stack systems with focus on RAG operations, reliability, and institutional delivery.">
-    <meta name="keywords" content="Software Engineer, Backend Engineer, AI Systems, RAG Operations, Full-Stack, Python, LangChain, Flask, Node.js, Angular">
+    <title>Augusto Oliveira | Software Engineer — AI Systems, Backend & RAG Operations</title>
+    <meta name="description" content="Software engineer building backend systems, AI/RAG platforms, admin control planes, data pipelines, and full-stack applications with operational reliability.">
+    <meta name="keywords" content="Software Engineer, Backend Engineer, AI Systems, RAG Operations, Flask, LangChain, Milvus, PostgreSQL, Docker, Celery, Redis, Angular, Node.js">
     <meta name="author" content="Augusto Oliveira">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
@@ -14,16 +14,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {            
-            --primary: #1a1a3e;
-            --secondary: #7c3aed;
-            --accent: #dc2626;
+            --primary: #15142b;
+            --secondary: #6d5bd0;
+            --accent: #9f1d2d;
             --dark: #0f0f1a;
             --light: #f1f5f9;
             --gray: #94a3b8;
             --light-gray: #cbd5e1;
-            --purple-glow: rgba(124, 58, 237, 0.3);
+            --purple-glow: rgba(109, 91, 208, 0.16);
             --border-radius: 14px;
-            --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow: 0 10px 28px rgba(0, 0, 0, 0.26);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             
             transition: all 0.3s ease-in-out;
@@ -31,14 +31,14 @@
         
         /* Light Theme */
         html[data-theme="light"] {
-            --primary: #6366f1;
-            --secondary: #8b5cf6; 
-            --accent: #ef4444; 
+            --primary: #4f46e5;
+            --secondary: #6d28d9; 
+            --accent: #b91c1c; 
             --dark: #f8fafc;
             --light: #1e293b;
             --gray: #64748b;
             --light-gray: #475569;
-            --purple-glow: rgba(139, 92, 246, 0.2);
+            --purple-glow: rgba(109, 40, 217, 0.12);
         }
 
         * {
@@ -64,9 +64,9 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(ellipse at 20% 20%, rgba(124, 58, 237, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(99, 102, 241, 0.03) 0%, transparent 70%);
+                radial-gradient(ellipse at 20% 18%, rgba(109, 91, 208, 0.055) 0%, transparent 48%),
+                radial-gradient(ellipse at 82% 84%, rgba(87, 72, 166, 0.035) 0%, transparent 48%),
+                radial-gradient(ellipse at 50% 50%, rgba(99, 102, 241, 0.02) 0%, transparent 70%);
             pointer-events: none;
             z-index: -1;
         }
@@ -133,13 +133,13 @@
         .logo span::after {
             content: '';
             position: absolute;
-            width: 6px;
-            height: 6px;
-            background-color: var(--accent);
+            width: 4px;
+            height: 4px;
+            background-color: rgba(159, 29, 45, 0.72);
             border-radius: 50%;
             top: 5px;
             right: -12px;
-            box-shadow: 0 0 8px var(--accent);
+            box-shadow: 0 0 5px rgba(159, 29, 45, 0.42);
             animation: pulse 2s infinite;
         }
 
@@ -316,8 +316,8 @@
             position: absolute;
             inset: 12% 18% auto -15%;
             height: 420px;
-            background: radial-gradient(circle at center, rgba(124, 58, 237, 0.28) 0%, rgba(124, 58, 237, 0) 70%);
-            filter: blur(28px);
+            background: radial-gradient(circle at center, rgba(109, 91, 208, 0.18) 0%, rgba(109, 91, 208, 0) 70%);
+            filter: blur(34px);
             pointer-events: none;
             z-index: 0;
         }
@@ -328,8 +328,8 @@
             inset: auto -12% 8% auto;
             width: 360px;
             height: 360px;
-            background: radial-gradient(circle at center, rgba(124, 58, 237, 0.16) 0%, rgba(124, 58, 237, 0) 74%);
-            filter: blur(24px);
+            background: radial-gradient(circle at center, rgba(109, 91, 208, 0.1) 0%, rgba(109, 91, 208, 0) 74%);
+            filter: blur(32px);
             pointer-events: none;
             z-index: 0;
         }
@@ -358,7 +358,7 @@
         }
 
         .hero h1 {
-            font-size: 3.65rem;
+            font-size: 3.35rem;
             font-weight: 700;
             margin-bottom: 0.45rem;
             line-height: 1.06;
@@ -369,7 +369,7 @@
         }
 
         .hero h1 .highlight {
-            background: linear-gradient(135deg, var(--secondary) 0%, #a855f7 50%, var(--secondary) 100%);
+            background: linear-gradient(135deg, var(--secondary) 0%, #8b7cf6 50%, var(--secondary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -381,10 +381,10 @@
             content: '';
             position: absolute;
             width: 100%;
-            height: 4px;
+            height: 2px;
             bottom: 0;
             left: 0;
-            background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+            background: linear-gradient(90deg, transparent, rgba(109, 91, 208, 0.82), transparent);
             z-index: -1;
             border-radius: 2px;
         }
@@ -447,8 +447,8 @@
             gap: 0;
             margin-top: 1.15rem;
             padding: 0.32rem 0;
-            border-top: 1px solid rgba(124, 58, 237, 0.24);
-            border-bottom: 1px solid rgba(124, 58, 237, 0.16);
+            border-top: 1px solid rgba(109, 91, 208, 0.22);
+            border-bottom: 1px solid rgba(109, 91, 208, 0.12);
             max-width: 980px;
         }
 
@@ -469,7 +469,7 @@
         }
 
         .hero-trust-item + .hero-trust-item {
-            border-left: 1px solid rgba(124, 58, 237, 0.2);
+            border-left: 1px solid rgba(109, 91, 208, 0.16);
         }
 
         .hero-trust-item + .hero-trust-item::before {
@@ -529,7 +529,7 @@
         .btn {
             display: inline-block;
             padding: 0.9rem 2.2rem;
-            background: linear-gradient(135deg, var(--secondary) 0%, #a855f7 100%);
+            background: linear-gradient(135deg, #5b4bb7 0%, #7c6ee6 100%);
             color: white;
             border-radius: var(--border-radius);
             font-weight: 500;
@@ -537,13 +537,13 @@
             border: none;
             cursor: pointer;
             text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+            box-shadow: 0 5px 14px rgba(44, 35, 93, 0.28);
         }
 
         .btn:hover {
-            background: linear-gradient(135deg, #a855f7 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, #7465df 0%, #5b4bb7 100%);
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
+            box-shadow: 0 9px 22px rgba(44, 35, 93, 0.34);
             color: white;
         }
 
@@ -557,7 +557,7 @@
         }
 
         .btn-outline:hover {
-            background: linear-gradient(135deg, var(--secondary) 0%, #a855f7 100%);
+            background: linear-gradient(135deg, #5b4bb7 0%, #7c6ee6 100%);
             color: white;
             border-color: transparent;
         }
@@ -580,20 +580,20 @@
         }
 
         section {
-            padding: 5.4rem 0;
+            padding: 4.6rem 0;
         }
 
         .priority-section {
-            padding-top: 6.4rem;
-            padding-bottom: 6.4rem;
+            padding-top: 5.6rem;
+            padding-bottom: 5.6rem;
         }
 
         #current-work.priority-section {
-            padding-top: 6.8rem;
+            padding-top: 5.8rem;
         }
 
         #projects.priority-section {
-            padding-bottom: 6.8rem;
+            padding-bottom: 5.8rem;
         }
 
         #about,
@@ -617,7 +617,7 @@
         }
 
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2.25rem;
             display: inline-block;
             position: relative;
             padding-bottom: 1rem;
@@ -635,27 +635,27 @@
         }
 
         .priority-section .section-title h2 {
-            font-size: 2.75rem;
+            font-size: 2.42rem;
             letter-spacing: -0.02em;
         }
 
         .priority-section .section-title h2::after {
             width: 120px;
             height: 4px;
-            background: linear-gradient(90deg, rgba(124, 58, 237, 0.4), var(--secondary), rgba(220, 38, 38, 0.5));
+            background: linear-gradient(90deg, rgba(109, 91, 208, 0.28), var(--secondary), rgba(159, 29, 45, 0.22));
         }
 
         .current-work-content {
             max-width: 1120px;
             margin: 0 auto;
             padding: 2.35rem 2.45rem;
-            background: linear-gradient(145deg, rgba(124, 58, 237, 0.09) 0%, rgba(15, 15, 26, 0.58) 100%);
-            border: 1px solid rgba(124, 58, 237, 0.2);
+            background: linear-gradient(145deg, rgba(109, 91, 208, 0.065) 0%, rgba(15, 15, 26, 0.72) 100%);
+            border: 1px solid rgba(109, 91, 208, 0.16);
             border-radius: var(--border-radius);
-            border-left: 2px solid rgba(124, 58, 237, 0.48);
+            border-left: 2px solid rgba(109, 91, 208, 0.42);
             backdrop-filter: blur(10px);
             transition: var(--transition);
-            box-shadow: 0 18px 36px rgba(11, 10, 31, 0.26);
+            box-shadow: 0 16px 34px rgba(7, 7, 18, 0.24);
             position: relative;
             overflow: hidden;
         }
@@ -667,7 +667,7 @@
             left: 0;
             right: 0;
             height: 1px;
-            background: linear-gradient(90deg, rgba(124, 58, 237, 0.55), rgba(220, 38, 38, 0.26));
+            background: linear-gradient(90deg, rgba(109, 91, 208, 0.42), rgba(159, 29, 45, 0.14));
         }
 
         html[data-theme="light"] .current-work-content {
@@ -679,8 +679,8 @@
 
         .current-work-content:hover {
             transform: translateY(-4px);
-            box-shadow: 0 22px 40px rgba(20, 18, 45, 0.26);
-            border-color: rgba(124, 58, 237, 0.36);
+            box-shadow: 0 18px 34px rgba(12, 11, 28, 0.26);
+            border-color: rgba(109, 91, 208, 0.28);
         }
 
         html[data-theme="light"] .current-work-content:hover {
@@ -1220,7 +1220,7 @@
 
         .timeline {
             position: relative;
-            max-width: 800px;
+            max-width: 980px;
             margin: 0 auto;
         }
 
@@ -1229,32 +1229,34 @@
             position: absolute;
             top: 0;
             bottom: 0;
-            left: 50%;
+            left: 0;
             width: 2px;
-            background: linear-gradient(to bottom, var(--primary), var(--secondary));
-            transform: translateX(-50%);
+            background: linear-gradient(to bottom, rgba(109, 91, 208, 0.18), rgba(109, 91, 208, 0.5), rgba(109, 91, 208, 0.12));
+            transform: none;
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 4rem;
+            margin-bottom: 3.1rem;
             width: 100%;
             display: flex;
+            justify-content: flex-start;
+            padding-left: 2rem;
         }
 
         .timeline-item:nth-child(odd) {
-            justify-content: flex-end;
+            justify-content: flex-start;
         }
 
         .timeline-content {
-            width: 45%;
-            padding: 1.5rem;
-            background: linear-gradient(145deg, rgba(124, 58, 237, 0.08) 0%, rgba(15, 15, 26, 0.5) 100%);
-            border: 1px solid rgba(124, 58, 237, 0.15);
+            width: 100%;
+            padding: 1.65rem 1.8rem;
+            background: linear-gradient(145deg, rgba(109, 91, 208, 0.055) 0%, rgba(15, 15, 26, 0.64) 100%);
+            border: 1px solid rgba(109, 91, 208, 0.14);
             border-radius: var(--border-radius);
             position: relative;
             transition: var(--transition);
-            border-left: 3px solid var(--secondary);
+            border-left: 3px solid rgba(109, 91, 208, 0.62);
             backdrop-filter: blur(10px);
         }
         
@@ -1265,17 +1267,17 @@
         }
 
         .timeline-content:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(124, 58, 237, 0.2);
-            border-color: rgba(124, 58, 237, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(14, 12, 33, 0.24);
+            border-color: rgba(109, 91, 208, 0.28);
             border-left-color: var(--secondary);
         }
 
         .timeline-item.current-role .timeline-content {
-            background: linear-gradient(145deg, rgba(124, 58, 237, 0.16) 0%, rgba(15, 15, 26, 0.72) 100%);
-            border-color: rgba(124, 58, 237, 0.4);
+            background: linear-gradient(145deg, rgba(109, 91, 208, 0.105) 0%, rgba(15, 15, 26, 0.78) 100%);
+            border-color: rgba(109, 91, 208, 0.28);
             border-left-width: 4px;
-            box-shadow: 0 18px 36px rgba(20, 18, 45, 0.36);
+            box-shadow: 0 16px 34px rgba(9, 8, 24, 0.32);
         }
 
         html[data-theme="light"] .timeline-item.current-role .timeline-content {
@@ -1302,7 +1304,8 @@
         }
 
         .timeline-item:nth-child(odd) .timeline-date {
-            right: 0;
+            left: 0;
+            right: auto;
         }
 
         .timeline-item:nth-child(even) .timeline-date {
@@ -1316,10 +1319,10 @@
             border-radius: 50%;
             background-color: var(--secondary);
             top: 20px;
-            left: 50%;
+            left: 0;
             transform: translateX(-50%);
             z-index: 1;
-            box-shadow: 0 0 0 4px rgba(123, 44, 191, 0.2);
+            box-shadow: 0 0 0 4px rgba(109, 91, 208, 0.14);
         }
 
         .timeline-content h3 {
@@ -1405,8 +1408,8 @@
         }
 
         .project-card {
-            background: linear-gradient(145deg, rgba(124, 58, 237, 0.08) 0%, rgba(15, 15, 26, 0.5) 100%);
-            border: 1px solid rgba(124, 58, 237, 0.15);
+            background: linear-gradient(145deg, rgba(109, 91, 208, 0.055) 0%, rgba(15, 15, 26, 0.58) 100%);
+            border: 1px solid rgba(109, 91, 208, 0.13);
             border-radius: var(--border-radius);
             overflow: hidden;
             transition: var(--transition);
@@ -1434,8 +1437,8 @@
 
         .project-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 18px 34px rgba(28, 25, 52, 0.26);
-            border-color: rgba(124, 58, 237, 0.32);
+            box-shadow: 0 14px 28px rgba(10, 9, 26, 0.26);
+            border-color: rgba(109, 91, 208, 0.26);
         }
 
         html[data-theme="light"] .project-card:hover {
@@ -1443,8 +1446,8 @@
         }
 
         .project-card.flagship {
-            border-color: rgba(124, 58, 237, 0.38);
-            box-shadow: 0 16px 30px rgba(20, 18, 45, 0.3);
+            border-color: rgba(109, 91, 208, 0.26);
+            box-shadow: 0 16px 32px rgba(7, 7, 18, 0.3);
             position: relative;
         }
 
@@ -1459,7 +1462,7 @@
         }
 
         .project-card.flagship-primary::before {
-            background: linear-gradient(90deg, rgba(124, 58, 237, 0.1), var(--secondary), rgba(124, 58, 237, 0.1));
+            background: linear-gradient(90deg, rgba(109, 91, 208, 0.04), rgba(109, 91, 208, 0.82), rgba(109, 91, 208, 0.04));
         }
 
         .project-card.flagship-secondary::before {
@@ -1529,7 +1532,7 @@
 
         .project-img {
             width: 100%;
-            height: 200px;
+            height: 185px;
             overflow: hidden;
             position: relative;
         }
@@ -1555,7 +1558,7 @@
         }
 
         .project-card.flagship .project-content {
-            padding: 1.8rem 1.82rem 1.72rem;
+            padding: 1.65rem 1.7rem 1.6rem;
             gap: 0.15rem;
         }
 
@@ -1600,38 +1603,47 @@
         .project-card.secondary {
             border-color: rgba(124, 58, 237, 0.08);
             box-shadow: none;
-            background: linear-gradient(145deg, rgba(124, 58, 237, 0.035) 0%, rgba(15, 15, 26, 0.34) 100%);
-            opacity: 0.84;
+            background: linear-gradient(145deg, rgba(109, 91, 208, 0.028) 0%, rgba(15, 15, 26, 0.34) 100%);
+            opacity: 0.78;
         }
 
         .project-card.secondary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 20px rgba(20, 18, 45, 0.16);
-            border-color: rgba(124, 58, 237, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(14, 12, 33, 0.14);
+            border-color: rgba(109, 91, 208, 0.18);
         }
 
         .project-card.secondary .project-img {
-            height: 142px;
-            opacity: 0.85;
+            height: 118px;
+            opacity: 0.68;
+        }
+
+        .project-card.secondary .project-img img {
+            filter: grayscale(0.28) saturate(0.72) brightness(0.82);
+        }
+
+        .project-card.secondary:hover .project-img img {
+            transform: scale(1.03);
+            filter: grayscale(0.18) saturate(0.82) brightness(0.9);
         }
 
         .project-card.secondary .project-content {
-            padding: 0.95rem;
+            padding: 0.9rem;
         }
 
         .project-card.secondary .project-title {
-            font-size: 1.14rem;
+            font-size: 1.06rem;
             margin-bottom: 0.35rem;
         }
 
         .project-card.secondary .project-description {
-            font-size: 0.88rem;
+            font-size: 0.84rem;
             line-height: 1.5;
             color: var(--gray);
             margin-bottom: 0.9rem;
             display: -webkit-box;
-            line-clamp: 3;
-            -webkit-line-clamp: 3;
+            line-clamp: 2;
+            -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
@@ -2013,23 +2025,24 @@
         }
         
         .hobbies {
-            padding: 3.5rem 0;
+            padding: 2.8rem 0;
         }
 
         .hobbies-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
         .hobby-card {
-            background: linear-gradient(145deg, rgba(124, 58, 237, 0.05) 0%, rgba(15, 15, 26, 0.38) 100%);
-            border: 1px solid rgba(124, 58, 237, 0.09);
+            background: linear-gradient(145deg, rgba(109, 91, 208, 0.035) 0%, rgba(15, 15, 26, 0.32) 100%);
+            border: 1px solid rgba(109, 91, 208, 0.08);
             border-radius: var(--border-radius);
-            padding: 1.35rem;
+            padding: 1rem;
             text-align: center;
             transition: var(--transition);
             backdrop-filter: blur(10px);
+            opacity: 0.82;
         }
         
         html[data-theme="light"] .hobby-card {
@@ -2038,9 +2051,10 @@
         }
 
         .hobby-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 24px rgba(124, 58, 237, 0.16);
-            border-color: rgba(124, 58, 237, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(14, 12, 33, 0.14);
+            border-color: rgba(109, 91, 208, 0.2);
+            opacity: 1;
         }
         
         html[data-theme="light"] .hobby-card:hover {
@@ -2048,18 +2062,19 @@
         }
 
         .hobby-icon {
-            font-size: 2.1rem;
+            font-size: 1.55rem;
             margin-bottom: 0.75rem;
             color: var(--secondary);
+            opacity: 0.62;
         }
 
         .hobby-name {
-            font-size: 0.98rem;
+            font-size: 0.94rem;
             margin-bottom: 0.5rem;
         }
 
         .hobby-card p {
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: var(--gray);
         }
         
@@ -2138,7 +2153,7 @@
             justify-content: center;
             color: white;
             font-size: 1.2rem;
-            background: linear-gradient(135deg, var(--secondary) 0%, #a855f7 100%);
+            background: linear-gradient(135deg, #5b4bb7 0%, #7c6ee6 100%);
         }
 
         .contact-avatar.github {
@@ -2247,7 +2262,7 @@
         .social-link:hover {
             background: linear-gradient(135deg, var(--secondary) 0%, #a855f7 100%);
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
+            box-shadow: 0 8px 20px rgba(44, 35, 93, 0.3);
             border-color: transparent;
         }
 
@@ -2339,9 +2354,9 @@
             position: fixed;
             bottom: 100px;
             left: 30px;
-            width: 60px;
-            height: 60px;
-            opacity: 0.2;
+            width: 42px;
+            height: 42px;
+            opacity: 0.08;
             transition: var(--transition);
             cursor: pointer;
             z-index: 10;
@@ -2349,7 +2364,7 @@
 
         .uchiha-symbol:hover {
             transform: rotate(180deg);
-            opacity: 0.5;
+            opacity: 0.22;
         }
                 
         .sharingan-loader {
@@ -2453,7 +2468,7 @@
         .skill-category:hover,
         .language-card:hover,
         .hobby-card:hover {
-            box-shadow: 0 0 15px rgba(123, 44, 191, 0.3);
+            box-shadow: 0 0 12px rgba(109, 91, 208, 0.18);
         }
         
         html[data-theme="light"] .skill-category:hover,
@@ -2840,7 +2855,7 @@
                 <ul>
                     <li><a href="#home" data-lang-key="nav.home">Home</a></li>
                     <li><a href="#about" data-lang-key="nav.about">About</a></li>
-                    <li><a href="#current-work" data-lang-key="nav.current">Current Work</a></li>
+                    <li><a href="#current-work" data-lang-key="nav.current">Systems Work</a></li>
                     <li><a href="#experience" data-lang-key="nav.experience">Experience</a></li>
                     <li><a href="#projects" data-lang-key="nav.projects">Systems</a></li>
                     <li><a href="#contact" data-lang-key="nav.contact">Contact</a></li>
@@ -2864,12 +2879,12 @@
         <div class="container">
             <div class="hero-content fade-in">
                 <h1><span class="highlight">Augusto Oliveira</span></h1>
-                <p class="fade-in delay-1" data-lang-key="hero.subtitle">Software Engineer building backend systems, AI-enabled workflows, and full-stack applications.</p>
-                <p class="fade-in delay-2" data-lang-key="hero.identity">Building reliable systems from backend architecture to daily operations.</p>
+                <p class="fade-in delay-1" data-lang-key="hero.subtitle">Software Engineer building confidential AI/RAG platforms, backend systems, admin control planes, and full-stack products.</p>
+                <p class="fade-in delay-2" data-lang-key="hero.identity">I work on reliable software for complex institutional workflows where governance, auditability, and operational stability matter.</p>
                 <div class="hero-trust-row fade-in delay-4">
-                    <span class="hero-trust-item" data-lang-key="hero.trust1">Current Role: CCSL-IFRN</span>
-                    <span class="hero-trust-item" data-lang-key="hero.trust2">Core Stack: Python, Flask, LangChain, Milvus</span>
-                    <span class="hero-trust-item" data-lang-key="hero.trust3">Flagship Systems: SmartFAQ, Access Control, Scraper</span>
+                    <span class="hero-trust-item" data-lang-key="hero.trust1">Current Focus: Confidential Federal-Sector AI/RAG Systems</span>
+                    <span class="hero-trust-item" data-lang-key="hero.trust2">Core Stack: Python, Flask, LangChain, Milvus, PostgreSQL, Docker</span>
+                    <span class="hero-trust-item" data-lang-key="hero.trust3">Systems: SmartFAQ, Access Control, Public Data Pipelines</span>
                 </div>
                 <div class="hero-actions fade-in delay-4">
                     <a href="#contact" class="btn" data-lang-key="hero.contact">Get In Touch</a>
@@ -2882,35 +2897,35 @@
     <section id="current-work" class="current-work priority-section">
         <div class="container">
             <div class="section-title">
-                <h2 data-lang-key="current.title">Current Work</h2>
+                <h2 data-lang-key="current.title">Confidential Systems Work</h2>
             </div>
             <div class="current-work-content fade-in">
                 <div class="current-work-header">
                     <span class="current-badge" data-lang-key="current.badge">Current System</span>
-                    <p class="current-work-role" data-lang-key="current.role">Software Engineer - RAG Platform & Admin Operations | CCSL-IFRN | Apr 2026 - Present</p>
+                    <p class="current-work-role" data-lang-key="current.role">Software Engineer — Confidential AI/RAG Platform | CCSL-IFRN | Apr 2026 - Present</p>
                 </div>
-                <h3 class="current-case-title" data-lang-key="current.case.title">What I Work On Now</h3>
-                <p class="current-case-subtitle" data-lang-key="current.case.subtitle">Live institutional engineering work with operational governance and reliability goals.</p>
+                <h3 class="current-case-title" data-lang-key="current.case.title">Confidential Federal-Sector RAG Platform</h3>
+                <p class="current-case-subtitle" data-lang-key="current.case.subtitle">Governed AI retrieval workflows, source lifecycle control, feedback-to-knowledge promotion, auditability, and operational reliability.</p>
                 <div class="current-work-layout">
                     <div class="current-work-left">
-                        <p class="current-work-intro" data-lang-key="current.intro">I operate SmartFAQ as an institutional RAG platform under reliability and governance constraints.</p>
+                        <p class="current-work-intro" data-lang-key="current.intro">I currently work on SmartFAQ, a confidential institutional AI/RAG platform used in a Brazilian federal government context. Public details are intentionally limited, but the work involves backend engineering, admin governance, vector index reliability, and operational validation.</p>
                         <p class="current-responsibilities-title" data-lang-key="current.responsibilities">Responsibilities</p>
                         <ul class="current-work-list">
-                            <li data-lang-key="current.item1">Operate source lifecycle across index, update, and remove flows in institutional use.</li>
-                            <li data-lang-key="current.item2">Run controlled force_index and force_remove actions with WEB_ONLY_MODE for safe simulation.</li>
-                            <li data-lang-key="current.item3">Maintain incremental synchronization between source updates and vector state.</li>
-                            <li data-lang-key="current.item4">Track eligibility and skip reasons to preserve retrieval consistency and auditability.</li>
+                            <li data-lang-key="current.item1">Built governed source lifecycle flows for controlled inclusion, update, removal, and audit of knowledge sources.</li>
+                            <li data-lang-key="current.item2">Improved feedback-to-knowledge workflows, promoting validated expected answers into governed RAG sources.</li>
+                            <li data-lang-key="current.item3">Supported hybrid index rebuild reliability across 7,434+ knowledge records while preserving governed database sources.</li>
+                            <li data-lang-key="current.item4">Strengthened operational visibility through status payloads, skip-reason tracing, health checks, and full-stack validation routines.</li>
                         </ul>
                     </div>
                     <aside class="current-work-right">
                         <div class="current-side-panel">
                             <p class="current-side-title" data-lang-key="current.proof.title">Systems in Operation</p>
-                            <p class="current-work-stack" data-lang-key="current.stack">Stack: Python, Flask, Flask-Admin, LangChain, Milvus, PostgreSQL, Docker</p>
+                            <p class="current-work-stack" data-lang-key="current.stack">Stack: Python, Flask, Flask-Admin, SQLAlchemy, LangChain, Milvus, PostgreSQL, Redis, Celery, Docker Compose</p>
                             <ul class="current-meta-list">
-                                <li class="current-meta-pill" data-lang-key="current.meta1">Institutional RAG operations at CCSL-IFRN (Apr 2026 - Present).</li>
-                                <li class="current-meta-pill" data-lang-key="current.meta2">Operational controls include source lifecycle, force_index, force_remove, and WEB_ONLY_MODE.</li>
-                                <li class="current-meta-pill" data-lang-key="current.meta3">Synchronization keeps source updates aligned with vector state and retrieval consistency.</li>
-                                <li class="current-meta-pill" data-lang-key="current.meta4">Reliability is reinforced by auditability, structured logs, and governed admin workflows.</li>
+                                <li class="current-meta-pill" data-lang-key="current.meta1">Confidential institutional AI/RAG platform in a Brazilian federal government context.</li>
+                                <li class="current-meta-pill" data-lang-key="current.meta2">Governed admin workflows for source lifecycle, feedback promotion, and auditability.</li>
+                                <li class="current-meta-pill" data-lang-key="current.meta3">Hybrid rebuild strategy preserving governed database sources while supporting legacy operational corpus.</li>
+                                <li class="current-meta-pill" data-lang-key="current.meta4">Public details intentionally limited due to confidentiality and stakeholder context.</li>
                             </ul>
                         </div>
                     </aside>
@@ -2929,9 +2944,9 @@
                     <img loading="lazy" decoding="async" src="that'smeee.jpeg" alt="Augusto Oliveira" onerror="this.src='https://via.placeholder.com/400x400?text=Augusto'">
                 </div>
                 <div class="about-text fade-in delay-1">
-                    <h3 data-lang-key="about.role">Software Engineer - Backend, AI Systems, and Operations</h3>
-                    <p data-lang-key="about.description1">I build and operate institutional software systems end to end, combining backend engineering with AI-enabled workflows under real operational constraints. My work spans architecture, implementation, admin operations, observability, and long-term maintainability.</p>
-                    <p data-lang-key="about.description2">I focus on five engineering areas: AI Systems & RAG Operations, Backend Services & APIs, Data Pipelines & Automation, Product Interfaces, and Infrastructure Reliability.</p>
+                    <h3 data-lang-key="about.role">Software Engineer — Backend, AI/RAG Systems & Operations</h3>
+                    <p data-lang-key="about.description1">I build and operate software systems that connect backend engineering, AI/RAG workflows, admin control planes, data pipelines, and infrastructure reliability.</p>
+                    <p data-lang-key="about.description2">My strongest work happens in complex institutional environments: transforming fragile processes into governed, traceable, and maintainable systems.</p>
                     <p data-lang-key="about.location">Based in Natal, Brazil.</p>
                     <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
                         <a href="https://github.com/Augusto240" class="btn" target="_blank" rel="noopener noreferrer">
@@ -3023,18 +3038,18 @@
                 <div class="timeline-item fade-in current-role">
                     <div class="timeline-content">
                         <span class="timeline-date" data-lang-key="experience.job0.date">Apr 2026 - Present</span>
-                        <h3 data-lang-key="experience.job0.title">Software Engineer - RAG Platform & Admin Operations</h3>
+                        <h3 data-lang-key="experience.job0.title">Software Engineer — Confidential AI/RAG Platform</h3>
                         <h4 data-lang-key="experience.job0.company">CCSL-IFRN</h4>
-                        <p data-lang-key="experience.job0.description">I maintain and evolve SmartFAQ in an institutional environment, focusing on operational RAG controls, source lifecycle management, and admin reliability.</p>
+                        <p data-lang-key="experience.job0.description">I maintain and evolve SmartFAQ as a confidential institutional AI/RAG platform, focusing on governed source management, feedback promotion, vector index reliability, admin usability, and operational validation.</p>
                         <p><strong data-lang-key="experience.achievements">Key Achievements:</strong></p>
                         <ul>
-                            <li data-lang-key="experience.job0.achievement1">Implemented manual source index and remove actions in Flask-Admin with support for safe simulation mode (WEB_ONLY_MODE).</li>
-                            <li data-lang-key="experience.job0.achievement2">Implemented automatic source synchronization on create, update, and delete hooks to keep RAG state aligned.</li>
-                            <li data-lang-key="experience.job0.achievement3">Centralized source eligibility rules to enforce consistent inclusion and exclusion decisions across RAG pipelines.</li>
-                            <li data-lang-key="experience.job0.achievement4">Built RAG audit visibility with source status, exclusion reasons, and structured operational logs.</li>
-                            <li data-lang-key="experience.job0.achievement5">Maintained source and cache admin workflows for reliable daily operation in a production-adjacent system.</li>
+                            <li data-lang-key="experience.job0.achievement1">Built governed RAG source lifecycle flows for controlled inclusion, update, removal, and audit of knowledge sources.</li>
+                            <li data-lang-key="experience.job0.achievement2">Improved hybrid rebuild reliability across 7,434+ knowledge records while preserving governed database sources.</li>
+                            <li data-lang-key="experience.job0.achievement3">Implemented feedback-to-knowledge promotion, turning validated expected answers into governed RAG sources.</li>
+                            <li data-lang-key="experience.job0.achievement4">Improved observability through structured status payloads, skip-reason tracing, health checks, and operational validation routines.</li>
+                            <li data-lang-key="experience.job0.achievement5">Hardened the Flask-Admin experience for real operational use, improving responsiveness, wide-table handling, readability, and administrative usability.</li>
                         </ul>
-                        <p><strong data-lang-key="experience.tech">Technologies:</strong> Python, Flask, Flask-Admin, SQLAlchemy, LangChain, Milvus, Docker, PostgreSQL</p>
+                        <p><strong data-lang-key="experience.tech">Technologies:</strong> Python, Flask, Flask-Admin, SQLAlchemy, LangChain, Milvus, PostgreSQL, Redis, Celery, Docker Compose</p>
                     </div>
                     <div class="timeline-dot"></div>
                 </div>
@@ -3064,7 +3079,7 @@
                         <p data-lang-key="experience.job2.description">I led SmartFAQ end to end as a functional institutional Q&A system, from data extraction and retrieval design to deployment and operational handoff.</p>
                         <p><strong data-lang-key="experience.achievements">Key Achievements:</strong></p>
                         <ul>
-                            <li data-lang-key="experience.job2.achievement1">RAG Architecture & Development: Designed and implemented a sophisticated RAG architecture with Python and LangChain, using hybrid search (BM25 + Vector) and Milvus vector database for high-precision responses</li>
+                            <li data-lang-key="experience.job2.achievement1">RAG Architecture & Development: Designed and implemented an operational RAG architecture with Python and LangChain, using hybrid search (BM25 + Vector) and Milvus vector database for traceable and reliable responses</li>
                             <li data-lang-key="experience.job2.achievement2">Data Engineering & Web Scraping: Developed advanced scraper with Selenium for complex government portals (Plone CMS with dynamic JavaScript), overcoming SSL errors, alerts, and async content</li>
                             <li data-lang-key="experience.job2.achievement3">MLOps & Pipeline Orchestration: Configured and optimized ML pipelines using ZenML, Airflow, and MLflow in local and containerized environments (Docker, Docker Compose)</li>
                             <li data-lang-key="experience.job2.achievement4">Back-end Development & UI: Created support APIs with Django and developed interactive web interface with Streamlit, deploying to Streamlit Community Cloud</li>
@@ -3110,30 +3125,31 @@
             <div class="section-title">
                 <h2 data-lang-key="projects.title">Systems & Applications</h2>
             </div>
-            <p class="projects-group-title" data-lang-key="projects.flagshipGroup">Flagship Systems</p>
+            <p class="projects-group-title" data-lang-key="projects.flagshipGroup">Selected Systems</p>
             <div class="flagship-projects">
                 <div class="projects-container">
                 <div class="project-card fade-in flagship flagship-primary">                    
                     <div class="project-img">
-                        <img loading="lazy" decoding="async" src="https://bernardmarr.com/wp-content/uploads/2024/02/13-Ways-Writers-Should-Embrace-Generative-AI.webp" alt="SmartFAQ - Generative AI Project">
+                        <img loading="lazy" decoding="async" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 600'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23100f1f'/%3E%3Cstop offset='52%25' stop-color='%231c1638'/%3E%3Cstop offset='100%25' stop-color='%23261b4d'/%3E%3C/linearGradient%3E%3CradialGradient id='r' cx='70%25' cy='25%25' r='65%25'%3E%3Cstop offset='0%25' stop-color='%236d5bd0' stop-opacity='0.28'/%3E%3Cstop offset='100%25' stop-color='%236d5bd0' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='1200' height='600' fill='url(%23g)'/%3E%3Crect width='1200' height='600' fill='url(%23r)'/%3E%3Cg fill='none' stroke='%238b7cf6' stroke-opacity='0.34' stroke-width='2'%3E%3Cpath d='M120 420h220l95-150 115 210 135-250 110 160h285'/%3E%3Cpath d='M120 185h170l70 86h130l72-62h188l62 86h268' stroke-opacity='0.22'/%3E%3C/g%3E%3Cg fill='%23f8fafc' fill-opacity='0.72'%3E%3Ccircle cx='340' cy='420' r='8'/%3E%3Ccircle cx='550' cy='480' r='8'/%3E%3Ccircle cx='685' cy='230' r='8'/%3E%3Ccircle cx='795' cy='390' r='8'/%3E%3C/g%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Crect x='110' y='90' width='300' height='54' rx='8'/%3E%3Crect x='110' y='160' width='190' height='18' rx='4'/%3E%3Crect x='110' y='196' width='250' height='18' rx='4'/%3E%3Crect x='760' y='96' width='300' height='190' rx='12'/%3E%3Crect x='800' y='136' width='220' height='16' rx='4'/%3E%3Crect x='800' y='176' width='150' height='16' rx='4'/%3E%3Crect x='800' y='216' width='190' height='16' rx='4'/%3E%3C/g%3E%3C/svg%3E" alt="SmartFAQ confidential AI/RAG platform abstract interface">
                     </div>
                     <div class="project-content">
-                        <span class="project-featured-badge" data-lang-key="projects.smartfaq.badge">Flagship System</span>
-                        <h3 class="project-title" data-lang-key="projects.smartfaq.title">SmartFAQ - RAG Operations Platform</h3>
+                        <span class="project-featured-badge" data-lang-key="projects.smartfaq.badge">Confidential System</span>
+                        <h3 class="project-title" data-lang-key="projects.smartfaq.title">SmartFAQ — Confidential AI/RAG Operations Platform</h3>
                         <p class="project-description" data-lang-key="projects.smartfaq.description">
-                            Problem: Institutional Q&A depends on frequently changing sources and strict operational control.
-                            System Design: Hybrid retrieval (BM25 + vector) with LangChain and Milvus, plus an admin control plane.
-                            Responsibilities: Implemented source lifecycle flows, manual index/remove actions, and incremental sync hooks.
-                            Challenges: Keeping embeddings consistent after source updates, avoiding stale vectors, and preserving traceability of every RAG operation.
-                            Impact: Reliable, auditable answers in daily institutional use.
+                            Problem: Institutional Q&A workflows depend on changing sources, validated feedback, and strict governance.
+                            System Design: AI/RAG platform with hybrid retrieval, vector storage, Flask-Admin control plane, governed source lifecycle, and operational auditability.
+                            Responsibilities: Backend workflows, source governance, feedback-to-knowledge promotion, hybrid rebuild reliability, and observability.
+                            Confidentiality: Some implementation details and stakeholder context are intentionally omitted.
+                            Impact: More traceable, governed, and reliable knowledge operations in a federal-sector institutional environment.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Flask</span>
                             <span class="tech-tag">LangChain</span>
                             <span class="tech-tag">Milvus</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Docker Compose</span>
                             <span class="tech-tag">RAG</span>
-                            <span class="tech-tag">Streamlit</span>
-                            <span class="tech-tag">Docker</span>
                         </div>
                         <div class="project-links">
                             <span class="project-link" style="opacity: 0.6; cursor: default;">
@@ -3204,7 +3220,7 @@
                 </div>
             </div>
 
-                <p class="projects-group-title projects-group-secondary" data-lang-key="projects.otherGroup">Other Builds</p>
+                <p class="projects-group-title projects-group-secondary" data-lang-key="projects.otherGroup">Labs & Side Builds</p>
                 <div class="other-builds">
                     <div class="projects-container secondary-projects">
 
@@ -3571,7 +3587,7 @@
     <section id="hobbies" class="hobbies">
         <div class="container">
             <div class="section-title">
-                <h2 data-lang-key="hobbies.title">My Hobbies</h2>
+                <h2 data-lang-key="hobbies.title">Personal Notes</h2>
             </div>
             <div class="hobbies-container">
                 <div class="hobby-card fade-in">
@@ -3579,35 +3595,35 @@
                         <i class="fas fa-tv"></i>
                     </div>
                     <h3 class="hobby-name" data-lang-key="hobbies.anime.name">Watching Anime</h3>
-                    <p data-lang-key="hobbies.anime.description">Anime is part of my downtime.</p>
+                    <p data-lang-key="hobbies.anime.description">A quiet creative influence, kept mostly as an easter egg in the interface.</p>
                 </div>
                 <div class="hobby-card fade-in delay-1">
                     <div class="hobby-icon">
                         <i class="fas fa-code"></i>
                     </div>
                     <h3 class="hobby-name" data-lang-key="hobbies.programming.name">Programming</h3>
-                    <p data-lang-key="hobbies.programming.description">I build small side projects to test tools.</p>
+                    <p data-lang-key="hobbies.programming.description">Small experiments and side builds to explore tools.</p>
                 </div>
                 <div class="hobby-card fade-in delay-2">
                     <div class="hobby-icon">
                         <i class="fas fa-gamepad"></i>
                     </div>
                     <h3 class="hobby-name" data-lang-key="hobbies.games.name">Video Games</h3>
-                    <p data-lang-key="hobbies.games.description">I play strategy and story-driven games.</p>
+                    <p data-lang-key="hobbies.games.description">Strategy and story-driven games.</p>
                 </div>
                 <div class="hobby-card fade-in delay-3">
                     <div class="hobby-icon">
                         <i class="fas fa-film"></i>
                     </div>
                     <h3 class="hobby-name" data-lang-key="hobbies.movies.name">Movies</h3>
-                    <p data-lang-key="hobbies.movies.description">I keep a light watch list.</p>
+                    <p data-lang-key="hobbies.movies.description">Occasional films and long-form stories.</p>
                 </div>
                 <div class="hobby-card fade-in delay-4">
                     <div class="hobby-icon">
                         <i class="fas fa-coffee"></i>
                     </div>
                     <h3 class="hobby-name" data-lang-key="hobbies.coffee.name">Coffee</h3>
-                    <p data-lang-key="hobbies.coffee.description">I enjoy trying different brew methods.</p>
+                    <p data-lang-key="hobbies.coffee.description">Part of my focused work ritual.</p>
                 </div>
             </div>
         </div>
@@ -3617,7 +3633,7 @@
         <div class="container">
             <div class="personal-note-content fade-in">
                 <h2 data-lang-key="personal.title">Beyond Engineering</h2>
-                <p data-lang-key="personal.description">Outside engineering, I also contribute to teaching and community activities through Brazilian Jiu-Jitsu and children's catechesis.</p>
+                <p data-lang-key="personal.description">Outside software, I contribute to teaching and community activities through Brazilian Jiu-Jitsu and children's catechesis.</p>
             </div>
         </div>
     </section>
@@ -3769,7 +3785,7 @@
                 translations.en = {
                     "nav.home": "Home",
                     "nav.about": "About",
-                    "nav.current": "Current Work",
+                    "nav.current": "Systems Work",
                     "nav.path": "Engineering Path",
                     "nav.experience": "Experience",
                     "nav.projects": "Systems",
@@ -3778,39 +3794,39 @@
                     "nav.hobbies": "Hobbies",
                     "nav.contact": "Contact",
                     
-                    "hero.subtitle": "Software Engineer building backend systems, AI-enabled workflows, and full-stack applications.",
+                    "hero.subtitle": "Software Engineer building confidential AI/RAG platforms, backend systems, admin control planes, and full-stack products.",
                     "hero.signal": "Current Role: Software Engineer - RAG Platform & Admin Operations | CCSL-IFRN | Apr 2026 - Present",
-                    "hero.identity": "Building reliable systems from backend architecture to daily operations.",
+                    "hero.identity": "I work on reliable software for complex institutional workflows where governance, auditability, and operational stability matter.",
                     "hero.chip1": "Backend Systems",
                     "hero.chip2": "RAG Operations",
                     "hero.chip3": "Full-Stack Delivery",
-                    "hero.trust1": "Current Role: CCSL-IFRN | Apr 2026 - Present",
-                    "hero.trust2": "Core Stack: Python, Flask, LangChain, Milvus",
-                    "hero.trust3": "Flagship Systems: SmartFAQ, Access Control, Scraper",
+                    "hero.trust1": "Current Focus: Confidential Federal-Sector AI/RAG Systems",
+                    "hero.trust2": "Core Stack: Python, Flask, LangChain, Milvus, PostgreSQL, Docker",
+                    "hero.trust3": "Systems: SmartFAQ, Access Control, Public Data Pipelines",
                     "hero.contact": "Get In Touch",
                     "hero.projects": "View My Work",
 
-                    "current.title": "Current Work",
+                    "current.title": "Confidential Systems Work",
                     "current.badge": "Current System",
-                    "current.role": "Software Engineer - RAG Platform & Admin Operations | CCSL-IFRN | Apr 2026 - Present",
-                    "current.case.title": "SmartFAQ Institutional Case",
-                    "current.case.subtitle": "Live institutional engineering work with operational governance and reliability goals.",
-                    "current.intro": "I operate SmartFAQ as an institutional RAG platform under reliability and governance constraints.",
+                    "current.role": "Software Engineer — Confidential AI/RAG Platform | CCSL-IFRN | Apr 2026 - Present",
+                    "current.case.title": "Confidential Federal-Sector RAG Platform",
+                    "current.case.subtitle": "Governed AI retrieval workflows, source lifecycle control, feedback-to-knowledge promotion, auditability, and operational reliability.",
+                    "current.intro": "I currently work on SmartFAQ, a confidential institutional AI/RAG platform used in a Brazilian federal government context. Public details are intentionally limited, but the work involves backend engineering, admin governance, vector index reliability, and operational validation.",
                     "current.context.label": "System Context",
                     "current.context.value": "Institutional RAG platform in active administrative operation.",
                     "current.focus.label": "Operational Focus",
                     "current.focus.value": "Source lifecycle controls, cache reliability, and admin governance.",
                     "current.responsibilities": "Responsibilities",
-                    "current.item1": "Operate source lifecycle across index, update, and remove flows in institutional use.",
-                    "current.item2": "Run controlled force_index and force_remove actions with WEB_ONLY_MODE for safe simulation.",
-                    "current.item3": "Maintain incremental synchronization between source updates and vector state.",
-                    "current.item4": "Track eligibility and skip reasons to preserve retrieval consistency and auditability.",
-                    "current.item5": "Sustain reliability through structured logs, audit views, and stable source/cache admin workflows.",
-                    "current.stack": "Stack: Python, Flask, Flask-Admin, LangChain, Milvus, PostgreSQL, Docker",
-                    "current.meta1": "Institutional RAG operations at CCSL-IFRN (Apr 2026 - Present).",
-                    "current.meta2": "Operational controls include source lifecycle, force_index, force_remove, and WEB_ONLY_MODE.",
-                    "current.meta3": "Synchronization keeps source updates aligned with vector state and retrieval consistency.",
-                    "current.meta4": "Reliability is reinforced by auditability, structured logs, and governed admin workflows.",
+                    "current.item1": "Built governed source lifecycle flows for controlled inclusion, update, removal, and audit of knowledge sources.",
+                    "current.item2": "Improved feedback-to-knowledge workflows, promoting validated expected answers into governed RAG sources.",
+                    "current.item3": "Supported hybrid index rebuild reliability across 7,434+ knowledge records while preserving governed database sources.",
+                    "current.item4": "Strengthened operational visibility through status payloads, skip-reason tracing, health checks, and full-stack validation routines.",
+                    "current.item5": "Led controlled integration and validation work for production-adjacent institutional RAG operations.",
+                    "current.stack": "Stack: Python, Flask, Flask-Admin, SQLAlchemy, LangChain, Milvus, PostgreSQL, Redis, Celery, Docker Compose",
+                    "current.meta1": "Confidential institutional AI/RAG platform in a Brazilian federal government context.",
+                    "current.meta2": "Governed admin workflows for source lifecycle, feedback promotion, and auditability.",
+                    "current.meta3": "Hybrid rebuild strategy preserving governed database sources while supporting legacy operational corpus.",
+                    "current.meta4": "Public details intentionally limited due to confidentiality and stakeholder context.",
                     "current.proof.title": "Systems in Operation",
                     "current.proof1.title": "Source Lifecycle Controls",
                     "current.proof1.caption": "Manual and automatic governance over index/remove actions for auditable RAG behavior.",
@@ -3821,9 +3837,9 @@
                     "current.proof.placeholder": "Screenshot preview",
                     
                     "about.title": "About Me",
-                    "about.role": "Software Engineer - Backend, AI Systems, and Operations",
-                    "about.description1": "I build and operate institutional software systems end to end, combining backend engineering with AI-enabled workflows under real operational constraints. My work spans architecture, implementation, admin operations, observability, and long-term maintainability.",
-                    "about.description2": "I focus on five engineering areas: AI Systems & RAG Operations, Backend Services & APIs, Data Pipelines & Automation, Product Interfaces, and Infrastructure Reliability.",
+                    "about.role": "Software Engineer — Backend, AI/RAG Systems & Operations",
+                    "about.description1": "I build and operate software systems that connect backend engineering, AI/RAG workflows, admin control planes, data pipelines, and infrastructure reliability.",
+                    "about.description2": "My strongest work happens in complex institutional environments: transforming fragile processes into governed, traceable, and maintainable systems.",
                     "about.location": "Based in Natal, Brazil.",
                     "about.personal": "Beyond engineering, I support community activities including Brazilian Jiu-Jitsu and children's catechesis.",
                     "about.github": "GitHub Profile",
@@ -3857,19 +3873,19 @@
                     
                     "experience.title": "Work Experience",
                     "experience.job0.date": "Apr 2026 - Present",
-                    "experience.job0.title": "Software Engineer - RAG Platform & Admin Operations",
+                    "experience.job0.title": "Software Engineer — Confidential AI/RAG Platform",
                     "experience.job0.company": "CCSL-IFRN",
-                    "experience.job0.description": "I maintain and evolve SmartFAQ in an institutional environment, focusing on operational RAG controls, source lifecycle management, and admin reliability.",
+                    "experience.job0.description": "I maintain and evolve SmartFAQ as a confidential institutional AI/RAG platform, focusing on governed source management, feedback promotion, vector index reliability, admin usability, and operational validation.",
                     "experience.job1.date": "May 2024 - Dec 2025",
                     "experience.job1.title": "Full-Stack Developer (Extension Scholarship)",
                     "experience.job1.company": "NOCS Lab - IFRN",
                     "experience.job1.description": "I developed and consolidated an end-to-end vehicular access control system, integrating computer vision, real-time communication, and a web management platform, working on both development and system stabilization/validation phases.",
                     "experience.achievements": "Key Achievements:",
-                    "experience.job0.achievement1": "Implemented manual source index and remove actions in Flask-Admin with support for safe simulation mode (WEB_ONLY_MODE)",
-                    "experience.job0.achievement2": "Implemented automatic source synchronization on create, update, and delete hooks to keep RAG state aligned",
-                    "experience.job0.achievement3": "Centralized source eligibility rules to enforce consistent inclusion and exclusion decisions across RAG pipelines",
-                    "experience.job0.achievement4": "Built RAG audit visibility with source status, exclusion reasons, and structured operational logs",
-                    "experience.job0.achievement5": "Maintained source and cache admin workflows for reliable daily operation in a production-adjacent system",
+                    "experience.job0.achievement1": "Built governed RAG source lifecycle flows for controlled inclusion, update, removal, and audit of knowledge sources.",
+                    "experience.job0.achievement2": "Improved hybrid rebuild reliability across 7,434+ knowledge records while preserving governed database sources.",
+                    "experience.job0.achievement3": "Implemented feedback-to-knowledge promotion, turning validated expected answers into governed RAG sources.",
+                    "experience.job0.achievement4": "Improved observability through structured status payloads, skip-reason tracing, health checks, and operational validation routines.",
+                    "experience.job0.achievement5": "Hardened the Flask-Admin experience for real operational use, improving responsiveness, wide-table handling, readability, and administrative usability.",
                     "experience.job1.achievement1": "Full-Stack Development: Architected and implemented front-end with Angular (TypeScript) and back-end with Node.js (Express.js), including authentication, RBAC, and REST APIs",
                     "experience.job1.achievement2": "Systems & IoT Integration: Implemented real-time MQTT communication between cameras, access hardware, and the central system",
                     "experience.job1.achievement3": "Testing & Validation: Executed manual functional tests, validated critical system flows, and verified protected route security",
@@ -3879,7 +3895,7 @@
                     "experience.job2.title": "Generative AI Research Scholar",
                     "experience.job2.company": "CCSL-IFRN",
                     "experience.job2.description": "I led SmartFAQ end to end as a functional institutional Q&A system, from data extraction and retrieval design to deployment and operational handoff.",
-                    "experience.job2.achievement1": "RAG Architecture & Development: Designed and implemented a sophisticated RAG architecture with Python and LangChain, using hybrid search (BM25 + Vector) and Milvus vector database for high-precision responses",
+                    "experience.job2.achievement1": "RAG Architecture & Development: Designed and implemented an operational RAG architecture with Python and LangChain, using hybrid search (BM25 + Vector) and Milvus vector database for traceable and reliable responses",
                     "experience.job2.achievement2": "Data Engineering & Web Scraping: Developed advanced scraper with Selenium for complex government portals (Plone CMS with dynamic JavaScript), overcoming SSL errors, alerts, and async content",
                     "experience.job2.achievement3": "MLOps & Pipeline Orchestration: Configured and optimized ML pipelines using ZenML, Airflow, and MLflow in local and containerized environments (Docker, Docker Compose)",
                     "experience.job2.achievement4": "Back-end Development & UI: Created support APIs with Django and developed interactive web interface with Streamlit, deploying to Streamlit Community Cloud",
@@ -3887,13 +3903,13 @@
                     "experience.tech": "Technologies:",
                     
                     "projects.title": "Systems & Applications",
-                    "projects.flagshipGroup": "Flagship Systems",
-                    "projects.otherGroup": "Other Builds",
+                    "projects.flagshipGroup": "Selected Systems",
+                    "projects.otherGroup": "Labs & Side Builds",
                     "projects.featured": "Featured",
                     "projects.private": "Private Repository",
-                    "projects.smartfaq.badge": "Flagship System",
-                    "projects.smartfaq.title": "SmartFAQ - RAG Operations Platform",
-                    "projects.smartfaq.description": "Problem: Institutional Q&A depends on frequently changing sources and strict operational control.\nSystem Design: Hybrid retrieval (BM25 + vector) with LangChain and Milvus, plus an admin control plane.\nResponsibilities: Implemented source lifecycle flows, manual index/remove actions, and incremental sync hooks.\nChallenges: Keeping embeddings consistent after source updates, avoiding stale vectors, and preserving traceability of every RAG operation.\nImpact: Reliable, auditable answers in daily institutional use.",
+                    "projects.smartfaq.badge": "Confidential System",
+                    "projects.smartfaq.title": "SmartFAQ — Confidential AI/RAG Operations Platform",
+                    "projects.smartfaq.description": "Problem: Institutional Q&A workflows depend on changing sources, validated feedback, and strict governance.\nSystem Design: AI/RAG platform with hybrid retrieval, vector storage, Flask-Admin control plane, governed source lifecycle, and operational auditability.\nResponsibilities: Backend workflows, source governance, feedback-to-knowledge promotion, hybrid rebuild reliability, and observability.\nConfidentiality: Some implementation details and stakeholder context are intentionally omitted.\nImpact: More traceable, governed, and reliable knowledge operations in a federal-sector institutional environment.",
                     "projects.vehicle.badge": "Core System",
                     "projects.vehicle.title": "Vehicle Access Control System",
                     "projects.vehicle.description": "Problem: Access decisions were fragmented across hardware and manual controls.\nSystem Design: Angular dashboard + Node/Express services integrated with MQTT event streams and camera workflows.\nResponsibilities: Implemented RBAC, OAuth2/JWT, API boundaries, and backup automation.\nChallenges: Maintaining low-latency event handling and consistent access state across devices.\nImpact: Real-time, centralized control for institutional vehicle operations.",
@@ -3934,20 +3950,20 @@
                     "languages.advanced": "Advanced",
                     "languages.basic": "Basic",
                     
-                    "hobbies.title": "My Hobbies",
+                    "hobbies.title": "Personal Notes",
                     "hobbies.anime.name": "Watching Anime",
-                    "hobbies.anime.description": "Anime is part of my downtime.",
+                    "hobbies.anime.description": "A quiet creative influence, kept mostly as an easter egg in the interface.",
                     "hobbies.programming.name": "Programming",
-                    "hobbies.programming.description": "I build small side projects to test tools.",
+                    "hobbies.programming.description": "Small experiments and side builds to explore tools.",
                     "hobbies.games.name": "Video Games",
-                    "hobbies.games.description": "I play strategy and story-driven games.",
+                    "hobbies.games.description": "Strategy and story-driven games.",
                     "hobbies.movies.name": "Movies",
-                    "hobbies.movies.description": "I keep a light watch list.",
+                    "hobbies.movies.description": "Occasional films and long-form stories.",
                     "hobbies.coffee.name": "Coffee",
-                    "hobbies.coffee.description": "I enjoy trying different brew methods.",
+                    "hobbies.coffee.description": "Part of my focused work ritual.",
 
                     "personal.title": "Beyond Engineering",
-                    "personal.description": "Outside engineering, I also contribute to teaching and community activities through Brazilian Jiu-Jitsu and children's catechesis.",
+                    "personal.description": "Outside software, I contribute to teaching and community activities through Brazilian Jiu-Jitsu and children's catechesis.",
                     
                     "contact.title": "Professional Contact",
                     "contact.getInTouch": "Engineering Collaboration",
@@ -3964,7 +3980,7 @@
                 translations.pt = {
                     "nav.home": "Início",
                     "nav.about": "Sobre",
-                    "nav.current": "Trabalho Atual",
+                    "nav.current": "Atuação",
                     "nav.path": "Jornada de Engenharia",
                     "nav.experience": "Experiência",
                     "nav.projects": "Sistemas",
@@ -3973,39 +3989,39 @@
                     "nav.hobbies": "Hobbies",
                     "nav.contact": "Contato",
                     
-                    "hero.subtitle": "Engenheiro de Software construindo sistemas backend, fluxos com IA e aplicações full-stack.",
+                    "hero.subtitle": "Engenheiro de Software construindo plataformas IA/RAG confidenciais, sistemas backend, painéis administrativos e produtos full-stack.",
                     "hero.signal": "Atuação Atual: Engenheiro de Software - Plataforma RAG e Operações de Admin | CCSL-IFRN | Abr 2026 - Presente",
-                    "hero.identity": "Construindo sistemas confiáveis da arquitetura backend até a operação diária.",
+                    "hero.identity": "Atuo em software confiável para fluxos institucionais complexos, onde governança, auditoria e estabilidade operacional importam.",
                     "hero.chip1": "Sistemas Backend",
                     "hero.chip2": "Operações RAG",
                     "hero.chip3": "Entrega Full-Stack",
-                    "hero.trust1": "Atuação Atual: CCSL-IFRN | Abr 2026 - Presente",
-                    "hero.trust2": "Stack Principal: Python, Flask, LangChain, Milvus",
-                    "hero.trust3": "Sistemas Principais: SmartFAQ, Controle de Acesso, Scraper",
+                    "hero.trust1": "Foco Atual: Sistemas IA/RAG Confidenciais no Setor Público Federal",
+                    "hero.trust2": "Stack Principal: Python, Flask, LangChain, Milvus, PostgreSQL, Docker",
+                    "hero.trust3": "Sistemas: SmartFAQ, Controle de Acesso, Pipelines de Dados Públicos",
                     "hero.contact": "Entre em Contato",
                     "hero.projects": "Ver Meus Projetos",
 
-                    "current.title": "Trabalho Atual",
+                    "current.title": "Atuação em Sistemas Confidenciais",
                     "current.badge": "Sistema Atual",
-                    "current.role": "Engenheiro de Software - Plataforma RAG e Operações de Admin | CCSL-IFRN | Abr 2026 - Presente",
-                    "current.case.title": "Case Institucional SmartFAQ",
-                    "current.case.subtitle": "Engenharia institucional em operação real com governança e metas de confiabilidade.",
-                    "current.intro": "Opero o SmartFAQ como plataforma RAG institucional sob requisitos de confiabilidade e governança.",
+                    "current.role": "Engenheiro de Software — Plataforma IA/RAG Confidencial | CCSL-IFRN | Abr 2026 - Presente",
+                    "current.case.title": "Plataforma RAG Confidencial para Contexto Federal",
+                    "current.case.subtitle": "Fluxos de recuperação com IA governada, ciclo de vida de fontes, promoção de feedback para conhecimento, auditoria e confiabilidade operacional.",
+                    "current.intro": "Atualmente atuo no SmartFAQ, uma plataforma institucional IA/RAG confidencial em contexto do governo federal brasileiro. Os detalhes públicos são intencionalmente limitados, mas o trabalho envolve engenharia backend, governança administrativa, confiabilidade de índice vetorial e validação operacional.",
                     "current.context.label": "Contexto do Sistema",
                     "current.context.value": "Plataforma RAG institucional em operação administrativa ativa.",
                     "current.focus.label": "Foco Operacional",
                     "current.focus.value": "Controles de ciclo de vida de fontes, confiabilidade de cache e governança de admin.",
                     "current.responsibilities": "Responsabilidades",
-                    "current.item1": "Opero o ciclo de vida de fontes entre indexação, atualização e remoção em uso institucional.",
-                    "current.item2": "Executo force_index e force_remove com WEB_ONLY_MODE para simulação segura.",
-                    "current.item3": "Mantenho sincronização incremental entre alterações de fonte e estado vetorial.",
-                    "current.item4": "Rastreio elegibilidade e skip reasons para manter consistência e auditabilidade.",
-                    "current.item5": "Sustento confiabilidade com logs estruturados, visões de auditoria e fluxos estáveis de admin de fonte/cache.",
-                    "current.stack": "Stack: Python, Flask, Flask-Admin, LangChain, Milvus, PostgreSQL, Docker",
-                    "current.meta1": "Operação institucional de RAG no CCSL-IFRN (Abr 2026 - Presente).",
-                    "current.meta2": "Controles operacionais incluem ciclo de vida de fontes, force_index, force_remove e WEB_ONLY_MODE.",
-                    "current.meta3": "A sincronização mantém alterações de fonte alinhadas ao estado vetorial e consistência de recuperação.",
-                    "current.meta4": "A confiabilidade é reforçada por auditabilidade, logs estruturados e fluxos de admin governados.",
+                    "current.item1": "Construí fluxos governados de ciclo de vida de fontes para inclusão, atualização, remoção e auditoria de bases de conhecimento.",
+                    "current.item2": "Melhorei fluxos de retroalimentação, promovendo respostas esperadas validadas para fontes governadas da RAG.",
+                    "current.item3": "Apoiei a confiabilidade do rebuild híbrido em 7.434+ registros de conhecimento, preservando fontes governadas em banco.",
+                    "current.item4": "Fortaleci visibilidade operacional com payloads de status, rastreio de motivos de descarte, health checks e rotinas de validação full-stack.",
+                    "current.item5": "Conduzi integração e validação controladas para operações RAG institucionais production-adjacent.",
+                    "current.stack": "Stack: Python, Flask, Flask-Admin, SQLAlchemy, LangChain, Milvus, PostgreSQL, Redis, Celery, Docker Compose",
+                    "current.meta1": "Plataforma institucional IA/RAG confidencial em contexto do governo federal brasileiro.",
+                    "current.meta2": "Fluxos administrativos governados para ciclo de vida de fontes, retroalimentação e auditoria.",
+                    "current.meta3": "Estratégia de rebuild híbrido preservando fontes governadas em banco e apoiando corpus operacional legado.",
+                    "current.meta4": "Detalhes públicos intencionalmente limitados por confidencialidade e contexto institucional.",
                     "current.proof.title": "Sistemas em Operação",
                     "current.proof1.title": "Controles de Ciclo de Vida",
                     "current.proof1.caption": "Governança manual e automática sobre ações de indexação/remoção para comportamento RAG auditável.",
@@ -4016,9 +4032,9 @@
                     "current.proof.placeholder": "Previa da captura",
                     
                     "about.title": "Sobre Mim",
-                    "about.role": "Engenheiro de Software - Backend, Sistemas de IA e Operações",
-                    "about.description1": "Construo e opero sistemas institucionais de software ponta a ponta, combinando engenharia backend e fluxos com IA sob restrições operacionais reais. Minha atuação cobre arquitetura, implementação, operações de admin, observabilidade e manutenção de longo prazo.",
-                    "about.description2": "Atuo em cinco frentes: Sistemas de IA e Operação RAG, Serviços Backend e APIs, Pipelines de Dados e Automação, Interfaces de Produto e Confiabilidade de Infraestrutura.",
+                    "about.role": "Engenheiro de Software — Backend, Sistemas IA/RAG e Operações",
+                    "about.description1": "Construo e opero sistemas que conectam engenharia backend, fluxos IA/RAG, painéis administrativos, pipelines de dados e confiabilidade de infraestrutura.",
+                    "about.description2": "Minha atuação mais forte acontece em ambientes institucionais complexos: transformando processos frágeis em sistemas governados, rastreáveis e manuteníveis.",
                     "about.location": "Baseado em Natal, Brasil.",
                     "about.personal": "Além da engenharia, apoio atividades comunitárias incluindo Jiu-Jitsu e catequese infantil.",
                     "about.github": "Perfil no GitHub",
@@ -4052,19 +4068,19 @@
                     
                     "experience.title": "Experiência Profissional",
                     "experience.job0.date": "Abr 2026 - Presente",
-                    "experience.job0.title": "Engenheiro de Software - Plataforma RAG e Operações de Admin",
+                    "experience.job0.title": "Engenheiro de Software — Plataforma IA/RAG Confidencial",
                     "experience.job0.company": "CCSL-IFRN",
-                    "experience.job0.description": "Mantenho e evoluo o SmartFAQ em ambiente institucional, com foco em controles operacionais de RAG, ciclo de vida de fontes e confiabilidade do admin.",
+                    "experience.job0.description": "Mantenho e evoluo o SmartFAQ como plataforma institucional IA/RAG confidencial, com foco em gestão governada de fontes, promoção de retroalimentação, confiabilidade do índice vetorial, usabilidade administrativa e validação operacional.",
                     "experience.job1.date": "Mai 2024 - Dez 2025",
                     "experience.job1.title": "Desenvolvedor Full-Stack (Bolsa de Extensão)",
                     "experience.job1.company": "NOCS Lab - IFRN",
                     "experience.job1.description": "Desenvolvi e consolidei um sistema de controle de acesso veicular de ponta a ponta, integrando visão computacional, comunicação em tempo real e uma plataforma web de gerenciamento, atuando tanto na fase de desenvolvimento quanto na fase de estabilização e validação.",
                     "experience.achievements": "Principais Realizações:",
-                    "experience.job0.achievement1": "Implementei ações manuais de indexação e remoção de fontes no Flask-Admin com suporte a modo de simulação seguro (WEB_ONLY_MODE)",
-                    "experience.job0.achievement2": "Implementei sincronização automática de fontes em hooks de criação, edição e exclusão para manter o estado da RAG consistente",
-                    "experience.job0.achievement3": "Centralizei regras de elegibilidade de fontes para aplicar decisões consistentes de inclusão e exclusão na pipeline RAG",
-                    "experience.job0.achievement4": "Criei visibilidade de auditoria da RAG com status por fonte, motivo de exclusão e logs operacionais estruturados",
-                    "experience.job0.achievement5": "Mantive fluxos de admin de fonte e cache estáveis para operação diária em sistema production-adjacent",
+                    "experience.job0.achievement1": "Construí fluxos governados de ciclo de vida de fontes da RAG para inclusão, atualização, remoção e auditoria de bases de conhecimento.",
+                    "experience.job0.achievement2": "Melhorei a confiabilidade do rebuild híbrido em 7.434+ registros de conhecimento, preservando fontes governadas em banco.",
+                    "experience.job0.achievement3": "Implementei promoção de retroalimentação, transformando respostas esperadas validadas em fontes governadas da RAG.",
+                    "experience.job0.achievement4": "Melhorei observabilidade com payloads de status estruturados, rastreio de motivos de descarte, health checks e rotinas de validação operacional.",
+                    "experience.job0.achievement5": "Fortaleci a experiência Flask-Admin para uso operacional real, melhorando responsividade, tabelas largas, legibilidade e usabilidade administrativa.",
                     "experience.job1.achievement1": "Desenvolvimento Full-Stack: Arquitetura e implementação do front-end com Angular (TypeScript) e back-end com Node.js (Express.js), incluindo autenticação, RBAC e APIs REST",
                     "experience.job1.achievement2": "Integração de Sistemas e IoT: Implementação de comunicação em tempo real via MQTT entre câmeras, hardware de acesso e o sistema central",
                     "experience.job1.achievement3": "Testes e Validação: Execução de testes funcionais manuais, validação de fluxos críticos do sistema e verificação de segurança de rotas protegidas",
@@ -4074,7 +4090,7 @@
                     "experience.job2.title": "Bolsista de Pesquisa em IA Generativa",
                     "experience.job2.company": "CCSL-IFRN",
                     "experience.job2.description": "Liderei o SmartFAQ ponta a ponta como sistema institucional funcional de perguntas e respostas, da extração de dados e desenho de recuperação até a implantação e handoff operacional.",
-                    "experience.job2.achievement1": "Arquitetura e Desenvolvimento RAG: Projetei e implementei uma arquitetura RAG sofisticada com Python e LangChain, utilizando busca híbrida (BM25 + Vetorial) e o banco de dados vetorial Milvus para alta precisão",
+                    "experience.job2.achievement1": "Arquitetura e Desenvolvimento RAG: Projetei e implementei uma arquitetura RAG operacional com Python e LangChain, usando busca híbrida (BM25 + Vetorial) e banco vetorial Milvus para respostas rastreáveis e confiáveis",
                     "experience.job2.achievement2": "Engenharia de Dados e Web Scraping: Desenvolvi scraper avançado com Selenium para portais governamentais complexos (CMS Plone com JavaScript dinâmico), superando erros de SSL, alertas e conteúdo assíncrono",
                     "experience.job2.achievement3": "MLOps e Orquestração de Pipelines: Configurei e otimizei pipelines de Machine Learning utilizando ZenML, Airflow e MLflow em ambientes locais e conteinerizados (Docker, Docker Compose)",
                     "experience.job2.achievement4": "Desenvolvimento Back-end e UI: Criei APIs de suporte com Django e desenvolvi interface web interativa com Streamlit, implantando na Streamlit Community Cloud",
@@ -4082,13 +4098,13 @@
                     "experience.tech": "Tecnologias:",
                     
                     "projects.title": "Sistemas e Aplicações",
-                    "projects.flagshipGroup": "Sistemas Principais",
-                    "projects.otherGroup": "Outras Construções",
+                    "projects.flagshipGroup": "Sistemas Selecionados",
+                    "projects.otherGroup": "Labs e Projetos Paralelos",
                     "projects.featured": "Destaque",
                     "projects.private": "Repositório Privado",
-                    "projects.smartfaq.badge": "Sistema Principal",
-                    "projects.smartfaq.title": "SmartFAQ - Plataforma de Operações RAG",
-                    "projects.smartfaq.description": "Problema: O Q&A institucional depende de fontes que mudam com frequência e exige controle operacional rigoroso.\nDesenho do Sistema: Recuperação híbrida (BM25 + vetorial) com LangChain e Milvus, além de um plano de controle administrativo.\nResponsabilidades: Implementei ciclo de vida de fontes, ações manuais de indexação/remoção e hooks de sincronização incremental.\nDesafios: Manter embeddings consistentes após mudanças de fonte, evitar vetores obsoletos e preservar rastreabilidade de cada operação RAG.\nImpacto: Respostas confiáveis e auditáveis em uso institucional diário.",
+                    "projects.smartfaq.badge": "Sistema Confidencial",
+                    "projects.smartfaq.title": "SmartFAQ — Plataforma Confidencial de Operações IA/RAG",
+                    "projects.smartfaq.description": "Problema: Fluxos institucionais de perguntas e respostas dependem de fontes em mudança, feedback validado e governança rigorosa.\nDesenho do Sistema: Plataforma IA/RAG com recuperação híbrida, armazenamento vetorial, plano de controle em Flask-Admin, ciclo de vida governado de fontes e auditoria operacional.\nResponsabilidades: Fluxos backend, governança de fontes, promoção de feedback para conhecimento, confiabilidade do rebuild híbrido e observabilidade.\nConfidencialidade: Alguns detalhes de implementação e contexto institucional são intencionalmente omitidos.\nImpacto: Operações de conhecimento mais rastreáveis, governadas e confiáveis em ambiente institucional do setor público federal.",
                     "projects.vehicle.badge": "Sistema Core",
                     "projects.vehicle.title": "Sistema de Controle de Acesso Veicular",
                     "projects.vehicle.description": "Problema: As decisões de acesso estavam fragmentadas entre hardware e controles manuais.\nDesenho do Sistema: Dashboard Angular e serviços Node/Express integrados a eventos MQTT e fluxos com câmeras.\nResponsabilidades: Implementei RBAC, OAuth2/JWT, limites de API e automação de backup.\nDesafios: Sustentar baixa latência no processamento de eventos e consistência de estado entre dispositivos.\nImpacto: Controle centralizado e em tempo real para operações veiculares institucionais.",
@@ -4129,20 +4145,20 @@
                     "languages.advanced": "Avançado",
                     "languages.basic": "Básico",
                     
-                    "hobbies.title": "Meus Hobbies",
+                    "hobbies.title": "Notas Pessoais",
                     "hobbies.anime.name": "Assistir Anime",
-                    "hobbies.anime.description": "Anime faz parte do meu tempo de descanso.",
+                    "hobbies.anime.description": "Uma influência criativa discreta, mantida principalmente como easter egg na interface.",
                     "hobbies.programming.name": "Programação",
-                    "hobbies.programming.description": "Construo pequenos projetos paralelos para testar ferramentas.",
+                    "hobbies.programming.description": "Pequenos experimentos e projetos paralelos para explorar ferramentas.",
                     "hobbies.games.name": "Videogames",
-                    "hobbies.games.description": "Jogo títulos de estratégia e narrativos.",
+                    "hobbies.games.description": "Jogos de estratégia e narrativa.",
                     "hobbies.movies.name": "Filmes",
-                    "hobbies.movies.description": "Mantenho uma lista leve de filmes.",
+                    "hobbies.movies.description": "Filmes ocasionais e histórias longas.",
                     "hobbies.coffee.name": "Café",
-                    "hobbies.coffee.description": "Gosto de testar diferentes métodos de preparo.",
+                    "hobbies.coffee.description": "Parte do meu ritual de foco.",
 
                     "personal.title": "Além da Engenharia",
-                    "personal.description": "Fora da engenharia, também contribuo com ensino e atividades comunitárias por meio do Jiu-Jitsu e da catequese infantil.",
+                    "personal.description": "Fora do software, contribuo com ensino e atividades comunitárias por meio do Jiu-Jitsu brasileiro e da catequese infantil.",
                     
                     "contact.title": "Contato Profissional",
                     "contact.getInTouch": "Colaboração em Engenharia",
