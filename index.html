@@ -133,13 +133,13 @@
         .logo span::after {
             content: '';
             position: absolute;
-            width: 4px;
-            height: 4px;
-            background-color: rgba(159, 29, 45, 0.72);
+            width: 3px;
+            height: 3px;
+            background-color: rgba(159, 29, 45, 0.5);
             border-radius: 50%;
-            top: 5px;
+            top: 6px;
             right: -12px;
-            box-shadow: 0 0 5px rgba(159, 29, 45, 0.42);
+            box-shadow: 0 0 4px rgba(159, 29, 45, 0.3);
             animation: pulse 2s infinite;
         }
 
@@ -303,21 +303,33 @@
         }
 
         .hero {
-            min-height: 86vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
-            padding-top: 2.2rem;
+            padding-top: 6rem;
+            padding-bottom: 4rem;
+            background:
+                radial-gradient(circle at 18% 30%, rgba(109, 91, 208, 0.16) 0%, transparent 34%),
+                radial-gradient(circle at 82% 28%, rgba(109, 91, 208, 0.10) 0%, transparent 30%),
+                linear-gradient(180deg, #0f0f1a 0%, #111020 48%, #0d0d17 100%);
+        }
+
+        html[data-theme="light"] .hero {
+            background:
+                radial-gradient(circle at 18% 30%, rgba(109, 91, 208, 0.10) 0%, transparent 34%),
+                radial-gradient(circle at 82% 28%, rgba(109, 91, 208, 0.07) 0%, transparent 30%),
+                linear-gradient(180deg, #f8fafc 0%, #eef2ff 48%, #f8fafc 100%);
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            inset: 12% 18% auto -15%;
-            height: 420px;
-            background: radial-gradient(circle at center, rgba(109, 91, 208, 0.18) 0%, rgba(109, 91, 208, 0) 70%);
-            filter: blur(34px);
+            inset: 0;
+            background:
+                linear-gradient(90deg, rgba(124, 58, 237, 0.10), transparent 38%, rgba(124, 58, 237, 0.06)),
+                radial-gradient(circle at 50% 100%, rgba(124, 58, 237, 0.12), transparent 42%);
             pointer-events: none;
             z-index: 0;
         }
@@ -325,22 +337,26 @@
         .hero::after {
             content: '';
             position: absolute;
-            inset: auto -12% 8% auto;
-            width: 360px;
-            height: 360px;
-            background: radial-gradient(circle at center, rgba(109, 91, 208, 0.1) 0%, rgba(109, 91, 208, 0) 74%);
-            filter: blur(32px);
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(15, 15, 26, 0.10) 0%, transparent 30%, rgba(15, 15, 26, 0.34) 100%);
             pointer-events: none;
             z-index: 0;
+        }
+
+        html[data-theme="light"] .hero::after {
+            background:
+                linear-gradient(180deg, rgba(248, 250, 252, 0.10) 0%, transparent 35%, rgba(248, 250, 252, 0.35) 100%);
         }
 
         .hero .container {
             position: relative;
             z-index: 2;
+            max-width: 1240px;
         }
 
         .hero-content {
-            max-width: 760px;
+            max-width: 100%;
             position: relative;
             z-index: 1;
             padding: 0;
@@ -351,6 +367,35 @@
             backdrop-filter: none;
         }
 
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.6rem;
+            align-items: center;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            flex-wrap: wrap;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #c4b5fd;
+            padding: 0.34rem 0.72rem;
+            border-radius: 999px;
+            background: rgba(124, 58, 237, 0.10);
+            border: 1px solid rgba(124, 58, 237, 0.26);
+            margin-bottom: 0.95rem;
+        }
+
+        html[data-theme="light"] .hero-eyebrow {
+            color: #4c1d95;
+            background: rgba(139, 92, 246, 0.12);
+            border-color: rgba(139, 92, 246, 0.32);
+        }
+
         html[data-theme="light"] .hero-content {
             background: transparent;
             border: none;
@@ -358,10 +403,11 @@
         }
 
         .hero h1 {
-            font-size: 3.35rem;
+            font-size: 3.2rem;
             font-weight: 700;
-            margin-bottom: 0.45rem;
+            margin-bottom: 0.55rem;
             line-height: 1.06;
+            letter-spacing: -0.02em;
             background: linear-gradient(135deg, var(--light) 0%, var(--gray) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -369,7 +415,7 @@
         }
 
         .hero h1 .highlight {
-            background: linear-gradient(135deg, var(--secondary) 0%, #8b7cf6 50%, var(--secondary) 100%);
+            background: linear-gradient(135deg, #f7f2ff 0%, #a99bff 48%, #ddd6fe 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -380,11 +426,11 @@
         .hero h1 .highlight::before {
             content: '';
             position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: 0;
+            width: 72%;
+            height: 1px;
+            bottom: -4px;
             left: 0;
-            background: linear-gradient(90deg, transparent, rgba(109, 91, 208, 0.82), transparent);
+            background: linear-gradient(90deg, rgba(124, 58, 237, 0.65), transparent);
             z-index: -1;
             border-radius: 2px;
         }
@@ -395,21 +441,21 @@
         }
 
         .hero p[data-lang-key="hero.subtitle"] {
-            font-size: 1.08rem;
+            font-size: 1.05rem;
             color: var(--light);
             font-weight: 500;
-            line-height: 1.5;
-            max-width: 56ch;
-            margin-bottom: 0.52rem;
+            line-height: 1.55;
+            max-width: 60ch;
+            margin-bottom: 0.6rem;
         }
 
         .hero p[data-lang-key="hero.identity"] {
-            font-size: 0.95rem;
+            font-size: 0.96rem;
             letter-spacing: 0.01em;
             text-transform: none;
             color: var(--gray);
             margin-bottom: 0.35rem;
-            max-width: 58ch;
+            max-width: 60ch;
         }
 
         .hero-chips {
@@ -444,73 +490,77 @@
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
             align-items: stretch;
-            gap: 0;
-            margin-top: 1.15rem;
-            padding: 0.32rem 0;
-            border-top: 1px solid rgba(109, 91, 208, 0.22);
-            border-bottom: 1px solid rgba(109, 91, 208, 0.12);
-            max-width: 980px;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+            padding: 0;
+            border: none;
+            max-width: 780px;
         }
 
         .hero-trust-item {
             display: flex;
             align-items: center;
             text-align: left;
-            min-height: auto;
-            padding: 0.58rem 0.92rem;
-            border-radius: 0;
-            background: transparent;
-            border: none;
-            font-size: 0.78rem;
+            min-height: 64px;
+            padding: 0.72rem 0.82rem;
+            border-radius: 12px;
+            background: rgba(124, 58, 237, 0.075);
+            border: 1px solid rgba(124, 58, 237, 0.18);
+            font-size: 0.75rem;
+            font-weight: 600;
             letter-spacing: 0.01em;
-            color: var(--light-gray);
-            line-height: 1.48;
+            color: #ded8ff;
+            line-height: 1.42;
             text-wrap: balance;
         }
 
-        .hero-trust-item + .hero-trust-item {
-            border-left: 1px solid rgba(109, 91, 208, 0.16);
-        }
-
-        .hero-trust-item + .hero-trust-item::before {
-            content: none;
-        }
-
         html[data-theme="light"] .hero-trust-item {
-            color: #334155;
+            color: #1f2937;
+            background: rgba(139, 92, 246, 0.08);
+            border-color: rgba(139, 92, 246, 0.2);
         }
 
         .hero-actions {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
-            gap: 0.82rem;
-            margin-top: 1.15rem;
+            gap: 0.9rem;
+            margin-top: 1.35rem;
         }
 
         .hero-actions .btn {
-            min-width: 170px;
+            min-width: 190px;
+            padding: 0.82rem 1.9rem;
+            border-radius: 12px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #594bb4 0%, #7262de 100%);
+            box-shadow: 0 14px 26px rgba(20, 16, 45, 0.35);
+        }
+
+        .hero-actions .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 32px rgba(20, 16, 45, 0.4);
         }
 
         .hero-actions .btn-outline {
             margin-left: 0;
-            padding: 0.66rem 1.06rem;
-            border: 1px solid rgba(124, 58, 237, 0.34);
-            background: rgba(124, 58, 237, 0.08);
-            color: #dbe4f6;
-            box-shadow: none;
+            padding: 0.72rem 1.4rem;
+            border: 1px solid rgba(124, 58, 237, 0.4);
+            background: rgba(124, 58, 237, 0.12);
+            color: #e5dcff;
+            box-shadow: 0 12px 22px rgba(13, 11, 28, 0.18);
             text-shadow: none;
             font-size: 0.9rem;
             font-weight: 600;
-            border-radius: 10px;
+            border-radius: 12px;
         }
 
         .hero-actions .btn-outline:hover {
-            background: rgba(124, 58, 237, 0.16);
+            background: rgba(124, 58, 237, 0.2);
             color: #f8fafc;
-            border-color: rgba(124, 58, 237, 0.55);
+            border-color: rgba(124, 58, 237, 0.6);
             transform: translateY(-1px);
-            box-shadow: 0 10px 22px rgba(28, 25, 52, 0.2);
+            box-shadow: 0 14px 26px rgba(28, 25, 52, 0.24);
         }
 
         html[data-theme="light"] .hero-actions .btn-outline {
@@ -524,6 +574,157 @@
             color: #3b0764;
             border-color: rgba(139, 92, 246, 0.56);
             box-shadow: 0 10px 20px rgba(139, 92, 246, 0.16);
+        }
+
+        .hero-system-card {
+            position: relative;
+            padding: 1.75rem 1.85rem;
+            border-radius: 20px;
+            background:
+                linear-gradient(145deg, rgba(21, 20, 43, 0.92), rgba(12, 12, 24, 0.78));
+            border: 1px solid rgba(124, 58, 237, 0.22);
+            box-shadow:
+                0 24px 60px rgba(0, 0, 0, 0.34),
+                inset 0 1px 0 rgba(255, 255, 255, 0.035);
+            backdrop-filter: blur(14px);
+        }
+
+        .hero-system-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 1.25rem;
+            right: 1.25rem;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.55), transparent);
+            opacity: 0.75;
+        }
+
+        .hero-system-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background:
+                radial-gradient(circle at 20% 10%, rgba(124, 58, 237, 0.12), transparent 34%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent);
+            opacity: 1;
+            pointer-events: none;
+        }
+
+        .hero-system-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-system-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.85rem;
+        }
+
+        .hero-system-status {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            padding: 0.3rem 0.7rem;
+            border-radius: 999px;
+            background: rgba(124, 58, 237, 0.18);
+            border: 1px solid rgba(124, 58, 237, 0.4);
+            color: #ddd6fe;
+        }
+
+        .hero-system-title {
+            font-size: 1.28rem;
+            margin-bottom: 0.9rem;
+            color: var(--light);
+            letter-spacing: -0.01em;
+        }
+
+        .hero-system-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.1rem;
+            display: grid;
+            gap: 0.7rem;
+        }
+
+        .hero-system-list li {
+            position: relative;
+            padding-left: 1.1rem;
+            color: var(--light-gray);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .hero-system-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(124, 58, 237, 0.7);
+        }
+
+        .hero-system-stack {
+            border-top: 1px solid rgba(124, 58, 237, 0.18);
+            padding-top: 0.85rem;
+        }
+
+        .hero-system-stack span {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--gray);
+        }
+
+        .hero-system-stack p {
+            margin: 0.45rem 0 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
+            color: #e2e8f0;
+            line-height: 1.55;
+        }
+
+        .hero-system-note {
+            margin-top: 0.95rem;
+            font-size: 0.78rem;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        html[data-theme="light"] .hero-system-card {
+            background: linear-gradient(145deg, rgba(248, 250, 252, 0.96), rgba(226, 232, 240, 0.82));
+            border-color: rgba(139, 92, 246, 0.24);
+            box-shadow: 0 24px 38px rgba(148, 163, 184, 0.3);
+        }
+
+        html[data-theme="light"] .hero-system-status {
+            color: #4c1d95;
+            background: rgba(139, 92, 246, 0.16);
+            border-color: rgba(139, 92, 246, 0.36);
+        }
+
+        html[data-theme="light"] .hero-system-title {
+            color: #0f172a;
+        }
+
+        html[data-theme="light"] .hero-system-list li {
+            color: #1f2937;
+        }
+
+        html[data-theme="light"] .hero-system-stack p {
+            color: #1e293b;
+        }
+
+        html[data-theme="light"] .hero-system-note {
+            color: #475569;
         }
 
         .btn {
@@ -1369,6 +1570,26 @@
             gap: 0.45rem;
         }
 
+        .projects-intro {
+            max-width: 760px;
+            margin: -1.2rem auto 2.5rem;
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.96rem;
+            line-height: 1.6;
+        }
+
+        .selected-systems-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .selected-systems-grid .project-card-featured-wide {
+            grid-column: 1 / -1;
+        }
+
         .flagship-projects {
             margin-bottom: 1.4rem;
         }
@@ -1433,6 +1654,30 @@
         html[data-theme="light"] .project-card:not(.flagship) {
             background: linear-gradient(145deg, rgba(139, 92, 246, 0.08) 0%, rgba(248, 250, 252, 0.74) 100%);
             border-color: rgba(139, 92, 246, 0.16);
+        }
+
+        .project-card-featured-wide {
+            background: linear-gradient(145deg, rgba(24, 22, 46, 0.95) 0%, rgba(13, 12, 26, 0.9) 100%);
+            border-color: rgba(124, 58, 237, 0.24);
+            box-shadow: 0 22px 42px rgba(6, 7, 18, 0.32);
+        }
+
+        html[data-theme="light"] .project-card-featured-wide {
+            background: linear-gradient(145deg, rgba(248, 250, 252, 0.96) 0%, rgba(226, 232, 240, 0.9) 100%);
+            border-color: rgba(139, 92, 246, 0.24);
+            box-shadow: 0 20px 34px rgba(148, 163, 184, 0.32);
+        }
+
+        .project-card-compact {
+            background: linear-gradient(145deg, rgba(20, 19, 39, 0.82) 0%, rgba(14, 13, 28, 0.9) 100%);
+            border-color: rgba(124, 58, 237, 0.18);
+            box-shadow: 0 18px 30px rgba(6, 7, 18, 0.24);
+        }
+
+        html[data-theme="light"] .project-card-compact {
+            background: linear-gradient(145deg, rgba(248, 250, 252, 0.94) 0%, rgba(229, 231, 235, 0.85) 100%);
+            border-color: rgba(139, 92, 246, 0.2);
+            box-shadow: 0 16px 28px rgba(148, 163, 184, 0.28);
         }
 
         .project-card:hover {
@@ -1530,6 +1775,112 @@
             100% { opacity: 0.15; }
         }
 
+        .project-visual-panel {
+            width: 100%;
+            height: 170px;
+            position: relative;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            background: linear-gradient(135deg, rgba(18, 17, 35, 0.96) 0%, rgba(35, 32, 66, 0.78) 100%);
+            border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+            overflow: hidden;
+            color: rgba(124, 58, 237, 0.55);
+        }
+
+        .project-card-featured-wide .project-visual-panel {
+            height: 190px;
+        }
+
+        .project-visual-panel::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 15%, rgba(124, 58, 237, 0.18), transparent 45%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 55%);
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .project-visual-line {
+            position: absolute;
+            height: 1px;
+            background: currentColor;
+            opacity: 0.5;
+        }
+
+        .project-visual-line.line-1 {
+            top: 38%;
+            left: 12%;
+            right: 18%;
+        }
+
+        .project-visual-line.line-2 {
+            top: 62%;
+            left: 20%;
+            right: 12%;
+        }
+
+        .project-visual-node {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: currentColor;
+            box-shadow: 0 0 12px currentColor;
+            opacity: 0.75;
+        }
+
+        .project-visual-node.node-1 {
+            top: 34%;
+            left: 24%;
+        }
+
+        .project-visual-node.node-2 {
+            top: 56%;
+            left: 64%;
+        }
+
+        .project-visual-node.node-3 {
+            top: 68%;
+            left: 36%;
+        }
+
+        .project-visual-rag {
+            background: linear-gradient(135deg, rgba(20, 18, 40, 0.96) 0%, rgba(44, 36, 78, 0.76) 100%);
+            color: rgba(124, 58, 237, 0.6);
+        }
+
+        .project-visual-access {
+            background: linear-gradient(135deg, rgba(16, 22, 40, 0.96) 0%, rgba(27, 44, 78, 0.76) 100%);
+            color: rgba(59, 130, 246, 0.55);
+        }
+
+        .project-visual-data {
+            background: linear-gradient(135deg, rgba(16, 30, 34, 0.96) 0%, rgba(24, 58, 54, 0.76) 100%);
+            color: rgba(16, 185, 129, 0.55);
+        }
+
+        html[data-theme="light"] .project-visual-panel {
+            background: linear-gradient(135deg, rgba(248, 250, 252, 0.98) 0%, rgba(226, 232, 240, 0.88) 100%);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+            color: rgba(109, 91, 208, 0.45);
+        }
+
+        html[data-theme="light"] .project-visual-rag {
+            background: linear-gradient(135deg, rgba(248, 250, 252, 0.98) 0%, rgba(233, 231, 255, 0.9) 100%);
+            color: rgba(124, 58, 237, 0.5);
+        }
+
+        html[data-theme="light"] .project-visual-access {
+            background: linear-gradient(135deg, rgba(248, 250, 252, 0.98) 0%, rgba(226, 232, 255, 0.9) 100%);
+            color: rgba(59, 130, 246, 0.45);
+        }
+
+        html[data-theme="light"] .project-visual-data {
+            background: linear-gradient(135deg, rgba(248, 250, 252, 0.98) 0%, rgba(223, 246, 241, 0.88) 100%);
+            color: rgba(16, 185, 129, 0.45);
+        }
+
         .project-img {
             width: 100%;
             height: 185px;
@@ -1560,6 +1911,153 @@
         .project-card.flagship .project-content {
             padding: 1.65rem 1.7rem 1.6rem;
             gap: 0.15rem;
+        }
+
+        .project-case-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+            gap: 1.8rem;
+            padding: 1.8rem;
+        }
+
+        .project-case-main,
+        .project-case-aside {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .project-block {
+            display: grid;
+            gap: 0.45rem;
+        }
+
+        .project-block > p:not(.project-kicker) {
+            font-size: 0.92rem;
+            line-height: 1.6;
+            color: var(--light-gray);
+        }
+
+        .project-kicker {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gray);
+        }
+
+        .project-summary {
+            font-size: 0.98rem;
+            line-height: 1.6;
+            color: var(--light);
+        }
+
+        .project-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--light-gray);
+        }
+
+        .project-bullets li {
+            position: relative;
+            padding-left: 1rem;
+            line-height: 1.55;
+        }
+
+        .project-bullets li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: rgba(124, 58, 237, 0.7);
+        }
+
+        .project-impact {
+            font-size: 0.92rem;
+            line-height: 1.55;
+            color: var(--light-gray);
+        }
+
+        .project-confidentiality-note {
+            margin-top: 0.2rem;
+            padding-left: 0.75rem;
+            border-left: 2px solid rgba(124, 58, 237, 0.3);
+            font-size: 0.82rem;
+            line-height: 1.5;
+            color: var(--gray);
+        }
+
+        .project-stack-row {
+            padding-top: 0.85rem;
+            border-top: 1px solid rgba(124, 58, 237, 0.18);
+        }
+
+        .project-stack-row .project-tech {
+            margin: 0.6rem 0 0;
+        }
+
+        .project-case-aside .project-links {
+            margin-top: auto;
+            padding-top: 0.85rem;
+            border-top: 1px solid rgba(124, 58, 237, 0.18);
+        }
+
+        .project-card-compact .project-content {
+            padding: 1.4rem;
+            gap: 0.75rem;
+        }
+
+        .project-card-compact .project-summary {
+            font-size: 0.9rem;
+            color: var(--light);
+        }
+
+        .project-card-compact .project-bullets {
+            font-size: 0.86rem;
+        }
+
+        .project-card-compact .project-tech {
+            margin-bottom: 0.8rem;
+        }
+
+        .project-card-compact .project-links {
+            margin-top: auto;
+            padding-top: 0.75rem;
+            border-top: 1px solid rgba(124, 58, 237, 0.16);
+        }
+
+        html[data-theme="light"] .project-summary {
+            color: #1f2937;
+        }
+
+        html[data-theme="light"] .project-bullets {
+            color: #475569;
+        }
+
+        html[data-theme="light"] .project-bullets li::before {
+            color: rgba(139, 92, 246, 0.6);
+        }
+
+        html[data-theme="light"] .project-impact {
+            color: #475569;
+        }
+
+        html[data-theme="light"] .project-confidentiality-note {
+            border-left-color: rgba(139, 92, 246, 0.3);
+            color: #475569;
+        }
+
+        html[data-theme="light"] .project-stack-row {
+            border-top-color: rgba(139, 92, 246, 0.22);
+        }
+
+        html[data-theme="light"] .project-case-aside .project-links,
+        html[data-theme="light"] .project-card-compact .project-links {
+            border-top-color: rgba(139, 92, 246, 0.2);
         }
 
         .project-title {
@@ -1681,8 +2179,16 @@
             font-weight: 650;
             letter-spacing: 0.04em;
             text-transform: uppercase;
-            border: 1px solid transparent;
+            border: 1px solid rgba(124, 58, 237, 0.28);
             min-height: 30px;
+            background: rgba(124, 58, 237, 0.14);
+            color: #c4b5fd;
+        }
+
+        html[data-theme="light"] .project-featured-badge {
+            background: rgba(139, 92, 246, 0.14);
+            border-color: rgba(139, 92, 246, 0.26);
+            color: #4c1d95;
         }
 
         .project-card.flagship .project-tech {
@@ -2570,6 +3076,35 @@
             .projects-container {
                 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
+
+            .selected-systems-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .selected-systems-grid .project-card-featured-wide {
+                grid-column: auto;
+            }
+
+            .project-case-layout {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+            }
+
+            .project-case-aside {
+                gap: 0.85rem;
+            }
+
+            .project-visual-panel {
+                height: 155px;
+            }
+
+            .project-card-featured-wide .project-visual-panel {
+                height: 170px;
+            }
+
+            .project-card-compact .project-content {
+                padding: 1.2rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -2774,6 +3309,26 @@
             .hamburger.active span:nth-child(3) {
                 transform: rotate(-45deg) translate(5px, -6px);
             }
+
+            .project-visual-panel {
+                height: 145px;
+            }
+
+            .project-card-featured-wide .project-visual-panel {
+                height: 160px;
+            }
+
+            .project-case-layout {
+                padding: 1.25rem;
+            }
+
+            .project-summary {
+                font-size: 0.92rem;
+            }
+
+            .project-bullets {
+                font-size: 0.84rem;
+            }
         }
 
         @media (max-width: 576px) {
@@ -2793,7 +3348,7 @@
 
             .hero-trust-item {
                 font-size: 0.74rem;
-                padding: 0.36rem 0;
+                padding: 0.6rem 0.75rem;
             }
 
             .priority-section .section-title h2 {
@@ -2834,6 +3389,147 @@
             .personal-note-content {
                 text-align: left;
                 padding: 1rem;
+            }
+
+            .project-visual-panel {
+                height: 130px;
+            }
+
+            .project-card-featured-wide .project-visual-panel {
+                height: 145px;
+            }
+
+            .project-case-layout {
+                padding: 1.1rem;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .hero-grid {
+                grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+                gap: 3.2rem;
+            }
+
+            .hero-actions {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .hero-trust-row {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 0.75rem;
+                padding: 0;
+                border: none;
+            }
+
+            .hero-trust-item {
+                background: rgba(124, 58, 237, 0.075);
+                border: 1px solid rgba(124, 58, 237, 0.18);
+                border-left: 1px solid rgba(124, 58, 237, 0.18) !important;
+                border-radius: 12px;
+                color: #ded8ff;
+            }
+
+            .hero-trust-item + .hero-trust-item {
+                border-top: none;
+            }
+
+            html[data-theme="light"] .hero-trust-row {
+                border: none;
+            }
+
+            html[data-theme="light"] .hero-trust-item {
+                background: rgba(139, 92, 246, 0.08);
+                border-color: rgba(139, 92, 246, 0.2);
+                border-left: 1px solid rgba(139, 92, 246, 0.2) !important;
+                color: #1f2937;
+            }
+
+            html[data-theme="light"] .hero-trust-item + .hero-trust-item {
+                border-top: none;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                min-height: auto;
+                padding-top: 5.2rem;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 2.1rem;
+            }
+
+            .hero-actions {
+                align-items: stretch;
+            }
+
+            .hero-trust-row {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+                margin-top: 1.05rem;
+                padding: 0;
+                border: none;
+                max-width: none;
+            }
+
+            .hero-trust-item {
+                min-height: auto;
+                padding: 0.7rem 0.9rem;
+                background: rgba(124, 58, 237, 0.075);
+                border: 1px solid rgba(124, 58, 237, 0.18);
+                border-left: 1px solid rgba(124, 58, 237, 0.18) !important;
+                border-radius: 12px;
+                color: #ded8ff;
+            }
+
+            .hero-trust-item + .hero-trust-item {
+                border-top: none;
+            }
+
+            html[data-theme="light"] .hero-trust-row {
+                border: none;
+            }
+
+            html[data-theme="light"] .hero-trust-item {
+                background: rgba(139, 92, 246, 0.08);
+                border-color: rgba(139, 92, 246, 0.2);
+                border-left: 1px solid rgba(139, 92, 246, 0.2) !important;
+                color: #1f2937;
+            }
+
+            html[data-theme="light"] .hero-trust-item + .hero-trust-item {
+                border-top: none;
+            }
+
+            .hero-system-card {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-actions {
+                width: 100%;
+            }
+
+            .hero .hero-actions .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero-trust-item {
+                padding: 0.6rem 0.75rem;
+            }
+
+            .hero-system-card {
+                padding: 1.35rem;
+            }
+
+            .hero-system-title {
+                font-size: 1.15rem;
             }
         }
     </style>
@@ -2877,19 +3573,39 @@
     
     <section id="home" class="hero">
         <div class="container">
-            <div class="hero-content fade-in">
-                <h1><span class="highlight">Augusto Oliveira</span></h1>
-                <p class="fade-in delay-1" data-lang-key="hero.subtitle">Software Engineer building confidential AI/RAG platforms, backend systems, admin control planes, and full-stack products.</p>
-                <p class="fade-in delay-2" data-lang-key="hero.identity">I work on reliable software for complex institutional workflows where governance, auditability, and operational stability matter.</p>
-                <div class="hero-trust-row fade-in delay-4">
-                    <span class="hero-trust-item" data-lang-key="hero.trust1">Current Focus: Confidential Federal-Sector AI/RAG Systems</span>
-                    <span class="hero-trust-item" data-lang-key="hero.trust2">Core Stack: Python, Flask, LangChain, Milvus, PostgreSQL, Docker</span>
-                    <span class="hero-trust-item" data-lang-key="hero.trust3">Systems: SmartFAQ, Access Control, Public Data Pipelines</span>
+            <div class="hero-grid">
+                <div class="hero-content fade-in">
+                    <p class="hero-eyebrow" data-lang-key="hero.eyebrow">Confidential AI/RAG Systems · Backend · Operations</p>
+                    <h1><span class="highlight">Augusto Oliveira</span></h1>
+                    <p class="fade-in delay-1" data-lang-key="hero.subtitle">Software Engineer building confidential AI/RAG platforms, backend systems, admin control planes, and full-stack products.</p>
+                    <p class="fade-in delay-2" data-lang-key="hero.identity">I work on reliable software for complex institutional workflows where governance, auditability, and operational stability matter.</p>
+                    <div class="hero-actions fade-in delay-4">
+                        <a href="#contact" class="btn" data-lang-key="hero.contact">Contact Me</a>
+                        <a href="#projects" class="btn btn-outline" data-lang-key="hero.projects">View Selected Systems</a>
+                    </div>
+                    <div class="hero-trust-row hero-metric-row fade-in delay-4">
+                        <span class="hero-trust-item hero-metric" data-lang-key="hero.trust1">Confidential Federal-Sector Systems</span>
+                        <span class="hero-trust-item hero-metric" data-lang-key="hero.trust2">Backend · AI/RAG · Data Pipelines</span>
+                        <span class="hero-trust-item hero-metric" data-lang-key="hero.trust3">Python · Flask · LangChain · Milvus · Docker</span>
+                    </div>
                 </div>
-                <div class="hero-actions fade-in delay-4">
-                    <a href="#contact" class="btn" data-lang-key="hero.contact">Get In Touch</a>
-                    <a href="#projects" class="btn btn-outline" data-lang-key="hero.projects">View My Work</a>
-                </div>
+                <aside class="hero-system-card fade-in delay-2" aria-label="Confidential systems profile">
+                    <div class="hero-system-header">
+                        <span class="hero-system-status" data-lang-key="hero.card.status">Restricted Context</span>
+                    </div>
+                    <h2 class="hero-system-title" data-lang-key="hero.card.title">Confidential Systems Profile</h2>
+                    <ul class="hero-system-list">
+                        <li data-lang-key="hero.card.item1">Governed AI/RAG workflows</li>
+                        <li data-lang-key="hero.card.item2">Backend control planes</li>
+                        <li data-lang-key="hero.card.item3">Source lifecycle and auditability</li>
+                        <li data-lang-key="hero.card.item4">Operational reliability under institutional constraints</li>
+                    </ul>
+                    <div class="hero-system-stack">
+                        <span data-lang-key="hero.card.stack.label">Core Stack</span>
+                        <p data-lang-key="hero.card.stack.value">Python · Flask · LangChain · Milvus · PostgreSQL · Redis · Celery · Docker</p>
+                    </div>
+                    <p class="hero-system-note" data-lang-key="hero.card.note">Public details intentionally limited due to confidentiality.</p>
+                </aside>
             </div>
         </div>
     </section>
@@ -3125,61 +3841,98 @@
             <div class="section-title">
                 <h2 data-lang-key="projects.title">Systems & Applications</h2>
             </div>
+            <p class="projects-intro" data-lang-key="projects.intro">Selected systems built or evolved under real operational constraints — confidentiality, reliability, integrations, data quality, and admin usability.</p>
             <p class="projects-group-title" data-lang-key="projects.flagshipGroup">Selected Systems</p>
-            <div class="flagship-projects">
-                <div class="projects-container">
-                <div class="project-card fade-in flagship flagship-primary">                    
-                    <div class="project-img">
-                        <img loading="lazy" decoding="async" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 600'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23100f1f'/%3E%3Cstop offset='52%25' stop-color='%231c1638'/%3E%3Cstop offset='100%25' stop-color='%23261b4d'/%3E%3C/linearGradient%3E%3CradialGradient id='r' cx='70%25' cy='25%25' r='65%25'%3E%3Cstop offset='0%25' stop-color='%236d5bd0' stop-opacity='0.28'/%3E%3Cstop offset='100%25' stop-color='%236d5bd0' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='1200' height='600' fill='url(%23g)'/%3E%3Crect width='1200' height='600' fill='url(%23r)'/%3E%3Cg fill='none' stroke='%238b7cf6' stroke-opacity='0.34' stroke-width='2'%3E%3Cpath d='M120 420h220l95-150 115 210 135-250 110 160h285'/%3E%3Cpath d='M120 185h170l70 86h130l72-62h188l62 86h268' stroke-opacity='0.22'/%3E%3C/g%3E%3Cg fill='%23f8fafc' fill-opacity='0.72'%3E%3Ccircle cx='340' cy='420' r='8'/%3E%3Ccircle cx='550' cy='480' r='8'/%3E%3Ccircle cx='685' cy='230' r='8'/%3E%3Ccircle cx='795' cy='390' r='8'/%3E%3C/g%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Crect x='110' y='90' width='300' height='54' rx='8'/%3E%3Crect x='110' y='160' width='190' height='18' rx='4'/%3E%3Crect x='110' y='196' width='250' height='18' rx='4'/%3E%3Crect x='760' y='96' width='300' height='190' rx='12'/%3E%3Crect x='800' y='136' width='220' height='16' rx='4'/%3E%3Crect x='800' y='176' width='150' height='16' rx='4'/%3E%3Crect x='800' y='216' width='190' height='16' rx='4'/%3E%3C/g%3E%3C/svg%3E" alt="SmartFAQ confidential AI/RAG platform abstract interface">
+            <div class="selected-systems-grid">
+                <article class="project-card project-card-featured-wide fade-in">
+                    <div class="project-visual-panel project-visual-rag" aria-hidden="true">
+                        <span class="project-visual-line line-1"></span>
+                        <span class="project-visual-line line-2"></span>
+                        <span class="project-visual-node node-1"></span>
+                        <span class="project-visual-node node-2"></span>
+                        <span class="project-visual-node node-3"></span>
+                    </div>
+                    <div class="project-case-layout">
+                        <div class="project-case-main">
+                            <span class="project-featured-badge" data-lang-key="projects.smartfaq.badge">Confidential Federal-Sector System</span>
+                            <h3 class="project-title" data-lang-key="projects.smartfaq.title">SmartFAQ — Confidential AI/RAG Operations Platform</h3>
+                            <p class="project-summary" data-lang-key="projects.smartfaq.summary">Confidential institutional platform for governed knowledge operations, AI/RAG retrieval, source lifecycle control, and operational traceability.</p>
+                            <div class="project-block">
+                                <p class="project-kicker" data-lang-key="projects.context">Context</p>
+                                <p data-lang-key="projects.smartfaq.context">Sensitive institutional Q&A workflows with changing sources, validated feedback, and strict governance requirements.</p>
+                            </div>
+                            <div class="project-block">
+                                <p class="project-kicker" data-lang-key="projects.workedOn">What I worked on</p>
+                                <ul class="project-bullets">
+                                    <li data-lang-key="projects.smartfaq.work1">Governed source lifecycle for inclusion, update, removal, and auditability.</li>
+                                    <li data-lang-key="projects.smartfaq.work2">Feedback-to-knowledge flows turning validated answers into controlled RAG sources.</li>
+                                    <li data-lang-key="projects.smartfaq.work3">Hybrid retrieval and rebuild reliability across governed and legacy knowledge sources.</li>
+                                    <li data-lang-key="projects.smartfaq.work4">Admin control plane improvements for operational visibility and safer daily use.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <aside class="project-case-aside">
+                            <div class="project-impact">
+                                <p class="project-kicker" data-lang-key="projects.impact">Impact</p>
+                                <p data-lang-key="projects.smartfaq.impact">More traceable, governed, and reliable knowledge operations in a confidential federal-sector environment.</p>
+                            </div>
+                            <p class="project-confidentiality-note" data-lang-key="projects.smartfaq.confidentiality">Implementation details and stakeholder context are intentionally limited.</p>
+                            <div class="project-stack-row">
+                                <span class="project-kicker" data-lang-key="projects.stack">Stack</span>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">Flask</span>
+                                    <span class="tech-tag">Flask-Admin</span>
+                                    <span class="tech-tag">LangChain</span>
+                                    <span class="tech-tag">Milvus</span>
+                                    <span class="tech-tag">PostgreSQL</span>
+                                    <span class="tech-tag">Redis</span>
+                                    <span class="tech-tag">Celery</span>
+                                    <span class="tech-tag">Docker Compose</span>
+                                    <span class="tech-tag">RAG</span>
+                                </div>
+                            </div>
+                            <div class="project-links">
+                                <span class="project-link" style="opacity: 0.6; cursor: default;">
+                                    <i class="fas fa-lock"></i> <span data-lang-key="projects.private">Private Repository</span>
+                                </span>
+                            </div>
+                        </aside>
+                    </div>
+                </article>
+                <article class="project-card project-card-compact fade-in delay-1">
+                    <div class="project-visual-panel project-visual-access" aria-hidden="true">
+                        <span class="project-visual-line line-1"></span>
+                        <span class="project-visual-line line-2"></span>
+                        <span class="project-visual-node node-1"></span>
+                        <span class="project-visual-node node-2"></span>
+                        <span class="project-visual-node node-3"></span>
                     </div>
                     <div class="project-content">
-                        <span class="project-featured-badge" data-lang-key="projects.smartfaq.badge">Confidential System</span>
-                        <h3 class="project-title" data-lang-key="projects.smartfaq.title">SmartFAQ — Confidential AI/RAG Operations Platform</h3>
-                        <p class="project-description" data-lang-key="projects.smartfaq.description">
-                            Problem: Institutional Q&A workflows depend on changing sources, validated feedback, and strict governance.
-                            System Design: AI/RAG platform with hybrid retrieval, vector storage, Flask-Admin control plane, governed source lifecycle, and operational auditability.
-                            Responsibilities: Backend workflows, source governance, feedback-to-knowledge promotion, hybrid rebuild reliability, and observability.
-                            Confidentiality: Some implementation details and stakeholder context are intentionally omitted.
-                            Impact: More traceable, governed, and reliable knowledge operations in a federal-sector institutional environment.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Flask</span>
-                            <span class="tech-tag">LangChain</span>
-                            <span class="tech-tag">Milvus</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">Docker Compose</span>
-                            <span class="tech-tag">RAG</span>
-                        </div>
-                        <div class="project-links">
-                            <span class="project-link" style="opacity: 0.6; cursor: default;">
-                                <i class="fas fa-lock"></i> <span data-lang-key="projects.private">Private Repository</span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in delay-1 flagship flagship-secondary">
-                    <div class="project-img">
-                        <img loading="lazy" decoding="async" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyBczg4PNTdRtnhFyJxiQ_7-s_5ZYk5tKAg&s" alt="Vehicle Access Control System">
-                    </div>
-                    <div class="project-content">
-                        <span class="project-featured-badge" data-lang-key="projects.vehicle.badge">Core System</span>
+                        <span class="project-featured-badge" data-lang-key="projects.vehicle.badge">Institutional Access System</span>
                         <h3 class="project-title" data-lang-key="projects.vehicle.title">Vehicle Access Control System</h3>
-                        <p class="project-description" data-lang-key="projects.vehicle.description">
-                            Problem: Access decisions were fragmented across hardware and manual controls.
-                            System Design: Angular dashboard + Node/Express services integrated with MQTT event streams and camera workflows.
-                            Responsibilities: Implemented RBAC, OAuth2/JWT, API boundaries, and backup automation.
-                            Challenges: Maintaining low-latency event handling and consistent access state across devices.
-                            Impact: Real-time, centralized control for institutional vehicle operations.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Angular</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">Express</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">MQTT</span>
-                            <span class="tech-tag">Docker</span>
+                        <p class="project-summary" data-lang-key="projects.vehicle.summary">End-to-end vehicle access control platform integrating web management, real-time events, authentication, and operational backup routines.</p>
+                        <ul class="project-bullets">
+                            <li data-lang-key="projects.vehicle.item1">Angular dashboard and Node.js/Express backend.</li>
+                            <li data-lang-key="projects.vehicle.item2">MQTT event integration between cameras, hardware, and central services.</li>
+                            <li data-lang-key="projects.vehicle.item3">OAuth2/JWT, RBAC, protected routes, and REST API boundaries.</li>
+                            <li data-lang-key="projects.vehicle.item4">Docker-based backup routines for database and image assets.</li>
+                        </ul>
+                        <p class="project-kicker" data-lang-key="projects.impact">Impact</p>
+                        <p class="project-impact" data-lang-key="projects.vehicle.impact">Centralized and more reliable access operations for an institutional environment.</p>
+                        <div class="project-stack-row">
+                            <span class="project-kicker" data-lang-key="projects.stack">Stack</span>
+                            <div class="project-tech">
+                                <span class="tech-tag">Angular</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Express</span>
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">MQTT</span>
+                                <span class="tech-tag">Docker</span>
+                                <span class="tech-tag">OAuth2</span>
+                                <span class="tech-tag">JWT</span>
+                            </div>
                         </div>
                         <div class="project-links">
                             <span class="project-link" style="opacity: 0.6; cursor: default;">
@@ -3187,27 +3940,36 @@
                             </span>
                         </div>
                     </div>
-                </div>
-
-                <div class="project-card fade-in delay-2 flagship flagship-tertiary">                    
-                    <div class="project-img">
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800" alt="Natal City Hall Scraper">
+                </article>
+                <article class="project-card project-card-compact fade-in delay-2">
+                    <div class="project-visual-panel project-visual-data" aria-hidden="true">
+                        <span class="project-visual-line line-1"></span>
+                        <span class="project-visual-line line-2"></span>
+                        <span class="project-visual-node node-1"></span>
+                        <span class="project-visual-node node-2"></span>
+                        <span class="project-visual-node node-3"></span>
                     </div>
                     <div class="project-content">
-                        <span class="project-featured-badge" data-lang-key="projects.scraping.badge">Data Pipeline</span>
+                        <span class="project-featured-badge" data-lang-key="projects.scraping.badge">Public Data Pipeline</span>
                         <h3 class="project-title" data-lang-key="projects.scraping.title">Natal City Hall Scraper</h3>
-                        <p class="project-description" data-lang-key="projects.scraping.description">
-                            Problem: Government portal data was difficult to capture reliably due to dynamic rendering and portal constraints.
-                            System Design: Selenium-based extraction pipeline with PostgreSQL persistence and API-ready outputs.
-                            Responsibilities: Implemented resilient scraping flow, storage mapping, and processing routines.
-                            Challenges: Handling JavaScript-rendered pages, SSL interruptions, and asynchronous content timing.
-                            Impact: Repeatable data ingestion replacing fragile manual collection.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Selenium</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">REST API</span>
+                        <p class="project-summary" data-lang-key="projects.scraping.summary">Resilient scraping and data processing pipeline for dynamic government portal data, designed for repeatable collection and API-ready outputs.</p>
+                        <ul class="project-bullets">
+                            <li data-lang-key="projects.scraping.item1">Selenium extraction flow for JavaScript-rendered portal pages.</li>
+                            <li data-lang-key="projects.scraping.item2">Handling of SSL interruptions, async content, alerts, and timing issues.</li>
+                            <li data-lang-key="projects.scraping.item3">PostgreSQL persistence and structured data mapping.</li>
+                            <li data-lang-key="projects.scraping.item4">Repeatable ingestion replacing fragile manual collection.</li>
+                        </ul>
+                        <p class="project-kicker" data-lang-key="projects.impact">Impact</p>
+                        <p class="project-impact" data-lang-key="projects.scraping.impact">More reliable public-data collection for downstream systems and analysis.</p>
+                        <div class="project-stack-row">
+                            <span class="project-kicker" data-lang-key="projects.stack">Stack</span>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Selenium</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">REST API</span>
+                                <span class="tech-tag">Docker</span>
+                            </div>
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/Augusto240/scraping_natal_prefeitura" class="project-link" target="_blank" rel="noopener noreferrer">
@@ -3215,9 +3977,7 @@
                             </a>
                         </div>
                     </div>
-                </div>
-
-                </div>
+                </article>
             </div>
 
                 <p class="projects-group-title projects-group-secondary" data-lang-key="projects.otherGroup">Labs & Side Builds</p>
@@ -3794,17 +4554,27 @@
                     "nav.hobbies": "Hobbies",
                     "nav.contact": "Contact",
                     
+                    "hero.eyebrow": "Confidential AI/RAG Systems · Backend · Operations",
                     "hero.subtitle": "Software Engineer building confidential AI/RAG platforms, backend systems, admin control planes, and full-stack products.",
                     "hero.signal": "Current Role: Software Engineer - RAG Platform & Admin Operations | CCSL-IFRN | Apr 2026 - Present",
                     "hero.identity": "I work on reliable software for complex institutional workflows where governance, auditability, and operational stability matter.",
                     "hero.chip1": "Backend Systems",
                     "hero.chip2": "RAG Operations",
                     "hero.chip3": "Full-Stack Delivery",
-                    "hero.trust1": "Current Focus: Confidential Federal-Sector AI/RAG Systems",
-                    "hero.trust2": "Core Stack: Python, Flask, LangChain, Milvus, PostgreSQL, Docker",
-                    "hero.trust3": "Systems: SmartFAQ, Access Control, Public Data Pipelines",
-                    "hero.contact": "Get In Touch",
-                    "hero.projects": "View My Work",
+                    "hero.trust1": "Confidential Federal-Sector Systems",
+                    "hero.trust2": "Backend · AI/RAG · Data Pipelines",
+                    "hero.trust3": "Python · Flask · LangChain · Milvus · Docker",
+                    "hero.contact": "Contact Me",
+                    "hero.projects": "View Selected Systems",
+                    "hero.card.status": "Restricted Context",
+                    "hero.card.title": "Confidential Systems Profile",
+                    "hero.card.item1": "Governed AI/RAG workflows",
+                    "hero.card.item2": "Backend control planes",
+                    "hero.card.item3": "Source lifecycle and auditability",
+                    "hero.card.item4": "Operational reliability under institutional constraints",
+                    "hero.card.stack.label": "Core Stack",
+                    "hero.card.stack.value": "Python · Flask · LangChain · Milvus · PostgreSQL · Redis · Celery · Docker",
+                    "hero.card.note": "Public details intentionally limited due to confidentiality.",
 
                     "current.title": "Confidential Systems Work",
                     "current.badge": "Current System",
@@ -3904,16 +4674,35 @@
                     
                     "projects.title": "Systems & Applications",
                     "projects.flagshipGroup": "Selected Systems",
+                    "projects.intro": "Selected systems built or evolved under real operational constraints — confidentiality, reliability, integrations, data quality, and admin usability.",
                     "projects.otherGroup": "Labs & Side Builds",
                     "projects.featured": "Featured",
                     "projects.private": "Private Repository",
-                    "projects.smartfaq.badge": "Confidential System",
+                    "projects.context": "Context",
+                    "projects.workedOn": "What I worked on",
+                    "projects.impact": "Impact",
+                    "projects.stack": "Stack",
+                    "projects.smartfaq.badge": "Confidential Federal-Sector System",
                     "projects.smartfaq.title": "SmartFAQ — Confidential AI/RAG Operations Platform",
+                    "projects.smartfaq.summary": "Confidential institutional platform for governed knowledge operations, AI/RAG retrieval, source lifecycle control, and operational traceability.",
+                    "projects.smartfaq.context": "Sensitive institutional Q&A workflows with changing sources, validated feedback, and strict governance requirements.",
+                    "projects.smartfaq.work1": "Governed source lifecycle for inclusion, update, removal, and auditability.",
+                    "projects.smartfaq.work2": "Feedback-to-knowledge flows turning validated answers into controlled RAG sources.",
+                    "projects.smartfaq.work3": "Hybrid retrieval and rebuild reliability across governed and legacy knowledge sources.",
+                    "projects.smartfaq.work4": "Admin control plane improvements for operational visibility and safer daily use.",
+                    "projects.smartfaq.impact": "More traceable, governed, and reliable knowledge operations in a confidential federal-sector environment.",
+                    "projects.smartfaq.confidentiality": "Implementation details and stakeholder context are intentionally limited.",
                     "projects.smartfaq.description": "Problem: Institutional Q&A workflows depend on changing sources, validated feedback, and strict governance.\nSystem Design: AI/RAG platform with hybrid retrieval, vector storage, Flask-Admin control plane, governed source lifecycle, and operational auditability.\nResponsibilities: Backend workflows, source governance, feedback-to-knowledge promotion, hybrid rebuild reliability, and observability.\nConfidentiality: Some implementation details and stakeholder context are intentionally omitted.\nImpact: More traceable, governed, and reliable knowledge operations in a federal-sector institutional environment.",
-                    "projects.vehicle.badge": "Core System",
+                    "projects.vehicle.badge": "Institutional Access System",
                     "projects.vehicle.title": "Vehicle Access Control System",
+                    "projects.vehicle.summary": "End-to-end vehicle access control platform integrating web management, real-time events, authentication, and operational backup routines.",
+                    "projects.vehicle.item1": "Angular dashboard and Node.js/Express backend.",
+                    "projects.vehicle.item2": "MQTT event integration between cameras, hardware, and central services.",
+                    "projects.vehicle.item3": "OAuth2/JWT, RBAC, protected routes, and REST API boundaries.",
+                    "projects.vehicle.item4": "Docker-based backup routines for database and image assets.",
+                    "projects.vehicle.impact": "Centralized and more reliable access operations for an institutional environment.",
                     "projects.vehicle.description": "Problem: Access decisions were fragmented across hardware and manual controls.\nSystem Design: Angular dashboard + Node/Express services integrated with MQTT event streams and camera workflows.\nResponsibilities: Implemented RBAC, OAuth2/JWT, API boundaries, and backup automation.\nChallenges: Maintaining low-latency event handling and consistent access state across devices.\nImpact: Real-time, centralized control for institutional vehicle operations.",
-                    "projects.scraping.badge": "Data Pipeline",
+                    "projects.scraping.badge": "Public Data Pipeline",
                     "projects.pokedex.title": "Pokedex Ruby",
                     "projects.pokedex.description": "Ruby/Sinatra catalog service with structured search and containerized local setup.",
                     "projects.jiujitsu.title": "Jiu-Jitsu Academy Manager",
@@ -3925,6 +4714,12 @@
                     "projects.taskpanel.title": "Super Task Panel",
                     "projects.taskpanel.description": "Next.js + NestJS task workflow app with PostgreSQL persistence and OAuth.",
                     "projects.scraping.title": "Natal City Hall Scraper",
+                    "projects.scraping.summary": "Resilient scraping and data processing pipeline for dynamic government portal data, designed for repeatable collection and API-ready outputs.",
+                    "projects.scraping.item1": "Selenium extraction flow for JavaScript-rendered portal pages.",
+                    "projects.scraping.item2": "Handling of SSL interruptions, async content, alerts, and timing issues.",
+                    "projects.scraping.item3": "PostgreSQL persistence and structured data mapping.",
+                    "projects.scraping.item4": "Repeatable ingestion replacing fragile manual collection.",
+                    "projects.scraping.impact": "More reliable public-data collection for downstream systems and analysis.",
                     "projects.scraping.description": "Problem: Government portal data was difficult to capture reliably due to dynamic rendering and portal constraints.\nSystem Design: Selenium-based extraction pipeline with PostgreSQL persistence and API-ready outputs.\nResponsibilities: Implemented resilient scraping flow, storage mapping, and processing routines.\nChallenges: Handling JavaScript-rendered pages, SSL interruptions, and asynchronous content timing.\nImpact: Repeatable data ingestion replacing fragile manual collection.",
                     "projects.prayers.title": "Catholic Prayers Portal",
                     "projects.prayers.description": "Content portal with categorized navigation and maintainable backend routes.",
@@ -3989,17 +4784,27 @@
                     "nav.hobbies": "Hobbies",
                     "nav.contact": "Contato",
                     
+                    "hero.eyebrow": "Sistemas IA/RAG Confidenciais · Backend · Operações",
                     "hero.subtitle": "Engenheiro de Software construindo plataformas IA/RAG confidenciais, sistemas backend, painéis administrativos e produtos full-stack.",
                     "hero.signal": "Atuação Atual: Engenheiro de Software - Plataforma RAG e Operações de Admin | CCSL-IFRN | Abr 2026 - Presente",
                     "hero.identity": "Atuo em software confiável para fluxos institucionais complexos, onde governança, auditoria e estabilidade operacional importam.",
                     "hero.chip1": "Sistemas Backend",
                     "hero.chip2": "Operações RAG",
                     "hero.chip3": "Entrega Full-Stack",
-                    "hero.trust1": "Foco Atual: Sistemas IA/RAG Confidenciais no Setor Público Federal",
-                    "hero.trust2": "Stack Principal: Python, Flask, LangChain, Milvus, PostgreSQL, Docker",
-                    "hero.trust3": "Sistemas: SmartFAQ, Controle de Acesso, Pipelines de Dados Públicos",
-                    "hero.contact": "Entre em Contato",
-                    "hero.projects": "Ver Meus Projetos",
+                    "hero.trust1": "Sistemas Confidenciais do Setor Público Federal",
+                    "hero.trust2": "Backend · IA/RAG · Pipelines de Dados",
+                    "hero.trust3": "Python · Flask · LangChain · Milvus · Docker",
+                    "hero.contact": "Entrar em Contato",
+                    "hero.projects": "Ver Sistemas Selecionados",
+                    "hero.card.status": "Contexto Restrito",
+                    "hero.card.title": "Perfil de Sistemas Confidenciais",
+                    "hero.card.item1": "Fluxos IA/RAG governados",
+                    "hero.card.item2": "Painéis e controles backend",
+                    "hero.card.item3": "Ciclo de vida de fontes e auditoria",
+                    "hero.card.item4": "Confiabilidade operacional sob restrições institucionais",
+                    "hero.card.stack.label": "Stack Principal",
+                    "hero.card.stack.value": "Python · Flask · LangChain · Milvus · PostgreSQL · Redis · Celery · Docker",
+                    "hero.card.note": "Detalhes públicos intencionalmente limitados por confidencialidade.",
 
                     "current.title": "Atuação em Sistemas Confidenciais",
                     "current.badge": "Sistema Atual",
@@ -4099,16 +4904,35 @@
                     
                     "projects.title": "Sistemas e Aplicações",
                     "projects.flagshipGroup": "Sistemas Selecionados",
+                    "projects.intro": "Sistemas selecionados construídos ou evoluídos sob restrições reais de operação — confidencialidade, confiabilidade, integrações, qualidade de dados e usabilidade administrativa.",
                     "projects.otherGroup": "Labs e Projetos Paralelos",
                     "projects.featured": "Destaque",
                     "projects.private": "Repositório Privado",
-                    "projects.smartfaq.badge": "Sistema Confidencial",
+                    "projects.context": "Contexto",
+                    "projects.workedOn": "Minha atuação",
+                    "projects.impact": "Impacto",
+                    "projects.stack": "Stack",
+                    "projects.smartfaq.badge": "Sistema Confidencial em Contexto Federal",
                     "projects.smartfaq.title": "SmartFAQ — Plataforma Confidencial de Operações IA/RAG",
+                    "projects.smartfaq.summary": "Plataforma institucional confidencial para operações de conhecimento governadas, recuperação IA/RAG, ciclo de vida de fontes e rastreabilidade operacional.",
+                    "projects.smartfaq.context": "Fluxos institucionais sensíveis de perguntas e respostas com fontes em mudança, feedback validado e requisitos rigorosos de governança.",
+                    "projects.smartfaq.work1": "Ciclo de vida governado de fontes para inclusão, atualização, remoção e auditoria.",
+                    "projects.smartfaq.work2": "Fluxos de feedback para conhecimento, transformando respostas validadas em fontes controladas da RAG.",
+                    "projects.smartfaq.work3": "Confiabilidade de recuperação e rebuild híbrido entre fontes governadas e corpus legado.",
+                    "projects.smartfaq.work4": "Melhorias no painel administrativo para visibilidade operacional e uso diário mais seguro.",
+                    "projects.smartfaq.impact": "Operações de conhecimento mais rastreáveis, governadas e confiáveis em ambiente confidencial do setor público federal.",
+                    "projects.smartfaq.confidentiality": "Detalhes de implementação e contexto institucional são intencionalmente limitados.",
                     "projects.smartfaq.description": "Problema: Fluxos institucionais de perguntas e respostas dependem de fontes em mudança, feedback validado e governança rigorosa.\nDesenho do Sistema: Plataforma IA/RAG com recuperação híbrida, armazenamento vetorial, plano de controle em Flask-Admin, ciclo de vida governado de fontes e auditoria operacional.\nResponsabilidades: Fluxos backend, governança de fontes, promoção de feedback para conhecimento, confiabilidade do rebuild híbrido e observabilidade.\nConfidencialidade: Alguns detalhes de implementação e contexto institucional são intencionalmente omitidos.\nImpacto: Operações de conhecimento mais rastreáveis, governadas e confiáveis em ambiente institucional do setor público federal.",
-                    "projects.vehicle.badge": "Sistema Core",
+                    "projects.vehicle.badge": "Sistema Institucional de Acesso",
                     "projects.vehicle.title": "Sistema de Controle de Acesso Veicular",
+                    "projects.vehicle.summary": "Plataforma ponta a ponta de controle de acesso veicular integrando gestão web, eventos em tempo real, autenticação e rotinas operacionais de backup.",
+                    "projects.vehicle.item1": "Dashboard Angular e backend Node.js/Express.",
+                    "projects.vehicle.item2": "Integração MQTT entre câmeras, hardware e serviços centrais.",
+                    "projects.vehicle.item3": "OAuth2/JWT, RBAC, rotas protegidas e limites de API REST.",
+                    "projects.vehicle.item4": "Rotinas de backup com Docker para banco de dados e imagens.",
+                    "projects.vehicle.impact": "Operações de acesso mais centralizadas e confiáveis em ambiente institucional.",
                     "projects.vehicle.description": "Problema: As decisões de acesso estavam fragmentadas entre hardware e controles manuais.\nDesenho do Sistema: Dashboard Angular e serviços Node/Express integrados a eventos MQTT e fluxos com câmeras.\nResponsabilidades: Implementei RBAC, OAuth2/JWT, limites de API e automação de backup.\nDesafios: Sustentar baixa latência no processamento de eventos e consistência de estado entre dispositivos.\nImpacto: Controle centralizado e em tempo real para operações veiculares institucionais.",
-                    "projects.scraping.badge": "Pipeline de Dados",
+                    "projects.scraping.badge": "Pipeline de Dados Públicos",
                     "projects.pokedex.title": "Pokedex Ruby",
                     "projects.pokedex.description": "Serviço de catálogo em Ruby/Sinatra com busca estruturada e setup local containerizado.",
                     "projects.jiujitsu.title": "Gerenciador de Academia de Jiu-Jitsu",
@@ -4120,6 +4944,12 @@
                     "projects.taskpanel.title": "Super Painel de Tarefas",
                     "projects.taskpanel.description": "App de tarefas com Next.js + NestJS, persistência em PostgreSQL e autenticação OAuth.",
                     "projects.scraping.title": "Scraper da Prefeitura de Natal",
+                    "projects.scraping.summary": "Pipeline resiliente de raspagem e processamento de dados de portal público dinâmico, projetado para coleta repetível e saídas prontas para API.",
+                    "projects.scraping.item1": "Extração com Selenium em páginas renderizadas por JavaScript.",
+                    "projects.scraping.item2": "Tratamento de SSL, conteúdo assíncrono, alertas e problemas de timing.",
+                    "projects.scraping.item3": "Persistência PostgreSQL e mapeamento estruturado de dados.",
+                    "projects.scraping.item4": "Ingestão repetível substituindo coleta manual frágil.",
+                    "projects.scraping.impact": "Coleta de dados públicos mais confiável para sistemas e análises posteriores.",
                     "projects.scraping.description": "Problema: Dados do portal governamental eram difíceis de capturar com confiabilidade por renderização dinâmica e restrições do portal.\nDesenho do Sistema: Pipeline de extração com Selenium, persistência em PostgreSQL e saídas prontas para API.\nResponsabilidades: Implementei fluxo resiliente de scraping, mapeamento de armazenamento e rotinas de processamento.\nDesafios: Lidar com páginas renderizadas em JavaScript, interrupções de SSL e timing de conteúdo assíncrono.\nImpacto: Ingestão de dados repetível no lugar de coleta manual frágil.",
                     "projects.prayers.title": "Portal de Orações Católicas",
                     "projects.prayers.description": "Portal de conteúdo com navegação por categorias e rotas backend de fácil manutenção.",
